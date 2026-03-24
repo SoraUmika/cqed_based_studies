@@ -1,0 +1,140 @@
+
+── 1. Define and verify U_target ────────────────────────────────────
+[PASS] U_target_is_unitary: ‖U†U - I‖_F = 4.46e-16
+[PASS] U_target_det_is_pm1: det(U) = 1.000000+0.000000j
+
+U_target (4×4, basis {|g,0>,|g,1>,|e,0>,|e,1>}):
+[[ 0.707107  0.        0.707107  0.      ]
+ [ 0.707107  0.       -0.707107  0.      ]
+ [ 0.        0.707107  0.        0.707107]
+ [ 0.       -0.707107  0.        0.707107]]
+
+── 2. Logical sub-gate definitions ──────────────────────────────────
+[PASS] CNOT_q2c_unitary: ‖U†U - I‖_F = 0.00e+00
+[PASS] CNOT_c2q_unitary: ‖U†U - I‖_F = 0.00e+00
+[PASS] Hc_logical_unitary: ‖U†U - I‖_F = 4.46e-16
+
+── 3. Verify CNOT factorization ─────────────────────────────────────
+[PASS] CNOT_factorization_exact: ‖(I⊗H_c)·CNOT_c2q·CNOT_q2c  −  U_target‖_F = 0.00e+00
+
+Composed vs target difference (Frobenius): 0.00e+00
+
+── 4. Alternative factorizations ────────────────────────────────────
+[PASS] CNOT_c2q_equals_H_CNOT_q2c_H: CNOT_c2q = (H_q⊗H_c)·CNOT_q2c·(H_q⊗H_c), err=8.88e-16
+CNOT_q2c·CNOT_c2q·(I_q⊗H_c) vs U_target: err=2.8284
+[PASS] factorization_alt1_not_equal: Not the same, err=2.8284 (confirming ordering matters)
+
+Eigenvalues of U_target: [-0.25881905 -0.25881905  0.96592583  0.96592583]
+Singular values of U_target: [1. 1. 1. 1.]
+[PASS] U_target_full_Schmidt_rank: min sv=1.0000 — maximally entangling
+
+── 5. Full-space embedding and cqed_sim primitive verification ───────
+
+  N = 2 (cavity dim):
+[PASS] N=2_SQR1_fidelity_vs_CNOT_c2q: F(SQR_1(π,0), CNOT_c2q)=0.7071 ≈ 1/√2 -- conditional -iX ≠ CNOT; need ConditionalPhaseSQR([0,π/2]) correction
+[PASS] N=2_SQR1_plus_CPhase_gives_CNOT_c2q: ‖SQR_1(π,0)·CP([0,π/2]) - CNOT_c2q‖_F = 0.00e+00
+[PASS] N=2_CNOT_q2c_full_correct_subspace: ‖CNOT_q2c_full_log - CNOT_q2c‖_F = 0.00e+00
+[PASS] N=2_Hc_full_correct_subspace: ‖H_c_full_log - H_c‖_F = 0.00e+00
+[PASS] N=2_full_CNOT_factorization: ‖H_c·(SQR1·CP)·CNOT_q2c  −  U_target‖_log = 0.00e+00
+[PASS] N=2_CNOT_q2c_no_leakage_n>=2: max deviation for n≥2: 0.00e+00
+
+  N = 4 (cavity dim):
+[PASS] N=4_SQR1_fidelity_vs_CNOT_c2q: F(SQR_1(π,0), CNOT_c2q)=0.7071 ≈ 1/√2 -- conditional -iX ≠ CNOT; need ConditionalPhaseSQR([0,π/2]) correction
+[PASS] N=4_SQR1_plus_CPhase_gives_CNOT_c2q: ‖SQR_1(π,0)·CP([0,π/2]) - CNOT_c2q‖_F = 0.00e+00
+[PASS] N=4_CNOT_q2c_full_correct_subspace: ‖CNOT_q2c_full_log - CNOT_q2c‖_F = 0.00e+00
+[PASS] N=4_Hc_full_correct_subspace: ‖H_c_full_log - H_c‖_F = 0.00e+00
+[PASS] N=4_full_CNOT_factorization: ‖H_c·(SQR1·CP)·CNOT_q2c  −  U_target‖_log = 0.00e+00
+[PASS] N=4_CNOT_q2c_no_leakage_n>=2: max deviation for n≥2: 0.00e+00
+
+  N = 6 (cavity dim):
+[PASS] N=6_SQR1_fidelity_vs_CNOT_c2q: F(SQR_1(π,0), CNOT_c2q)=0.7071 ≈ 1/√2 -- conditional -iX ≠ CNOT; need ConditionalPhaseSQR([0,π/2]) correction
+[PASS] N=6_SQR1_plus_CPhase_gives_CNOT_c2q: ‖SQR_1(π,0)·CP([0,π/2]) - CNOT_c2q‖_F = 0.00e+00
+[PASS] N=6_CNOT_q2c_full_correct_subspace: ‖CNOT_q2c_full_log - CNOT_q2c‖_F = 0.00e+00
+[PASS] N=6_Hc_full_correct_subspace: ‖H_c_full_log - H_c‖_F = 0.00e+00
+[PASS] N=6_full_CNOT_factorization: ‖H_c·(SQR1·CP)·CNOT_q2c  −  U_target‖_log = 0.00e+00
+[PASS] N=6_CNOT_q2c_no_leakage_n>=2: max deviation for n≥2: 0.00e+00
+
+  N = 8 (cavity dim):
+[PASS] N=8_SQR1_fidelity_vs_CNOT_c2q: F(SQR_1(π,0), CNOT_c2q)=0.7071 ≈ 1/√2 -- conditional -iX ≠ CNOT; need ConditionalPhaseSQR([0,π/2]) correction
+[PASS] N=8_SQR1_plus_CPhase_gives_CNOT_c2q: ‖SQR_1(π,0)·CP([0,π/2]) - CNOT_c2q‖_F = 0.00e+00
+[PASS] N=8_CNOT_q2c_full_correct_subspace: ‖CNOT_q2c_full_log - CNOT_q2c‖_F = 0.00e+00
+[PASS] N=8_Hc_full_correct_subspace: ‖H_c_full_log - H_c‖_F = 0.00e+00
+[PASS] N=8_full_CNOT_factorization: ‖H_c·(SQR1·CP)·CNOT_q2c  −  U_target‖_log = 0.00e+00
+[PASS] N=8_CNOT_q2c_no_leakage_n>=2: max deviation for n≥2: 0.00e+00
+
+── 6. SQR-nativity analysis ─────────────────────────────────────────
+
+SQR-nativity table:
+  CNOT_{c→q}          : YES        — SQR_1(π,0) directly implements cavity-controlled qubit flip
+  CNOT_{q→c}          : NO         — Requires cavity-level swap conditioned on qubit; needs dispersive phase + displacement sequence
+  H_c (logical)       : PARTIAL    — Can approximate via D(α)·D(-α) + SNAP phases, but not a single SQR primitive
+  U_target            : NO         — Requires all three sub-gates; at least one (CNOT_{q→c}) is not SQR-native
+[PASS] SQR_native_CNOT_c2q: SQR_1(π,0) directly implements CNOT_{c→q}
+[PASS] SQR_not_native_CNOT_q2c: CNOT_{q→c} cannot be realized by SQR alone; requires phase+displacement
+
+── 7. Dispersive phase timescales ───────────────────────────────────
+  Time for π dispersive phase on n=1: t = π/|χ| = 0.176 μs
+  χ = -2.840 MHz
+  χ′ = -21.000 kHz
+  K  = -28.000 kHz
+[PASS] dispersive_pi_time_computed: t_π = π/|χ| = 0.176 μs at χ=-2.84 MHz
+
+  χ′/χ ratio: 0.0074 = 0.74%
+[PASS] chip_chi_ratio_small: χ′/χ = 0.0074  (0.74%)
+  K/χ ratio: 0.0099 = 0.99%
+[PASS] K_chi_ratio_small: K/χ = 0.0099  (0.99%)
+
+── 8. Candidate decomposition table ────────────────────────────────
+Name                                     Library  SQR-native   Leakage risk        
+------------------------------------------------------------------------------------------
+Structure-guided (CNOT factorization)    A/B      Partial      Low (no displacement)
+SQR + dispersive phase                   A        Yes          Medium (displacement causes leakage)
+SQR + SNAP                               C        Yes          Low–Medium          
+Blind alternating                        A/B/C    Yes          Medium              
+Conditional phase heavy                  A        No           Very Low            
+
+── 9. Generating figures ─────────────────────────────────────────────
+  Saved figures to C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cqed_based_study\studies\utarget_cqed_decomposition\figures
+
+── Summary: 38 PASS / 0 FAIL out of 38 checks ──
+  [PASS] U_target_is_unitary
+  [PASS] U_target_det_is_pm1
+  [PASS] CNOT_q2c_unitary
+  [PASS] CNOT_c2q_unitary
+  [PASS] Hc_logical_unitary
+  [PASS] CNOT_factorization_exact
+  [PASS] CNOT_c2q_equals_H_CNOT_q2c_H
+  [PASS] factorization_alt1_not_equal
+  [PASS] U_target_full_Schmidt_rank
+  [PASS] N=2_SQR1_fidelity_vs_CNOT_c2q
+  [PASS] N=2_SQR1_plus_CPhase_gives_CNOT_c2q
+  [PASS] N=2_CNOT_q2c_full_correct_subspace
+  [PASS] N=2_Hc_full_correct_subspace
+  [PASS] N=2_full_CNOT_factorization
+  [PASS] N=2_CNOT_q2c_no_leakage_n>=2
+  [PASS] N=4_SQR1_fidelity_vs_CNOT_c2q
+  [PASS] N=4_SQR1_plus_CPhase_gives_CNOT_c2q
+  [PASS] N=4_CNOT_q2c_full_correct_subspace
+  [PASS] N=4_Hc_full_correct_subspace
+  [PASS] N=4_full_CNOT_factorization
+  [PASS] N=4_CNOT_q2c_no_leakage_n>=2
+  [PASS] N=6_SQR1_fidelity_vs_CNOT_c2q
+  [PASS] N=6_SQR1_plus_CPhase_gives_CNOT_c2q
+  [PASS] N=6_CNOT_q2c_full_correct_subspace
+  [PASS] N=6_Hc_full_correct_subspace
+  [PASS] N=6_full_CNOT_factorization
+  [PASS] N=6_CNOT_q2c_no_leakage_n>=2
+  [PASS] N=8_SQR1_fidelity_vs_CNOT_c2q
+  [PASS] N=8_SQR1_plus_CPhase_gives_CNOT_c2q
+  [PASS] N=8_CNOT_q2c_full_correct_subspace
+  [PASS] N=8_Hc_full_correct_subspace
+  [PASS] N=8_full_CNOT_factorization
+  [PASS] N=8_CNOT_q2c_no_leakage_n>=2
+  [PASS] SQR_native_CNOT_c2q
+  [PASS] SQR_not_native_CNOT_q2c
+  [PASS] dispersive_pi_time_computed
+  [PASS] chip_chi_ratio_small
+  [PASS] K_chi_ratio_small
+
+Results written to C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cqed_based_study\studies\utarget_cqed_decomposition\data\phase1_results.json
+Phase 1 complete.

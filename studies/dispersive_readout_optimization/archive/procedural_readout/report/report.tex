@@ -1,0 +1,414 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage[numbers, sort&compress]{natbib}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{xcolor}
+
+\title{\textbf{Procedural Optimization of Dispersive Readout Pulses with \texttt{cqed\_sim} \texttt{TransmonCavity}}}
+\author{Codex \\ cQED Autonomous Research Platform}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We study whether a physics-informed, low-dimensional pulse-sequence optimization strategy
+can improve dispersive readout in circuit quantum electrodynamics without sacrificing
+cavity emptying or repeated-readout quality. The study is implemented on top of
+\texttt{cqed\_sim} using the multilevel \texttt{DispersiveTransmonCavityModel} for a
+nominal transmon--readout-resonator system with
+$\omega_q/2\pi=\SI{6.150}{GHz}$, $\omega_c/2\pi=\SI{8.597}{GHz}$,
+$\chi/2\pi=\SI{-2.84}{MHz}$, $\kappa/2\pi=\SI{2.4}{MHz}$, and
+$\alpha/2\pi=\SI{-255}{MHz}$. We compare baseline square and smoothed pulses against
+three structured alternatives: ring-up/hold/ring-down, free three-segment complex
+procedural pulses, analytically nulled tails, and a smooth Fourier basis. A separate
+piecewise-constant high-dimensional waveform is used only as an ideal linear reference.
+
+The main result is positive but qualified. In the linear model, the high-dimensional
+reference reaches near-perfect detector-limited fidelity by \SI{240}{ns} but leaves
+more than five residual photons, so it is not practically acceptable. In the realistic
+\texttt{cqed\_sim} replay, structured procedural pulses recover most of that information
+while reducing residual photons dramatically. At \SI{240}{ns}, the best free procedural
+family reaches $F_\eta=0.956$ compared with $0.871$ for a square pulse, while the
+analytic nulling family reaches $F_\eta=0.944$ with only $0.265$ residual photons. By
+\SI{496}{ns}, the nulled family reaches $F_\eta=0.9995$ with $3.6\times10^{-3}$ residual
+photons. The study therefore supports procedural readout-pulse optimization as a
+promising direction for speed and cavity emptying, but not as a complete answer to QND
+engineering: within the present two-mode dispersive model, repeated-readout degradation is
+dominated by ordinary $T_1$ decay rather than strong-drive state mixing, so a richer model
+is still required to resolve the true nonlinear QND limit.
+\end{abstract}
+
+\section{Introduction}
+Dispersive measurement is the standard readout mechanism for superconducting qubits in
+circuit QED \cite{blais2021circuit,koch2007transmon}. In the simplest picture, a driven
+readout resonator acquires a qubit-state-dependent response, allowing the qubit state to
+be inferred from the transmitted or reflected microwave field
+\cite{gambetta2007protocols,boissonneault2009dispersive}. The practical control problem is
+not merely to maximize signal separation: useful readout must also leave the resonator
+nearly empty, support high repetition rates, and avoid excessive measurement-induced
+disturbance \cite{jeffrey2014fast,walter2017rapid,sank2016measurement}.
+
+Existing pulse design is often heuristic. Square or lightly smoothed envelopes are common,
+and fast reset strategies such as driven resonator depletion are known to help
+\cite{mcclure2016rapid}, but the intermediate regime between fixed heuristics and fully
+unrestricted GRAPE-style waveform optimization remains underexplored. That intermediate
+regime is precisely what motivates this study: can a small number of interpretable pulse
+segments capture most of the useful improvement, especially when the design objective
+includes both discrimination and cavity emptying?
+
+The study proceeds in two layers. First, we use a linear dispersive model to define the
+objective functions and the bound hierarchy. Second, we replay candidate pulses through the
+multilevel \texttt{cqed\_sim} \texttt{DispersiveTransmonCavityModel} with cavity damping
+and qubit decoherence. The central question is whether low-dimensional procedural pulses
+remain near-optimal after that replay. The remainder of the paper presents the model and
+metrics, the numerical results, the validation checks, and the resulting recommendation.
+
+\section{System and Methods}
+
+\subsection{Hamiltonian}
+The ideal linear readout bound is described by the state-conditioned resonator equation
+\begin{equation}
+\dot{\alpha}_{g/e}(t) = -\left( \frac{\kappa}{2} + i \Delta_{g/e} \right)\alpha_{g/e}(t) - i \epsilon(t),
+\end{equation}
+where $\Delta_g = \omega_c - \omega_d$ and $\Delta_e = \omega_c + \chi - \omega_d$.
+The output field is $s_{g/e}(t) = \sqrt{\kappa}\,\alpha_{g/e}(t)$.
+
+The realistic replay uses the two-mode multilevel dispersive Hamiltonian supported by
+\texttt{cqed\_sim},
+\begin{equation}
+\frac{H_0}{\hbar} =
+\delta_c a^\dagger a +
+\delta_q b^\dagger b +
+\frac{\alpha}{2} b^{\dagger 2} b^2 +
+\frac{K}{2} a^{\dagger 2} a^2 +
+\chi\, a^\dagger a\, b^\dagger b,
+\end{equation}
+where $a$ is the cavity annihilation operator, $b$ is the transmon lowering operator,
+$\delta_c = \omega_c - \omega_c^{\mathrm{frame}}$, and
+$\delta_q = \omega_q - \omega_q^{\mathrm{frame}}$. Pulses are applied on the cavity
+channel in a frame with $\omega_q^{\mathrm{frame}}=\omega_q$ and
+$\omega_c^{\mathrm{frame}}=\omega_d$. Dissipation is included through
+\texttt{NoiseSpec(t1, tphi, kappa)}.
+
+\subsection{Simulation Parameters}
+\begin{table}[H]
+  \centering
+  \caption{Nominal system and numerical parameters.}
+  \begin{tabular}{@{} l l l @{}}
+    \toprule
+    Parameter & Value & Unit \\
+    \midrule
+    Qubit frequency $\omega_q/2\pi$ & 6.150 & GHz \\
+    Cavity frequency $\omega_c/2\pi$ & 8.597 & GHz \\
+    Anharmonicity $\alpha/2\pi$ & -255 & MHz \\
+    Dispersive shift $\chi/2\pi$ & -2.84 & MHz \\
+    Cavity linewidth $\kappa/2\pi$ & 2.4 & MHz \\
+    Cavity self-Kerr $K/2\pi$ & -28 & kHz \\
+    Transmon truncation $n_{\mathrm{tr}}$ & 3 & levels \\
+    Cavity truncation $n_{\mathrm{cav}}$ & 14 & Fock states \\
+    Detector efficiency $\eta$ & 0.35 & --- \\
+    Qubit $T_1$ & 30 & $\mu$s \\
+    Qubit $T_\phi$ & 30 & $\mu$s \\
+    Time step $\Delta t$ & 4 & ns \\
+    Max drive amplitude $|\epsilon_{\max}|/2\pi$ & 4.0 & MHz \\
+    Approx. critical photon number $n_{\mathrm{crit}}$ & 20.3 & photons \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Computational Approach}
+The study-local optimization layer was implemented in
+\texttt{studies/procedural\_readout\_pulse\_sequence\_optimization/scripts/readout\_opt/}.
+The main reusable components are:
+\begin{itemize}
+  \item \texttt{pulse\_families.py}: square, smooth square, ring-up/hold/ring-down, free
+  three-segment complex pulses, analytically nulled tails, Fourier basis, and an
+  8-segment high-dimensional reference.
+  \item \texttt{bounds.py}: exact piecewise-constant linear propagation, matched-filter
+  SNR, and analytical two-segment cavity nulling.
+  \item \texttt{simulate.py}: one- and two-pulse replay through
+  \texttt{DispersiveTransmonCavityModel}.
+  \item \texttt{optimize.py}: multistart bounded Powell optimization.
+\end{itemize}
+
+The primary practical objective was the balanced score
+\begin{equation}
+J_{\mathrm{bal}} =
+F_{\eta}
+- 0.08\, n_{\mathrm{res}}
+- 0.70\,(1-Q_{\mathrm{QND}})
+- 1.20\,L,
+\end{equation}
+with a peak-photon penalty activated only above $0.45\,n_{\mathrm{crit}}$. Here
+$F_\eta$ is the detector-limited matched-filter assignment fidelity,
+$n_{\mathrm{res}}$ is the mean residual photon number at the end of the first pulse,
+$Q_{\mathrm{QND}}$ is the average state-preservation probability at the start of a second
+identical readout, and $L$ is leakage outside the computational subspace. We additionally
+used an information-only objective and an emptying-weighted objective to generate a local
+tradeoff slice at the representative duration.
+
+Three model gaps had to be documented explicitly. First,
+\texttt{ReadoutResonator.response\_trace()} only supports constant drive amplitudes, so
+arbitrary-envelope linear bounds were evaluated with study-local exact propagation.
+Second, \texttt{cqed\_sim} does not provide a built-in readout-specific optimization
+surface, so the objective function is wrapped externally around supported simulator calls.
+Third, the available replay path is deterministic Lindblad evolution rather than a full
+stochastic measurement unraveling, so repeated-readout quality is quantified by a
+two-pulse matched-filter protocol rather than trajectory-conditioned measurement collapse.
+
+\section{Results}
+
+\subsection{Goal 1: Bound hierarchy and the cost of unconstrained optimality}
+Figure~\ref{fig:bounds} shows the duration-dependent hierarchy obtained from the
+high-dimensional linear reference. The ideal and detector-limited curves reach near-unity
+by \SI{240}{ns}; for example, the detector-limited matched-filter fidelity is already
+$0.985$ at \SI{240}{ns}. However, this apparent optimum is not practically acceptable: at
+the same duration the 8-segment linear reference leaves $n_{\mathrm{res}}=5.57$ photons,
+far above the residual-photon budget required for rapid repeated operation.
+
+This is the core structural result of the study. The high-dimensional reference
+demonstrates that information extraction itself is not the dominant limitation beyond a few
+hundred nanoseconds; instead, the relevant design problem is how to retain most of that
+information while enforcing cavity emptying and repeated-use readiness.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.92\linewidth]{../figures/fig1_bound_hierarchy.pdf}
+  \caption{Hierarchy of duration-dependent performance curves. The ``$T_1$-limited'' curve
+  should be interpreted as a conservative survival-weighted reference, not as a rigorous
+  information-theoretic upper bound, because the study does not solve the full decay
+  change-point discrimination problem.}
+  \label{fig:bounds}
+\end{figure}
+
+\subsection{Goal 2: Procedural families versus baseline pulses}
+Figure~\ref{fig:frontiers} and Table~\ref{tab:representative} summarize the full-model
+family comparison. The baseline square pulse performs poorly at short and intermediate
+durations because it spends too much of the allowed pulse window both ringing up and
+ringing down passively. At the representative duration of \SI{240}{ns}, the square pulse
+reaches only $F_\eta=0.871$ and leaves $1.49$ residual photons.
+
+The structured families do substantially better. At \SI{240}{ns}, the free
+three-segment procedural family reaches $F_\eta=0.956$ with $n_{\mathrm{res}}=0.620$,
+while the analytic nulling family reaches $F_\eta=0.944$ with only
+$n_{\mathrm{res}}=0.265$. The Fourier basis is competitive in fidelity
+($F_\eta=0.953$) but not as efficient in emptying. The ring-up/hold/ring-down family is
+already strong ($F_\eta=0.947$), which supports the intuition that procedural structure
+matters more than unrestricted dimensionality.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig2_frontiers.pdf}
+  \caption{Full-model frontiers versus duration. The best balanced family is
+  \texttt{procedural\_segments} at \SIrange{96}{160}{ns}, \texttt{nulling\_tail} from
+  \SIrange{240}{496}{ns}, and a simple ring-up/hold/ring-down pulse at \SI{720}{ns}.}
+  \label{fig:frontiers}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \caption{Representative \SI{240}{ns} comparison. The piecewise reference is shown only
+  for context as an ideal linear benchmark, not as a practical pulse recommendation.}
+  \label{tab:representative}
+  \begin{tabular}{@{} l c c c c @{}}
+    \toprule
+    Family & Regime & $F_\eta$ & $n_{\mathrm{res}}$ & $Q_{\mathrm{rep}}$ \\
+    \midrule
+    Square & Full & 0.871 & 1.485 & 0.853 \\
+    Ring-hold & Full & 0.947 & 0.554 & 0.928 \\
+    Procedural segments & Full & 0.956 & 0.620 & 0.950 \\
+    Nulled tail & Full & 0.944 & 0.265 & 0.936 \\
+    Fourier basis & Full & 0.953 & 0.721 & 0.938 \\
+    Piecewise reference & Linear & 0.985 & 5.572 & 0.979 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Goal 3: Active cavity emptying}
+The analytical nulling result is one of the strongest outcomes of the study. In the linear
+model, two free complex tail segments are sufficient to impose
+$\alpha_g(T)=\alpha_e(T)=0$ exactly, provided their durations are fixed and the resulting
+amplitudes remain within the hardware cap. This gives a concrete answer to one of the main
+questions posed at the outset: simultaneous emptying of both state-conditioned cavity
+trajectories is not only possible, but algebraically straightforward in the linear model.
+
+In realistic replay the nulling is not exact, but it remains effective. The nulled family
+is the best balanced design from \SI{240}{ns} through \SI{496}{ns}. At \SI{336}{ns}, it
+reaches $F_\eta=0.990$ with only $4.5\times10^{-2}$ residual photons. At \SI{496}{ns}, it
+reaches $F_\eta=0.9995$ with $3.6\times10^{-3}$ residual photons. These results show that
+the extra time cost for active emptying is modest once phase variation is allowed.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig3_representative_diagnostics.pdf}
+  \caption{Representative diagnostics for the free three-segment procedural family:
+  output amplitudes for the two basis states, phase-space trajectories
+  $(\alpha_g,\alpha_e)$, and the corresponding matched-filter score distributions.}
+  \label{fig:diagnostics}
+\end{figure}
+
+\subsection{Goal 4: Tradeoffs and robustness}
+Figure~\ref{fig:tradeoffs} shows the local tradeoff slice at the representative duration.
+Moving from the information-only objective to the emptying-weighted objective pushes the
+solutions toward lower residual photon number at a modest fidelity cost. The clearest
+beneficiary is the nulled family, which retains high fidelity while moving to substantially
+smaller $n_{\mathrm{res}}$.
+
+The robustness study also favors procedural structure. Under the combined perturbation set
+($\chi$ scale, $\kappa$ scale, amplitude error, detuning error, and phase error), the
+free procedural family retains mean/worst-case fidelities of $0.956/0.945$, compared with
+$0.870/0.853$ for the square pulse. The nulled family is slightly less robust than the free
+procedural family ($0.944/0.931$) but still decisively better than square.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig4_tradeoffs.pdf}
+  \caption{Tradeoff slice at the representative duration. Structured families move along a
+  favorable fidelity--emptying frontier relative to the baseline square pulse.}
+  \label{fig:tradeoffs}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.82\linewidth]{../figures/fig5_robustness.pdf}
+  \caption{Nominal, mean perturbed, and worst perturbed fidelities for representative
+  families. The procedural families retain both higher nominal performance and stronger
+  robustness than the square pulse.}
+  \label{fig:robustness}
+\end{figure}
+
+\section{Validation}
+
+\subsection{Sanity Checks}
+Three sanity checks were enforced. First, zero drive leaves the cavity empty to numerical
+precision. Second, the analytical nulling construction yields
+$|\alpha_g(T)|=|\alpha_e(T)|\approx 3.5\times10^{-16}$ in the linear model for a
+representative unclipped test case. Third, zero-drive repeated-readout degradation matches
+the expected $T_1$ floor rather than a spurious numerical artifact.
+
+\subsection{Convergence Analysis}
+The representative full-model procedural-segment pulse was re-evaluated at
+$\Delta t=\SI{2}{ns}$ and at cavity truncation $n_{\mathrm{cav}}=18$. The resulting
+metric shifts were small:
+\begin{align*}
+\Delta F_\eta(\Delta t) &= 9.26\times 10^{-4}, \\
+\Delta Q_{\mathrm{QND}}(\Delta t) &= 3.29\times 10^{-5}, \\
+\Delta n_{\mathrm{res}}(\Delta t) &= 1.07\times 10^{-2}, \\
+\Delta F_\eta(n_{\mathrm{cav}}) &= 2.71\times 10^{-5}.
+\end{align*}
+These shifts are well below the scale of the main family-to-family differences.
+
+\subsection{Literature Comparison}
+The study agrees with established dispersive-readout expectations in three ways.
+First, the midpoint-drive strategy remains favored, consistent with the standard
+continuous-measurement analysis \cite{gambetta2007protocols}. Second, shaped tails are
+useful primarily because they accelerate emptying rather than because they change the basic
+dispersive measurement geometry, consistent with fast reset/readout literature
+\cite{mcclure2016rapid,jeffrey2014fast,walter2017rapid}. Third, the present two-mode
+dispersive model does not reproduce strong drive-induced non-QND transitions of the kind
+discussed in \cite{sank2016measurement}; that absence is itself a meaningful limitation of
+the current modeling layer.
+
+\section{Discussion}
+The main scientific conclusion is that the readout optimization problem is well posed in
+the present \texttt{cqed\_sim} stack, but only after the objective is defined correctly.
+Endpoint separation alone is not sufficient. The practically relevant objective must
+combine matched-filter distinguishability with residual-photon and repeated-use penalties.
+
+Within that formulation, low-dimensional procedural control is clearly useful. The free
+three-segment family wins the short-time regime, where aggressive loading and extraction
+matter most. The nulled family dominates the intermediate regime, where active emptying is
+valuable. At long durations the control problem becomes easy enough that a simple
+ring-up/hold/ring-down family is sufficient.
+
+The strongest caveat concerns QNDness. The present full-model replay shows essentially no
+family-dependent leakage or state-mixing penalty; the reported repeated-readout degradation
+is almost entirely the trivial $T_1$ floor over the pulse-plus-wait window. That means the
+study \emph{does not} yet establish the ultimate nonlinear QND limit for aggressive
+readout pulses. It establishes something narrower but still useful: procedural optimization
+is already worthwhile for speed and cavity emptying in the supported two-mode model, while
+the unresolved QND question has been localized to missing physics rather than to control
+parameterization.
+
+\section{Conclusion}
+The answer to the study question is cautiously affirmative. A physics-informed,
+procedurally parameterized readout pulse can approach the practically relevant
+speed--fidelity frontier much more closely than a square pulse while simultaneously
+reducing residual cavity population. In the present implementation:
+\begin{itemize}
+  \item the optimization problem is well posed in \texttt{cqed\_sim},
+  \item matched-filter fidelity plus residual-photon and repeated-readout penalties is the
+  correct objective family,
+  \item exact simultaneous cavity emptying is achievable in the linear model with two
+  complex tail segments,
+  \item and low-dimensional procedural families recover most of the practically useful gain
+  without the pathological residual occupation of the unrestricted linear reference.
+\end{itemize}
+The best practical recommendation from this study is therefore not a fully unrestricted
+waveform optimizer, but a structured procedural family with complex phase freedom and an
+explicit emptying tail. At the same time, answering whether nonlinear backaction truly
+kills the advantage requires a richer model than the present two-mode dispersive replay.
+
+\section{Limitations and Future Work}
+
+\subsection{Known Limitations}
+The most important limitation is physical rather than numerical: the current
+\texttt{DispersiveTransmonCavityModel} replay path is still a two-mode dispersive model.
+It captures cavity ring-up, damping, multilevel transmon structure, and ordinary
+decoherence, but it does not explicitly generate the stronger measurement-induced state
+mixing and dressed-state effects expected deep in the nonlinear regime
+\cite{sank2016measurement}. As a result, the family-dependent QND penalty is nearly flat in
+the present data.
+
+The plotted ``$T_1$-limited'' curve is a conservative reference, not a rigorous upper
+bound. A truly sharp $T_1$-aware limit would require solving a change-point detection
+problem for decaying excited-state traces rather than applying a survival-weighted
+matched-filter heuristic.
+
+The detector efficiency was treated as a representative fixed parameter
+($\eta=0.35$) rather than as a device-calibrated value. This affects the absolute
+fidelity scale but not the relative ordering of the pulse families.
+
+\subsection{Suggested Improvements}
+\begin{itemize}
+  \item \textbf{[P1 | HIGH]} Extend the study to a model with explicit
+  readout-induced state-mixing channels or a three-mode readout-aware Hamiltonian. This is
+  required to answer the nonlinear-QND question that the current two-mode dispersive model
+  leaves unresolved.
+  \item \textbf{[P1 | MEDIUM]} Add arbitrary-envelope support to
+  \texttt{cqed\_sim.measurement} so that the linear-bound layer and the measurement-chain
+  layer use the same public API.
+  \item \textbf{[P2 | MEDIUM]} Promote the study-local optimization helpers into a
+  reusable readout module once the objective definitions stabilize.
+  \item \textbf{[P2 | LOW]} Calibrate the detector efficiency and the cavity self-Kerr from
+  device data so the absolute fidelity numbers can be interpreted quantitatively.
+  \item \textbf{[P3 | MEDIUM]} Add hardware distortion replay (finite bandwidth, mixer
+  skew, and amplitude quantization) to test whether the procedural tails remain robust
+  after waveform transport.
+\end{itemize}
+
+\subsection{Open Questions}
+\begin{itemize}
+  \item How much of the procedural-pulse advantage survives once explicit
+  measurement-induced transitions are included?
+  \item Can the analytically nulled tail remain near-optimal when the tail amplitudes are
+  restricted to hardware-realistic slew and bandwidth limits?
+  \item Is there a sharper, genuinely rigorous $T_1$-aware readout limit that remains easy
+  to evaluate during optimization?
+\end{itemize}
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}

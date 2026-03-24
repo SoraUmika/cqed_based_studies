@@ -1,0 +1,127 @@
+{
+  "all_passed": true,
+  "convergence_time_grid": {
+    "checks": {
+      "cx_c_to_q": [
+        {
+          "block_fidelity": 0.9752514543233659,
+          "leakage_average": 0.03012441825967327,
+          "seed": 17.0,
+          "steps": 20.0,
+          "strict_fidelity": 0.9737123851699931
+        },
+        {
+          "block_fidelity": 0.9399110052243205,
+          "leakage_average": 0.04875053077010971,
+          "seed": 23.0,
+          "steps": 24.0,
+          "strict_fidelity": 0.939667544810282
+        },
+        {
+          "block_fidelity": 0.9348376697417926,
+          "leakage_average": 0.07275250622606039,
+          "seed": 31.0,
+          "steps": 28.0,
+          "strict_fidelity": 0.9316650951836204
+        }
+      ],
+      "local_h": [
+        {
+          "block_fidelity": 0.971592177226306,
+          "leakage_average": 0.040071108340499956,
+          "seed": 31.0,
+          "steps": 20.0,
+          "strict_fidelity": 0.9713175067835986
+        },
+        {
+          "block_fidelity": 0.9678431711860753,
+          "leakage_average": 0.04943984691606593,
+          "seed": 31.0,
+          "steps": 24.0,
+          "strict_fidelity": 0.9637543953576149
+        },
+        {
+          "block_fidelity": 0.9843578850363696,
+          "leakage_average": 0.02232202707177372,
+          "seed": 31.0,
+          "steps": 32.0,
+          "strict_fidelity": 0.9843438250192694
+        }
+      ]
+    },
+    "passed": true
+  },
+  "convergence_truncation": {
+    "checks": {
+      "A_ent": [
+        {
+          "block_fidelity": 0.9999999578896885,
+          "leakage_average": 0.0,
+          "n_cav": 6.0,
+          "strict_fidelity": 0.999999926306956
+        },
+        {
+          "block_fidelity": 0.9999999578896885,
+          "leakage_average": 0.0,
+          "n_cav": 8.0,
+          "strict_fidelity": 0.999999926306956
+        },
+        {
+          "block_fidelity": 0.9999999578896885,
+          "leakage_average": 0.0,
+          "n_cav": 10.0,
+          "strict_fidelity": 0.999999926306956
+        }
+      ],
+      "A_local": [
+        {
+          "block_fidelity": 0.9887340514206615,
+          "leakage_average": 0.018508987330627613,
+          "n_cav": 6.0,
+          "strict_fidelity": 0.9887340514187141
+        },
+        {
+          "block_fidelity": 0.9887341493584875,
+          "leakage_average": 0.01850508779570459,
+          "n_cav": 8.0,
+          "strict_fidelity": 0.9887341492519593
+        },
+        {
+          "block_fidelity": 0.9887340759470971,
+          "leakage_average": 0.018509245553928466,
+          "n_cav": 10.0,
+          "strict_fidelity": 0.988734075947048
+        }
+      ]
+    },
+    "passed": true
+  },
+  "optimization_stability": {
+    "checks": {
+      "A_ent_deeper": {
+        "baseline_strict_fidelity": 0.999999926306956,
+        "delta": 0.0,
+        "strict_fidelity": 0.999999926306956
+      },
+      "A_local_deeper": {
+        "baseline_strict_fidelity": 0.9887341492519593,
+        "delta": 0.0,
+        "strict_fidelity": 0.9887341492519593
+      }
+    },
+    "passed": true
+  },
+  "sanity": {
+    "checks": {
+      "A_ent_exact_entangler": true,
+      "A_local_high_fidelity": true,
+      "B_ent_local_equivalence": true,
+      "D_ent_exact_entangler": true,
+      "ECD_not_best_in_fock_local": true,
+      "GRAPE_local_beats_selective_B_local": true,
+      "SWAP_native_entangler_beats_selective_B_ent_strict": true,
+      "SWAP_native_local_beats_selective_B_local": true
+    },
+    "passed": true
+  }
+}

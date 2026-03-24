@@ -1,0 +1,608 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts,bm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{siunitx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+\title{\textbf{Study Plan: Predictive Modeling of Measurement-Induced Leakage and Transmon Ionization at High Readout Power}\\
+\vspace{0.3em}
+\large A \texttt{cqed\_sim}-Based Numerical and Experimental Validation Program}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Project Title}
+
+\textbf{Predictive Modeling of Measurement-Induced Leakage and Transmon Ionization at High Readout Power}
+
+\section{Problem Statement}
+
+The goal of this project is to develop a quantitative simulation framework in
+\texttt{cqed\_sim} that predicts the onset and severity of measurement-induced transitions
+out of the computational manifold during high-power dispersive readout of a transmon-cavity
+system. In particular, the study will model population transfer into non-computational
+transmon levels, including $|f\rangle$ and higher-lying states, and characterize the
+regime in which strong measurement drives produce effective ionization-like behavior into
+high excited manifolds.
+
+The simulator should predict leakage and non-QND behavior as a function of:
+\begin{itemize}[leftmargin=2em]
+    \item readout drive amplitude,
+    \item readout drive detuning,
+    \item resonator linewidth $\kappa$,
+    \item dispersive shift $\chi$,
+    \item transmon anharmonicity,
+    \item qubit-cavity detuning and coupling,
+    \item cavity and transmon nonlinearities,
+    \item pulse shape and readout-window duration,
+    \item effective filter-chain bandwidth and transfer-function distortions.
+\end{itemize}
+
+The final goal is not merely to simulate assignment fidelity, but to build a predictive
+tool that can identify the onset of QND breakdown, quantify leakage into higher levels, and
+guide the experimental design of faster and safer readout protocols.
+
+\section{Why This Matters Experimentally}
+
+Fast, high-fidelity readout is central to repeated syndrome extraction, real-time feedback,
+active reset, and quantum error correction. However, pushing readout toward shorter windows
+and larger cavity photon number can invalidate the weak-drive dispersive approximation. In
+this regime, the measurement tone itself can induce transitions between dressed states,
+cause leakage into $|f\rangle$ and higher transmon levels, and eventually populate highly
+excited states in a manner that is operationally ionization-like.
+
+These effects matter because they:
+\begin{itemize}[leftmargin=2em]
+    \item break QND assumptions,
+    \item introduce state mixing during measurement,
+    \item reduce repeated-measurement consistency,
+    \item harm active reset and feedback fidelity,
+    \item complicate interpretation of integrated homodyne signals,
+    \item create hidden error channels relevant for QEC cycles.
+\end{itemize}
+
+A predictive simulator would therefore be directly useful both scientifically and
+operationally: it would allow one to identify safe operating regions, understand breakdown
+mechanisms, and optimize the tradeoff between speed, fidelity, and leakage.
+
+\section{Scientific Objectives}
+
+This study should answer the following questions:
+
+\begin{enumerate}[leftmargin=2em]
+    \item At what drive amplitude, pulse duration, and detuning does readout cease to be
+    approximately QND?
+    \item How do leakage thresholds scale with $\kappa$, $\chi$, anharmonicity, and pulse
+    shaping?
+    \item When is a simple weakly anharmonic Duffing approximation insufficient, and when
+    must one use a more accurate multi-level transmon basis?
+    \item Can one distinguish moderate leakage into $|f\rangle$ from more severe
+    high-lying-state population spreading?
+    \item How do finite-bandwidth filtering and pulse distortion alter the leakage
+    threshold?
+    \item Which mitigation strategies best preserve fidelity while suppressing leakage and
+    residual photons?
+\end{enumerate}
+
+\section{Physical Model}
+
+\subsection{Baseline Hamiltonian}
+
+The core system is a driven cavity coupled to a multi-level transmon. The simulation should
+be performed in an appropriate rotating frame. The time-dependent Hamiltonian may be written
+schematically as
+\begin{equation}
+    H(t) = H_{\mathrm{sys}} + H_{\mathrm{drive}}(t),
+\end{equation}
+where $H_{\mathrm{sys}}$ includes the bare cavity, the multi-level transmon, their
+interaction, and any relevant nonlinear terms, while $H_{\mathrm{drive}}(t)$ describes the
+measurement drive applied through the readout channel.
+
+A minimal model should include:
+\begin{itemize}[leftmargin=2em]
+    \item a single readout cavity mode,
+    \item a multi-level transmon,
+    \item qubit-cavity coupling,
+    \item coherent measurement drive,
+    \item cavity decay,
+    \item transmon relaxation and dephasing.
+\end{itemize}
+
+\subsection{Model Extensions for Strong Readout}
+
+Because the project targets the high-power regime, the study should allow the following
+extensions:
+\begin{itemize}[leftmargin=2em]
+    \item cavity self-Kerr,
+    \item inherited qubit-induced cavity nonlinearity,
+    \item realistic multi-level transmon matrix elements,
+    \item filtered and distorted time-domain drive envelopes,
+    \item optional effective Floquet treatment for strong periodic drive,
+    \item optional polaron-based reduced descriptions in the dispersive regime.
+\end{itemize}
+
+\subsection{Recommended Transmon Modeling Hierarchy}
+
+The numerical study should proceed in a layered way:
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Fast coarse scans:} weakly anharmonic oscillator or Duffing transmon
+    model.
+    \item \textbf{Quantitative leakage prediction:} multi-level transmon basis built from
+    accurate eigenstates and operator matrix elements.
+    \item \textbf{High-power regime refinement:} larger transmon truncation and careful
+    convergence tests near the apparent ionization boundary.
+\end{enumerate}
+
+\section{Open-System Dynamics}
+
+\subsection{Unconditional Evolution}
+
+For unconditional dynamics, the simulator should solve a Lindblad master equation of the
+form
+\begin{equation}
+    \dot{\rho} = -i[H(t), \rho] + \sum_j \mathcal{D}[L_j]\rho,
+\end{equation}
+with
+\begin{equation}
+    \mathcal{D}[L]\rho = L\rho L^\dagger - \frac{1}{2}\left(L^\dagger L \rho + \rho L^\dagger L\right).
+\end{equation}
+
+Relevant collapse operators should include:
+\begin{itemize}[leftmargin=2em]
+    \item cavity decay,
+    \item transmon energy relaxation,
+    \item transmon dephasing,
+    \item optional thermal excitation,
+    \item optional effective incoherent processes if justified by the experiment.
+\end{itemize}
+
+\subsection{Conditioned Evolution}
+
+To connect the simulation to real readout records, the framework should also support
+stochastic master equations or quantum trajectories. This is necessary to generate:
+\begin{itemize}[leftmargin=2em]
+    \item synthetic homodyne or heterodyne measurement records,
+    \item integrated readout histograms,
+    \item assignment fidelities,
+    \item shot-to-shot leakage statistics,
+    \item jump-like trajectory signatures associated with non-QND transitions.
+\end{itemize}
+
+\section{Core Observables}
+
+The simulator should extract the following observables:
+\begin{itemize}[leftmargin=2em]
+    \item transmon level populations $P_n(t)$,
+    \item computational-subspace populations $P_g(t)$ and $P_e(t)$,
+    \item $|f\rangle$ population $P_f(t)$,
+    \item leakage fraction
+    \begin{equation}
+        P_{\mathrm{leak}}(t)=1-P_g(t)-P_e(t),
+    \end{equation}
+    \item cavity photon number $\langle a^\dagger a \rangle(t)$,
+    \item peak intracavity photon number during measurement,
+    \item post-pulse residual cavity population,
+    \item assignment fidelity from simulated readout records,
+    \item repeated-measurement transition probabilities,
+    \item broadening, skewness, and non-Gaussian features of the integrated homodyne
+    distributions.
+\end{itemize}
+
+\subsection{Operational Ionization Metric}
+
+Because true ionization is not literal in a finite truncated Hilbert space, the report
+should define an operational high-lying-state metric. For a chosen cutoff
+$n_{\mathrm{ion}}$, define
+\begin{equation}
+    P_{\mathrm{ion}}(t)=\sum_{m\ge n_{\mathrm{ion}}} P_m(t).
+\end{equation}
+
+This metric should be used to distinguish:
+\begin{itemize}[leftmargin=2em]
+    \item safe dispersive readout,
+    \item moderate leakage into nearby non-computational levels,
+    \item severe population spreading into high-lying transmon states.
+\end{itemize}
+
+\section{Parameter Regimes and Sweep Axes}
+
+\subsection{Drive Parameters}
+\begin{itemize}[leftmargin=2em]
+    \item readout amplitude,
+    \item readout detuning from the dressed cavity resonance,
+    \item pulse length,
+    \item rise and fall times,
+    \item pulse-envelope shape,
+    \item optional two-tone or shelving-assisted variants.
+\end{itemize}
+
+\subsection{Device Parameters}
+\begin{itemize}[leftmargin=2em]
+    \item $\kappa$,
+    \item $\chi$,
+    \item transmon anharmonicity,
+    \item qubit-cavity detuning,
+    \item effective coupling strength,
+    \item cavity Kerr and induced nonlinearities.
+\end{itemize}
+
+\subsection{Control-Chain / Filter Parameters}
+\begin{itemize}[leftmargin=2em]
+    \item finite analog bandwidth,
+    \item low-pass filtering,
+    \item rise-time limitation,
+    \item overshoot or ringing,
+    \item effective transfer-function distortion of the intended pulse.
+\end{itemize}
+
+\subsection{Numerical Convergence Parameters}
+\begin{itemize}[leftmargin=2em]
+    \item number of transmon levels,
+    \item cavity photon truncation,
+    \item solver time-step and tolerances,
+    \item number of quantum trajectories.
+\end{itemize}
+
+\section{Work Packages}
+
+\subsection{WP1: Baseline Simulator Assembly}
+
+\textbf{Objective.} Build a robust driven multi-level transmon plus cavity simulation module
+inside \texttt{cqed\_sim}.
+
+\textbf{Tasks.}
+\begin{itemize}[leftmargin=2em]
+    \item Implement Hamiltonian construction for cavity plus multi-level transmon.
+    \item Implement collapse-operator generation.
+    \item Implement pulse-envelope and transfer-function modules.
+    \item Implement observable extraction and data logging.
+    \item Build a parameterized sweep framework.
+\end{itemize}
+
+\textbf{Deliverables.}
+\begin{itemize}[leftmargin=2em]
+    \item solver-ready model builder,
+    \item reproducible config files,
+    \item automated sweep scripts,
+    \item baseline figures verifying expected weak-drive behavior.
+\end{itemize}
+
+\subsection{WP2: Leakage Threshold Mapping}
+
+\textbf{Objective.} Identify the onset of measurement-induced leakage and non-QND behavior
+across operating regimes.
+
+\textbf{Tasks.}
+\begin{itemize}[leftmargin=2em]
+    \item Sweep readout amplitude and pulse duration.
+    \item Sweep detuning around the dressed cavity resonance.
+    \item Sweep $\kappa$, $\chi$, and anharmonicity.
+    \item Construct leakage and ionization heatmaps.
+\end{itemize}
+
+\textbf{Key Outputs.}
+\begin{itemize}[leftmargin=2em]
+    \item $P_f$ after readout,
+    \item total leakage $P_{\mathrm{leak}}$,
+    \item high-level population $P_{\mathrm{ion}}$,
+    \item fidelity versus leakage tradeoff curves,
+    \item residual-photon versus speed tradeoff curves.
+\end{itemize}
+
+\subsection{WP3: Conditioned Readout Modeling}
+
+\textbf{Objective.} Connect physical leakage mechanisms to experimentally visible readout
+signatures.
+
+\textbf{Tasks.}
+\begin{itemize}[leftmargin=2em]
+    \item Generate synthetic homodyne trajectories.
+    \item Integrate the readout record using realistic kernels.
+    \item Construct assignment histograms and confusion matrices.
+    \item Identify signatures of jump-like state changes under strong drive.
+\end{itemize}
+
+\textbf{Key Outputs.}
+\begin{itemize}[leftmargin=2em]
+    \item readout histograms below, near, and above threshold,
+    \item broadened or non-Gaussian integrated distributions,
+    \item state-assignment errors attributable to true state mixing rather than pure
+    amplifier noise.
+\end{itemize}
+
+\subsection{WP4: High-Level-State / Ionization Study}
+
+\textbf{Objective.} Characterize the regime where strong drive populates high transmon
+manifolds.
+
+\textbf{Tasks.}
+\begin{itemize}[leftmargin=2em]
+    \item increase transmon truncation,
+    \item monitor population spreading across excited manifolds,
+    \item compare reduced models to more accurate multi-level representations,
+    \item identify practical boundaries between ordinary leakage and severe high-level
+    occupation.
+\end{itemize}
+
+\textbf{Success Criterion.}
+A robust regime map separating:
+\begin{itemize}[leftmargin=2em]
+    \item approximately QND readout,
+    \item moderate leakage,
+    \item strong non-QND mixing,
+    \item high-lying-state or ionization-like behavior.
+\end{itemize}
+
+\subsection{WP5: Mitigation and Control Study}
+
+\textbf{Objective.} Evaluate practical mitigation strategies at fixed fidelity targets.
+
+\textbf{Candidate Strategies.}
+\begin{itemize}[leftmargin=2em]
+    \item pulse shaping to reduce peak photon number,
+    \item smoother ring-up and ring-down envelopes,
+    \item detuning optimization,
+    \item two-tone or shelving-assisted readout,
+    \item $\chi/\kappa$ redesign strategies,
+    \item filter-chain optimization,
+    \item reduced residual-photon protocols.
+\end{itemize}
+
+\textbf{Output.}
+A Pareto analysis over:
+\begin{itemize}[leftmargin=2em]
+    \item assignment fidelity,
+    \item leakage,
+    \item high-lying-state population,
+    \item pulse duration,
+    \item post-readout residual cavity population.
+\end{itemize}
+
+\section{Validation Experiments}
+
+\subsection{Purpose of Validation}
+
+The simulator must be validated against experimentally measurable observables that directly
+probe non-QND effects, not just assignment fidelity. The validation goal is to show that
+the model predicts both:
+\begin{enumerate}[leftmargin=2em]
+    \item the onset of leakage and state mixing,
+    \item the structure of observable measurement signatures associated with that leakage.
+\end{enumerate}
+
+\subsection{Experiment A: Leakage vs Readout Power}
+
+\textbf{Protocol.}
+\begin{itemize}[leftmargin=2em]
+    \item Prepare $|g\rangle$ and $|e\rangle$.
+    \item Apply a readout pulse with fixed shape and duration.
+    \item Sweep readout power from the low-power dispersive regime into the strong-drive
+    regime.
+    \item Perform post-readout level discrimination, ideally resolving at least
+    $|g\rangle$, $|e\rangle$, and $|f\rangle$.
+\end{itemize}
+
+\textbf{Measured observables.}
+\begin{itemize}[leftmargin=2em]
+    \item post-readout $P_g$, $P_e$, $P_f$,
+    \item total leakage fraction,
+    \item assignment fidelity.
+\end{itemize}
+
+\textbf{Validation target.}
+Compare the simulated and measured onset power for leakage, the slope of leakage growth,
+and the dependence on the initial state.
+
+\subsection{Experiment B: Leakage vs Pulse Duration}
+
+\textbf{Protocol.}
+\begin{itemize}[leftmargin=2em]
+    \item Fix the nominal readout amplitude.
+    \item Sweep pulse duration and rise/fall time.
+    \item Measure level populations after the readout pulse.
+\end{itemize}
+
+\textbf{Validation target.}
+Determine whether the simulation correctly captures the crossover between adiabatic and
+non-adiabatic regimes, and whether leakage is driven mainly by peak power or by total
+exposure time.
+
+\subsection{Experiment C: Detuning Dependence}
+
+\textbf{Protocol.}
+\begin{itemize}[leftmargin=2em]
+    \item Sweep readout tone detuning around the dressed cavity resonance.
+    \item Measure post-readout leakage and assignment fidelity.
+\end{itemize}
+
+\textbf{Validation target.}
+Test whether the simulator correctly identifies dangerous detuning regions where level
+hybridization or unwanted transitions are enhanced.
+
+\subsection{Experiment D: Repeated-Measurement QND Test}
+
+\textbf{Protocol.}
+\begin{itemize}[leftmargin=2em]
+    \item Prepare a known state.
+    \item Perform one readout.
+    \item Optionally wait a controlled delay.
+    \item Perform a second readout.
+    \item Compare the second outcome conditioned on the first.
+\end{itemize}
+
+\textbf{Measured observables.}
+\begin{itemize}[leftmargin=2em]
+    \item repeated-measurement consistency,
+    \item conditional transition probabilities,
+    \item apparent readout-induced excitation or relaxation rates.
+\end{itemize}
+
+\textbf{Validation target.}
+Compare simulated and experimental QND breakdown thresholds and transition rates.
+
+\subsection{Experiment E: Higher-Level Resolution via Shelving or Two-Tone Probing}
+
+\textbf{Protocol.}
+\begin{itemize}[leftmargin=2em]
+    \item Use a post-readout spectroscopy or shelving sequence to discriminate $|f\rangle$
+    and, where feasible, selected higher excited states.
+    \item Repeat across readout power and pulse-length sweeps.
+\end{itemize}
+
+\textbf{Validation target.}
+Determine whether leakage remains localized near $|f\rangle$ or spreads into a broader
+manifold as predicted by simulation.
+
+\subsection{Experiment F: Filter-Chain Sensitivity}
+
+\textbf{Protocol.}
+\begin{itemize}[leftmargin=2em]
+    \item Repeat selected power sweeps using different programmed pulse smoothness or
+    different effective filtering conditions.
+    \item Optionally compare intentionally filtered versus sharp-edge pulses.
+\end{itemize}
+
+\textbf{Validation target.}
+Test whether the effective transfer-function model in \texttt{cqed\_sim} correctly predicts
+shifts in the leakage threshold and changes in non-QND behavior.
+
+\section{Quantitative Validation Metrics}
+
+The report should compare simulation and experiment using explicit metrics:
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Threshold agreement:} difference between simulated and measured power
+    where leakage exceeds a chosen benchmark.
+    \item \textbf{Curve agreement:} RMSE or weighted fit error for leakage-versus-power and
+    leakage-versus-duration curves.
+    \item \textbf{Repeated-measurement agreement:} comparison of simulated and measured
+    conditional transition probabilities.
+    \item \textbf{Distribution agreement:} comparison of means, variances, skewness, and
+    tail behavior of integrated I/Q distributions.
+    \item \textbf{Regime classification agreement:} whether the simulator correctly
+    classifies operating points as approximately QND, moderately leaky, or strongly non-QND.
+\end{enumerate}
+
+\section{Software Requirements for \texttt{cqed\_sim}}
+
+The following infrastructure should be built or organized inside \texttt{cqed\_sim}:
+\begin{itemize}[leftmargin=2em]
+    \item multi-level transmon model interface,
+    \item cavity plus transmon Hamiltonian builder,
+    \item drive-envelope and transfer-function module,
+    \item Lindblad and trajectory solver wrappers,
+    \item observable extraction layer,
+    \item parameter-sweep and convergence-check framework.
+\end{itemize}
+
+Each sweep should automatically generate:
+\begin{itemize}[leftmargin=2em]
+    \item leakage heatmaps,
+    \item ionization heatmaps,
+    \item cavity photon traces,
+    \item level-population trajectories,
+    \item fidelity-versus-leakage tradeoff plots,
+    \item synthetic readout histograms,
+    \item report-ready tables and figures.
+\end{itemize}
+
+\section{Recommended Numerical Campaign}
+
+\subsection{Stage 1: Coarse Survey}
+Use a relatively inexpensive model to scan amplitude, pulse length, detuning, $\kappa$, and
+$\chi$.
+
+Goal: locate the approximate safe/unsafe boundary.
+
+\subsection{Stage 2: Quantitative Refinement}
+Near the boundary, increase transmon-level truncation and cavity truncation, and use more
+accurate matrix elements.
+
+Goal: obtain quantitatively stable leakage predictions.
+
+\subsection{Stage 3: Conditioned Record Study}
+Select representative points safely below threshold, near threshold, and above threshold.
+
+Goal: generate synthetic readout records and identify experimentally visible signatures of
+non-QND behavior.
+
+\subsection{Stage 4: Mitigation Optimization}
+Evaluate candidate pulse shapes, detunings, and filter settings at fixed target fidelity.
+
+Goal: identify experimentally implementable protocols that reduce leakage while preserving
+speed.
+
+\section{Risks and Caveats}
+
+The report should explicitly note the following caveats:
+\begin{itemize}[leftmargin=2em]
+    \item High-lying-state ``ionization'' is operational in a truncated model and should
+    not be overinterpreted as a literal continuum process.
+    \item Inadequate Hilbert-space truncation can produce misleading leakage predictions.
+    \item Weakly anharmonic Duffing models may become unreliable at large excitation.
+    \item Unknown or poorly calibrated line transfer functions may dominate model-experiment
+    discrepancies.
+    \item Agreement in assignment fidelity alone is not sufficient to validate the model.
+\end{itemize}
+
+\section{Success Criteria}
+
+This project will be considered successful if it produces:
+\begin{enumerate}[leftmargin=2em]
+    \item a reliable \texttt{cqed\_sim} workflow for simulating measurement-induced leakage
+    under strong readout,
+    \item regime maps that separate approximately QND from strongly non-QND operation,
+    \item level-resolved predictions for $|f\rangle$ and higher-level occupation,
+    \item experimentally testable signatures in conditioned readout records,
+    \item quantitative comparison procedures between simulation and fridge data,
+    \item practical mitigation recommendations for safer fast readout.
+\end{enumerate}
+
+\section{Report Structure}
+
+The final report should be organized as follows:
+\begin{enumerate}[leftmargin=2em]
+    \item Introduction and motivation,
+    \item Physical model,
+    \item Numerical methods,
+    \item Convergence and modeling caveats,
+    \item Leakage and ionization regime maps,
+    \item Conditioned readout predictions,
+    \item Experimental validation methods,
+    \item Quantitative simulation-experiment comparison metrics,
+    \item Mitigation strategies,
+    \item Discussion and next steps.
+\end{enumerate}
+
+\section{Agent-Facing Implementation Prompt}
+
+\noindent\textbf{Implementation objective.}
+Extend \texttt{cqed\_sim} to support predictive modeling of measurement-induced leakage and
+transmon ionization during strong dispersive readout. The framework should support
+multi-level transmon plus cavity simulation, unconditional Lindblad evolution, conditioned
+quantum trajectories, filtered drive envelopes, and systematic parameter sweeps over
+readout amplitude, detuning, $\kappa$, $\chi$, anharmonicity, and pulse shape. The system
+should generate level-resolved populations, leakage and high-lying-state metrics, synthetic
+readout histograms, repeated-measurement statistics, and report-ready visualizations. The
+final report must include explicit experimental validation protocols and quantitative
+comparison metrics for fridge data.
+
+\end{document}

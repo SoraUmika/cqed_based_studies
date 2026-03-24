@@ -1,0 +1,135 @@
+{
+  "study": "gray_box_adaptive_control",
+  "generated_at": "2026-03-23 16:10:15",
+  "wall_time_s": 37.869753499981016,
+  "all_passed": true,
+  "passed_checks": 12,
+  "failed_checks": 0,
+  "checks": [
+    {
+      "name": "required_artifacts_present",
+      "passed": true,
+      "details": {
+        "missing_data_files": [],
+        "missing_figure_files": []
+      }
+    },
+    {
+      "name": "phase4_gray_box_closes_perfect_gap_at_30pct",
+      "passed": true,
+      "details": {
+        "gray_box_30pct": 0.9540980022862365,
+        "perfect_30pct": 0.9542004390593697,
+        "nominal_30pct": 0.8990370980934221,
+        "gap_to_perfect": 0.00010243677313315214,
+        "advantage_over_nominal": 0.0550609041928144
+      }
+    },
+    {
+      "name": "phase4_black_box_underperforms_gray_box",
+      "passed": true,
+      "details": {
+        "black_box_fidelity": 0.8877496707694776,
+        "gray_box_30pct": 0.9540980022862365,
+        "nominal_30pct": 0.8990370980934221,
+        "black_box_evaluations": 1394
+      }
+    },
+    {
+      "name": "phase5_1_gray_box_remains_flat_across_large_mismatch_range",
+      "passed": true,
+      "details": {
+        "gray_box_range": 0.00032969394940551844,
+        "gray_box_min": 0.9539162456795236,
+        "gray_box_max": 0.9542459396289291
+      }
+    },
+    {
+      "name": "phase5_2_gray_box_advantage_survives_noise_sweep",
+      "passed": true,
+      "details": {
+        "gray_advantages": [
+          0.05526469571445225,
+          0.05487698469174718,
+          0.05480488862634969,
+          0.05458931481810125
+        ],
+        "min_advantage": 0.05458931481810125
+      }
+    },
+    {
+      "name": "phase5_3_readout_robustness",
+      "passed": true,
+      "details": {
+        "gray_box_fidelity_range": 0.00021613035145329196,
+        "max_fractional_chi_error": 0.00020309344809834793
+      }
+    },
+    {
+      "name": "phase5_4_shot_noise_scaling",
+      "passed": true,
+      "details": {
+        "scaled_sigma_values": [
+          291625.3119893812,
+          293145.7623313244,
+          295915.1022017865,
+          295149.3368907738,
+          292677.6442580014,
+          293129.2369783377
+        ],
+        "relative_spread": 0.005001384032303437
+      }
+    },
+    {
+      "name": "phase5_5_recalibration_improves_drifted_operation",
+      "passed": true,
+      "details": {
+        "final_0p1pct_never": 0.8885190803387228,
+        "final_0p1pct_every5": 0.9356935860995721,
+        "improvement_0p1pct": 0.04717450576084925,
+        "final_1pct_never": 0.8872134240140033,
+        "final_1pct_every5": 0.9028784036481482,
+        "improvement_1pct": 0.015664979634144927
+      }
+    },
+    {
+      "name": "phase5_6_wrong_chi_dominates_wrong_chi_higher",
+      "passed": true,
+      "details": {
+        "penalty_from_omitting_chi_higher_with_correct_chi": 0.0014311635069393924,
+        "penalty_from_wrong_chi_even_with_correct_chi_higher": 0.05382545120721216
+      }
+    },
+    {
+      "name": "convergence_truncation_stable_at_30pct_operating_point",
+      "passed": true,
+      "details": {
+        "baseline_eval_fidelity": 0.9527028077368622,
+        "expanded_cavity_eval_fidelity": 0.9527379521534217,
+        "expanded_transmon_eval_fidelity": 0.9524240599662045,
+        "delta_n_cav": 3.514441655949607e-05,
+        "delta_n_tr": 0.00027874777065772793
+      }
+    },
+    {
+      "name": "convergence_multistart_seed_sensitivity_small",
+      "passed": true,
+      "details": {
+        "default_multistart_eval_fidelity": 0.9542004390593697,
+        "expanded_multistart_eval_fidelity": 0.9551314643250416,
+        "delta": 0.0009310252656719031,
+        "default_best_seed": 2,
+        "expanded_best_seed": 33
+      }
+    },
+    {
+      "name": "probe_feedback_spot_check_partial_chi_higher_feedback_not_adopted",
+      "passed": true,
+      "details": {
+        "fidelity_chi_only_feedback": 0.9539999646322451,
+        "fidelity_with_inferred_chi_higher_feedback": 0.9533594399718853,
+        "inferred_chi_higher_khz": -21.4236253259276
+      }
+    }
+  ]
+}

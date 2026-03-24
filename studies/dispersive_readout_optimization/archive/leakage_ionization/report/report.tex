@@ -1,0 +1,266 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage[numbers, sort&compress]{natbib}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{xcolor}
+
+\title{\textbf{Predictive Modeling of Measurement-Induced Leakage and Transmon Ionization at High Readout Power}}
+\author{Codex \\ cQED Autonomous Research Platform}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+High-power dispersive readout is attractive because it shortens the measurement window, but it can also drive a transmon out of the computational manifold and invalidate the quantum non-demolition (QND) assumption. This study builds a full workflow for that regime on top of \texttt{cqed\_sim}. The framework was extended with three reusable capabilities: arbitrary-waveform readout-chain replay, stochastic continuous-readout replay through QuTiP stochastic master equations, and occupancy-activated strong-readout disturbance envelopes. These improvements were then used in a complete study of a transmon--readout-resonator system with
+$\omega_q/2\pi=\SI{6.150}{GHz}$,
+$\omega_c/2\pi=\SI{8.597}{GHz}$,
+$\alpha/2\pi=\SI{-255}{MHz}$,
+$\chi/2\pi=\SI{-2.84}{MHz}$,
+and $\kappa/2\pi=\SI{2.4}{MHz}$.
+
+The main numerical campaign maps leakage and QND breakdown versus readout amplitude, pulse duration, detuning, and control-chain bandwidth. In the calibrated operational disturbance model used here, visible leakage appears once the readout amplitude exceeds about \SI{5.5}{MHz} at a \SI{240}{ns} pulse length, while the same leakage benchmark is delayed to \SI{7.5}{MHz} at \SI{120}{ns} and reached already at \SI{4.5}{MHz} by \SI{480}{ns}. The most severe point tested, \SI{480}{ns} at \SI{7.5}{MHz}, reaches
+$P_{\mathrm{leak}}=2.18\times 10^{-3}$,
+$P_{\mathrm{ion}}=1.25\times 10^{-6}$
+for the operational high-manifold metric,
+and a repeated-readout defect of $0.495$.
+The dominant effect is therefore QND breakdown and leakage into nearby levels, not broad ionization-like spreading. Within this model, high-manifold occupation remains small compared with the loss of repeated-measurement consistency.
+\end{abstract}
+
+\section{Introduction}
+Fast high-fidelity readout is central to repeated syndrome extraction, feedback, active reset, and real-time decision making in circuit QED \cite{blais2021circuit,koch2007transmon}. In the weak-drive dispersive limit, the resonator response is approximately QND and can be optimized largely as a signal-processing problem \cite{gambetta2007protocols,boissonneault2009dispersive}. At higher power, however, the measurement tone itself can drive state transitions and compromise that picture \cite{sank2016measurement}. The experimental consequences include hidden leakage channels, distorted repeated-readout statistics, and a more delicate tradeoff between speed, fidelity, and cavity emptying \cite{jeffrey2014fast,mcclure2016rapid,walter2017rapid}.
+
+The aim of this study is to build a practical predictive workflow for that regime using \texttt{cqed\_sim} rather than a separate ad hoc simulator \cite{cqedsim}. Two specific needs drove the framework work. First, the public readout-chain model needed arbitrary-waveform support to match hardware-distorted pulses. Second, the package needed a supported stochastic replay path for continuous monitored readout and a reusable way to express occupancy-activated strong-drive disturbance channels. With those additions in place, the present study asks three concrete questions: when does readout stop being approximately QND, how quickly does leakage grow once that boundary is crossed, and does the same operating window also populate a genuinely high transmon manifold?
+
+The remainder of the paper presents the physical model and numerical workflow, the resulting regime maps, the validation checks, and the limitations that remain for future experiment-facing work.
+
+\section{System and Methods}
+
+\subsection{Hamiltonian}
+The baseline runtime model is the multilevel two-mode dispersive transmon--cavity Hamiltonian supported by \texttt{cqed\_sim},
+\begin{equation}
+\frac{H_0}{\hbar}
+=
+\delta_c a^\dagger a
++ \delta_q b^\dagger b
++ \frac{\alpha}{2} b^{\dagger 2} b^2
++ \frac{K}{2} a^{\dagger 2} a^2
++ \chi\, a^\dagger a\, b^\dagger b,
+\end{equation}
+with cavity lowering operator $a$, transmon lowering operator $b$, cavity detuning
+$\delta_c = \omega_c - \omega_d$, and qubit detuning
+$\delta_q = \omega_q - \omega_q^{\mathrm{frame}}$.
+The cavity drive is compiled onto the standard \texttt{cqed\_sim} cavity channel and therefore enters the replay Hamiltonian through the usual additive ladder-operator terms.
+
+To model strong-readout leakage, the study adds an operational disturbance layer on top of that supported Hamiltonian. The cavity waveform is first transported through the compiled hardware chain, then the resulting readout envelope is passed through the new
+\path{build_strong_readout_disturbance} helper. This produces occupancy-activated auxiliary envelopes for the
+$|g\rangle \leftrightarrow |e\rangle$
+and
+$|e\rangle \leftrightarrow |f\rangle$
+transitions. For the ionization-style regime map, the same helper continues the disturbance to higher adjacent ladder transitions with decreasing weights. In compact form, the added phenomenological term is
+\begin{equation}
+\frac{H_{\mathrm{dist}}(t)}{\hbar}
+=
+\epsilon_{ge}(t)\, \sigma_{ge}^{+}
++ \epsilon_{ef}(t)\, \sigma_{ef}^{+}
++ \sum_{m\ge 2}\lambda_m \epsilon_{ef}(t)\, \sigma_{m,m+1}^{+}
++ \mathrm{h.c.},
+\end{equation}
+where $\epsilon_{ge}(t)$ and $\epsilon_{ef}(t)$ are generated by the new measurement helper and the package-configured coefficients $\lambda_m$ continue that disturbance into the higher manifold. This term is explicitly operational: it is meant to approximate strong-drive state mixing, not to claim a microscopic continuum-ionization Hamiltonian.
+
+\subsection{Simulation Parameters}
+\begin{table}[H]
+  \centering
+  \caption{Nominal physical and numerical parameters used in the production study.}
+  \begin{tabular}{@{} l l l @{}}
+    \toprule
+    Parameter & Value & Unit \\
+    \midrule
+    Qubit frequency $\omega_q/2\pi$ & 6.150 & GHz \\
+    Readout mode frequency $\omega_c/2\pi$ & 8.597 & GHz \\
+    Anharmonicity $\alpha/2\pi$ & -255 & MHz \\
+    Dispersive shift $\chi/2\pi$ & -2.84 & MHz \\
+    Resonator linewidth $\kappa/2\pi$ & 2.4 & MHz \\
+    Cavity self-Kerr $K/2\pi$ & -28 & kHz \\
+    Transmon truncation $n_{\mathrm{tr}}$ & 5 & levels \\
+    Cavity truncation $n_{\mathrm{cav}}$ & 18 & Fock states \\
+    Operational high-manifold cutoff $n_{\mathrm{ion}}$ & 3 & transmon level index \\
+    Qubit $T_1^{ge}$ & 30 & $\mu$s \\
+    Qubit $T_1^{ef}$ & 12 & $\mu$s \\
+    Qubit $T_\phi$ & 30 & $\mu$s \\
+    Resonator thermal occupancy $n_{\mathrm{th}}$ & 0.01 & --- \\
+    Time step $\Delta t$ & 4 & ns \\
+    Baseline control-chain low-pass bandwidth & 75 & MHz \\
+    Estimated critical photon number $n_{\mathrm{crit}}$ & 20.3 & photons \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Computational Approach}
+The production workflow is implemented in the study's dedicated scripts directory.
+The key reusable package calls are:
+\begin{itemize}
+  \item \texttt{DispersiveTransmonCavityModel}, \texttt{FrameSpec}, \texttt{Pulse}, and \texttt{SequenceCompiler} for the driven open-system replay;
+  \item \path{build_strong_readout_disturbance} for the occupancy-activated disturbance envelopes;
+  \item \path{simulate_continuous_readout} for continuous monitored-readout replay;
+  \item \texttt{split\_collapse\_operators(...)} and the standard \texttt{NoiseSpec} path for consistent monitored versus unmonitored channels;
+  \item and the readout-chain waveform path for detector-facing post-processing.
+\end{itemize}
+
+The main regime map sweeps readout amplitude from \SI{1.5}{MHz} to \SI{7.5}{MHz} and pulse duration from \SI{120}{ns} to \SI{480}{ns}. Additional scans vary cavity-drive detuning over $\pm\SI{1.0}{MHz}$ around the cavity resonance and low-pass bandwidth from \SIrange{35}{150}{MHz}. Repeated-readout consistency is estimated by replaying the same pulse twice and measuring the probability that the post-first-readout state returns the same computational label after the second replay. Convergence is checked by increasing transmon and cavity truncation and by reducing the ODE solver maximum step while holding the compiled waveform fixed.
+
+\section{Results}
+
+\subsection{Goal 1: Leakage and ionization regime maps}
+Figure~\ref{fig:regime} summarizes the central result. Leakage is negligible at low amplitude, then turns on sharply once the occupancy-activated disturbance reaches a substantial fraction of its onset scale. Using
+$P_{\mathrm{leak}} > 10^{-4}$
+as the working ``visible leakage'' benchmark, the threshold amplitude is about \SI{7.5}{MHz} at \SI{120}{ns}, \SI{5.5}{MHz} at \SI{240}{ns} and \SI{360}{ns}, and \SI{4.5}{MHz} at \SI{480}{ns}. The threshold therefore moves to lower power as the pulse is lengthened, consistent with a regime in which both peak occupancy and total time spent above the activation boundary matter.
+
+The most severe point tested in the production scan is the \SI{480}{ns}, \SI{7.5}{MHz} operating point. It reaches
+$P_{\mathrm{leak}} = 2.18\times 10^{-3}$,
+$P_{\mathrm{ion}} = 1.25\times 10^{-6}$,
+and a repeated-readout defect of $0.495$.
+The important qualitative lesson is that QND breakdown arrives well before a large high-manifold population. Within the calibrated operational model explored here, the dominant effect is population transfer into nearby non-computational levels together with poor repeated-readout consistency, not broad transmon ionization.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/regime_maps.pdf}
+  \caption{Amplitude-duration regime maps for total leakage, operational high-manifold occupation, and repeated-readout defect. Leakage and QND breakdown become visible well before the high-manifold metric grows appreciably.}
+  \label{fig:regime}
+\end{figure}
+
+\subsection{Goal 2: Detuning and bandwidth dependence}
+At the representative \SI{240}{ns} operating window, detuning changes the leakage rate but does not remove the basic breakdown mechanism. Figure~\ref{fig:detuning} shows that moving the drive from \SI{-1.0}{MHz} to \SI{+1.0}{MHz} relative to the cavity resonance lowers
+$P_{\mathrm{leak}}$
+from
+$1.91\times 10^{-4}$
+to
+$4.65\times 10^{-5}$.
+The QND defect remains large across the entire detuning scan, but the cavity-resonant point is still the least damaging in repeated-readout terms, with
+$1-Q_{\mathrm{QND}} = 0.306$.
+
+The finite-bandwidth scan is much less dramatic in this model. Across the
+\SIrange{35}{150}{MHz}
+bandwidth range, the waveform RMS transport error changes from $0.165$ to $0.124$, but
+$P_{\mathrm{leak}}$
+only moves from
+$1.45\times 10^{-4}$
+to
+$1.50\times 10^{-4}$.
+This indicates that the present disturbance model is much more sensitive to the peak occupancy itself than to the modest filter variation tested here.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.82\linewidth]{../figures/detuning_dependence.pdf}
+  \caption{Leakage, QND defect, and detector-limited assignment proxy versus drive detuning at the representative near-threshold point. Positive detuning reduces leakage most strongly, but the resonant point remains the least damaging for repeated-readout consistency in this operational model.}
+  \label{fig:detuning}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.82\linewidth]{../figures/bandwidth_sensitivity.pdf}
+  \caption{Bandwidth sensitivity at the representative near-threshold operating point. The tested transport distortion changes the waveform RMS error more than the leakage threshold itself.}
+  \label{fig:bandwidth}
+\end{figure}
+
+\subsection{Goal 3: Representative readout signatures and mitigation}
+The representative histogram study uses the same transported readout waveform but, when the native continuous SME replay becomes numerically unstable at high power, it falls back to a deterministic final-state mixture model with the same integrated-noise scale. The resulting integrated-record fidelities are $0.732$ below threshold, $0.826$ near threshold, and $0.728$ above threshold; the near-threshold point is the easiest to classify because it retains the best balance between cavity separation and state mixing. The above-threshold point broadens more strongly and loses that advantage. Figure~\ref{fig:histograms} shows the corresponding distributions.
+
+The mitigation scan is detector-limited rather than measurement-limited: the assignment proxy remains saturated near unity across the accessible window, so the main mitigation tradeoff is residual cavity population rather than raw separation. At the lowest-power point that already achieves saturated detector-limited fidelity, the Gaussian envelope leaves only $0.053$ residual photons compared with $0.152$ for the cosine envelope and $0.216$ for the square pulse. In this model, smoother ring-down therefore improves post-measurement cavity emptying essentially for free.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/representative_histograms.pdf}
+  \caption{Representative integrated readout histograms below, near, and above the leakage threshold. These are generated from the stable readout-record path available at each operating point; when the native stochastic replay becomes unstable, the figure uses the deterministic final-state mixture fallback described in the text.}
+  \label{fig:histograms}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.82\linewidth]{../figures/mitigation_tradeoff.pdf}
+  \caption{Mitigation scan at fixed detector-limited fidelity target. In the current model, fidelity saturates early, so smoother envelopes mainly reduce residual cavity population rather than improving assignment. Marker area scales with residual photons.}
+  \label{fig:mitigation}
+\end{figure}
+
+\section{Validation}
+
+\subsection{Sanity Checks}
+The low-power limit behaves as expected. At the weakest point in the production scan
+(\SI{1.5}{MHz}, \SI{120}{ns}),
+the mean leakage is numerically zero and the repeated-readout consistency is $0.989$. The amplitude sweep at fixed duration is also internally consistent: both the peak mean occupancy and the leakage metric increase monotonically across the representative amplitude slice, with monotonic fractions equal to $1.0$ for both curves in the saved validation summary.
+
+\subsection{Convergence Analysis}
+Convergence was tested at the representative near-threshold point
+(\SI{240}{ns}, \SI{5.5}{MHz})
+by increasing the transmon truncation from $5$ to $7$ levels, increasing the cavity truncation from $18$ to $24$ Fock states, and halving the solver maximum step while holding the compiled waveform fixed. Figure~\ref{fig:convergence} shows the result.
+The maximum leakage shift across these checks is
+$6.79\times 10^{-8}$,
+and the maximum shift in the high-manifold metric is
+$1.77\times 10^{-11}$.
+Within the explored operating window, the reported threshold location is therefore numerically stable under the tested truncation and solver changes.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.82\linewidth]{../figures/convergence_checks.pdf}
+  \caption{Convergence checks at the representative near-threshold operating point. The leakage and high-manifold metrics are stable under larger Hilbert-space truncation and a smaller ODE solver step when the compiled waveform is held fixed.}
+  \label{fig:convergence}
+\end{figure}
+
+\subsection{Literature Comparison}
+This study is an analysis/design workflow rather than a direct paper reproduction, so there is no single external benchmark curve to match quantitatively. The qualitative trends are nevertheless consistent with the standard literature picture: higher readout power causes non-QND behavior before any claim of genuine ionization is warranted \cite{sank2016measurement}, and smooth cavity-emptying strategies remain valuable because detector-limited assignment can saturate before cavity reset is acceptable \cite{jeffrey2014fast,mcclure2016rapid,walter2017rapid}. The quantitative benchmark for this study is therefore internal numerical stability rather than percent error against a published figure.
+
+\section{Discussion}
+The central physical conclusion is that the present model resolves a clear sequence of regimes. First comes detector-limited high-fidelity readout with negligible leakage. Next comes a broad intermediate window where repeated-readout consistency collapses and
+$|f\rangle$
+population becomes non-negligible while the truly high transmon manifold remains weakly populated. Only much later does the operational ionization metric rise above the numerical floor, and even then it stays far below the leakage level. In other words, QND breakdown is easier to trigger than broad high-manifold spreading in the current calibrated disturbance model.
+
+This has two practical implications. The first is experimental: if a device is showing poor repeated-readout consistency at high power, the immediate suspect should be measurement-induced state mixing rather than literal ionization. The second is modeling-related: a reduced multilevel dispersive stack plus an occupancy-activated disturbance layer is already rich enough to move the threshold map substantially, but it still predicts a regime where
+$P_{\mathrm{ion}} \ll P_{\mathrm{leak}}$.
+That is a useful result, but it also marks the boundary of what this operational model can say reliably.
+
+\section{Conclusion}
+The study goals were met at the workflow level. The package now supports arbitrary-waveform readout replay, stochastic continuous-readout wrappers, and reusable strong-readout disturbance envelopes. On top of that framework, the production study generated leakage and QND regime maps, detuning and bandwidth scans, a mitigation comparison, and representative measurement-record artifacts.
+
+The main numerical outcome is that visible leakage appears around \SI{5.5}{MHz} for a \SI{240}{ns} pulse and moves to lower power as the pulse is lengthened. The dominant failure mode is QND breakdown plus nearby-level leakage; the operational ionization metric remains small throughout the stable production window. Smoother envelopes help primarily by reducing residual cavity population, not by recovering detector-limited fidelity, which is already saturated at low power in this model.
+
+\section{Limitations and Future Work}
+
+\subsection{Known Limitations}
+The most important limitation is physical rather than numerical. The strong-readout disturbance layer is operational and phenomenological: it is designed to emulate threshold behavior using occupancy- and slew-activated auxiliary drives, not to claim a microscopic beyond-dispersive ionization Hamiltonian. This affects the quantitative trustworthiness of the threshold map even when the numerics are converged.
+
+The second major limitation is in the present stochastic replay path. The new
+\path{simulate_continuous_readout}
+wrapper works and is validated in package-level tests, but for the strongest operating points in this study the native continuous replay becomes numerically unstable once the full high-power dynamics are activated. That is why the histogram section uses a deterministic final-state mixture fallback when needed.
+
+The third limitation is scope. No fridge data were available in this run, so the validation section establishes internal consistency rather than experiment agreement. Likewise, the mitigation study is fidelity-saturated in the detector-limited proxy, so the main discriminant becomes residual cavity population rather than assignment fidelity.
+
+\subsection{Suggested Improvements}
+\begin{itemize}
+  \item \textbf{[P1 | HIGH]} Calibrate the disturbance coefficients against experiment or a more microscopic beyond-dispersive model. The present threshold map is useful for design-space exploration, but it is not yet a predictive hardware policy tool.
+  \item \textbf{[P1 | HIGH]} Stabilize the native continuous-readout replay at the strongest operating points so representative histograms and repeated-measurement statistics can be generated from one consistent stochastic path without fallbacks.
+  \item \textbf{[P2 | MEDIUM]} Add calibrated presets or fitting utilities for the reusable higher-ladder continuation scales so high-manifold spreading can be parameterized without per-study retuning.
+  \item \textbf{[P2 | LOW]} Re-run the mitigation scan with an experimentally calibrated amplifier/noise model so the assignment-fidelity proxy no longer saturates across the entire search window.
+  \item \textbf{[P3 | LOW]} Extend the bandwidth scan to more extreme transport distortion or measured transfer functions. The current scan suggests weak sensitivity, but it only covered a modest low-pass range.
+\end{itemize}
+
+\subsection{Open Questions}
+\begin{itemize}
+  \item Does a more microscopic model preserve the same ordering of regimes, namely QND breakdown first and broad high-manifold spreading later?
+  \item Is the near-threshold histogram improvement seen in the fallback record model physically real, or is it an artifact of collapsing the full strong-drive dynamics into a final-state mixture?
+  \item How much of the remaining model uncertainty is coming from the disturbance parameterization itself versus unknown line transfer functions?
+\end{itemize}
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}

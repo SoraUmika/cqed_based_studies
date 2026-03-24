@@ -1,0 +1,451 @@
+\documentclass[twocolumn,prl,aps,floatfix]{revtex4-2}
+\usepackage{amsmath,amssymb,graphicx,bm,xcolor}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\graphicspath{{../figures/}}
+
+\begin{document}
+
+\title{GRAPE-Like Optimization of Dispersive Readout Pulses in Circuit~QED:\\
+A Systematic Study of Objectives, Waveform Families, and Robustness}
+
+\author{Readout Pulse Optimization Study}
+\affiliation{cQED Autonomous Research Platform}
+
+\date{\today}
+
+\begin{abstract}
+We perform a systematic study of readout pulse optimization in circuit quantum
+electrodynamics (cQED) using the linear dispersive model for the qubit-state-conditioned
+resonator field.  We compare five pulse families (square, Gaussian, Hann window,
+cosine-rise, and spline) against GRAPE-like piecewise-constant control across a sweep of
+dispersive coupling ratios $\chi/\kappa \in \{0.25, 0.5, 1.0, 2.0, 4.0\}$ and
+dimensionless readout durations $\kappa T \in [0.5, 20]$.  We find that: (i) driving
+at the midpoint $\omega_d = \omega_r + \chi/2$ is optimal for all waveform families;
+(ii) the time-integrated SNR$^2$ is the appropriate objective, not endpoint pointer
+separation; (iii) after enforcing a common peak-amplitude bound, the square pulse is the
+best analytical family across the tested parameter range; (iv) GRAPE converges to that
+same square-like solution within numerical precision and does not provide a meaningful
+SNR$^2$ advantage in this linear, peak-limited setting; (v) the current single-segment
+active-depletion heuristic does not outperform passive ring-down; (vi) the optimal readout
+duration balancing SNR gain against $T_1$-induced infidelity occurs at
+$\kappa T \approx 5.79$ ($T \approx 184\,$ns for $\kappa/2\pi = 5\,$MHz), where
+$F_{\rm net}^{\rm max} = 0.9967$; and (vii) the current robust-GRAPE formulation sacrifices
+nominal performance without improving on the square-pulse baseline. We therefore recommend
+a midpoint-driven square pulse as the practical default for this model class, with GRAPE
+reserved for future formulations that include additional hardware or physics constraints.
+\end{abstract}
+
+\maketitle
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Introduction}
+% ─────────────────────────────────────────────────────────────────────────────
+
+Dispersive readout is the canonical method for measuring superconducting qubits in the
+circuit QED architecture~\cite{blais2021circuit,krantz2019quantum}.  A microwave tone
+drives a readout resonator coupled dispersively to the qubit; the qubit-state-dependent
+resonator response encodes the qubit state in the phase and amplitude of the transmitted
+signal.  While the physics of dispersive readout is well understood
+\cite{gambetta2007protocols,boissonneault2010dispersive}, the optimal control
+of the readout pulse shape has received less systematic study than gate pulse design.
+
+Three practical requirements pull in different directions:
+(i) \emph{fast} readout (large signal-to-noise ratio per unit time),
+(ii) \emph{clean} reset (minimal residual resonator photons after readout), and
+(iii) \emph{QND} character (minimal qubit disturbance during readout).
+Optimizing these simultaneously calls for a carefully chosen objective function,
+waveform class, and control formulation.
+
+GRAPE-like optimal control~\cite{khaneja2005optimal} has been applied widely to gate
+pulse design in cQED but is less commonly used for readout.  Active resonator
+reset~\cite{reed2010fast,McClure2016rapid} and fast readout by waveform shaping
+\cite{walter2017rapid,jeffrey2014fast} have been demonstrated experimentally, but a
+systematic comparison of the problem formulations in the readout context is lacking.
+
+This study fills that gap. We deliberately avoid assuming that GRAPE is the right answer
+from the outset, and instead treat the choice of objective function, waveform family,
+and optimization method as the central research questions.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Physical Model}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Linear dispersive resonator model}
+
+In the frame rotating at the drive frequency $\omega_d$, the qubit-state-conditioned
+resonator coherent amplitude $\alpha_j(t)$ ($j \in \{g, e\}$) obeys
+\begin{equation}
+  \dot{\alpha}_j = -\!\left(\frac{\kappa}{2} + i\Delta_j\right)\alpha_j - i\epsilon(t),
+  \label{eq:ode}
+\end{equation}
+where $\kappa$ is the resonator decay rate, $\Delta_g = \omega_r - \omega_d$ is the
+ground-state detuning, $\Delta_e = \omega_r + \chi - \omega_d$ is the excited-state
+detuning, $\chi$ is the dispersive shift, and $\epsilon(t)$ is the drive envelope
+(complex, units rad/s).  The output field in input-output theory is
+$s_j(t) = \sqrt{\kappa}\,\alpha_j(t)$.
+
+\subsection{Steady-state analysis}
+
+At steady state ($\dot{\alpha} = 0$):
+\begin{equation}
+  \alpha_j^{\rm ss} = \frac{-i\epsilon}{\kappa/2 + i\Delta_j}.
+  \label{eq:ss}
+\end{equation}
+The steady-state pointer separation is maximized at the \emph{midpoint drive}
+$\omega_d = \omega_r + \chi/2$ ($\Delta_g = -\chi/2$, $\Delta_e = +\chi/2$):
+\begin{equation}
+  |\Delta\alpha^{\rm ss}_{\rm max}| = \frac{4|\epsilon||\chi|}{\kappa^2 + \chi^2},
+  \label{eq:sep_formula}
+\end{equation}
+which peaks at $|\chi/\kappa| = 1$ with value $2|\epsilon|/\kappa$.  This identifies
+$|\chi| = \kappa$ as the optimal dispersive coupling ratio.
+
+\subsection{Physical parameters}
+
+We study parameters representative of state-of-the-art transmon experiments:
+$\kappa/2\pi = 5\,\mathrm{MHz}$, $|\chi|/2\pi \in \{1.25, 2.5, 5.0, 10.0, 20.0\}\,\mathrm{MHz}$
+(corresponding to $|\chi|/\kappa \in \{0.25, 0.5, 1.0, 2.0, 4.0\}$),
+$|\epsilon_{\rm max}|/2\pi = 5\,\mathrm{MHz}$ (corresponding to $\lesssim 5$ steady-state
+photons on resonance), $T_1 = 30\,\mu\mathrm{s}$, and $T_2 = 20\,\mu\mathrm{s}$.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Objective Functions}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Objective A: Endpoint pointer separation}
+\begin{equation}
+  J_A = -|\alpha_e(T) - \alpha_g(T)|^2.
+\end{equation}
+This captures the \emph{final} phase-space separation but ignores the transient
+signal accumulated during ring-up.  Our numerical study confirms that $J_A$ saturates
+at $|\Delta\alpha^{\rm ss}|^2$ well before $J_B$ saturates, making it a poor proxy
+for SNR at intermediate $\kappa T$.
+
+\subsection{Objective B: Time-integrated distinguishability (SNR$^2$)}
+\begin{equation}
+  J_B = -\kappa \int_0^T |\alpha_e(t) - \alpha_g(t)|^2 \,dt = -{\rm SNR}^2.
+  \label{eq:jb}
+\end{equation}
+This equals $-\int_0^T |s_e(t) - s_g(t)|^2\,dt$, the integrated output-field
+distinguishability.  For quantum-limited heterodyne detection, SNR$^2$ directly
+determines the assignment fidelity:
+\begin{equation}
+  F_A = 1 - \tfrac{1}{2}\,{\rm erfc}({\rm SNR}/\sqrt{2}),
+  \label{eq:fa}
+\end{equation}
+making $J_B$ the most physically grounded single-objective function.
+
+\subsection{Objective C: Multi-objective with residual photons}
+\begin{equation}
+  \mathcal{L} = -w_1\,{\rm SNR}^2 + w_2\,n_{\rm res}(T),
+  \label{eq:multi}
+\end{equation}
+where $n_{\rm res}(T) = \tfrac{1}{2}(|\alpha_e(T)|^2 + |\alpha_g(T)|^2)$ is the
+mean residual photon number.  We study the Pareto tradeoff between SNR$^2$ and
+$n_{\rm res}$ by sweeping $w_2/w_1$.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{GRAPE for the Linear Dispersive Model}
+% ─────────────────────────────────────────────────────────────────────────────
+
+For a piecewise-constant drive $\epsilon(t) = \epsilon_k$ for $t \in [k\tau, (k+1)\tau)$
+with $\tau = T/N$, the propagator per segment is
+\begin{align}
+  \alpha_j(t_{k+1}) &= A_j\,\alpha_j(t_k) + B_j\,\epsilon_k, \\
+  A_j &= e^{-\lambda_j\tau},\quad
+  B_j = \frac{-i(A_j - 1)}{\lambda_j},\quad
+  \lambda_j = \tfrac{\kappa}{2} + i\Delta_j.
+\end{align}
+The Wirtinger gradient of ${\rm SNR}^2$ with respect to $\epsilon_k^*$ is computed
+by the adjoint (backward) recursion:
+\begin{equation}
+  \frac{\partial\,{\rm SNR}^2}{\partial \epsilon_k^*}
+    = \kappa\tau\bigl(B_e\,\Lambda_e^{(k)} - B_g\,\Lambda_g^{(k)}\bigr),
+  \label{eq:grape_grad}
+\end{equation}
+where $\Lambda_j^{(k)} = \bigl(\Delta\alpha(t_{k+1})\bigr)^* + A_j\,\Lambda_j^{(k+1)}$
+with $\Lambda_j^{(N)} = 0$ (backward from $k = N-1$ to $0$).
+This is the standard GRAPE adjoint method applied to the linear dispersive ODE.
+
+Optimization is performed with L-BFGS-B using $N = 60$ segments, 10 random restarts,
+and amplitude bound $|\epsilon_k| \leq |\epsilon_{\rm max}|$.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Results}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Phase 1: Analytical theory}
+
+Figure~\ref{fig:steady_state} shows $|\Delta\alpha^{\rm ss}_{\rm max}|$ vs $|\chi|/\kappa$
+(panel a) and vs drive detuning $\Delta_g$ (panel b).  The analytical formula
+\eqref{eq:sep_formula} is confirmed numerically to better than $10^{-6}$ relative error,
+and agrees with \texttt{cqed\_sim.ReadoutResonator} to machine precision.  The midpoint
+drive $\Delta_g = -\chi/2$ is confirmed as optimal.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig1_steady_state.pdf}
+  \caption{%
+    (a)~Steady-state pointer separation $|\Delta\alpha^{\rm ss}_{\rm max}|$ vs $|\chi|/\kappa$.
+    The maximum occurs at $|\chi|/\kappa = 1$ where $|\Delta\alpha^{\rm ss}| = 2|\epsilon|/\kappa$.
+    (b)~$|\Delta\alpha^{\rm ss}|$ vs drive detuning $\Delta_g$ at $|\chi|/\kappa = 1$,
+    confirming the midpoint optimum at $\Delta_g = -\chi/2$.
+  }
+  \label{fig:steady_state}
+\end{figure}
+
+Figure~\ref{fig:snr_vs_kT} shows SNR$^2$ and assignment fidelity $F_A$ vs $\kappa T$
+for midpoint and on-resonance drives.  The midpoint drive outperforms the on-resonance
+drive by $50$--$100\%$ at intermediate $\kappa T$, converging at large $\kappa T$
+as both approach steady state.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig2_snr_vs_kappa_t.pdf}
+  \caption{%
+    SNR$^2$ (a) and assignment fidelity $F_A$ (b) vs $\kappa T$ for square pulses at the
+    midpoint drive ($\Delta_g = -\chi/2$, blue) and on-resonance ($\Delta_g = 0$, red).
+    The steady-state approximation $\kappa T|\Delta\alpha^{\rm ss}|^2$ (dotted) overestimates
+    SNR$^2$ at small $\kappa T$ where the resonator has not yet rung up.
+  }
+  \label{fig:snr_vs_kT}
+\end{figure}
+
+\subsection{Phase 2: Pulse-family baseline}
+
+Figure~\ref{fig:families} shows SNR$^2$ vs $|\chi|/\kappa$ at $\kappa T = 5$ (panel a)
+and vs $\kappa T$ at $|\chi|/\kappa = 1$ (panel b) for all five pulse families under a
+shared \emph{peak}-amplitude bound.  Under that fair comparison, the square pulse is the
+best-performing analytical family throughout the tested $|\chi|/\kappa$ range.  The
+cosine-rise pulse remains competitive but never exceeds square, while Gaussian, Hann, and
+spline envelopes underperform because their smooth turn-on uses less of the available peak
+drive budget in the strictly linear model.
+
+The key finding is that \textbf{the midpoint-driven square pulse saturates the best
+simple-family performance} in this study.  At $|\chi|/\kappa = 1$ and $\kappa T = 5$,
+the square pulse yields SNR$^2 = 8.93$, whereas the Hann envelope yields only
+SNR$^2 = 3.19$.
+
+Active depletion (Fig.~\ref{fig:depletion}) should be treated as a negative result here:
+the implemented single-segment heuristic does not beat passive ring-down and therefore is
+not yet a useful control primitive.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig5_depletion.pdf}
+  \caption{%
+    Residual photon number after readout as a function of additional depletion time
+    $\kappa T_{\rm dep}$.  The dotted line shows the readout-only residual occupancy,
+    the red curve shows passive natural ring-down, and the blue curve shows the
+    implemented active-depletion heuristic.  In this study the heuristic fails to beat
+    passive ring-down and is therefore not recommended.
+  }
+  \label{fig:depletion}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig4_pulse_families.pdf}
+  \caption{%
+    SNR$^2$ vs $|\chi|/\kappa$ at $\kappa T = 5$ (a) and vs $\kappa T$ at $|\chi|/\kappa = 1$ (b)
+    for five pulse families under a shared peak-amplitude bound.  The square pulse is the
+    best analytical family across the tested regime; smoother envelopes sacrifice SNR$^2$
+    because they do not fully use the allowed peak drive.
+  }
+  \label{fig:families}
+\end{figure}
+
+\subsection{Phase 3: GRAPE optimization}
+
+Figure~\ref{fig:grape}(a) compares GRAPE against all pulse families across $|\chi|/\kappa$.
+Once the waveform-family comparison is corrected to obey the same peak-amplitude limit,
+GRAPE no longer outperforms the square baseline in any meaningful way: the optimized
+SNR$^2$ values match the square pulse to within numerical precision across the full
+$|\chi|/\kappa$ sweep.
+
+Figure~\ref{fig:grape}(b) shows the same pattern across $\kappa T$: GRAPE and square are
+indistinguishable within numerical precision from $\kappa T = 1$ to $12$, while the Hann
+envelope remains substantially worse under the same bound.  Segment convergence remains
+excellent, with SNR$^2$ stable to better than $10^{-4}$ between $N = 60$ and $N = 120$
+segments, confirming that the optimizer itself is numerically well behaved.
+
+The multi-objective Pareto sweep provides another negative result: sweeping the residual-
+photon penalty over $w_2/w_1 \in [0, 5]$ leaves both SNR$^2$ and $n_{\rm res}$ unchanged
+within reported precision.  In the present linear model and control parameterization, the
+chosen penalty does not move the optimum away from the square-like solution.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig6_grape_comparison.pdf}
+  \caption{%
+    GRAPE vs pulse-family baselines.
+    (a)~SNR$^2$ vs $|\chi|/\kappa$ at $\kappa T = 5$.
+    (b)~SNR$^2$ vs $\kappa T$ at $|\chi|/\kappa = 1$.
+    Under a common peak-amplitude bound, GRAPE collapses onto the square-pulse baseline
+    within numerical precision across the tested regime.
+  }
+  \label{fig:grape}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig9_waveforms.pdf}
+  \caption{%
+    GRAPE waveform at $|\chi|/\kappa = 1$, $\kappa T = 5$:
+    (a)~I/Q quadratures vs time.
+    (b)~Phase-space trajectories $\alpha_{g,e}(t)$ for GRAPE and square pulse.
+    (c)~Pointer separation $|\Delta\alpha(t)|$ vs time.
+    (d)~Pareto frontier: SNR$^2$ vs $n_{\rm res}$ under multi-objective optimization.
+    The optimized waveform is effectively square-like, and the Pareto sweep shows no
+    meaningful movement away from the nominal optimum.
+  }
+  \label{fig:waveforms}
+\end{figure}
+
+\subsection{Phase 4: Open-system effects}
+
+Figure~\ref{fig:open} shows the net assignment fidelity $F_{\rm net}$ and
+measurement-induced dephasing $\eta_\varphi$ vs $\kappa T$.
+
+The net fidelity is computed as
+\begin{equation}
+  F_{\rm net} = (1-p_{\rm decay})\,F_A({\rm SNR}^2_{\rm eff}) + p_{\rm decay}\cdot\tfrac{1}{2},
+\end{equation}
+where $p_{\rm decay} = 1 - e^{-T/T_1}$ and
+${\rm SNR}^2_{\rm eff} = \kappa\!\int_0^T |\Delta\alpha|^2 e^{-t/T_1}\,dt$
+accounts for the weight reduction from $T_1$ decay.
+
+For our parameters ($\kappa T_1 = \kappa \times 30\,\mu{\rm s} \approx 940$), the $T_1$
+correction is negligible at $\kappa T \leq 20$.  The optimal net fidelity reaches
+$F_{\rm net}^{\rm max} = 0.9967$ at $\kappa T = 5.79$, corresponding to
+$T = 184\,$ns for the nominal device.  The dominant limitation on useful readout duration
+is therefore SNR saturation rather than $T_1$ decay.
+
+The measurement-induced dephasing factor
+$\eta_\varphi = \exp(-\int (\kappa/2)|\Delta\alpha|^2 dt)$ becomes very small during a
+successful measurement; at $\kappa T = 5$ we obtain $\eta_\varphi = 0.0106$.  This is
+consistent with strong pointer-state distinguishability and highlights the QND tradeoff,
+not a failure of the model.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig7_open_system.pdf}
+  \caption{%
+    (a)~Net fidelity $F_{\rm net}$ (blue, left axis) and measurement-induced dephasing
+    $\eta_\varphi$ (red, right axis) vs $\kappa T$.
+    (b)~SNR$^2$ and $\eta_\varphi$ vs drive amplitude $|\epsilon|/\kappa$.
+    The optimal readout duration is set by SNR$^2$ saturation, not $T_1$ decay.
+  }
+  \label{fig:open}
+\end{figure}
+
+\subsection{Phase 5: Robustness}
+
+Figure~\ref{fig:robust} shows 2D sensitivity maps of SNR$^2$ over $\pm 20\%$
+uncertainty in $\chi$ and $\kappa$.
+
+The square pulse and nominal GRAPE are identical within numerical precision in both nominal
+and perturbed performance because the optimizer lands on the same square-like solution.
+At the reference point $|\chi|/\kappa = 1$, $\kappa T = 5$, both have nominal
+SNR$^2 \approx 8.93$, mean perturbed SNR$^2 \approx 8.82$, and CV $\approx 0.172$.
+
+The current robust-GRAPE formulation performs poorly: the nominal SNR$^2$ collapses to
+$0.79$ and the mean perturbed SNR$^2$ to $0.78$, with CV $0.179$, which is slightly worse
+than the square baseline.  The negative result is still useful because it shows that a
+naive ensemble objective can destroy the useful solution in this parameterization.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig8_robustness.pdf}
+  \caption{%
+    SNR$^2$ sensitivity maps over $\pm 20\%$ uncertainty in $(\chi, \kappa)$ for
+    four pulse designs.  Color scale: green = high SNR$^2$, red = low SNR$^2$.
+    Nominal GRAPE and the square pulse are effectively identical, while the current
+    robust-GRAPE formulation sacrifices most nominal performance.
+  }
+  \label{fig:robust}
+\end{figure}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Discussion}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Answers to the central research questions}
+
+\textbf{Is endpoint pointer separation too naive?}
+Yes. At $\kappa T < 3$, endpoint separation significantly underestimates integrated SNR$^2$
+because it ignores the transient ring-up contribution.  The integrated SNR$^2$ (Objective B)
+is the correct target.
+
+\textbf{Is the midpoint drive always optimal?}
+Yes, for all waveform families studied.  The analytical result $\Delta_g = -\chi/2$
+is confirmed numerically and is a robust choice.
+
+\textbf{Are simple pulse families sufficient?}
+Yes.  Under a strict peak-amplitude constraint, the square pulse is the best analytical
+family in this linear model, and GRAPE matches it within numerical precision rather than
+surpassing it.
+
+\textbf{Should depletion be jointly optimized?}
+Not with the present heuristic.  The implemented single-segment depletion strategy is worse
+than passive ring-down, and the current multi-objective formulation does not move the
+solution off the square-like optimum.
+
+\textbf{When does GRAPE clearly add value?}
+It does not add value in the present linear, peak-limited formulation.  To justify GRAPE,
+future work would need additional constraints or physics such as bandwidth limits,
+nonlinear resonator effects, or a richer multi-stage reset objective.
+
+\textbf{Should the optimized pulse target nominal or robust performance?}
+At present, the square pulse is the reliable choice.  The current robust-GRAPE formulation
+reduces nominal performance too severely to recommend.
+
+\textbf{Minimum realistic model complexity?}
+The linear dispersive model (Level 1) is sufficient for pulse design and optimization.
+The key open-system effect ($T_1$) is negligible at $\kappa T \leq 10$ for typical parameters.
+The nonlinear/multi-level effects (Kerr, $\chi'$, higher transmon levels) are significant
+only at very high drive amplitudes ($n_{\rm ss} \gtrsim n_{\rm crit}$) and can be checked
+a posteriori.
+
+\subsection{Limitations}
+
+This study uses the linear dispersive model throughout.  A more complete treatment would
+include: (i) Kerr nonlinearity $K_r a^{\dagger 2} a^2$ causing squeezing and deformation
+of the resonator state; (ii) measurement-induced transitions
+$|e\rangle \leftrightarrow |g\rangle$ (dressed-dephasing)~\cite{boissonneault2010dispersive}
+at high drive powers; (iii) realistic AWG bandwidth and imperfections limiting pulse
+expressivity.  These are left for future work.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Conclusions and Recommendations}
+% ─────────────────────────────────────────────────────────────────────────────
+
+We recommend the following implementation strategy:
+
+\begin{enumerate}
+  \item \textbf{Objective}: Use the time-integrated SNR$^2$ (Objective B).  Endpoint
+    separation is an inferior proxy.
+  \item \textbf{Drive frequency}: Always use the midpoint drive $\omega_d = \omega_r + \chi/2$.
+    This is the single highest-value calibration to get right.
+  \item \textbf{Simple baseline}: Use the square envelope at the midpoint drive.  Under the
+    validated peak-amplitude constraint it is the best analytical family in this study.
+  \item \textbf{GRAPE}: Do not expect a meaningful gain over square in the present linear,
+    peak-limited formulation.  Reserve GRAPE for future models with additional hardware or
+    physics constraints.
+  \item \textbf{Joint depletion}: Do not use the current single-segment depletion heuristic as a
+    production strategy.  It underperforms passive ring-down and needs redesign.
+  \item \textbf{Robustness}: Prefer the square pulse over the current robust-GRAPE formulation.
+    The ensemble objective used here destroys nominal performance without improving the baseline.
+  \item \textbf{Open-system}: $T_1$ effects are negligible for $\kappa T \leq 10$; the practical
+    operating point is $\kappa T \approx 5$--$6$ ($T \approx 184$ ns for the nominal device),
+    where $F_{\rm net}$ is already near-optimal.
+\end{enumerate}
+
+\begin{acknowledgments}
+This study was performed using the \texttt{cqed\_sim} framework and the autonomous research
+platform developed for the Shankar Quantum Circuits Group.
+\end{acknowledgments}
+
+\bibliography{references}
+
+\end{document}

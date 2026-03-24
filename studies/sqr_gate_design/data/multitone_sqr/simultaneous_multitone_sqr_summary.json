@@ -1,0 +1,482 @@
+{
+  "summary": {
+    "study": "simultaneous_multitone_sqr_design",
+    "angles_over_pi": [
+      0.125,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "chi_t_values": [
+      1.0,
+      2.0,
+      3.0,
+      5.0
+    ],
+    "representative_rows": [
+      {
+        "case_name": "pair_adjacent",
+        "label": "Pair (0,1)",
+        "chi_t": 3.0,
+        "theta_over_pi": [
+          0.125,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "reduced_fidelity": [
+          0.9809693662971355,
+          0.9267746817083001,
+          0.7499939262935529,
+          0.5000000060960175
+        ],
+        "strict_fidelity": [
+          0.9758657474769453,
+          0.9204559098274755,
+          0.7242345501145667,
+          0.24771268705054098
+        ],
+        "compiled_fidelity": [
+          0.9771683526323267,
+          0.921683198567232,
+          0.7251789355166685,
+          0.24777843785391823
+        ],
+        "target_theta_sim_over_pi": [
+          2.7878283736797746e-05,
+          5.564205074363972e-05,
+          0.00011079022374120238,
+          0.00022009403099272013
+        ],
+        "target_theta_ratio": [
+          0.00022302626989438197,
+          0.00022256820297455887,
+          0.00022158044748240476,
+          0.00022009403099272013
+        ]
+      },
+      {
+        "case_name": "pair_separated",
+        "label": "Pair (0,2)",
+        "chi_t": 3.0,
+        "theta_over_pi": [
+          0.125,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "reduced_fidelity": [
+          0.9809690818223149,
+          0.9267736679381289,
+          0.7499912836718716,
+          0.5000000031033339
+        ],
+        "strict_fidelity": [
+          0.9758795900543542,
+          0.9205094163493854,
+          0.7244094297597661,
+          0.24794006587217252
+        ],
+        "compiled_fidelity": [
+          0.9771822593907667,
+          0.9217378237176773,
+          0.7253707947195897,
+          0.24820483396750054
+        ],
+        "target_theta_sim_over_pi": [
+          2.654635345614878e-05,
+          5.2873027216277585e-05,
+          0.0001059382754272267,
+          0.00021005461089526476
+        ],
+        "target_theta_ratio": [
+          0.00021237082764919023,
+          0.00021149210886511034,
+          0.0002118765508544534,
+          0.00021005461089526476
+        ]
+      },
+      {
+        "case_name": "triple_low",
+        "label": "Triple (0,1,2)",
+        "chi_t": 3.0,
+        "theta_over_pi": [
+          0.125,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "reduced_fidelity": [
+          0.9714528673692132,
+          0.8901582495916135,
+          0.6249801476460699,
+          0.2500001276370907
+        ],
+        "strict_fidelity": [
+          0.9664040577738056,
+          0.884327035003016,
+          0.6050564834210774,
+          0.06157369524403315
+        ],
+        "compiled_fidelity": [
+          0.9676991019893143,
+          0.8855258163780726,
+          0.605912371427547,
+          0.061573232944199766
+        ],
+        "target_theta_sim_over_pi": [
+          3.968342183906185e-05,
+          7.930280141144742e-05,
+          0.0001581269631578574,
+          0.000313205441462321
+        ],
+        "target_theta_ratio": [
+          0.0003174673747124948,
+          0.0003172112056457897,
+          0.0003162539263157148,
+          0.000313205441462321
+        ]
+      },
+      {
+        "case_name": "all_four",
+        "label": "All four",
+        "chi_t": 3.0,
+        "theta_over_pi": [
+          0.125,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "reduced_fidelity": [
+          0.9619355341816769,
+          0.8535376782396522,
+          0.49995493505083666,
+          3.8678603619946017e-07
+        ],
+        "strict_fidelity": [
+          0.957020479918936,
+          0.8490416104292113,
+          0.4969572741281655,
+          3.8303130506481674e-07
+        ],
+        "compiled_fidelity": [
+          0.9582979946735748,
+          0.8501749841891415,
+          0.49762065172252096,
+          3.8354437900186735e-07
+        ],
+        "target_theta_sim_over_pi": [
+          5.0642999233924134e-05,
+          0.00010114548437371313,
+          0.0002010402612665807,
+          0.00039569440368584374
+        ],
+        "target_theta_ratio": [
+          0.00040514399387139307,
+          0.0004045819374948525,
+          0.0004020805225331614,
+          0.00039569440368584374
+        ]
+      }
+    ],
+    "max_compiled_gain": {
+      "gain": 0.0014669959192419313,
+      "case_name": "pair_separated",
+      "chi_t": 1.0,
+      "theta_over_pi": 0.125
+    },
+    "amplitude_scan_peak_reduced_fidelity": 0.5000000700533713,
+    "multistart_best_reduced_fidelity": 0.5000004006997361,
+    "multistart_best_strict_fidelity": 0.23199671393180246,
+    "qutrit_spotcheck_max_leakage": 7.080742737599513e-09,
+    "segmented_rows": [
+      {
+        "case_name": "pair_adjacent",
+        "chi_t": 3.0,
+        "step_theta_over_pi": 0.125,
+        "n_steps": 8,
+        "small_step_strict_fidelity": 0.9758657474769453,
+        "small_step_compiled_fidelity": 0.9771683526323267,
+        "direct_pi_strict_fidelity": 0.24771268705054098,
+        "direct_pi_compiled_fidelity": 0.24777843785391823,
+        "segmented_operator_fidelity": 0.1545687885808303,
+        "note": "Segmented fidelity is computed by composing the corrected restricted logical operator and does not include additional qutrit leakage accumulation."
+      },
+      {
+        "case_name": "triple_low",
+        "chi_t": 3.0,
+        "step_theta_over_pi": 0.125,
+        "n_steps": 8,
+        "small_step_strict_fidelity": 0.9664040577738056,
+        "small_step_compiled_fidelity": 0.9676991019893143,
+        "direct_pi_strict_fidelity": 0.06157369524403315,
+        "direct_pi_compiled_fidelity": 0.061573232944199766,
+        "segmented_operator_fidelity": 0.03111021972426742,
+        "note": "Segmented fidelity is computed by composing the corrected restricted logical operator and does not include additional qutrit leakage accumulation."
+      }
+    ],
+    "main_takeaway": "For the common Gaussian multitone family studied here, the simultaneous waveform acts almost like identity on each branch: target-branch simulated angles stay at O(10^-4) rad even when the requested rotation is O(1) rad. Small-angle fidelity is therefore mostly trivial identity overlap, not successful simultaneous control. Cavity-only compilation gives only modest gains, and simple waveform corrections do not rescue the hard regime."
+  },
+  "amplitude_scan": {
+    "case_name": "pair_adjacent",
+    "chi_t": 3.0,
+    "theta_over_pi": 1.0,
+    "scales": [
+      -1.5,
+      -1.25,
+      -1.0,
+      -0.75,
+      -0.5,
+      -0.25,
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5,
+      1.75,
+      2.0,
+      2.25,
+      2.5,
+      2.75,
+      3.0
+    ],
+    "reduced_fidelity": [
+      0.5000000015527521,
+      0.5000000004048656,
+      0.5,
+      0.5000000004048656,
+      0.5000000015527521,
+      0.50000000343617,
+      0.5000000060960175,
+      0.5000000095966604,
+      0.5000000136109576,
+      0.5000000180362278,
+      0.5000000234470879,
+      0.5000000286253056,
+      0.50000003475138,
+      0.5000000411307985,
+      0.5000000466260216,
+      0.5000000530361421,
+      0.500000059807787,
+      0.5000000640608105,
+      0.5000000700533713
+    ],
+    "target_mean": [
+      3.029440553654289e-08,
+      7.641300970523208e-09,
+      0.0,
+      7.641300970523208e-09,
+      3.029440553654289e-08,
+      6.776625643063478e-08,
+      1.1954863787159083e-07,
+      1.8529949065051786e-07,
+      2.629143650254692e-07,
+      3.525978113300655e-07,
+      4.529444784049773e-07,
+      5.607186386214732e-07,
+      6.770815836988633e-07,
+      7.975079105630934e-07,
+      9.211716068949222e-07,
+      1.0467714153936216e-06,
+      1.1715322087405902e-06,
+      1.2898623833052073e-06,
+      1.4052155362243034e-06
+    ],
+    "spectator_mean": [
+      0.9999999728110989,
+      0.9999999931684302,
+      1.0,
+      0.9999999931684302,
+      0.9999999728110989,
+      0.9999999391060835,
+      0.9999998926433973,
+      0.9999998338938301,
+      0.9999997643075502,
+      0.9999996834746443,
+      0.9999995939496976,
+      0.9999994965319725,
+      0.9999993924211764,
+      0.9999992847536865,
+      0.9999991720804362,
+      0.999999059300869,
+      0.9999989480833651,
+      0.9999988382592377,
+      0.9999987348912065
+    ]
+  },
+  "multistart": {
+    "case_name": "pair_adjacent",
+    "chi_t": 3.0,
+    "theta_over_pi": 1.0,
+    "baseline_reduced_fidelity": 0.5000000060960175,
+    "baseline_strict_fidelity": 0.24771268705054098,
+    "baseline_compiled_fidelity": 0.24777843785391823,
+    "seed_rows": [
+      {
+        "seed": 101,
+        "initial_weighted_mean_fidelity": 0.5000000025950393,
+        "optimized_weighted_mean_fidelity": 0.5000003362689798,
+        "optimized_sector_fidelity": [
+          1.076736235056059e-05,
+          1.0396206837928793e-05,
+          0.9999899361081233,
+          0.9999902453986071
+        ],
+        "history_length": 574,
+        "optimized_d_lambda": [
+          -3.7091101402069384,
+          3.904641950377288,
+          3.760524238174595,
+          3.6549127828008134
+        ],
+        "optimized_d_alpha": [
+          -2.5472595324343397,
+          1.2705963493902104,
+          1.700769849874236,
+          -0.08418814846566314
+        ],
+        "optimized_d_omega_hz": [
+          1182625.706887889,
+          1111663.7878957044,
+          1080911.0331348684,
+          -535200.6877654125
+        ]
+      },
+      {
+        "seed": 202,
+        "initial_weighted_mean_fidelity": 0.5000000110531375,
+        "optimized_weighted_mean_fidelity": 0.5000003805582525,
+        "optimized_sector_fidelity": [
+          1.1194190687056995e-05,
+          1.078943429882921e-05,
+          0.999989598042253,
+          0.9999899405657713
+        ],
+        "history_length": 595,
+        "optimized_d_lambda": [
+          -3.8945925920265174,
+          3.8317664649454075,
+          3.932246734739967,
+          3.786368214242991
+        ],
+        "optimized_d_alpha": [
+          -1.8652218565473324,
+          0.6682780793410583,
+          0.25905292124997636,
+          1.7642732970766448
+        ],
+        "optimized_d_omega_hz": [
+          1080227.1039148183,
+          1178260.3326626283,
+          -694895.4636305158,
+          -887610.6307897826
+        ]
+      },
+      {
+        "seed": 303,
+        "initial_weighted_mean_fidelity": 0.5000000072716488,
+        "optimized_weighted_mean_fidelity": 0.5000004006997361,
+        "optimized_sector_fidelity": [
+          1.2576950765522348e-05,
+          1.2141470790286697e-05,
+          0.9999882615756482,
+          0.9999886228017398
+        ],
+        "history_length": 567,
+        "optimized_d_lambda": [
+          -3.935483926733227,
+          3.897333367295686,
+          3.7535783398477762,
+          -3.937329998392267
+        ],
+        "optimized_d_alpha": [
+          3.0172047679220055,
+          -0.8231913653623157,
+          -1.6589250872784813,
+          2.7248945975048366
+        ],
+        "optimized_d_omega_hz": [
+          1086056.3912927709,
+          1184491.9684919359,
+          -609858.1987558816,
+          1123579.6887902904
+        ]
+      }
+    ],
+    "best_reduced_fidelity": 0.5000004006997361,
+    "best_strict_fidelity": 0.23199671393180246,
+    "best_compiled_fidelity": 0.23205503867651253,
+    "best_state_transfer_mean": 0.3972505125524154,
+    "best_state_transfer_min": 1.205056550510425e-05
+  },
+  "qutrit_spotcheck": {
+    "rows": [
+      {
+        "case_name": "pair_adjacent",
+        "chi_t": 3.0,
+        "theta_over_pi": 0.125,
+        "strict_fidelity": 0.9758657474769453,
+        "compiled_fidelity": 0.9771683526323267,
+        "mean_f_leakage": 3.111937729808298e-09,
+        "max_f_leakage": 7.080742737599513e-09
+      },
+      {
+        "case_name": "pair_adjacent",
+        "chi_t": 3.0,
+        "theta_over_pi": 0.5,
+        "strict_fidelity": 0.7242345501145667,
+        "compiled_fidelity": 0.7251789355166685,
+        "mean_f_leakage": 1.4553276896918986e-09,
+        "max_f_leakage": 4.819594017463012e-09
+      },
+      {
+        "case_name": "pair_adjacent",
+        "chi_t": 3.0,
+        "theta_over_pi": 1.0,
+        "strict_fidelity": 0.24771268705054098,
+        "compiled_fidelity": 0.24777843785391823,
+        "mean_f_leakage": 2.270376910652585e-09,
+        "max_f_leakage": 4.919948220327194e-09
+      },
+      {
+        "case_name": "triple_low",
+        "chi_t": 3.0,
+        "theta_over_pi": 1.0,
+        "strict_fidelity": 0.06157369524403315,
+        "compiled_fidelity": 0.061573232944199766,
+        "mean_f_leakage": 3.345907266769328e-09,
+        "max_f_leakage": 6.427290384546911e-09
+      }
+    ]
+  },
+  "segmented_check": {
+    "rows": [
+      {
+        "case_name": "pair_adjacent",
+        "chi_t": 3.0,
+        "step_theta_over_pi": 0.125,
+        "n_steps": 8,
+        "small_step_strict_fidelity": 0.9758657474769453,
+        "small_step_compiled_fidelity": 0.9771683526323267,
+        "direct_pi_strict_fidelity": 0.24771268705054098,
+        "direct_pi_compiled_fidelity": 0.24777843785391823,
+        "segmented_operator_fidelity": 0.1545687885808303,
+        "note": "Segmented fidelity is computed by composing the corrected restricted logical operator and does not include additional qutrit leakage accumulation."
+      },
+      {
+        "case_name": "triple_low",
+        "chi_t": 3.0,
+        "step_theta_over_pi": 0.125,
+        "n_steps": 8,
+        "small_step_strict_fidelity": 0.9664040577738056,
+        "small_step_compiled_fidelity": 0.9676991019893143,
+        "direct_pi_strict_fidelity": 0.06157369524403315,
+        "direct_pi_compiled_fidelity": 0.061573232944199766,
+        "segmented_operator_fidelity": 0.03111021972426742,
+        "note": "Segmented fidelity is computed by composing the corrected restricted logical operator and does not include additional qutrit leakage accumulation."
+      }
+    ]
+  }
+}

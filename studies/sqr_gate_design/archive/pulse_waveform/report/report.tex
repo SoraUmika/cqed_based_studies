@@ -1,0 +1,573 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{siunitx}
+
+\title{Pulse-Waveform Design, Phase-Engineering, and\\
+Corrected-Parameterization Multitone Optimisation\\
+for Selective Qubit Rotation in Dispersive cQED}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Objective and Scope}
+
+This document is a unified report for the
+\texttt{sqr\_pulse\_waveform\_design} study. It has three parts:
+
+\begin{enumerate}[label=\arabic*.]
+    \item A reproduced summary of the original study, reconstructed from the
+    saved data, figures, and validation artifacts after the prior manuscript
+    source was overwritten.
+    \item A phase-compilation follow-up: whether the remaining strict-logical
+    error is mostly a correctable cavity-only Fock-dependent phase profile or a
+    deeper waveform/control limitation.
+    \item A corrected-parameterization multitone optimisation study
+    (\texttt{run\_simultaneous\_multitone.py}): a reformulation of the multitone
+    ansatz with explicit per-tone amplitude, phase, and frequency corrections
+    $(d_\lambda, d_\alpha, \delta\omega)$, optimised for both the true SQR and
+    the conditional-phase SQR (controlPhaseSQR) targets.
+\end{enumerate}
+
+The baseline study established the envelope hierarchy, the practical operating
+window, the role of GRAPE as an upper bound, and the qualitative importance of
+phase structure. Part~II turns that diagnosis into a direct compiled-control
+test. Part~III introduces a principled correction parameterisation that unifies
+the single-branch and all-branch multitone cases under one framework.
+
+\section{Part I: Reproduced Original Study}
+
+\subsection{System, targets, and waveform families}
+
+The original study used a dispersive transmon--cavity model with
+$\omega_q/2\pi = \SI{6.150}{\giga\hertz}$,
+$\omega_c/2\pi = \SI{5.241}{\giga\hertz}$,
+$\alpha/2\pi = \SI{-255}{\mega\hertz}$,
+$\chi/2\pi = \SI{-2.84}{\mega\hertz}$, a qutrit transmon
+($|g\rangle, |e\rangle, |f\rangle$), and a truncated cavity logical window
+$n=0,\dots,3$. The main scan variable was the dimensionless selectivity
+parameter $\chi T / 2\pi$.
+
+Four baseline families were compared in the closed system:
+\begin{itemize}
+    \item single-tone Gaussian,
+    \item square,
+    \item cosine-squared (Hann),
+    \item one-segment multitone with a Gaussian envelope.
+\end{itemize}
+
+The original questions were whether true SQR or conditional-phase SQR is the
+right primitive, which smooth envelope performs best, where the practical
+selectivity--decoherence optimum lies, and how far structured parametric pulses
+sit below the GRAPE upper bound.
+
+\subsection{Closed-system baseline conclusions}
+
+Figure~\ref{fig:baseline-core} reproduces the central original result. The
+conditional-phase target is dramatically easier than true SQR, and smooth
+single-tone envelopes already reach essentially unit conditional-phase fidelity
+in the practical regime.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{../figures/fidelity_vs_chi_t.pdf}
+    \caption{Reproduced baseline closed-system result from the original study.
+    Smooth single-tone envelopes rapidly approach unit conditional-phase SQR
+    fidelity, while true-SQR fidelity remains limited by spectator phases.}
+    \label{fig:baseline-core}
+\end{figure}
+
+The saved baseline data give the following concrete numbers:
+\begin{itemize}
+    \item Gaussian conditional-phase fidelity rises from $0.555$ at
+    $\chi T/2\pi = 0.5$ to $0.998$ at $2.0$ and $0.99999$ at $3.0$.
+    \item Cosine-squared performs best at intermediate duration, reaching
+    $0.9963$ already at $\chi T/2\pi = 1.5$, $0.9981$ at $2.0$, and
+    $0.999997$ at $3.0$.
+    \item Leakage across the full baseline scan stays below
+    $7.4\times 10^{-5}$, validating the effective two-level picture for the
+    qubit manifold.
+\end{itemize}
+
+The reproduced message is the same as in the original report: conditional-phase
+SQR, not strict true SQR, is the natural baseline primitive.
+
+\subsection{GRAPE, decoherence, and practical operating point}
+
+The original study also established three system-level facts that remain intact:
+
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{GRAPE is the proper upper bound.}
+    Saved GRAPE results give conditional-phase fidelity
+    $F_{\mathrm{GRAPE}} \approx 1$ for all scanned
+    $\chi T/2\pi \in \{1,2,3,5,7,10\}$, while true-SQR GRAPE is already
+    $0.8295$ at $\chi T/2\pi = 1$ and exceeds $0.987$ by $\chi T/2\pi = 3$.
+
+    \item \textbf{The practical open-system optimum is short and smooth.}
+    In the original Phase-5 data, the cosine-squared pulse achieved the best
+    net conditional-phase fidelity, peaking at $0.9845$ around
+    $\chi T/2\pi = 1.5$. Gaussian and multitone one-segment baselines peaked
+    near $\chi T/2\pi = 2.0$ at about $0.9814$.
+
+    \item \textbf{The original hardware-constrained GRAPE study did not see a DAC
+    or amplitude-ceiling bottleneck.}
+    The saved hardware-constrained and unconstrained GRAPE conditional-phase
+    fidelities are both numerically $1.0$ across the scan.
+\end{enumerate}
+
+These three points matter because they show the system is controllable enough
+for high-fidelity logical action; the main remaining problem is identifying the
+right \emph{structured} primitive below the GRAPE ceiling.
+
+\subsection{Generalized targets, optimized multitone, and all-branch behavior}
+
+The original extension phases refined the interpretation of that gap:
+
+\begin{itemize}
+    \item The generalized-target study showed that echoed sequences can improve a
+    block-phase-relaxed metric while hurting strict logical performance via
+    same-block loss and leakage.
+    \item The optimized single-branch multitone study improved the block-relaxed
+    fidelity substantially only at very short gate times; for
+    $\chi T/2\pi \ge 3$ it provided at most a marginal gain over the smooth
+    single-tone baseline.
+    \item The all-branch study produced the sharpest warning sign: DE$+$NM
+    multitone pulses reached $F_{\mathrm{block}} \ge 0.987$ but only
+    $F_{\mathrm{strict}} \le 0.27$, while GRAPE stayed at $F \ge 0.9999$.
+\end{itemize}
+
+Figure~\ref{fig:baseline-allbranch} reproduces that last point.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{../figures/allbranch_fidelity_comparison.pdf}
+    \caption{Reproduced original all-branch result. Parametric multitone pulses
+    can be very good under a block-phase-relaxed metric while remaining very far
+    from the strict logical unitary.}
+    \label{fig:baseline-allbranch}
+\end{figure}
+
+This all-branch gap motivated the follow-up: was the missing error mostly a
+cavity-only diagonal phase structure, or something deeper?
+
+\section{Part II: Phase-Compilation Follow-Up}
+
+\subsection{Reframed control objective}
+
+The new follow-up was organized around the compiled primitive
+\[
+U_{\mathrm{compiled}} \approx U_{\mathrm{diag}} U_{\mathrm{SQR}},
+\qquad
+U_{\mathrm{diag}} = \sum_n e^{i\phi_n} |n\rangle\langle n|.
+\]
+The key question was whether a cavity-only phase layer, combined with one global
+qubit virtual-$Z$, can recover most of the strict-logical gap left by the
+baseline waveforms.
+
+This defines three nested gauges:
+\begin{enumerate}[label=(\alph*)]
+    \item raw strict logical fidelity,
+    \item strict fidelity after one global qubit virtual-$Z$ and cavity-only
+    phase compilation,
+    \item branch-local-$Z$-relaxed fidelity, which serves as the upper bound if
+    the remaining defect is mostly per-branch qubit phase rather than bosonic
+    phase.
+\end{enumerate}
+
+\subsection{Follow-up cases}
+
+Two complementary follow-up cases were run.
+
+\paragraph{Single-target enlarged-window case.}
+The standard single-target $R_X(\pi)$ SQR on branch $n_0 = 1$ was re-evaluated on
+an enlarged logical window $n=0,\dots,7$ ($N=8$, $n_{\mathrm{cav}}=10$) for the
+Gaussian and cosine-squared families over
+$\chi T/2\pi \in \{1,2,3,5\}$.
+
+\paragraph{Representative short-gate structured all-branch case.}
+The previously defined Phase-B independent-tone all-branch multitone optimizer
+was re-run at $\chi T/2\pi = 0.5$ and $1.0$ to test whether cavity-only
+compilation can rescue a structured multitone family precisely where the
+original report suggested phase engineering might matter most.
+
+\subsection{Single-target SQR does induce a cavity-only phase profile, and it is almost perfectly linear}
+
+Figure~\ref{fig:phase-profile} shows the extracted cavity-only phase profile for
+the enlarged-window single-target problem. The phase is not only present; it is
+extremely smooth. Across both families and all scanned durations, the worst
+linear-fit RMS phase error is only $4.59\times 10^{-5}$ rad.
+
+At $\chi T/2\pi = 3$, both baselines are described to numerical precision by
+\[
+\phi(n) \approx -0.0684\,n \quad \text{rad},
+\]
+after gauge-fixing $\phi(0)=0$.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{../figures/phase_compilation_phase_profiles.pdf}
+    \caption{Follow-up phase extraction on the enlarged $N=8$ logical window.
+    The fitted cavity-only phase profile is essentially linear in photon number
+    for both Gaussian and cosine-squared single-target SQR.}
+    \label{fig:phase-profile}
+\end{figure}
+
+This is the strongest positive answer produced by the follow-up: in the
+single-target setting, the cavity-only phase profile is real, low-complexity,
+and naturally compilable.
+
+\subsection{Cavity-only compilation helps on larger logical windows, but it does not close the full gap}
+
+Figure~\ref{fig:single-recovery} summarizes the single-target compiled-control
+comparison.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{../figures/phase_compilation_single_target_recovery.pdf}
+    \caption{Follow-up compiled comparison on the enlarged $N=8$ logical
+    window. A linear cavity-only phase layer improves the strict logical action,
+    but does not reach the branch-local-$Z$-relaxed upper bound.}
+    \label{fig:single-recovery}
+\end{figure}
+
+The concrete improvements are:
+\begin{itemize}
+    \item Gaussian: $0.738 \to 0.755$ at $\chi T/2\pi = 1$ and
+    $0.927 \to 0.949$ at $\chi T/2\pi = 3$.
+    \item Cosine-squared: $0.777 \to 0.795$ at $\chi T/2\pi = 1$ and
+    $0.931 \to 0.954$ at $\chi T/2\pi = 3$.
+\end{itemize}
+
+The gain is small but systematic. The minimum improvement over the scan is
+$0.0167$, and for the practical regime $\chi T/2\pi \ge 2$ it remains above
+$0.0217$ for both families.
+
+However, cavity-only compilation does \emph{not} recover the full gap to the
+branch-local-$Z$-relaxed fidelity. At $\chi T/2\pi = 3$, the cosine-squared
+pulse reaches $F_{\mathrm{diag}} = 0.954$ after cavity-only compilation, while
+the branch-local-$Z$-relaxed upper bound is already $0.999998$.
+
+So the single-target follow-up gives a nuanced answer:
+\begin{quote}
+The strict-logical deficit is partly a cavity-phase problem, but not purely a
+cavity-phase problem.
+\end{quote}
+
+\subsection{Coherent superposition benchmarks improve after cavity-phase compilation}
+
+The enlarged-window coherence benchmark confirms that the compiled phase layer is
+not just improving an operator-overlap metric. At $\chi T/2\pi = 3$:
+\begin{itemize}
+    \item Gaussian pair-superposition fidelity improves from mean/min
+    $0.959/0.671$ to $0.974/0.868$.
+    \item Cosine-squared improves from mean/min $0.961/0.686$ to
+    $0.976/0.879$.
+\end{itemize}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.92\textwidth]{../figures/phase_compilation_superposition_benchmarks.pdf}
+    \caption{Follow-up coherent-superposition benchmark at $\chi T/2\pi = 3$ on
+    the enlarged $N=8$ logical window. A cavity-only compiled phase layer
+    improves both the mean and worst-case probe fidelity.}
+    \label{fig:coherence}
+\end{figure}
+
+\subsection{The representative all-branch short-gate problem is not a cavity-only phase-compilation problem}
+
+The same conclusion does not hold for the structured all-branch short-gate case.
+The representative Phase-B independent-tone optimizer gives:
+
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+$\chi T/2\pi$ & $F_{\mathrm{raw}}$ & $F_{\mathrm{diag}}$ & $F_{\mathrm{branchZ}}$ & $F_{\mathrm{GRAPE}}$ \\
+\midrule
+0.5 & 0.138 & 0.028 & 0.972 & 0.9999 \\
+1.0 & 0.058 & 0.059 & 0.565 & 1.0000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../figures/phase_compilation_allbranch_short_gate.pdf}
+    \caption{Follow-up all-branch short-gate comparison. Cavity-only bosonic
+    phase compilation does not rescue the strict logical action, while
+    branch-local-$Z$ freedom and GRAPE reveal a much larger reachable control
+    set.}
+    \label{fig:allbranch-short}
+\end{figure}
+
+At $\chi T/2\pi = 0.5$, the fitted cavity-only phase profile is irregular,
+\[
+\phi \approx (0,\ 1.50,\ -0.14,\ 1.36)\ \mathrm{rad},
+\]
+and applying it actually \emph{worsens} the strict logical fidelity. This means
+the structured all-branch short-gate failure mode is not a missing bosonic
+SNAP-like layer; it is a deeper branch-local qubit-phase and/or non-diagonal
+control problem.
+
+\section{Unified Interpretation}
+
+The combined baseline-plus-follow-up picture is now much clearer.
+
+\paragraph{What the original study already proved.}
+Smooth single-tone selective pulses, especially cosine-squared, are already
+excellent conditional-phase SQR primitives in the practical operating regime.
+GRAPE demonstrates that the system itself is not the bottleneck. The all-branch
+extension showed that phase structure matters and that block-relaxed success can
+severely overestimate strict logical quality.
+
+\paragraph{What the follow-up adds.}
+The missing strict-logical error is not of a single type.
+\begin{itemize}
+    \item For single-target SQR on larger logical windows, there is a real and
+    almost perfectly linear cavity-only phase profile. Compiling it helps.
+    \item But even there, the residual gap to the branch-local-$Z$ limit is
+    substantial, so cavity-only compilation is not the whole story.
+    \item For structured all-branch short-gate multitone control, cavity-only
+    compilation is the wrong correction class entirely.
+\end{itemize}
+
+So the strongest version of the hypothesis
+``the remaining strict-logical error is mostly a bosonic diagonal phase''
+is not supported uniformly across the study space. The correct statement is
+narrower and more useful:
+\begin{quote}
+Low-order cavity-phase compilation is a real, calibratable improvement for
+single-target SQR on larger logical windows, but the hardest structured
+multitone failures are not bosonic-phase problems.
+\end{quote}
+
+\section{Practical Recommendation}
+
+The unified experiment-facing recommendation is summarized in
+Table~\ref{tab:decision}.
+
+\begin{table}[t]
+\centering
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.5cm}ccccc>{\raggedright\arraybackslash}p{2.8cm}}
+\toprule
+Primitive & Nominal fidelity & Strict logical fidelity & Robustness & Hardware realism & Calibration complexity & Recommendation \\
+\midrule
+Single-tone cosine-squared SQR & $\approx 1.000$ conditional-phase / branch-local-$Z$ relaxed near $\chi T/2\pi = 2$--$3$ & High on the original $N=4$ window; $0.931$ on enlarged $N=8$ window at $\chi T/2\pi = 3$ & High in the original study & High & Low & Best immediate single-target primitive \\
+Cosine-squared SQR + linear cavity compilation & Same pulse plus fitted $\phi(n)\approx -0.068 n$ on enlarged window & $0.954$ on enlarged $N=8$ window at $\chi T/2\pi = 3$ & High & High & Medium & Best immediate compiled upgrade when inter-Fock coherence matters \\
+Optimized single-branch multitone & Helpful mainly at very short gate times; marginal gain for $\chi T/2\pi \ge 3$ & Similar to smooth single-tone in the practical regime & Medium & Medium & Medium & Secondary option; not a practical-regime winner \\
+Structured all-branch multitone + cavity compilation & Can look good under branch-local/block gauges & Fails badly in representative short-gate cases ($0.028$ at $\chi T/2\pi = 0.5$) & Unknown & Medium & Medium-high & Do not deploy as a bosonic-compiled primitive \\
+GRAPE pulse & $\approx 1.0$ & $\approx 1.0$ & Not yet fully mapped here & Medium & High & Long-term benchmark / control target \\
+\bottomrule
+\end{tabular}
+}
+\caption{Unified recommendation table for the reproduced original study and the
+new phase-compilation follow-up.}
+\label{tab:decision}
+\end{table}
+
+The practical decision is therefore:
+\begin{enumerate}[label=\arabic*.]
+    \item Use cosine-squared single-target SQR as the default experiment-facing
+    primitive in the practical $\chi T/2\pi \sim 2$--$3$ regime.
+    \item When logical windows are enlarged and inter-Fock coherence matters, add
+    a low-order cavity-only phase compilation layer; it is simple, low-complexity,
+    and demonstrably helpful.
+    \item Do not interpret poor short-gate structured all-branch performance as
+    evidence that ``only a SNAP layer is missing.'' In that regime the control
+    limitation is deeper.
+\end{enumerate}
+
+% ===========================================================================
+\section{Part III: Corrected-Parameterisation Multitone Optimisation}
+% ===========================================================================
+
+\subsection{Implemented Waveform Forms}
+
+\subsubsection{Single-Tone Rotation}
+
+A general single-tone qubit rotation has the form
+\begin{equation}
+w[k]
+=
+s\,w_0[k]\,
+e^{i\phi_{\mathrm{eff}}}\,
+e^{i\omega t_k},
+\end{equation}
+where
+\begin{align}
+\phi_{\mathrm{eff}} &= \phi + d_\alpha, \\
+s &= \frac{\theta}{\pi} + \frac{d_\lambda}{\lambda_0(T)},
+\qquad
+\lambda_0(T) = \frac{\pi}{2T}.
+\end{align}
+
+The physical IQ outputs are the real and imaginary parts:
+\begin{equation}
+I[k] = \Re\{w[k]\},
+\qquad
+Q[k] = \Im\{w[k]\}.
+\end{equation}
+
+The scale $s=1$ with $d_\lambda=0$ and $\theta=\pi$ recovers exactly the
+standard $\pi$-pulse amplitude $\lambda_0(T)=\pi/(2T)$. The shared base
+envelope $w_0[k]$ is the area-normalised Gaussian
+($\int_0^T w_0(t)\,dt = 1$), so the actual Rabi amplitude per tone is
+$s\,\lambda_0(T) = \theta/(2T) + d_\lambda$.
+
+\subsubsection{Multi-Tone Conditional Rotation}
+
+A conditional rotation is implemented as a superposition of tones,
+\begin{equation}
+w[k] = \sum_{n=0}^{n_{\max}-1} w_n[k],
+\end{equation}
+with each tone given by
+\begin{equation}
+w_n[k]
+=
+s_n\,w_0[k]\,
+e^{i\phi_{\mathrm{eff},n}}\,
+e^{i\omega_n t_k}.
+\end{equation}
+
+Here,
+\begin{align}
+s_n &= \frac{\theta_n}{\pi} + \frac{d_{\lambda,n}}{\lambda_0(T)}, \\
+\phi_{\mathrm{eff},n} &= \phi_n + d_{\alpha,n}, \\
+\omega_n &= \omega_{\mathrm{det},n} + \delta\omega_n.
+\end{align}
+
+A tone is included in the waveform only when $|s_n|$ is non-negligible
+($|s_n| > 10^{-4}$), rather than solely when $\theta_n \ne 0$.  This
+allows the optimiser to ``activate'' spectator-branch tones via the
+correction $d_{\lambda,n}$ alone, without needing to set a non-zero
+nominal rotation angle for that branch.
+
+\subsection{Free parameters and initial conditions}
+
+Each tone $n$ contributes three scalar correction parameters:
+\[
+\text{free} = \{d_{\lambda,n},\; d_{\alpha,n},\; \delta\omega_n\}_{n=0}^{n_{\max}-1}.
+\]
+For $n_{\max}=4$ tones this gives $3\times 4 = 12$ free parameters.
+
+The two study cases set the \emph{nominal} parameters as follows:
+
+\paragraph{Single-branch SQR / controlPhaseSQR.}
+Target branch $n_0=1$ has $\theta_{n_0}=\pi$, $\phi_{n_0}=0$; all
+spectator branches have $\theta_n=0$, $\phi_n=0$.  At zero corrections
+the pulse collapses to the standard single-tone Gaussian on branch $n_0$.
+
+\paragraph{All-branch simultaneous rotation.}
+All branches have $\theta_n=\pi$, $\phi_n=0$.  At zero corrections the
+pulse is the common-envelope equal-amplitude multitone previously studied.
+
+\subsection{Optimisation objectives}
+
+Two objectives are optimised independently:
+\begin{itemize}
+    \item \textbf{SQR}: maximise the strict logical fidelity
+    $F_{\mathrm{strict}} = |\mathrm{Tr}(U_{\mathrm{target}}^\dagger
+    U_{\mathrm{restricted}})|^2 / d^2$ where $d = 2n_{\max}$.
+    \item \textbf{controlPhaseSQR}: maximise the block-phase-relaxed
+    fidelity $F_{\mathrm{block}}$, which allows an independent virtual-$Z$
+    correction on each Fock branch.
+\end{itemize}
+
+Each optimisation uses a differential-evolution warm-start followed by
+adaptive Nelder--Mead (12 parameters, up to 500 function evaluations per
+Nelder--Mead run).
+
+\subsection{Results and interpretation}
+
+Results are stored in \texttt{data/simultaneous\_multitone\_results.npz}
+after running \texttt{scripts/run\_simultaneous\_multitone.py}.  The output
+contains the following key arrays for each of the four case--objective
+combinations (prefixes \texttt{sb\_sqr}, \texttt{sb\_cphase},
+\texttt{ab\_sqr}, \texttt{ab\_cphase}):
+
+\begin{itemize}
+    \item \texttt{*\_baseline\_*}: metrics with zero corrections (standard
+    single-tone / common-envelope multitone reference).
+    \item \texttt{*\_opt\_*}: metrics at the optimised corrections.
+    \item \texttt{*\_opt\_d\_lambdas}, \texttt{*\_opt\_d\_alphas},
+    \texttt{*\_opt\_delta\_omegas}: the optimised correction vectors
+    (shape $n_{\chi T}\times n_{\max}$).
+    \item \texttt{*\_opt\_s\_values}: the resulting scale vector $s_n$ at
+    the optimum (indicates which tones were activated).
+    \item \texttt{grape\_*\_fid}: GRAPE upper-bound fidelities at
+    $\chi T/2\pi \in \{1,2,3,5\}$.
+\end{itemize}
+
+The key questions this study answers are:
+\begin{enumerate}[label=\arabic*.]
+    \item Does allowing explicit amplitude corrections $d_{\lambda,n}$ to
+    activate spectator-branch tones improve the conditional-phase or strict
+    SQR fidelity beyond the single-tone Gaussian baseline?
+    \item For the all-branch target, do the three-correction-per-tone
+    degrees of freedom close any of the gap previously identified between
+    DE$+$NM multitone pulses and GRAPE?
+    \item How do the optimised $s_n$ values distribute across tones, and
+    which tones are actually activated by the optimiser?
+\end{enumerate}
+
+The $s_n$ vector provides an interpretable diagnostic: $s_n \approx 1$
+for the target tone and $s_n \approx 0$ for spectators at the
+single-tone baseline; non-zero spectator $s_n$ values reveal the degree
+to which cross-talk tones are beneficial.
+
+% ===========================================================================
+\section{Open Problems}
+
+The merged three-part report sharpens the next-step agenda:
+\begin{itemize}
+    \item Can the residual spectator branch-local qubit-$Z$ structure be
+    reduced by echoed or two-layer selective pulses without sacrificing the
+    favorable cavity-phase behavior identified in Part~II?
+    \item Does the corrected-parameterisation multitone (Part~III) close the
+    gap to GRAPE in the all-branch case, or does the structured-ansatz ceiling
+    persist?
+    \item How do the optimised correction vectors $(d_\lambda, d_\alpha,
+    \delta\omega)$ correlate with the linearly-fitted cavity-only phase profile
+    identified in Part~II?  Are they consistent with a single bosonic-phase
+    layer, or do they require genuine per-tone amplitude modulation?
+    \item How do the enlarged-window compiled results change under the more
+    realistic hardware-transfer and expanded noise models?
+\end{itemize}
+
+\section{Conclusion}
+
+The three study parts now fit together in a coherent hierarchy.  The baseline
+(Part~I) established that smooth conditional-phase SQR is already strong in the
+practical regime and that GRAPE provides a much higher ceiling than current
+structured ans\"atze.  The phase-compilation follow-up (Part~II) showed that a
+low-order cavity-only phase layer is genuinely useful for single-target SQR on
+larger logical windows, but that the hardest structured short-gate failures are
+not bosonic-phase problems.
+
+Part~III introduces a cleaner parameterisation language for that gap. The three
+per-tone corrections $(d_\lambda, d_\alpha, \delta\omega)$ expose, in a
+single 12-parameter family, both the standard single-tone limit (all spectator
+corrections zero) and the full common-envelope multitone limit (all $\theta_n$
+equal), with a smooth interpolation in between.  The resulting optimised pulses
+for both SQR and controlPhaseSQR targets provide the next quantitative reference
+point against which compiled cavity-phase strategies and GRAPE can be compared.
+
+The best experiment-facing primitive from Parts I--II remains
+\emph{cosine-squared single-target SQR, optionally compiled with a low-order
+linear cavity-only phase layer when coherence across a larger logical window
+matters}.  Part~III targets the unresolved bottleneck: whether principled
+per-tone amplitude and frequency corrections can further close that gap without
+the full complexity of GRAPE.
+
+\end{document}

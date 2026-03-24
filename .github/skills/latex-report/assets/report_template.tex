@@ -1,0 +1,113 @@
+\documentclass[aps,prl,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{siunitx}
+
+% SI units shortcuts for cQED
+\DeclareSIUnit\GHz{\giga\hertz}
+\DeclareSIUnit\MHz{\mega\hertz}
+\DeclareSIUnit\kHz{\kilo\hertz}
+\DeclareSIUnit\ns{\nano\second}
+\DeclareSIUnit\us{\micro\second}
+
+\begin{document}
+
+\title{STUDY TITLE}
+\author{Author Name}
+\affiliation{Shyam Shankar Quantum Circuits Group}
+\date{\today}
+
+\begin{abstract}
+% Brief summary of the study: system, method, key result.
+\end{abstract}
+
+\maketitle
+
+% ===================================================================
+\section{Motivation}
+% ===================================================================
+% What was studied and why.
+% For REP class: cite the original paper being reproduced.
+% For OPT class: describe the optimization target and its significance.
+
+
+% ===================================================================
+\section{System and Methods}
+% ===================================================================
+
+\subsection{Hamiltonian}
+% Write out the full Hamiltonian in the appropriate frame.
+% Example:
+% \begin{equation}
+%   \hat{H} / \hbar = \omega_q \hat{q}^\dagger \hat{q}
+%                    + \frac{\alpha}{2} \hat{q}^\dagger \hat{q}^\dagger \hat{q} \hat{q}
+%                    + \omega_s \hat{s}^\dagger \hat{s}
+%                    + \chi \hat{q}^\dagger \hat{q} \hat{s}^\dagger \hat{s}
+% \end{equation}
+
+\subsection{Parameters}
+% Table of all system parameters.
+% \begin{table}[h]
+% \caption{System parameters.\label{tab:params}}
+% \begin{ruledtabular}
+% \begin{tabular}{lcc}
+%   Parameter & Symbol & Value \\
+%   \hline
+%   Qubit frequency    & $\omega_q/2\pi$ & \SI{5.0}{\GHz} \\
+%   Anharmonicity      & $\alpha/2\pi$   & \SI{-200}{\MHz} \\
+%   Storage frequency   & $\omega_s/2\pi$ & \SI{7.5}{\GHz} \\
+%   Dispersive shift    & $\chi/2\pi$     & \SI{-1.5}{\MHz} \\
+% \end{tabular}
+% \end{ruledtabular}
+% \end{table}
+
+\subsection{Simulation Approach}
+% Describe the simulation method:
+% - Which cqed_sim model class was used
+% - Pulse sequences and drive configurations
+% - Hilbert space truncation dimensions
+% - Open vs. closed system (noise model if applicable)
+% - Solver settings (nsteps, tolerances)
+
+
+% ===================================================================
+\section{Results}
+% ===================================================================
+% Present quantitative findings with figures and tables.
+%
+% Include figures:
+% \begin{figure}[t]
+%   \includegraphics[width=\columnwidth]{../figures/FIGURE_NAME.pdf}
+%   \caption{Description.\label{fig:label}}
+% \end{figure}
+%
+% Reference: As shown in Fig.~\ref{fig:label}, ...
+
+
+% ===================================================================
+\section{Discussion}
+% ===================================================================
+% Physical interpretation of results.
+% Comparison to literature (percent error, fidelity agreement).
+% Limitations and potential sources of discrepancy.
+% Convergence summary.
+
+
+% ===================================================================
+\section{Conclusion}
+% ===================================================================
+% Summary of findings.
+% Potential follow-up work or open questions.
+
+
+% ===================================================================
+% References
+% ===================================================================
+\bibliographystyle{apsrev4-2}
+\bibliography{references}
+
+\end{document}

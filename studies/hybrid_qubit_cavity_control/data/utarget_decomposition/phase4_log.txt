@@ -1,0 +1,89 @@
+
+══════════ Library 1: D + QubitRotation + SQR ══════════
+
+  Synthesizing: L1a_D_R_SQR_d7
+    Gates: ['D1', 'R1', 'S1', 'D2', 'R2', 'S2', 'D3']
+    F_proj=0.88458  L_avg=0.1226  L_worst=0.1562  t=106.2s
+
+══════════ Library 2: D + QubitRotation + ConditionalPhaseSQR ══════════
+
+Progress: 1/6 ansatzes complete: ['L1a_D_R_SQR_d7']
+Run again (or with --only LABEL) to complete remaining ansatzes.
+[resume] loaded 1 existing results from checkpoint
+
+══════════ Library 1: D + QubitRotation + SQR ══════════
+
+  Synthesizing: L1b_D_R_SQR_d9
+    Gates: ['D1', 'R1', 'S1', 'R2', 'D2', 'R3', 'S2', 'R4', 'D3']
+    F_proj=0.89706  L_avg=0.1225  L_worst=0.1401  t=105.8s
+
+══════════ Library 2: D + QubitRotation + ConditionalPhaseSQR ══════════
+
+Progress: 2/6 ansatzes complete: ['L1a_D_R_SQR_d7', 'L1b_D_R_SQR_d9']
+Run again (or with --only LABEL) to complete remaining ansatzes.
+[resume] loaded 2 existing results from checkpoint
+
+══════════ Library 1: D + QubitRotation + SQR ══════════
+
+  Synthesizing: L1c_D_R_SQR_d11
+    Gates: ['D1', 'R1', 'S1', 'R2', 'D2', 'R3', 'S2', 'R4', 'D3', 'R5', 'S3']
+    F_proj=0.91926  L_avg=0.1014  L_worst=0.1364  t=163.9s
+
+══════════ Library 2: D + QubitRotation + ConditionalPhaseSQR ══════════
+
+Progress: 3/6 ansatzes complete: ['L1a_D_R_SQR_d7', 'L1b_D_R_SQR_d9', 'L1c_D_R_SQR_d11']
+Run again (or with --only LABEL) to complete remaining ansatzes.
+[resume] loaded 3 existing results from checkpoint
+
+══════════ Library 1: D + QubitRotation + SQR ══════════
+
+══════════ Library 2: D + QubitRotation + ConditionalPhaseSQR ══════════
+
+  Synthesizing: L2a_D_R_CP_d7
+    Gates: ['D1', 'R1', 'CP1', 'D2', 'R2', 'CP2', 'D3']
+    F_proj=0.67255  L_avg=0.0921  L_worst=0.1168  t=24.0s
+
+Progress: 4/6 ansatzes complete: ['L1a_D_R_SQR_d7', 'L1b_D_R_SQR_d9', 'L1c_D_R_SQR_d11', 'L2a_D_R_CP_d7']
+Run again (or with --only LABEL) to complete remaining ansatzes.
+[resume] loaded 4 existing results from checkpoint
+
+══════════ Library 1: D + QubitRotation + SQR ══════════
+
+══════════ Library 2: D + QubitRotation + ConditionalPhaseSQR ══════════
+
+  Synthesizing: L2b_D_R_CP_d9
+    Gates: ['D1', 'R1', 'CP1', 'R2', 'D2', 'R3', 'CP2', 'R4', 'D3']
+    F_proj=0.68578  L_avg=0.3523  L_worst=0.4613  t=26.8s
+
+Progress: 5/6 ansatzes complete: ['L1a_D_R_SQR_d7', 'L1b_D_R_SQR_d9', 'L1c_D_R_SQR_d11', 'L2a_D_R_CP_d7', 'L2b_D_R_CP_d9']
+Run again (or with --only LABEL) to complete remaining ansatzes.
+[resume] loaded 5 existing results from checkpoint
+
+══════════ Library 1: D + QubitRotation + SQR ══════════
+
+══════════ Library 2: D + QubitRotation + ConditionalPhaseSQR ══════════
+
+  Synthesizing: L2c_D_R_CP_d11
+    Gates: ['D1', 'R1', 'CP1', 'R2', 'D2', 'R3', 'CP2', 'R4', 'D3', 'R5', 'CP3']
+    F_proj=0.87407  L_avg=0.1236  L_worst=0.1607  t=39.3s
+
+Progress: 6/6 ansatzes complete: ['L1a_D_R_SQR_d7', 'L1b_D_R_SQR_d9', 'L1c_D_R_SQR_d11', 'L2a_D_R_CP_d7', 'L2b_D_R_CP_d9', 'L2c_D_R_CP_d11']
+
+
+══════════ Phase 4 Summary ══════════
+Label                            F_proj   L_avg  L_worst  Depth     t(s)
+------------------------------------------------------------------------
+L1a_D_R_SQR_d7                  0.88458  0.1226   0.1562      7    106.2
+L1b_D_R_SQR_d9                  0.89706  0.1225   0.1401      9    105.8
+L1c_D_R_SQR_d11                 0.91926  0.1014   0.1364     11    163.9
+L2a_D_R_CP_d7                   0.67255  0.0921   0.1168      7     24.0
+L2b_D_R_CP_d9                   0.68578  0.3523   0.4613      9     26.8
+L2c_D_R_CP_d11                  0.87407  0.1236   0.1607     11     39.3
+
+Best per library:
+  Library 1 (D+R+SQR): L1c_D_R_SQR_d11  F=0.91926
+  Library 2 (D+R+CP): L2c_D_R_CP_d11  F=0.87407
+
+Results written to C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cqed_based_study\studies\utarget_cqed_decomposition\data\phase4_results.json
+Figures saved to   C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cqed_based_study\studies\utarget_cqed_decomposition\figures
+Phase 4 complete.

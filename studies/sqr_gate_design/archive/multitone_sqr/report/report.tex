@@ -1,0 +1,335 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\title{Simultaneous Multitone SQR in Dispersive cQED:\\
+When One Common Waveform Can and Cannot Drive Multiple Branches}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Motivation}
+
+The earlier SQR waveform study showed that strict logical performance can fail
+even when relaxed branchwise metrics look strong. This follow-up asks a harder
+question: can one common multitone waveform implement \emph{multiple} selective
+qubit rotations at the same time? If the answer is no for the simplest family,
+we also want to know whether the failure is primarily:
+\begin{enumerate}
+    \item a removable cavity block-phase profile,
+    \item a simple pulse-calibration problem,
+    \item or a deeper limitation of the common Gaussian multitone ansatz.
+\end{enumerate}
+
+The key scientific caution in this study is that fidelity alone can be
+misleading for small target angles. If a pulse acts almost like identity, then
+it can still score well against a small-angle target simply because the target
+itself is close to identity. We therefore benchmark both fidelity and the
+actually executed target-branch rotation angle.
+
+\section{System \& Methods}
+
+We model a dispersive transmon-cavity system with
+\[
+\omega_q = 2\pi \times 6.150~\mathrm{GHz}, \qquad
+\omega_c = 2\pi \times 5.241~\mathrm{GHz}, \qquad
+\alpha = 2\pi \times (-255~\mathrm{MHz}), \qquad
+\chi = 2\pi \times (-2.84~\mathrm{MHz}).
+\]
+The logical cavity window is \(n = 0,1,2,3\). The main targeted-subspace study
+uses \(n_{\mathrm{tr}}=2\) and \(n_{\mathrm{cav}}=6\), because the current
+`cqed\_sim` targeted-subspace multitone workflow evaluates conditioned qubit
+metrics through a two-level reduced qubit state. Representative waveforms are
+then replayed on \(n_{\mathrm{tr}}=3\) to estimate \(|f\rangle\) leakage.
+
+We study four simultaneous target sets:
+\[
+\{0,1\}, \qquad \{0,2\}, \qquad \{0,1,2\}, \qquad \{0,1,2,3\},
+\]
+with target rotation angles
+\[
+\theta/\pi \in \{1/8,\, 1/4,\, 1/2,\, 1\},
+\]
+always around the \(X\) axis. The duration scan uses
+\[
+\chi T / 2\pi \in \{1,2,3,5\}.
+\]
+
+For each point we compute:
+\begin{itemize}
+    \item reduced conditioned multitone fidelity,
+    \item strict logical targeted-subspace fidelity,
+    \item best-fit cavity block-phase compiled fidelity,
+    \item state-transfer fidelity,
+    \item same-block population preservation,
+    \item best-fit cavity block phases,
+    \item and the mean simulated target-branch Bloch angle \(\bar{\theta}_{\rm sim}\).
+\end{itemize}
+
+We additionally test three correction ideas on a representative hard case
+(pair target \(\{0,1\}\), \(\theta=\pi\), \(\chi T/2\pi = 3\)):
+\begin{enumerate}
+    \item common target-tone amplitude correction \(\Delta \lambda\),
+    \item multistart amplitude/phase/detuning optimization,
+    \item naive repeated-step compilation using eight compiled \(\pi/8\) steps.
+\end{enumerate}
+
+Validation includes sanity checks, convergence checks in \(dt\) and
+\(n_{\mathrm{cav}}\), and qutrit replay spot-checks.
+
+\section{Results}
+
+\subsection{Baseline Fidelity Maps Are Misleading Without an Angle-Response Diagnostic}
+
+Figure~\ref{fig:conditioned} shows the reduced conditioned fidelity over the full
+scan. Taken at face value, the plots could suggest that simultaneous multitone
+SQR is good for small angles and only breaks down for large angles.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{../figures/simultaneous_multitone_conditioned_heatmaps.png}
+    \caption{Reduced conditioned fidelity for simultaneous multitone targets.
+    Fidelity decreases with requested angle, but this plot alone does not tell us
+    whether the pulse is really implementing the requested rotation or merely
+    staying close to identity.}
+    \label{fig:conditioned}
+\end{figure}
+
+The crucial correction is Figure~\ref{fig:angle-response}. At the representative
+\(\chi T/2\pi = 3\) slice, the mean simulated target angle is tiny:
+\[
+\bar{\theta}_{\rm sim}/\pi \sim 10^{-5}\text{--}10^{-4},
+\]
+even when the requested target is \(\theta=\pi\). For the pair-adjacent case
+\(\{0,1\}\), the target-angle response ratios are
+\[
+\bar{\theta}_{\rm sim}/\theta \approx
+2.23\times 10^{-4},\;
+2.23\times 10^{-4},\;
+2.22\times 10^{-4},\;
+2.20\times 10^{-4}
+\]
+for \(\theta/\pi = 1/8, 1/4, 1/2, 1\), respectively. The other target sets show
+the same behavior at the \(10^{-4}\) level.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.74\textwidth]{../figures/simultaneous_multitone_target_angle_response.png}
+    \caption{Actual target-angle response at \(\chi T/2\pi = 3\). The ideal
+    diagonal line would mean the waveform implements the requested rotation. The
+    simulated response instead stays near zero for every simultaneous target set,
+    so the nominal ``good'' small-angle fidelity is mostly trivial identity
+    overlap.}
+    \label{fig:angle-response}
+\end{figure}
+
+This changes the interpretation completely: the common Gaussian simultaneous
+multitone family is not a successful multi-SQR pulse that merely struggles at
+large angle. It is, to leading order, an almost-identity pulse on every block.
+The apparently strong small-angle performance arises because \(R_X(\theta)\) is
+itself close to identity for small \(\theta\).
+
+\subsection{Strict Logical Validation Shows Block Preservation Without Useful Rotation}
+
+Figure~\ref{fig:strict} gives the strict targeted-subspace logical fidelity.
+The scan is nearly independent of \(\chi T/2\pi\) over the explored range:
+changing duration from \(1\) to \(5\) improves the representative pair-target
+\(\theta=\pi\) strict fidelity only from \(0.2476\) to \(0.2483\).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{../figures/simultaneous_multitone_strict_heatmaps.png}
+    \caption{Strict logical targeted-subspace fidelity. These values are lower
+    than the reduced conditioned metrics, but the same qualitative warning
+    remains: small-angle numbers are dominated by identity overlap, while
+    large-angle simultaneous targets fail strongly.}
+    \label{fig:strict}
+\end{figure}
+
+Representative \(\chi T/2\pi=3\) strict fidelities are:
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.0cm}cccc}
+\toprule
+Target set & \(\theta/\pi=1/8\) & \(1/4\) & \(1/2\) & \(1\) \\
+\midrule
+\(\{0,1\}\) & 0.9759 & 0.9205 & 0.7242 & 0.2477 \\
+\(\{0,2\}\) & 0.9759 & 0.9205 & 0.7244 & 0.2479 \\
+\(\{0,1,2\}\) & 0.9664 & 0.8843 & 0.6051 & 0.0616 \\
+\(\{0,1,2,3\}\) & 0.9570 & 0.8490 & 0.4970 & \(3.8\times 10^{-7}\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+These values look respectable for small \(\theta\), but Figure~\ref{fig:angle-response}
+shows that they do \emph{not} correspond to correct simultaneous rotations.
+
+At the same time, the pulse preserves cavity blocks extremely well: the minimum
+same-block population mean over the whole scan is
+\[
+0.999998207.
+\]
+Representative qutrit replay spot-checks also show tiny transmon leakage, with a
+maximum observed \(|f\rangle\) population of only
+\[
+7.08\times 10^{-9}.
+\]
+So the dominant failure is neither block mixing nor obvious qutrit leakage. The
+waveform simply fails to generate the requested qubit rotations.
+
+\subsection{Cavity Block-Phase Compilation Is Real but Secondary}
+
+The best-fit cavity block-phase profile is extremely regular. At
+\(\chi T/2\pi = 3\), a representative best-fit phase vector is approximately
+\[
+\phi_n \approx (0,\,-0.03267,\,-0.06535,\,-0.09802)\ {\rm rad},
+\]
+which is nearly linear in \(n\). However, the compiled gain remains tiny:
+the largest best-fit cavity-compilation gain anywhere in the scan is only
+\[
+\Delta F_{\rm comp}^{\max} = 1.47\times 10^{-3}.
+\]
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{../figures/simultaneous_multitone_compiled_gain_heatmaps.png}
+    \caption{Best-fit cavity-only compilation gain. The induced block phase is
+    smooth and real, but correcting it changes the conclusion only at the
+    \(10^{-3}\) level. This is not primarily a cavity-phase-compilation problem.}
+    \label{fig:gain}
+\end{figure}
+
+So a cavity phase exists, but it is not the main obstacle. The main obstacle is
+that the common waveform does not perform the intended block-local rotation in
+the first place.
+
+\subsection{Simple Pulse Corrections Do Not Rescue the Hard Regime}
+
+Figure~\ref{fig:corrections} summarizes the correction studies for the hard
+pair-target \(\pi\)-gate at \(\chi T/2\pi=3\).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{../figures/simultaneous_multitone_correction_checks.png}
+    \caption{Correction checks for the representative hard case. Left:
+    sweeping a common target-tone amplitude correction is essentially flat.
+    Middle: broad multistart amplitude/phase/detuning correction remains stuck
+    near the same reduced fidelity. Right: qutrit replay spot-checks confirm the
+    failure is not driven by large \(|f\rangle\) leakage.}
+    \label{fig:corrections}
+\end{figure}
+
+The explicit results are:
+\begin{itemize}
+    \item Sweeping a common target-tone amplitude correction
+    \(\Delta \lambda \in [-1.5, 3.0]\) changes the reduced mean fidelity only
+    from \(0.50000000\) to \(0.50000007\).
+    \item Three multistart waveform-side optimizations over amplitude, phase,
+    and detuning reach a best reduced fidelity of only \(0.50000040\). The
+    best corresponding strict logical fidelity is \(0.231997\), actually below
+    the raw baseline strict fidelity \(0.247713\).
+    \item Thus, simple pulse correction within this ansatz does not rescue the
+    simultaneous \(\pi\)-gate regime.
+\end{itemize}
+
+\subsection{Naive Repeated Small-Angle Compilation Also Fails}
+
+One possible fallback idea is to use many high-fidelity small-angle primitives
+instead of one direct \(\pi\) pulse. We tested this by composing the best-fit
+cavity-compiled restricted operator for the \(\pi/8\) step eight times and
+comparing the resulting logical operator with the desired direct \(\pi\) target.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.72\textwidth]{../figures/simultaneous_multitone_segmented_vs_direct.png}
+    \caption{Naive repeated-step compilation is not enough. Eight compiled
+    \(\pi/8\) steps do not outperform the already-bad direct \(\pi\) gate for
+    either the pair or triple target sets.}
+    \label{fig:segmented}
+\end{figure}
+
+The resulting operator-level fidelities are:
+\[
+F_{\rm seg}^{\{0,1\}} = 0.1546, \qquad
+F_{\rm seg}^{\{0,1,2\}} = 0.0311,
+\]
+compared with direct-\(\pi\) strict fidelities \(0.2477\) and \(0.0616\),
+respectively. Naive repeated small steps therefore do not solve the problem.
+
+\section{Discussion}
+
+The central conclusion is that the common Gaussian simultaneous multitone family
+studied here is \emph{not} a practical simultaneous multi-SQR primitive. The
+strongest evidence is not the fidelity maps alone but the explicit target-angle
+response: the waveform leaves every target branch almost unrotated, with only a
+tiny \(O(10^{-4})\) fractional response to the requested angle.
+
+This also explains several otherwise puzzling features:
+\begin{itemize}
+    \item Pair-adjacent and pair-separated targets perform almost identically,
+    so nearest-neighbor branch crowding is not the main issue.
+    \item Increasing \(\chi T/2\pi\) over the scanned range barely changes the
+    outcome, so duration alone does not fix the ansatz.
+    \item The cavity block phase is smooth and nearly linear, but correcting it
+    helps only at the \(10^{-3}\) level because the principal defect is missing
+    rotation, not missing phase compilation.
+    \item Tiny qutrit leakage and excellent same-block preservation show that
+    the pulse is coherent and block-preserving; it is just the wrong coherent
+    action.
+\end{itemize}
+
+From an experiment-facing control perspective, the lesson is very specific:
+before trusting any simultaneous-target fidelity metric, one must calibrate the
+actual target-branch angle response. In this study, the nominal parameter
+\(\theta\) in the simultaneous common-waveform builder is not a reliable proxy
+for the executed branch rotation.
+
+The likely next steps are therefore not more minor corrections to this exact
+family, but richer waveform classes:
+\begin{enumerate}
+    \item segmented simultaneous pulses with independently shaped subwindows,
+    \item explicitly time-dependent tone phases or chirps,
+    \item or direct optimal control constrained by hardware bandwidth.
+\end{enumerate}
+Only after such a waveform already produces the correct block-local rotations
+does cavity phase compilation become a meaningful secondary cleanup layer.
+
+\section{Conclusion}
+
+The study answers the original question in a fairly decisive way.
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.0cm}p{2.2cm}p{2.4cm}p{5.0cm}}
+\toprule
+Primitive idea & Verdict & Main issue & Recommendation \\
+\midrule
+Direct common Gaussian simultaneous multitone SQR & Not viable & Target branches barely rotate; fidelity can look good only because small-angle targets are near identity & Do not deploy as a simultaneous multi-SQR gate \\
+Direct pulse + cavity block-phase compilation & Not enough & Compilation gain is only \(O(10^{-3})\) & Use only after a better waveform family is found \\
+Simple amplitude correction & Not enough & Response is essentially flat in the hard regime & Not worth pursuing alone \\
+Broad multistart amplitude/phase/detuning correction & Not enough & No meaningful gain over baseline & Treat as evidence of ansatz limitation, not just poor initialization \\
+Naive repeated small-angle compilation & Not enough & Composition of weak near-identity steps does not build the desired \(\pi\) gate & Do not use without a richer inter-step compilation strategy \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The best immediate recommendation is:
+\begin{quote}
+Do \emph{not} use the common Gaussian simultaneous multitone family as an
+experiment-facing simultaneous multi-SQR primitive. Move instead to richer
+segmented or optimal-control waveforms, and evaluate them with explicit
+target-angle response diagnostics in addition to fidelity.
+\end{quote}
+
+The most important unresolved bottleneck is not cavity phase. It is the absence
+of a waveform family that can produce the desired simultaneous block-local
+rotations at all.
+
+\end{document}

@@ -1,0 +1,245 @@
+\documentclass[twocolumn,prl,aps,floatfix]{revtex4-2}
+\usepackage{amsmath,amssymb,graphicx,bm,booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\graphicspath{{../figures/}}
+
+\begin{document}
+
+\title{Open-System Selective Qubit Rotation in Dispersive cQED:\
+Realistic Noise, Purcell Limits, and Three-Mode Readout Backaction}
+
+\author{Open-System SQR Deep-Dive Study}
+\affiliation{cQED Autonomous Research Platform}
+
+\date{\today}
+
+\begin{abstract}
+Selective qubit rotation (SQR) in dispersive circuit QED was previously benchmarked in this
+repository only against a simplified open-system model with a single transmon lifetime and no
+explicit thermal-storage, Purcell, or concurrent-readout effects. In this follow-on study we replay
+the main SQR pulse families under realistic Lindblad noise using \texttt{cqed\_sim}, estimate the
+Purcell-limited relaxation budget from the nominal readout chain, propagate representative controls
+through a full three-mode transmon--storage--readout model, and compare the best parametric baseline
+against closed-system GRAPE controls replayed through the same noisy simulator path. The main outcome
+is that the square-family parametric SQR remains the strongest practical baseline under the representative
+multilevel and thermal-noise assumptions used here, with a peak realistic-noise target fidelity of
+$0.944$ near $|\chi_s|T/2\pi = 1$. The Purcell filter keeps the measurement chain from dominating the
+transmon lifetime budget by moving the estimated Purcell-limited $T_1$ from the $1.66$--$166\,\mu$s range
+to the $2.9\times 10^5$--$2.9\times 10^9\,\mu$s range over the detuning sweep. The GRAPE study confirms
+that near-unit closed-system objective fidelity survives noisy replay when the archived controls are
+evaluated through the stabilized simulator-backed schedule path: the representative noisy target fidelities
+are $0.978$, $0.958$, $0.941$, and $0.907$ at $|\chi_s|T/2\pi = 1, 2, 3, 5$, outperforming the strongest
+parametric baseline across that sampled window. The three-mode analysis shows that concurrent readout degrades the
+reduced logical fidelity from $0.822$ to $0.632$ as the readout amplitude is increased from
+$0.5$ to $2.5\,$MHz even in the conservative initial regime with $\chi_{sr}=0$.
+\end{abstract}
+
+\maketitle
+
+\section{Motivation}
+
+Dispersive control in circuit QED is governed by a tradeoff between selectivity and decoherence.
+In the completed \texttt{sqr\_pulse\_waveform\_design} study, the central control question was answered in the
+closed system: smooth parametric SQR pulses can realize high-fidelity conditional qubit rotations on one storage
+branch, with the square-family baseline remaining particularly competitive. That study also included a simplified
+open-system replay, but the noise model intentionally collapsed several device-relevant effects into a single
+transmon $T_1=T_2=20\,\mu\mathrm{s}$ approximation. The missing pieces are precisely the ones that matter for a realistic
+device recommendation: explicit multilevel relaxation, storage thermal occupation, Purcell-limited decay tied to the
+measurement chain, and concurrent readout in the full three-mode model \cite{Blais2021,Krantz2019,Boissonneault2009}.
+
+The present study addresses that gap using the existing \texttt{cqed\_sim} framework rather than ad hoc solvers.
+The goal is not merely to produce another fidelity scan, but to answer four practical questions: which noise channels
+actually move the preferred SQR operating window, whether the readout chain introduces a serious Purcell or spectator
+penalty, whether GRAPE retains an advantage once realistic noise is included, and whether the simplified open-system
+story from the original study survives contact with a more complete model.
+
+\section{System \& Methods}
+
+\subsection{Dispersive models and pulse families}
+
+For two-mode replays we use the dispersive transmon--storage model implemented by
+\texttt{DispersiveTransmonCavityModel}, with device constants inherited from the repository defaults:
+\begin{align}
+    \omega_q / 2\pi &= 6.150~\mathrm{GHz}, & \omega_s / 2\pi &= 5.241~\mathrm{GHz}, \\
+    \alpha / 2\pi &= -255~\mathrm{MHz}, & \chi_s / 2\pi &= -2.84~\mathrm{MHz}, \\
+    \chi' / 2\pi &= -21~\mathrm{kHz}, & K_s / 2\pi &= -28~\mathrm{kHz}.
+\end{align}
+The initial three-mode replay uses \texttt{DispersiveReadoutTransmonStorageModel} with
+\(\omega_r / 2\pi = 8.597~\mathrm{GHz}\), \(\kappa_r / 2\pi = 2.4~\mathrm{MHz}\), and the conservative baseline
+assumption \(\chi_r = \chi_s\), \(\chi_{sr}=0\).
+
+The parametric pulse comparison reuses the main families from the completed SQR study:
+single-tone Gaussian, square, cosine-squared, and one-segment multitone Gaussian envelopes.
+Each family is replayed over the dimensionless duration grid
+\begin{equation}
+    |\chi_s|T / 2\pi \in \{0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 10.0\}.
+\end{equation}
+The representative three-mode concurrent-readout study focuses on the square,
+cosine-squared, and multitone families at
+\( |\chi_s|T / 2\pi \in \{1.5, 3.0, 5.0\}\) and readout amplitudes
+\(\epsilon_r / 2\pi \in \{0.5, 1.0, 2.5\}\,\mathrm{MHz}\).
+
+\subsection{Noise model and Purcell analysis}
+
+The improved open-system replay uses the \texttt{NoiseSpec} interface directly. Instead of one aggregate transmon lifetime,
+the realistic baseline treats the transmon as a multilevel subsystem with
+\begin{equation}
+    T_{1,ge} \in [20, 50]~\mu\mathrm{s}, \qquad T_{1,fe} \in [5, 15]~\mu\mathrm{s},
+\end{equation}
+while storage loss is parameterized by \(\kappa_s / 2\pi = 10~\mathrm{kHz}\) and the storage thermal occupation is scanned over
+\(n_{\mathrm{th},s} \in \{0.00, 0.01, 0.02, 0.05, 0.10\}\). For the three-mode study we additionally include storage and readout
+pure dephasing via \(T_{\phi,s}=80~\mu\mathrm{s}\) and \(T_{\phi,r}=20~\mu\mathrm{s}\).
+
+The readout-chain analysis uses \texttt{ReadoutChain}, \texttt{ReadoutResonator}, and \texttt{PurcellFilter} from
+\texttt{cqed\_sim}. Purcell rates are estimated with and without a matched filter bandwidth, while backaction is evaluated on
+an initial qubit superposition subject to both measurement dephasing and Purcell relaxation during a finite interaction window.
+
+\subsection{GRAPE replay and validation protocol}
+
+Closed-system references are built from \texttt{build\_control\_problem\_from\_model} and solved with \texttt{GrapeSolver}
+using piecewise-constant qubit quadratures \cite{Khaneja2005}. The archived controls are then replayed under the same realistic
+noise assumptions as the parametric pulses through \texttt{evaluate\_control\_with\_simulator(...)}, which evaluates the stored
+control schedule directly through the runtime simulator rather than inserting an extra pulse-export hop. This is the supported
+\texttt{cqed\_sim}-first route for the documented partial-support gap around directly optimizing a fully noisy SQR objective.
+
+Validation follows the repository three-check gate: sanity checks on monotonic loss trends and Purcell filtering, representative
+convergence checks against smaller time steps and larger Hilbert-space truncations, and consistency checks between saved archives and
+fresh representative reruns.
+
+\section{Results}
+
+\subsection{Realistic-noise replay of parametric SQR families}
+
+Figure~\ref{fig:legacy_multilevel} compares the legacy single-$T_1$ replay against the representative explicit multilevel model.
+The practical conclusion is that realistic transmon relaxation degrades all families in a controlled but non-negligible way, without
+reordering the dominant parametric baseline. The square-family pulse remains the best practical replayed family once realistic storage
+thermal occupation is included: for the representative multilevel point $(T_{1,ge},T_{1,fe})=(30,10)\,\mu$s its mean target fidelity
+averaged over $1 \le |\chi_s|T/2\pi \le 5$ is $0.898$, compared with $0.891$ for cosine-squared and $0.877$ for both Gaussian-style
+families. At $|\chi_s|T/2\pi = 2$ the square-family replay moves from $0.919$ in the legacy model to $0.924$ in the explicit multilevel
+model, so the main effect of the more realistic replay is not a qualitative family reordering but a sharper identification of the
+practical operating window.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig1_legacy_and_multilevel.pdf}
+  \caption{Legacy open-system SQR replay versus an explicit multilevel transmon-relaxation model. The left panel shows the target-state
+  fidelity window under the legacy noise model, while the right panel shows the fidelity shift induced by the representative
+  multilevel relaxation point \((T_{1,ge}, T_{1,fe}) = (30,10)\,\mu\mathrm{s}\).}
+  \label{fig:legacy_multilevel}
+\end{figure}
+
+Figure~\ref{fig:thermal_branch} shows two complementary views of the same result: the thermal-occupation sensitivity at a representative
+duration and the branch-resolved fidelity profile of the best practical family. The thermal sweep isolates when storage heating begins to
+change the recommended operating region, while the branch plot shows how that recommendation is tied to spectator suppression rather than
+only to average block fidelity. For the representative square-family replay at $|\chi_s|T/2\pi = 2$, the mean target fidelity decreases
+from $0.924$ at $n_{\mathrm{th},s}=0$ to $0.921$ at $n_{\mathrm{th},s}=0.02$ and $0.909$ at $n_{\mathrm{th},s}=0.10$. Over the full
+duration sweep with $n_{\mathrm{th},s}=0.02$, the best realistic-noise operating point remains a short square-family gate near
+$|\chi_s|T/2\pi = 1$ with mean target fidelity $0.944$.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig2_thermal_and_branch.pdf}
+  \caption{Thermal-storage sensitivity and branch-resolved target fidelity. The left panel plots the realistic-noise fidelity at fixed
+  \(|\chi_s|T/2\pi\) as a function of storage thermal occupation, while the right panel resolves the branch selectivity of the strongest
+  parametric family under the legacy replay.}
+  \label{fig:thermal_branch}
+\end{figure}
+
+\subsection{Purcell budget and readout-chain backaction}
+
+The readout-chain analysis in Fig.~\ref{fig:purcell_backaction} separates two questions that are often conflated. First, does the nominal
+readout chain threaten the qubit lifetime through Purcell decay? Second, even if the Purcell budget is acceptable, how strongly does the
+readout drive dephase or relax the qubit during a finite interaction window? The filter substantially improves the Purcell-limited lifetime,
+which keeps the measurement chain from dominating the baseline intrinsic transmon decay in the detuning range of interest: without the
+filter the extracted Purcell-limited lifetime spans $1.66$--$166\,\mu$s, whereas with the filter it spans roughly
+$2.9\times 10^5$--$2.9\times 10^9\,\mu$s over the same detuning sweep. The backaction panel then quantifies the expected reduction of
+qubit coherence and the increase of excited-state loss with longer interaction times and stronger readout amplitudes.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig3_purcell_and_backaction.pdf}
+  \caption{Purcell and backaction analysis from the nominal readout chain. Left: Purcell-limited \(T_1\) versus qubit--readout detuning with and
+  without a matched filter. Middle: qubit coherence retained after readout backaction. Right: excited-state population after the same backaction
+  replay.}
+  \label{fig:purcell_backaction}
+\end{figure}
+
+\subsection{Three-mode spectator effects and GRAPE replay}
+
+The three-mode replay, Fig.~\ref{fig:three_mode}, isolates the performance penalty from applying readout concurrently with SQR. Even under the
+conservative initial assumption \(\chi_{sr}=0\), the reduced logical fidelity falls markedly as the readout amplitude increases, showing that the
+dominant effect is not direct storage heating but spectator degradation mediated by the full transmon--storage--readout dynamics. Under the same
+assumptions, the storage-only coherence metric remains close to unity, which is consistent with the interpretation that the largest penalty in this
+initial model comes from concurrent control conflict rather than from a large direct storage-dephasing channel. For the representative square-family
+replay at $|\chi_s|T/2\pi = 3$, the reduced fidelity decreases from $0.822$ to $0.726$ to $0.632$ as the readout amplitude is increased from
+$0.5$ to $1.0$ to $2.5\,$MHz, while the storage-coherence ratio remains near $0.961$ across the same sweep.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig4_three_mode_readout.pdf}
+  \caption{Three-mode concurrent-readout replay. Left: reduced qubit--storage target fidelity versus readout amplitude for representative SQR
+  families. Right: storage-coherence ratio under the readout-only dephasing proxy used in the conservative \(\chi_{sr}=0\) baseline.}
+  \label{fig:three_mode}
+\end{figure}
+
+Figure~\ref{fig:grape_vs_parametric} compares the best practical parametric family against GRAPE-derived closed-system controls replayed through the
+same realistic noise channel. The important result is not simply that GRAPE reaches near-unit nominal objective fidelity, but that this closed-system
+advantage survives realistic replay once the archived controls are evaluated through the stabilized simulator-backed path. The optimized controls report objective fidelities of $0.9997$ or better
+across the representative duration grid, and the stabilized simulator-backed replay now yields noisy target fidelities
+$0.978$, $0.958$, $0.941$, and $0.907$ at $|\chi_s|T/2\pi = 1, 2, 3, 5$, respectively. Relative to the square-family baseline at
+$n_{\mathrm{th},s}=0.02$, the noisy GRAPE advantage is therefore positive at every sampled point, ranging from
+$3.4\times 10^{-2}$ at $|\chi_s|T/2\pi = 1$ to $8.3\times 10^{-2}$ at $|\chi_s|T/2\pi = 5$. The operational question shifts from
+``does GRAPE survive realistic replay at all?'' to whether that realized gain is worth the additional optimization cost at the operating point of interest.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig5_grape_vs_parametric.pdf}
+  \caption{Best parametric baseline versus noisy GRAPE replay. Left: representative realistic-noise target fidelity versus duration. Right: GRAPE
+  nominal objective fidelity, GRAPE noisy replay fidelity, and the noisy advantage relative to the strongest parametric family.}
+  \label{fig:grape_vs_parametric}
+\end{figure}
+
+If the representative convergence checks are summarized graphically, they appear in Fig.~\ref{fig:convergence}; otherwise the same data are recorded in
+the study convergence archive.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig6_convergence.pdf}
+  \caption{Representative convergence deltas for the two-mode, three-mode, and GRAPE replay checks. The dashed line marks the nominal \(5\times 10^{-4}\)
+  target used in the study README.}
+  \label{fig:convergence}
+\end{figure}
+
+\section{Discussion}
+
+The central physical lesson from this study is that the dominant open-system penalties are not all equally important. The Purcell analysis shows that the
+nominal filtered readout chain need not dominate the transmon lifetime budget, so a simple \emph{a priori} claim that measurement hardware sets the control
+limit would be too strong. By contrast, the explicit multilevel transmon relaxation and storage thermal-occupation replays do move the realized fidelity enough
+to matter for pulse-family recommendations. The best parametric operating region remains in the same broad duration window identified in the earlier study, but the
+noise-aware replay sharpens that recommendation and reduces the headroom for overly short selective pulses. In the representative archive summary, the best practical
+operating point remains a square-family pulse near $|\chi_s|T/2\pi = 1$ with mean target fidelity $0.944$ at $n_{\mathrm{th},s}=0.02$.
+
+The GRAPE comparison is equally instructive. In the closed system, the control landscape still admits near-perfect solutions across the representative duration grid.
+Once realistic replay is included, however, the relevant quantity is not the nominal objective but the noisy realized fidelity. After switching the replay to the
+stabilized control-schedule simulator path, the GRAPE controls retain a clear realized-fidelity advantage over the strongest parametric family at every sampled duration.
+That does not remove the value of the square-family baseline, which remains cheap to calibrate and already reaches $0.944$ without heavy optimization, but it does change
+the practical ranking: when optimization cost is acceptable, the noisy GRAPE controls are now the strongest validated option in this study.
+
+The three-mode study should be interpreted cautiously because the initial baseline sets \(\chi_{sr}=0\). Under that assumption the direct storage-dephasing proxy remains small,
+while the reduced logical fidelity still degrades significantly under concurrent readout. This suggests that the first-order operational risk is spectator degradation through the
+joint qubit--readout dynamics rather than a large direct storage dephasing term. A natural follow-up is therefore to repeat the same replay with a calibrated nonzero \(\chi_{sr}\)
+or a more explicit measurement-backaction model once that parameter is available.
+
+\section{Conclusion}
+
+Using \texttt{cqed\_sim}-first replays, this study closes the main realism gap left by the original SQR waveform benchmark. The practical conclusions are: (i) the square-family
+parametric SQR remains the strongest simple baseline under the representative realistic-noise assumptions tested here; (ii) storage thermal occupation and explicit multilevel transmon decay
+matter more than the previously neglected Purcell budget for the nominal filtered readout chain; (iii) once replay is evaluated through the stabilized simulator-backed control-schedule path,
+GRAPE provides a clear noisy-fidelity advantage over the best parametric family on the representative duration grid; and (iv) concurrent readout in the three-mode model substantially degrades
+reduced logical performance even before introducing an explicit storage--readout cross-Kerr. The resulting recommendation is to use the square-family operating window near
+$|\chi_s|T/2\pi = 1$ as the low-complexity default, and to favor GRAPE-derived controls when the extra optimization cost is justified by the need for maximum realized fidelity.
+
+\bibliographystyle{apsrev4-2}
+\bibliography{references}
+
+\end{document}
