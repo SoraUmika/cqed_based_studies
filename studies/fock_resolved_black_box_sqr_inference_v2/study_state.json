@@ -1,0 +1,47 @@
+{
+  "study_id": "fock_resolved_black_box_sqr_inference_v2",
+  "status": "COMPLETE",
+  "version": 2,
+  "parent_study": "fock_resolved_black_box_sqr_inference",
+  "description": "Stricter re-implementation following the open study plan exactly. Adds per-sector fidelity/trace-distance metrics, full {p_n, rho_q^n} MLE attempted first, Model-B coherence sweep, expanded pulse-level case library, and per-Fock Bloch-vector comparison figure.",
+  "tasks": {
+    "completed": [
+      "directory_structure",
+      "readme",
+      "common_py",
+      "study_lib_py",
+      "run_study_py",
+      "validate_results_py",
+      "improvements_md",
+      "study_state_json",
+      "run_study",
+      "report_tex",
+      "report_pdf",
+      "reproducibility_notebook"
+    ],
+    "in_progress": [],
+    "pending": [],
+    "blocked": []
+  },
+  "key_results": {
+    "part1_mle_fidelity": 0.9982,
+    "part2a_wait_only_transverse_rank": 8,
+    "part2a_displacement_only_transverse_rank": 2,
+    "part2b_objective_span": 220.44,
+    "part2b_gauge_family_size": 2,
+    "part2c_wait_only_rmse_10k": 0.0036,
+    "part2c_combined_rmse_10k": 0.0029,
+    "part2c_displacement_only_rmse_10k": 0.1739,
+    "part2e_best_case": "cpsqr_pulse_mix_+",
+    "part2e_best_rmse": 0.0028,
+    "part2e_worst_case": "short_pulse_seed_superpos_g",
+    "part2e_worst_rmse": 0.0643,
+    "part2f_coherence_witness_gap": 0.1387,
+    "part3_recommended_protocol": "wait_only",
+    "part3_useful_up_to_coherence_fraction": 0.25,
+    "validation_checks_passed": 8,
+    "validation_checks_total": 8,
+    "runtime_s": 105.3
+  },
+  "notes": "All 8 validation checks pass. Report compiled to PDF (11 pages). Reproducibility notebook written."
+}

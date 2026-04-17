@@ -1,0 +1,28 @@
+{
+  "device": {
+    "parameter_source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cQED_simulation\\examples\\sequential_sideband_reset.py",
+    "readout_frequency_hz": 8596222556.078796,
+    "qubit_frequency_hz": 6150358764.4830475,
+    "storage_frequency_hz": 5240932800.0,
+    "readout_kappa_hz": 4156000.0,
+    "qubit_anharmonicity_hz": -255669694.5244608,
+    "chi_storage_hz": -2840421.0,
+    "chi_readout_hz": -3000000.0,
+    "storage_gf_sideband_nominal_hz": 6803533628.0,
+    "storage_t1_s": 0.00025,
+    "storage_t2_ramsey_s": 0.00015,
+    "chi_storage_readout_hz": 0.0,
+    "storage_kerr_hz": 0.0,
+    "readout_kerr_hz": 0.0
+  },
+  "transmon_reference": {
+    "parameter_source": "cQED_simulation/examples/workflows/simulate_fock_tomo_and_sqr_calibration.py",
+    "qubit_t1_s": 9.812873848245112e-06,
+    "qubit_t2_ramsey_s": 6.32473112712837e-06,
+    "qubit_t2_echo_s": 8.381e-06,
+    "qubit_tphi_ramsey_s": 9.332187258158938e-06,
+    "notes": "Matched local tomography workflow sharing the same storage/readout frequencies and transmon anharmonicity scale as the sideband-reset example. The sideband-reset device itself does not include transmon coherence values, so this reference is used as an explicitly labeled sensitivity anchor rather than as a claimed ground-truth measurement."
+  },
+  "pulsed_recommendation_source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\storage_active_cooling_gf_sideband\\data\\recommendation_table.csv",
+  "two_tone_case_source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\gf_sideband_waveform_optimization\\data\\two_tone_selected_cases.csv"
+}

@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "name": "baseline_best_direct_matches_expected_scale",
+      "value": 0.6556737055128143,
+      "expected_comment": "Baseline direct strict process should remain around 0.65 process fidelity / 0.72 average gate fidelity."
+    },
+    {
+      "name": "native_rich_reaches_strict_gt_0p99",
+      "value": 0.9989941993174668,
+      "expected_comment": "The native-rich extension should exceed 0.99 on at least one strict ideal-SQR case."
+    },
+    {
+      "name": "native_rich_reaches_cpsqr_gt_0p999",
+      "value": 0.9999999979371008,
+      "expected_comment": "The native-rich extension should show near-unit CPSQR on echoed cases."
+    },
+    {
+      "name": "row_count_by_study",
+      "value": {
+        "ideal_sqr_direct_vs_echoed_multitone": 64,
+        "multitone_sqr_arbitrary_fock_conditional_rotations": 270,
+        "native_rich_multitone_sqr_cpsqr_feasibility": 348,
+        "parameterized_waveform_residual_z_cancellation": 240
+      },
+      "expected_comment": "All four source studies must load into the definitive aggregation."
+    }
+  ]
+}

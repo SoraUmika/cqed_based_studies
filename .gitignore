@@ -1,22 +1,51 @@
-.venv/
-.pytest_cache/
+# Python
 __pycache__/
 *.py[cod]
-.coverage
-htmlcov/
-.mypy_cache/
-.ruff_cache/
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
 .ipynb_checkpoints/
 
+# LaTeX build artifacts
 *.aux
 *.bbl
 *.blg
-*.fdb_latexmk
-*.fls
 *.log
 *.out
+*.fdb_latexmk
+*.fls
 *.synctex.gz
+*.synctex(busy)
 *.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.run.xml
+*-blx.bib
+*.bcf
 
+# OS files
 Thumbs.db
 .DS_Store
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/.ropeproject/
+
+# Autoresearch experiment logs (untracked by design)
+results.tsv
+run.log
+
+# Temporary files
+tmp_*.txt
+*.tmp

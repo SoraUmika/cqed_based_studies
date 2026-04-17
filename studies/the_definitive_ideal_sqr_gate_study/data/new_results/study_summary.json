@@ -1,0 +1,66 @@
+{
+  "headline_findings": [
+    "Best loaded strict ideal-SQR process fidelity: 0.99899.",
+    "Original baseline best direct average gate fidelity remained 0.7245.",
+    "Native-rich best strict process reached 0.99899, confirming that strict ideal SQR is achievable on selected addressed windows.",
+    "Native-rich best CPSQR process reached 0.999999998, confirming that echoed gains are strongest for the relaxed conditional-phase target.",
+    "The structured native-rich best-by-case mean strict fidelity is 0.8392, so the current corpus still falls short of the user's 0.95 grid-average landmark."
+  ],
+  "figure_stems": [
+    "unified_prior_work_comparison",
+    "direct_vs_echoed_fidelity_scatter",
+    "fidelity_vs_duration_scaling",
+    "ansatz_comparison_fixed_duration",
+    "parameter_count_vs_fidelity",
+    "full_case_construction_heatmap",
+    "strict_vs_cpsqr_joint_comparison",
+    "one_state_vs_quartet_validation",
+    "per_manifold_error_budget",
+    "refocusing_pulse_manifold_dependence",
+    "spectral_crowding_diagram",
+    "n_active_scaling"
+  ],
+  "validation": {
+    "sanity": {
+      "checks": [
+        {
+          "name": "baseline_best_direct_matches_expected_scale",
+          "value": 0.6556737055128143,
+          "expected_comment": "Baseline direct strict process should remain around 0.65 process fidelity / 0.72 average gate fidelity."
+        },
+        {
+          "name": "native_rich_reaches_strict_gt_0p99",
+          "value": 0.9989941993174668,
+          "expected_comment": "The native-rich extension should exceed 0.99 on at least one strict ideal-SQR case."
+        },
+        {
+          "name": "native_rich_reaches_cpsqr_gt_0p999",
+          "value": 0.9999999979371008,
+          "expected_comment": "The native-rich extension should show near-unit CPSQR on echoed cases."
+        },
+        {
+          "name": "row_count_by_study",
+          "value": {
+            "ideal_sqr_direct_vs_echoed_multitone": 64,
+            "multitone_sqr_arbitrary_fock_conditional_rotations": 270,
+            "native_rich_multitone_sqr_cpsqr_feasibility": 348,
+            "parameterized_waveform_residual_z_cancellation": 240
+          },
+          "expected_comment": "All four source studies must load into the definitive aggregation."
+        }
+      ]
+    },
+    "convergence": {
+      "sources": [
+        "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\ideal_sqr_direct_vs_echoed_multitone\\data\\validation_summary.json",
+        "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\multitone_sqr_arbitrary_fock_conditional_rotations\\data\\validation_summary.json",
+        "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\multitone_sqr_arbitrary_fock_conditional_rotations\\data\\echo_comparison_validation.json",
+        "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\ideal_sqr_direct_vs_echoed_multitone\\data\\analytic_summary.json"
+      ],
+      "note": "This definitive-study pass aggregates source-study convergence/sanity artifacts. No new cross-study convergence rerun was performed in this iteration."
+    }
+  },
+  "worker_failures": [],
+  "wall_clock_seconds": 36.98002899999847,
+  "objective_summaries_path": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\the_definitive_ideal_sqr_gate_study\\data\\new_results\\objective_summaries.json"
+}

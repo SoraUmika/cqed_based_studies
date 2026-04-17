@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "description": "Replay-support check for shortlisted native-heavy candidates.",
+    "legacy_study_root": "C:\\Users\\dazzl\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\hybrid_qubit_cavity_control"
+  },
+  "results": [
+    {
+      "label": "N2_exact_hc_to_exact_hc",
+      "supported": false,
+      "gate_types": [
+        "PrimitiveGate",
+        "PrimitiveGate",
+        "QubitRotation",
+        "FreeEvolveCondPhase",
+        "QubitRotation",
+        "PrimitiveGate",
+        "PrimitiveGate",
+        "QubitRotation",
+        "FreeEvolveCondPhase",
+        "QubitRotation",
+        "PrimitiveGate"
+      ],
+      "converted_gate_count": 0,
+      "converted_waveform_families": [],
+      "message": "TypeError: waveform_primitive_from_gate received gate of type 'PrimitiveGate', which is not supported. Supported gate types are: QubitRotation, Displacement, SQR, ConditionalPhaseSQR. For SNAP and FreeEvolveCondPhase gates, use the model-backed simulation path (simulate_sequence / hamiltonian_time_slices) rather than the waveform bridge."
+    },
+    {
+      "label": "N2_exact_hc_to_A_local",
+      "supported": false,
+      "gate_types": [
+        "PrimitiveGate",
+        "PrimitiveGate",
+        "QubitRotation",
+        "FreeEvolveCondPhase",
+        "QubitRotation",
+        "PrimitiveGate",
+        "PrimitiveGate",
+        "QubitRotation",
+        "FreeEvolveCondPhase",
+        "QubitRotation",
+        "Displacement",
+        "SNAP",
+        "Displacement"
+      ],
+      "converted_gate_count": 0,
+      "converted_waveform_families": [],
+      "message": "TypeError: waveform_primitive_from_gate received gate of type 'PrimitiveGate', which is not supported. Supported gate types are: QubitRotation, Displacement, SQR, ConditionalPhaseSQR. For SNAP and FreeEvolveCondPhase gates, use the model-backed simulation path (simulate_sequence / hamiltonian_time_slices) rather than the waveform bridge."
+    },
+    {
+      "label": "N2_A_local_to_A_local",
+      "supported": false,
+      "gate_types": [
+        "PrimitiveGate",
+        "Displacement",
+        "SNAP",
+        "Displacement",
+        "QubitRotation",
+        "FreeEvolveCondPhase",
+        "QubitRotation",
+        "PrimitiveGate",
+        "Displacement",
+        "SNAP",
+        "Displacement",
+        "QubitRotation",
+        "FreeEvolveCondPhase",
+        "QubitRotation",
+        "Displacement",
+        "SNAP",
+        "Displacement"
+      ],
+      "converted_gate_count": 0,
+      "converted_waveform_families": [],
+      "message": "TypeError: waveform_primitive_from_gate received gate of type 'PrimitiveGate', which is not supported. Supported gate types are: QubitRotation, Displacement, SQR, ConditionalPhaseSQR. For SNAP and FreeEvolveCondPhase gates, use the model-backed simulation path (simulate_sequence / hamiltonian_time_slices) rather than the waveform bridge."
+    }
+  ]
+}

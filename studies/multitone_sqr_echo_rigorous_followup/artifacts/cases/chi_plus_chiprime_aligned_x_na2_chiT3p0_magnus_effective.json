@@ -1,0 +1,748 @@
+{
+  "case_request": {
+    "chi_t_over_2pi": 3.0,
+    "family": "aligned_x",
+    "include_chi_prime": true,
+    "model_variant": "chi_plus_chiprime",
+    "n_active": 2,
+    "seed": null
+  },
+  "comparison_spec": {
+    "description": "Aligned x-axis SQR family that gives the echo sequence its best-case symmetry setting.",
+    "family": "aligned_x",
+    "formula": "theta_n = min(0.28 pi + 0.18 pi n, 0.92 pi), phi_n = 0",
+    "n_active": 2,
+    "phi_values_rad": [
+      0.0,
+      0.0
+    ],
+    "theta_values_rad": [
+      0.8796459430051422,
+      1.445132620651305
+    ]
+  },
+  "construction": "magnus_effective",
+  "date_created": "2026-04-06T09:09:29Z",
+  "description": "Artifact for magnus_effective on chi_plus_chiprime_aligned_x_na2_chiT3p0.",
+  "full_operator_columns_on_logical_inputs": {
+    "imag": [
+      [
+        -0.010012750859407765,
+        0.0,
+        0.0,
+        0.0,
+        0.27994177928471975,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.027883289404587317,
+        0.0,
+        0.0,
+        0.0,
+        0.19491884317256436,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.27994177928471975,
+        0.0,
+        0.0,
+        0.0,
+        0.010012750859407775,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.19491884317256436,
+        0.0,
+        0.0,
+        0.0,
+        -0.02788328940458732,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.739942123157713,
+        0.0,
+        0.0,
+        0.0,
+        0.6115701099694039,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.8978642031839369,
+        0.0,
+        0.0,
+        0.0,
+        0.3937880640511129,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        -0.6115701099694038,
+        0.0,
+        0.0,
+        0.0,
+        0.7399421231577129,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.39378806405111294,
+        0.0,
+        0.0,
+        0.0,
+        0.8978642031839369,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "shape": [
+      8,
+      8
+    ]
+  },
+  "load_instructions": "Load `chi_plus_chiprime_aligned_x_na2_chiT3p0_magnus_effective.json` as JSON and inspect the documented result rows and metadata.",
+  "probe_metrics": {
+    "probe_fidelity_mean": 0.4983913083368676,
+    "probe_fidelity_min": 0.3314265375670193,
+    "probe_rows": [
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5000000000000001,
+            "x": -0.9106589458433477,
+            "y": 0.4020344307605983,
+            "z": 0.09522920160583337
+          },
+          {
+            "level": 1,
+            "population": 0.5000000000000001,
+            "x": -0.6962664556760193,
+            "y": 0.37198151672935725,
+            "z": 0.6138752103742917
+          }
+        ],
+        "label": "equal_ground",
+        "state_fidelity": 0.3644722912634881
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5,
+            "x": 0.2517634908244776,
+            "y": 0.3572257617434921,
+            "z": 0.8994469966788788
+          },
+          {
+            "level": 1,
+            "population": 0.4999999999999999,
+            "x": 0.6883069655657132,
+            "y": 0.10344261295321945,
+            "z": 0.7180063697343713
+          }
+        ],
+        "label": "equal_plus",
+        "state_fidelity": 0.7276453528271408
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5,
+            "x": 0.3275903372252545,
+            "y": 0.8430646900622654,
+            "z": -0.42652842733733515
+          },
+          {
+            "level": 1,
+            "population": 0.5,
+            "x": 0.20358424264680697,
+            "y": 0.9224583334964985,
+            "z": -0.3280610905133197
+          }
+        ],
+        "label": "equal_plus_i",
+        "state_fidelity": 0.4858739783863164
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5,
+            "x": 0.2517634908244776,
+            "y": 0.3572257617434921,
+            "z": 0.8994469966788788
+          },
+          {
+            "level": 1,
+            "population": 0.4999999999999999,
+            "x": 0.6883069655657132,
+            "y": 0.10344261295321945,
+            "z": 0.7180063697343713
+          }
+        ],
+        "label": "alternating_plus",
+        "state_fidelity": 0.7276453528271408
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5985913622198634,
+            "x": -0.7453892986273095,
+            "y": 0.659175580025492,
+            "z": 0.09941000045238813
+          },
+          {
+            "level": 1,
+            "population": 0.4014086377801369,
+            "x": 0.8069117055927065,
+            "y": -0.3789576479818941,
+            "z": 0.45308343648107496
+          }
+        ],
+        "label": "random_logical_seed17",
+        "state_fidelity": 0.3532843371501
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5908537482724883,
+            "x": -0.2646207286100033,
+            "y": 0.76627334183166,
+            "z": -0.5854921311068588
+          },
+          {
+            "level": 1,
+            "population": 0.40914625172751184,
+            "x": -0.11823184919171828,
+            "y": 0.9668425567820597,
+            "z": 0.22635525227358105
+          }
+        ],
+        "label": "random_logical_seed29",
+        "state_fidelity": 0.3314265375670193
+      }
+    ]
+  },
+  "restricted_operator": {
+    "imag": [
+      [
+        -0.010012750859407765,
+        0.27994177928471975,
+        0.0,
+        0.0
+      ],
+      [
+        0.27994177928471975,
+        0.010012750859407775,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.027883289404587317,
+        0.19491884317256436
+      ],
+      [
+        0.0,
+        0.0,
+        0.19491884317256436,
+        -0.02788328940458732
+      ]
+    ],
+    "real": [
+      [
+        0.739942123157713,
+        0.6115701099694039,
+        0.0,
+        0.0
+      ],
+      [
+        -0.6115701099694038,
+        0.7399421231577129,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.8978642031839369,
+        0.3937880640511129
+      ],
+      [
+        0.0,
+        0.0,
+        -0.39378806405111294,
+        0.8978642031839369
+      ]
+    ],
+    "shape": [
+      4,
+      4
+    ]
+  },
+  "study_name": "multitone_sqr_echo_rigorous_followup",
+  "summary_row": {
+    "active_duration_ns": 1056.3380281690138,
+    "best_fit_block_phase_rms_rad": 0.0,
+    "best_fit_restricted_process_fidelity": 0.29971353113567845,
+    "case_id": "chi_plus_chiprime_aligned_x_na2_chiT3p0",
+    "chi_t_over_2pi": 3.0,
+    "construction": "magnus_effective",
+    "evaluation_target_family": "aligned_x",
+    "family": "aligned_x",
+    "include_chi_prime": true,
+    "leakage_outside_target_max": 0.0,
+    "leakage_outside_target_mean": 0.0,
+    "magnus_vs_full_restricted_process_fidelity": 0.6689404777539185,
+    "max_residual_z_error_rad": 0.6377184263580905,
+    "max_transverse_error_rad": 1.9069242158445823,
+    "mean_block_average_gate_fidelity": 0.533147827202678,
+    "mean_residual_z_error_rad": 0.6029626000646208,
+    "mean_transverse_error_rad": 1.888638365857683,
+    "model_variant": "chi_plus_chiprime",
+    "n_active": 2,
+    "other_target_population_max": 0.0,
+    "other_target_population_mean": 0.0,
+    "per_block_average_gate_fidelities": [
+      0.5352393120286277,
+      0.5310563423767282
+    ],
+    "per_block_process_fidelities": [
+      0.30285896804294155,
+      0.2965845135650923
+    ],
+    "per_block_residual_z_error_rad": [
+      0.6377184263580905,
+      0.568206773771151
+    ],
+    "per_block_rotation_angle_errors_rad": [
+      0.5959780828456984,
+      0.5333283270741461
+    ],
+    "per_block_rotation_axis_errors_rad": [
+      2.0000197208231953,
+      2.02942976998641
+    ],
+    "per_block_transverse_error_rad": [
+      1.8703525158707839,
+      1.9069242158445823
+    ],
+    "probe_fidelity_mean": 0.4983913083368676,
+    "probe_fidelity_min": 0.3314265375670193,
+    "restricted_average_gate_fidelity": 0.43977082490854275,
+    "restricted_fro_error": 0.9513558892985557,
+    "restricted_process_fidelity": 0.29971353113567845,
+    "restricted_unitarity_error": 2.7189456340253106e-16,
+    "same_block_population_mean": 1.0,
+    "same_block_population_min": 1.0,
+    "seed": null,
+    "state_transfer_fidelity_mean": 0.4116210616708422,
+    "state_transfer_fidelity_min": 0.2999378198118599,
+    "target_phi_values_rad": [
+      0.0,
+      0.0
+    ],
+    "target_theta_values_rad": [
+      0.8796459430051422,
+      1.445132620651305
+    ],
+    "total_gate_duration_ns": 1056.3380281690138,
+    "uncorrected_restricted_process_fidelity": 0.29971353113567845,
+    "weighted_loss": 0.82734551094272,
+    "worst_block_average_gate_fidelity": 0.5310563423767282
+  },
+  "validation": {
+    "basis_metrics": [
+      {
+        "dominant_block": 0,
+        "input_block": 0,
+        "input_label": "|g,0>",
+        "input_qubit_level": 0,
+        "leakage_population": 0.0,
+        "other_target_population": 0.0,
+        "same_block_population": 1.0
+      },
+      {
+        "dominant_block": 0,
+        "input_block": 0,
+        "input_label": "|e,0>",
+        "input_qubit_level": 1,
+        "leakage_population": 0.0,
+        "other_target_population": 0.0,
+        "same_block_population": 1.0000000000000002
+      },
+      {
+        "dominant_block": 1,
+        "input_block": 1,
+        "input_label": "|g,1>",
+        "input_qubit_level": 0,
+        "leakage_population": 0.0,
+        "other_target_population": 0.0,
+        "same_block_population": 1.0
+      },
+      {
+        "dominant_block": 1,
+        "input_block": 1,
+        "input_label": "|e,1>",
+        "input_qubit_level": 1,
+        "leakage_population": 0.0,
+        "other_target_population": 0.0,
+        "same_block_population": 1.0
+      }
+    ],
+    "best_fit_logical_block_phase": {
+      "logical_levels": [
+        0,
+        1
+      ],
+      "phases_rad": [
+        0.0,
+        0.0
+      ]
+    },
+    "best_fit_restricted_process_fidelity": 0.29971353113567845,
+    "block_phase_diagnostics": {
+      "applied_correction_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "best_fit_block_gauge_fidelity": 0.5474609859484769,
+      "best_fit_correction_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "block_gauge_fidelity": 0.5474609859484769,
+      "block_phases_rad": [
+        -5.551115123125783e-17,
+        -5.551115123125783e-17
+      ],
+      "corrected_block_gauge_fidelity": 0.5474609859484769,
+      "corrected_block_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "corrected_relative_block_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "relative_block_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "residual_block_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "rms_block_phase_error_rad": 0.0
+    },
+    "block_population_matrix": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "conditioned_sector_metrics": [
+      {
+        "bloch_distance": 1.5805514704208115,
+        "bloch_radius": 1.0,
+        "dominant_error": "phase-or-detuning-like",
+        "fidelity": 0.37546426233765273,
+        "n": 0,
+        "phi_error_rad": -1.9865394561189156,
+        "phi_simulated_rad": 4.296645851060671,
+        "purity": 1.0,
+        "sector_population": 1.0,
+        "simulated_bloch_x": -0.9106589458433477,
+        "simulated_bloch_y": 0.4020344307605983,
+        "simulated_bloch_z": 0.09522920160583337,
+        "target_bloch_x": 0.0,
+        "target_bloch_y": -0.7705132427757893,
+        "target_bloch_z": 0.6374239897486896,
+        "target_phi_rad": 0.0,
+        "target_theta_rad": 0.8796459430051422,
+        "theta_error_rad": 0.5957766590203928,
+        "theta_simulated_rad": 1.475422602025535,
+        "weight": 0.5
+      },
+      {
+        "bloch_distance": 1.6075505380816337,
+        "bloch_radius": 1.0,
+        "dominant_error": "phase-or-detuning-like",
+        "fidelity": 0.3539453168783624,
+        "n": 1,
+        "phi_error_rad": -2.06146834841676,
+        "phi_simulated_rad": 4.221716958762826,
+        "purity": 1.0000000000000002,
+        "sector_population": 1.0,
+        "simulated_bloch_x": -0.6962664556760193,
+        "simulated_bloch_y": 0.3719815167293572,
+        "simulated_bloch_z": 0.6138752103742917,
+        "target_bloch_x": 0.0,
+        "target_bloch_y": -0.9921147013144779,
+        "target_bloch_z": 0.12533323356430404,
+        "target_phi_rad": 0.0,
+        "target_theta_rad": 1.445132620651305,
+        "theta_error_rad": -0.5352966086503437,
+        "theta_simulated_rad": 0.9098360120009613,
+        "weight": 0.5
+      }
+    ],
+    "leakage_loss": 0.0,
+    "leakage_outside_target_max": 0.0,
+    "leakage_outside_target_mean": 0.0,
+    "logical_block_phase": {
+      "logical_levels": [
+        0,
+        1
+      ],
+      "phases_rad": [
+        0.0,
+        0.0
+      ]
+    },
+    "logical_levels": [
+      0,
+      1
+    ],
+    "logical_weights": [
+      0.5,
+      0.5
+    ],
+    "metadata": {
+      "construction": "magnus_effective",
+      "has_transfer_set": true,
+      "logical_block_phase_applied": {
+        "logical_levels": [
+          0,
+          1
+        ],
+        "phases_rad": [
+          0.0,
+          0.0
+        ]
+      },
+      "logical_block_phase_best_fit": {
+        "logical_levels": [
+          0,
+          1
+        ],
+        "phases_rad": [
+          0.0,
+          0.0
+        ]
+      },
+      "logical_indices": [
+        0,
+        4,
+        1,
+        5
+      ],
+      "subspace_metric_source": "restricted_operator"
+    },
+    "objective_weights": {
+      "leakage_weight": 0.35,
+      "preservation_weight": 0.35,
+      "qubit_weight": 0.2,
+      "subspace_weight": 1.0
+    },
+    "other_target_population_max": 0.0,
+    "other_target_population_mean": 0.0,
+    "preservation_loss": 0.0,
+    "qubit_loss": 0.6352952103919924,
+    "restricted_fro_error": 0.9513558892985557,
+    "restricted_process_fidelity": 0.29971353113567845,
+    "restricted_unitarity_error": 2.7189456340253106e-16,
+    "same_block_population_mean": 1.0,
+    "same_block_population_min": 1.0,
+    "state_transfer_fidelity_mean": 0.4116210616708422,
+    "state_transfer_fidelity_min": 0.2999378198118599,
+    "subspace_loss": 0.7002864688643216,
+    "transfer_metrics": [
+      {
+        "fidelity": 0.3754642623376527,
+        "label": "basis_0",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.3754642623376525,
+        "label": "basis_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.35394531687836245,
+        "label": "basis_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.35394531687836234,
+        "label": "basis_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.6258817454122392,
+        "label": "plus_0_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.6043719283359923,
+        "label": "phase_0_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.364472291263488,
+        "label": "plus_0_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.364472291263488,
+        "label": "phase_0_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.2999378198118599,
+        "label": "plus_0_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.2999378198118599,
+        "label": "phase_0_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.2999378198118599,
+        "label": "plus_1_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.2999378198118599,
+        "label": "phase_1_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.364472291263488,
+        "label": "plus_1_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.3644722912634881,
+        "label": "phase_1_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.8441534827828568,
+        "label": "plus_2_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.3950702274689656,
+        "label": "phase_2_3",
+        "weight": 0.0625
+      }
+    ],
+    "uncorrected_restricted_process_fidelity": 0.29971353113567845,
+    "weighted_loss": 0.82734551094272
+  }
+}

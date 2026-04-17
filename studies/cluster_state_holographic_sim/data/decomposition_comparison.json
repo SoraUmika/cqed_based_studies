@@ -1,0 +1,98 @@
+{
+  "A_D_R_SNAP": {
+    "label": "D+R+SNAP (7 gates)",
+    "strategy": "D + R + SNAP",
+    "fidelity": 0.5,
+    "elapsed_s": 17.9,
+    "note": "SNAP = I_q x diag(e^{i*theta_n}): cavity-only, no entanglement"
+  },
+  "B_D_SQR_CP_blocks1": {
+    "label": "D+SQR+CP (1 block, 5g)",
+    "strategy": "D + SQR + CP",
+    "fidelity": 0.707107,
+    "n_blocks": 1,
+    "n_gates": 5,
+    "elapsed_s": 33.5
+  },
+  "B_D_SQR_CP_blocks2": {
+    "label": "D+SQR+CP (2 blocks, 9g)",
+    "strategy": "D + SQR + CP",
+    "fidelity": 1.0,
+    "n_blocks": 2,
+    "n_gates": 9,
+    "elapsed_s": 70.8
+  },
+  "C_SQR_CP_only": {
+    "label": "R+SQR+CP (no D, 6g)",
+    "strategy": "R + SQR + CP",
+    "fidelity": 0.5,
+    "elapsed_s": 3.4,
+    "note": "SQR preserves Fock sectors; cannot mix |n=0> and |n=1>"
+  },
+  "D_D_R_FE_blocks2": {
+    "label": "D+R+FE (2 blocks, 8g)",
+    "strategy": "D + R + FE",
+    "fidelity": 0.999869,
+    "n_blocks": 2,
+    "n_gates": 8,
+    "elapsed_s": 54.1
+  },
+  "E_GRAPE_50ns": {
+    "label": "GRAPE 50ns",
+    "strategy": "GRAPE",
+    "duration_ns": 50,
+    "fidelity": 0.6337
+  },
+  "E_GRAPE_100ns": {
+    "label": "GRAPE 100ns",
+    "strategy": "GRAPE",
+    "duration_ns": 100,
+    "fidelity": 0.9494
+  },
+  "E_GRAPE_150ns": {
+    "label": "GRAPE 150ns",
+    "strategy": "GRAPE",
+    "duration_ns": 150,
+    "fidelity": 0.9561
+  },
+  "E_GRAPE_200ns": {
+    "label": "GRAPE 200ns",
+    "strategy": "GRAPE",
+    "duration_ns": 200,
+    "fidelity": 0.9966
+  },
+  "E_GRAPE_300ns": {
+    "label": "GRAPE 300ns",
+    "strategy": "GRAPE",
+    "duration_ns": 300,
+    "fidelity": 0.9957
+  },
+  "E_GRAPE_400ns": {
+    "label": "GRAPE 400ns",
+    "strategy": "GRAPE",
+    "duration_ns": 400,
+    "fidelity": 0.999
+  },
+  "cross_study_hybrid": {
+    "utarget_decomposition_L1a_D_R_SQR_d7": 0.0,
+    "utarget_decomposition_L1b_D_R_SQR_d9": 0.0,
+    "utarget_decomposition_L1c_D_R_SQR_d11": 0.0,
+    "utarget_decomposition_L2a_D_R_CP_d7": 0.0,
+    "utarget_decomposition_L2b_D_R_CP_d9": 0.0,
+    "utarget_decomposition_L2c_D_R_CP_d11": 0.0,
+    "speed_limit_feasibility_A_ent native baseline": 0.0,
+    "speed_limit_feasibility_B_ent refined SQR": 0.0,
+    "speed_limit_feasibility_B_local refined SQR": 0.0,
+    "speed_limit_feasibility_A_local practical SNAP": 0.0,
+    "speed_limit_feasibility_L1d refined": 0.0,
+    "speed_limit_feasibility_L2d refined": 0.0
+  },
+  "prior_grape_sweep": {
+    "50": 0.6337,
+    "100": 0.9494,
+    "150": 0.9561,
+    "200": 0.9966,
+    "300": 0.9957,
+    "400": 0.999
+  }
+}

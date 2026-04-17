@@ -1,27 +1,19 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[aps,pra,twocolumn,reprint,amsmath,amssymb]{revtex4-2}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
-\usepackage[numbers,sort&compress]{natbib}
 \usepackage{booktabs}
 \usepackage{siunitx}
-\usepackage{caption}
-\usepackage{float}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
 \usepackage{xcolor}
-
 \graphicspath{{../figures/}}
-
-\title{\textbf{Gray-Box Adaptive Control for Circuit QED Systems}}
-\author{JianJun \\ Shyam Shankar Quantum Circuits Group}
-\date{\today}
 
 \begin{document}
 
-\maketitle
+\title{Gray-Box Adaptive Control for Circuit QED Systems}
+\author{JianJun}
+\affiliation{Shyam Shankar Quantum Circuits Group}
+\date{\today}
 
 \begin{abstract}
 Model mismatch is a practical bottleneck for pulse-level control in circuit quantum
@@ -43,6 +35,8 @@ main conclusion is stable under modest Hilbert-space enlargement and expanded mu
 optimization. The repository now contains a reproducible validator, compiled report, and an
 updated improvement log for future gray-box extensions.
 \end{abstract}
+
+\maketitle
 
 \section{Introduction}
 
@@ -97,7 +91,7 @@ $|f,n\rangle$ manifold is treated as leakage.
 
 \subsection{Simulation Parameters}
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{System and control parameters used in the production study.}
 \begin{tabular}{@{} l l l @{}}
@@ -120,7 +114,7 @@ GRAPE slices $\times$ slice duration & 16 $\times$ 10 & ns \\
 Drive bound $|u_j| / 2\pi$ & 50 & MHz \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \subsection{Computational Approach}
 
@@ -166,7 +160,7 @@ of the perfect-model advantage. The black-box baseline reaches only $F = 0.8877$
 truth-model evaluations, so the structured gray-box workflow is both more accurate and more
 evaluation-efficient.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=\textwidth]{phase4_main_comparison.pdf}
 \caption{Gate infidelity versus $\chi$ mismatch. Left: noiseless truth-model evaluation.
@@ -174,19 +168,19 @@ Right: evaluation with $T_1 = \SI{50}{\micro\second}$, $T_\phi = \SI{40}{\micro\
 loss. Gray-box correction remains close to the perfect-model curve even when the learner prior
 is off by 30--40\%.}
 \label{fig:phase4_main}
-\end{figure}
+\end{figure*}
 
 Figure~\ref{fig:phase4_per_fock} shows the per-state fidelity breakdown at the central
 30\% mismatch point. The nominal strategy underperforms across the logical block, while the
 gray-box and perfect strategies remain nearly indistinguishable.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=0.72\textwidth]{phase4_per_fock.pdf}
 \caption{Per-state infidelity at 30\% mismatch. The gray-box correction removes the broad
 logical penalty caused by the wrong learner-model $\chi$.}
 \label{fig:phase4_per_fock}
-\end{figure}
+\end{figure*}
 
 \subsection{Goal 2: Mismatch Robustness}
 
@@ -196,7 +190,7 @@ $0.954$ even when the learner prior is degraded to 30\% of the true $\chi$. In c
 nominal fidelity drops monotonically from $0.9542$ at zero mismatch to $0.8724$ at 70\%
 mismatch.
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Extended mismatch sweep. Gray-box fidelity remains almost flat across the tested
 range, while nominal fidelity degrades strongly with increasing mismatch.}
@@ -214,15 +208,15 @@ $\chi_{\mathrm{prior}} / \chi_{\mathrm{true}}$ & Nominal $F$ & Gray-box $F$ & Pe
 0.3 & 0.8724 & 0.9542 & 0.9542 \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=0.66\textwidth]{phase5_1_chi_mismatch.pdf}
 \caption{Extended mismatch sweep for the three model-based strategies. The gray-box pipeline
 holds nearly constant fidelity over the full tested range.}
 \label{fig:phase5_1}
-\end{figure}
+\end{figure*}
 
 \subsection{Goal 3: Noise, Readout, and Probe-Budget Effects}
 
@@ -231,26 +225,26 @@ but the gray-box advantage over nominal remains about $0.055$ across the tested
 $T_1$ values. This indicates that the main benefit of gray-box correction is removal of
 coherent Hamiltonian error rather than mitigation of incoherent decay.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=0.66\textwidth]{phase5_2_noise.pdf}
 \caption{Noise sweep at fixed 30\% mismatch. The absolute fidelity decreases with stronger
 noise, but the gray-box advantage over the nominal pulse is preserved.}
 \label{fig:phase5_2}
-\end{figure}
+\end{figure*}
 
 Figure~\ref{fig:phase5_3} shows that readout confusion up to 15\% has a negligible effect on
 the final gray-box fidelity. Over the whole sweep the fidelity varies by only
 $2.2 \times 10^{-4}$, and the maximum fractional $\chi$ error remains below
 $2.1 \times 10^{-4}$.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=\textwidth]{phase5_3_readout.pdf}
 \caption{Readout-confusion sweep. The inferred $\chi$ and the resulting gate fidelity are both
 stable over the tested SPAM range.}
 \label{fig:phase5_3}
-\end{figure}
+\end{figure*}
 
 The probe-budget scan in Figure~\ref{fig:phase5_4} shows the expected shot-noise scaling.
 The product $\sigma_\chi \sqrt{N_{\mathrm{shots}}}$ varies by only 1.46\% over the range
@@ -258,14 +252,14 @@ The product $\sigma_\chi \sqrt{N_{\mathrm{shots}}}$ varies by only 1.46\% over t
 budget already reaches $F = 0.9542$, so in this study the gate is not probe-limited once the
 learner model is corrected at the few-kHz level.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=\textwidth]{phase5_4_probe_budget.pdf}
 \caption{Probe-budget sweep. The inferred uncertainty follows the expected
 $1/\sqrt{N_{\mathrm{shots}}}$ scaling, while the final gray-box fidelity is already saturated
 over the tested range.}
 \label{fig:phase5_4}
-\end{figure}
+\end{figure*}
 
 \subsection{Goal 4: Drift and Hamiltonian-Omission Robustness}
 
@@ -274,13 +268,13 @@ the true $\chi$. At 0.1\% drift per cycle, recalibration every 5 cycles raises t
 fidelity from $0.8885$ to $0.9357$. Even at 1\% drift per cycle, every-5-cycle recalibration
 raises the final fidelity from $0.8872$ to $0.9029$.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=\textwidth]{phase5_5_drift.pdf}
 \caption{Slow-drift study over 100 cycles. Periodic gray-box recalibration preserves
 substantially more fidelity than a fixed nominal pulse.}
 \label{fig:phase5_5}
-\end{figure}
+\end{figure*}
 
 Figure~\ref{fig:phase5_6} separates the effect of wrong $\chi$ from the effect of omitted
 $\chi_h$. When $\chi$ is correct, omitting $\chi_h$ changes the fidelity by only about
@@ -288,13 +282,13 @@ $1.4 \times 10^{-3}$ relative to the fully informed learner. When $\chi$ is wron
 stays near $0.899$ even if $\chi_h$ is supplied. In other words, correcting the leading
 dispersive shift is the dominant requirement for this gate in the tested regime.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=0.66\textwidth]{phase5_6_omission.pdf}
 \caption{Effect of omitted or mis-specified $\chi_h$. Correcting $\chi$ matters much more than
 providing the second-order term alone.}
 \label{fig:phase5_6}
-\end{figure}
+\end{figure*}
 
 \subsection{Goal 5: Practical Viability Summary}
 
@@ -303,13 +297,13 @@ tested settings, the gray-box workflow consistently occupies the best or tied-be
 the map, while the nominal strategy loses fidelity as soon as the model mismatch becomes
 significant.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=\textwidth]{viability_summary.pdf}
 \caption{Viability heatmap across the consolidated study. Gray-box correction remains the most
 reliable strategy over mismatch, noise, and drift variations in this repository pass.}
 \label{fig:viability}
-\end{figure}
+\end{figure*}
 
 \section{Validation}
 
@@ -434,7 +428,7 @@ count?
 How much additional advantage would remain if the nominal baseline itself were upgraded to a
 noise-aware optimal control objective?
 
-\bibliographystyle{unsrtnat}
+\bibliographystyle{apsrev4-2}
 \bibliography{references}
 
 \end{document}

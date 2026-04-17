@@ -1,0 +1,67 @@
+{
+  "best_decomposition_key": "dsqrcp_unbounded",
+  "best_sqr_key": "dsqrcp_bounded",
+  "best_grape_key": "400ns",
+  "best_grape_source": "nc12_probe",
+  "transfer_correlation_length": 0.0,
+  "transfer_eigenvalues": {
+    "real": [
+      0.9999999999999998,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "imag": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "shape": [
+      4
+    ]
+  },
+  "best_decomposition_nc12_fidelity": 0.597735531145124,
+  "best_sqr_nc12_metric": {
+    "supported": true,
+    "fidelity": 0.34950769887234046,
+    "block_fidelity": NaN,
+    "leakage_average": 0.032253865111087215,
+    "leakage_worst": 0.11143588167183172,
+    "metrics": {
+      "unitarity_error": 0.0008474149927980835,
+      "fidelity": 0.34950769887234046,
+      "fidelity_loss": 0.6504923011276595,
+      "leakage_average": 0.032253865111087215,
+      "leakage_worst": 0.11143588167183172,
+      "leakage_term": 0.0,
+      "objective": 0.6504923011276595
+    }
+  },
+  "best_grape_open_process_fidelity": 0.900857750135689,
+  "best_grape_replay_fidelity": 0.9560542013705577,
+  "wigner_sources": {
+    "best_decomposition_key": "dsqrcp_unbounded",
+    "best_sqr_key": "dsqrcp_bounded",
+    "best_sqr_source": "pulse",
+    "best_grape_key": "400ns",
+    "best_grape_source": "nc12_probe"
+  },
+  "reassessment": [
+    {
+      "claim": "Exact reduced-subspace D-SQR-CPSQR agreement is not enough for physical validation.",
+      "status": "validated_correction",
+      "evidence": "The best SQR-like route retains modest reduced-model fidelity but fails the embedded and Wigner criteria at larger N_cav."
+    },
+    {
+      "claim": "The older finite-correlation-length statement for the sequential cluster channel was inconsistent.",
+      "status": "corrected",
+      "evidence": "The installed HolographicChannel convention gives transfer-spectrum {1, 0, 0, 0}, so the ordinary channel correlation length is xi = 0 rather than finite or infinite."
+    },
+    {
+      "claim": "GRAPE is the strongest physically credible candidate.",
+      "status": "validated_with_higher_truncation_followup",
+      "evidence": "The original N_cav=8 sweep is not truncation-converged, but direct N_cav=12 re-optimization at 300-400 ns restores high replay fidelity and strong Wigner agreement."
+    }
+  ]
+}

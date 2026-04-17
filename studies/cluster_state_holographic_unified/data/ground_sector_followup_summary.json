@@ -1,0 +1,696 @@
+{
+  "study_name": "cluster_state_holographic_unified",
+  "date_created": "2026-03-26",
+  "objective": {
+    "description": "Restricted ground-sector transfer objective U_joint(|g>\u2297|psi>) \u2248 |g>\u2297H_c|psi> on {|g,0>, |g,1>}.",
+    "target_matrix": {
+      "real": [
+        [
+          0.7071067811865475,
+          0.7071067811865475
+        ],
+        [
+          0.7071067811865475,
+          -0.7071067811865475
+        ]
+      ],
+      "imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "shape": [
+        2,
+        2
+      ]
+    },
+    "threshold": 0.99,
+    "truncation_checks": [
+      10,
+      12,
+      14
+    ],
+    "physical_plausibility_limits": {
+      "ancilla_excitation_worst": 0.02,
+      "outside_target_leakage_worst": 0.08,
+      "ground_convergence_delta": 0.01
+    }
+  },
+  "baseline_rescored_candidates": [
+    {
+      "candidate_id": "baseline_rescore:drcpsqr_blk1_a2_ordCPRD_CPRD_lv0-1_blk1_t2",
+      "source": "baseline_rescore",
+      "objective_variant": "full_target_seed",
+      "case_id": "drcpsqr_blk1_a2_ordCPRD_CPRD_lv0-1_blk1_t2",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 1,
+      "max_tones": 2,
+      "order_label": "CPRD",
+      "levels": [
+        0,
+        1
+      ],
+      "n12_full_target_fidelity": 0.49999458201942937,
+      "n12_ground_fidelity": 0.3671281506746486,
+      "n12_ground_gain": -0.13286643134478077,
+      "ground_convergence_delta": 0.0,
+      "ancilla_excitation_worst": 0.500001316928365,
+      "support_leakage_worst": 1.6540569117540205e-05,
+      "outside_target_leakage_worst": 0.5000178574974823,
+      "physically_plausible": false
+    },
+    {
+      "candidate_id": "baseline_rescore:drcpsqr_blk2_a4_ordCPRD_CPRD_lv0-1-2-3_blk2_t4",
+      "source": "baseline_rescore",
+      "objective_variant": "full_target_seed",
+      "case_id": "drcpsqr_blk2_a4_ordCPRD_CPRD_lv0-1-2-3_blk2_t4",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 2,
+      "max_tones": 4,
+      "order_label": "CPRD",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.649108472257372,
+      "n12_ground_fidelity": 0.6556484708906267,
+      "n12_ground_gain": 0.006539998633254718,
+      "ground_convergence_delta": 2.2393198406689407e-13,
+      "ancilla_excitation_worst": 0.5472619348659518,
+      "support_leakage_worst": 0.0211050901227533,
+      "outside_target_leakage_worst": 0.5683670249858771,
+      "physically_plausible": false
+    },
+    {
+      "candidate_id": "baseline_rescore:drcpsqr_blk3_a3_ordDRCP_DRCP_lv0-1-2_blk3_t3",
+      "source": "baseline_rescore",
+      "objective_variant": "full_target_seed",
+      "case_id": "drcpsqr_blk3_a3_ordDRCP_DRCP_lv0-1-2_blk3_t3",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 3,
+      "max_tones": 3,
+      "order_label": "DRCP",
+      "levels": [
+        0,
+        1,
+        2
+      ],
+      "n12_full_target_fidelity": 0.7953452833642078,
+      "n12_ground_fidelity": 0.35640895236434045,
+      "n12_ground_gain": -0.4389363309998674,
+      "ground_convergence_delta": 1.017151802229499e-07,
+      "ancilla_excitation_worst": 0.7288237694011543,
+      "support_leakage_worst": 0.1772645636809585,
+      "outside_target_leakage_worst": 0.9060724924595926,
+      "physically_plausible": false
+    },
+    {
+      "candidate_id": "baseline_rescore:drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+      "source": "baseline_rescore",
+      "objective_variant": "full_target_seed",
+      "case_id": "drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 4,
+      "max_tones": 4,
+      "order_label": "RDCP",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.9687439627407989,
+      "n12_ground_fidelity": 0.49838646187227,
+      "n12_ground_gain": -0.4703575008685289,
+      "ground_convergence_delta": 4.027472678469479e-06,
+      "ancilla_excitation_worst": 0.9785104849879648,
+      "support_leakage_worst": 0.014741118946474405,
+      "outside_target_leakage_worst": 0.9932346064361944,
+      "physically_plausible": false
+    },
+    {
+      "candidate_id": "baseline_rescore:drcpsqr_blk5_a2_ordDRCP_DRCP_lv1-2_blk5_t2",
+      "source": "baseline_rescore",
+      "objective_variant": "full_target_seed",
+      "case_id": "drcpsqr_blk5_a2_ordDRCP_DRCP_lv1-2_blk5_t2",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 5,
+      "max_tones": 2,
+      "order_label": "DRCP",
+      "levels": [
+        1,
+        2
+      ],
+      "n12_full_target_fidelity": 0.9974916564874692,
+      "n12_ground_fidelity": 0.49872013213329003,
+      "n12_ground_gain": -0.49877152435417915,
+      "ground_convergence_delta": 6.396598078994842e-08,
+      "ancilla_excitation_worst": 0.9976761225509838,
+      "support_leakage_worst": 0.0022255325782258367,
+      "outside_target_leakage_worst": 0.9999016263577182,
+      "physically_plausible": false
+    },
+    {
+      "candidate_id": "baseline_rescore:drsqr_blk2_a4_ordSRD_SRD_lv0-1-2-3_blk2_t4",
+      "source": "baseline_rescore",
+      "objective_variant": "full_target_seed",
+      "case_id": "drsqr_blk2_a4_ordSRD_SRD_lv0-1-2-3_blk2_t4",
+      "family_key": "drsqr",
+      "family_label": "D + R + SQR",
+      "blocks": 2,
+      "max_tones": 4,
+      "order_label": "SRD",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.6274808433328699,
+      "n12_ground_fidelity": 0.26469583546010306,
+      "n12_ground_gain": -0.36278500787276685,
+      "ground_convergence_delta": 1.680877659282487e-13,
+      "ancilla_excitation_worst": 0.6980464775876911,
+      "support_leakage_worst": 0.019146664426364868,
+      "outside_target_leakage_worst": 0.7171931420140523,
+      "physically_plausible": false
+    },
+    {
+      "candidate_id": "baseline_rescore:drsqr_blk3_a4_ordRDS_RDS_lv0-1-2-3_blk3_t4",
+      "source": "baseline_rescore",
+      "objective_variant": "full_target_seed",
+      "case_id": "drsqr_blk3_a4_ordRDS_RDS_lv0-1-2-3_blk3_t4",
+      "family_key": "drsqr",
+      "family_label": "D + R + SQR",
+      "blocks": 3,
+      "max_tones": 4,
+      "order_label": "RDS",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.9642445125784794,
+      "n12_ground_fidelity": 0.4635584797152419,
+      "n12_ground_gain": -0.5006860328632375,
+      "ground_convergence_delta": 2.4039249367779902e-06,
+      "ancilla_excitation_worst": 0.9739188316735347,
+      "support_leakage_worst": 0.02336779334567407,
+      "outside_target_leakage_worst": 0.9915183631157432,
+      "physically_plausible": false
+    },
+    {
+      "candidate_id": "baseline_rescore:drsqr_blk4_a3_ordRDS_RDS_lv0-2-3_blk4_t3",
+      "source": "baseline_rescore",
+      "objective_variant": "full_target_seed",
+      "case_id": "drsqr_blk4_a3_ordRDS_RDS_lv0-2-3_blk4_t3",
+      "family_key": "drsqr",
+      "family_label": "D + R + SQR",
+      "blocks": 4,
+      "max_tones": 3,
+      "order_label": "RDS",
+      "levels": [
+        0,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.9939815699775684,
+      "n12_ground_fidelity": 0.4974203111097785,
+      "n12_ground_gain": -0.49656125886778985,
+      "ground_convergence_delta": 4.777363055152861e-08,
+      "ancilla_excitation_worst": 0.9981010788505761,
+      "support_leakage_worst": 0.0053694191312708694,
+      "outside_target_leakage_worst": 0.9988314115764985,
+      "physically_plausible": false
+    },
+    {
+      "candidate_id": "baseline_rescore:drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4",
+      "source": "baseline_rescore",
+      "objective_variant": "full_target_seed",
+      "case_id": "drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4",
+      "family_key": "drsqr",
+      "family_label": "D + R + SQR",
+      "blocks": 5,
+      "max_tones": 4,
+      "order_label": "RDS",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.9996347038280087,
+      "n12_ground_fidelity": 0.4992008066883284,
+      "n12_ground_gain": -0.5004338971396802,
+      "ground_convergence_delta": 2.4911713303321648e-08,
+      "ancilla_excitation_worst": 0.9998434639959393,
+      "support_leakage_worst": 0.000505264639717895,
+      "outside_target_leakage_worst": 0.999997479740799,
+      "physically_plausible": false
+    }
+  ],
+  "ground_refined_candidates": [
+    {
+      "candidate_id": "ground_refine:drcpsqr_blk1_a2_ordCPRD_CPRD_lv0-1_blk1_t2",
+      "source": "ground_refine",
+      "objective_variant": "ground_sector",
+      "case_id": "drcpsqr_blk1_a2_ordCPRD_CPRD_lv0-1_blk1_t2",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 1,
+      "max_tones": 2,
+      "order_label": "CPRD",
+      "levels": [
+        0,
+        1
+      ],
+      "n12_full_target_fidelity": 0.24495843675764672,
+      "n12_ground_fidelity": 0.8614534727102252,
+      "n12_ground_gain": 0.6164950359525785,
+      "ground_convergence_delta": 1.1102230246251565e-16,
+      "ancilla_excitation_worst": 3.785826356535571e-12,
+      "support_leakage_worst": 0.25888025284039207,
+      "outside_target_leakage_worst": 0.25888025284417787,
+      "physically_plausible": false
+    },
+    {
+      "candidate_id": "ground_refine:drcpsqr_blk2_a4_ordCPRD_CPRD_lv0-1-2-3_blk2_t4",
+      "source": "ground_refine",
+      "objective_variant": "ground_sector",
+      "case_id": "drcpsqr_blk2_a4_ordCPRD_CPRD_lv0-1-2-3_blk2_t4",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 2,
+      "max_tones": 4,
+      "order_label": "CPRD",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.2623226045358179,
+      "n12_ground_fidelity": 0.988680994835133,
+      "n12_ground_gain": 0.7263583902993151,
+      "ground_convergence_delta": 5.827560656257447e-13,
+      "ancilla_excitation_worst": 1.5860363619462993e-09,
+      "support_leakage_worst": 0.030500520218661786,
+      "outside_target_leakage_worst": 0.030500520977780887,
+      "physically_plausible": true
+    },
+    {
+      "candidate_id": "ground_refine:drcpsqr_blk3_a3_ordDRCP_DRCP_lv0-1-2_blk3_t3",
+      "source": "ground_refine",
+      "objective_variant": "ground_sector",
+      "case_id": "drcpsqr_blk3_a3_ordDRCP_DRCP_lv0-1-2_blk3_t3",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 3,
+      "max_tones": 3,
+      "order_label": "DRCP",
+      "levels": [
+        0,
+        1,
+        2
+      ],
+      "n12_full_target_fidelity": 0.4100764687273729,
+      "n12_ground_fidelity": 0.9978771415548336,
+      "n12_ground_gain": 0.5878006728274607,
+      "ground_convergence_delta": 1.7566950116787439e-09,
+      "ancilla_excitation_worst": 0.00158697496696531,
+      "support_leakage_worst": 0.003994997135769118,
+      "outside_target_leakage_worst": 0.004198736183552723,
+      "physically_plausible": true
+    },
+    {
+      "candidate_id": "ground_refine:drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+      "source": "ground_refine",
+      "objective_variant": "ground_sector",
+      "case_id": "drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 4,
+      "max_tones": 4,
+      "order_label": "RDCP",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.1689039557649633,
+      "n12_ground_fidelity": 0.9999283747668164,
+      "n12_ground_gain": 0.8310244190018531,
+      "ground_convergence_delta": 1.190036957865459e-11,
+      "ancilla_excitation_worst": 9.044887599768888e-05,
+      "support_leakage_worst": 8.564216845041717e-05,
+      "outside_target_leakage_worst": 0.0001760907645506616,
+      "physically_plausible": true
+    },
+    {
+      "candidate_id": "ground_refine:drcpsqr_blk5_a2_ordDRCP_DRCP_lv1-2_blk5_t2",
+      "source": "ground_refine",
+      "objective_variant": "ground_sector",
+      "case_id": "drcpsqr_blk5_a2_ordDRCP_DRCP_lv1-2_blk5_t2",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 5,
+      "max_tones": 2,
+      "order_label": "DRCP",
+      "levels": [
+        1,
+        2
+      ],
+      "n12_full_target_fidelity": 0.39776480501024425,
+      "n12_ground_fidelity": 0.9995204768370021,
+      "n12_ground_gain": 0.6017556718267578,
+      "ground_convergence_delta": 2.1469905742144135e-08,
+      "ancilla_excitation_worst": 0.0008990594121902393,
+      "support_leakage_worst": 0.0002569901963251908,
+      "outside_target_leakage_worst": 0.0011175377863140486,
+      "physically_plausible": true
+    },
+    {
+      "candidate_id": "ground_refine:drsqr_blk2_a4_ordSRD_SRD_lv0-1-2-3_blk2_t4",
+      "source": "ground_refine",
+      "objective_variant": "ground_sector",
+      "case_id": "drsqr_blk2_a4_ordSRD_SRD_lv0-1-2-3_blk2_t4",
+      "family_key": "drsqr",
+      "family_label": "D + R + SQR",
+      "blocks": 2,
+      "max_tones": 4,
+      "order_label": "SRD",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.23620478828420532,
+      "n12_ground_fidelity": 0.9875651536102339,
+      "n12_ground_gain": 0.7513603653260286,
+      "ground_convergence_delta": 6.783462680459706e-13,
+      "ancilla_excitation_worst": 0.0008909728825037114,
+      "support_leakage_worst": 0.029641141252217618,
+      "outside_target_leakage_worst": 0.029689699957721503,
+      "physically_plausible": true
+    },
+    {
+      "candidate_id": "ground_refine:drsqr_blk3_a4_ordRDS_RDS_lv0-1-2-3_blk3_t4",
+      "source": "ground_refine",
+      "objective_variant": "ground_sector",
+      "case_id": "drsqr_blk3_a4_ordRDS_RDS_lv0-1-2-3_blk3_t4",
+      "family_key": "drsqr",
+      "family_label": "D + R + SQR",
+      "blocks": 3,
+      "max_tones": 4,
+      "order_label": "RDS",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.29478001196797493,
+      "n12_ground_fidelity": 0.9997453369079558,
+      "n12_ground_gain": 0.7049653249399808,
+      "ground_convergence_delta": 4.4020342926387457e-13,
+      "ancilla_excitation_worst": 0.0004682085980478624,
+      "support_leakage_worst": 0.00012909354790691108,
+      "outside_target_leakage_worst": 0.0005973021459168039,
+      "physically_plausible": true
+    },
+    {
+      "candidate_id": "ground_refine:drsqr_blk4_a3_ordRDS_RDS_lv0-2-3_blk4_t3",
+      "source": "ground_refine",
+      "objective_variant": "ground_sector",
+      "case_id": "drsqr_blk4_a3_ordRDS_RDS_lv0-2-3_blk4_t3",
+      "family_key": "drsqr",
+      "family_label": "D + R + SQR",
+      "blocks": 4,
+      "max_tones": 3,
+      "order_label": "RDS",
+      "levels": [
+        0,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.3937793505825457,
+      "n12_ground_fidelity": 0.9965341712668052,
+      "n12_ground_gain": 0.6027548206842595,
+      "ground_convergence_delta": 4.294245834479682e-07,
+      "ancilla_excitation_worst": 0.0037497713219774463,
+      "support_leakage_worst": 0.003317526417129457,
+      "outside_target_leakage_worst": 0.00696303381268486,
+      "physically_plausible": true
+    },
+    {
+      "candidate_id": "ground_refine:drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4",
+      "source": "ground_refine",
+      "objective_variant": "ground_sector",
+      "case_id": "drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4",
+      "family_key": "drsqr",
+      "family_label": "D + R + SQR",
+      "blocks": 5,
+      "max_tones": 4,
+      "order_label": "RDS",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.36751448508797263,
+      "n12_ground_fidelity": 0.9999260030256224,
+      "n12_ground_gain": 0.6324115179376497,
+      "ground_convergence_delta": 7.849463301567994e-10,
+      "ancilla_excitation_worst": 4.132346011907348e-05,
+      "support_leakage_worst": 0.00014484425028449266,
+      "outside_target_leakage_worst": 0.00017716647295044696,
+      "physically_plausible": true
+    }
+  ],
+  "family_outcomes": {
+    "drsqr": {
+      "family_label": "D + R + SQR",
+      "best_absolute": {
+        "candidate_id": "ground_refine:drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4",
+        "source": "ground_refine",
+        "objective_variant": "ground_sector",
+        "case_id": "drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4",
+        "family_key": "drsqr",
+        "family_label": "D + R + SQR",
+        "blocks": 5,
+        "max_tones": 4,
+        "order_label": "RDS",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "n12_full_target_fidelity": 0.36751448508797263,
+        "n12_ground_fidelity": 0.9999260030256224,
+        "n12_ground_gain": 0.6324115179376497,
+        "ground_convergence_delta": 7.849463301567994e-10,
+        "ancilla_excitation_worst": 4.132346011907348e-05,
+        "support_leakage_worst": 0.00014484425028449266,
+        "outside_target_leakage_worst": 0.00017716647295044696,
+        "physically_plausible": true
+      },
+      "minimum_depth_above_threshold": {
+        "candidate_id": "ground_refine:drsqr_blk3_a4_ordRDS_RDS_lv0-1-2-3_blk3_t4",
+        "source": "ground_refine",
+        "objective_variant": "ground_sector",
+        "case_id": "drsqr_blk3_a4_ordRDS_RDS_lv0-1-2-3_blk3_t4",
+        "family_key": "drsqr",
+        "family_label": "D + R + SQR",
+        "blocks": 3,
+        "max_tones": 4,
+        "order_label": "RDS",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "n12_full_target_fidelity": 0.29478001196797493,
+        "n12_ground_fidelity": 0.9997453369079558,
+        "n12_ground_gain": 0.7049653249399808,
+        "ground_convergence_delta": 4.4020342926387457e-13,
+        "ancilla_excitation_worst": 0.0004682085980478624,
+        "support_leakage_worst": 0.00012909354790691108,
+        "outside_target_leakage_worst": 0.0005973021459168039,
+        "physically_plausible": true
+      },
+      "most_physically_plausible": {
+        "candidate_id": "ground_refine:drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4",
+        "source": "ground_refine",
+        "objective_variant": "ground_sector",
+        "case_id": "drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4",
+        "family_key": "drsqr",
+        "family_label": "D + R + SQR",
+        "blocks": 5,
+        "max_tones": 4,
+        "order_label": "RDS",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "n12_full_target_fidelity": 0.36751448508797263,
+        "n12_ground_fidelity": 0.9999260030256224,
+        "n12_ground_gain": 0.6324115179376497,
+        "ground_convergence_delta": 7.849463301567994e-10,
+        "ancilla_excitation_worst": 4.132346011907348e-05,
+        "support_leakage_worst": 0.00014484425028449266,
+        "outside_target_leakage_worst": 0.00017716647295044696,
+        "physically_plausible": true
+      }
+    },
+    "drcpsqr": {
+      "family_label": "D + R + CPSQR",
+      "best_absolute": {
+        "candidate_id": "ground_refine:drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+        "source": "ground_refine",
+        "objective_variant": "ground_sector",
+        "case_id": "drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+        "family_key": "drcpsqr",
+        "family_label": "D + R + CPSQR",
+        "blocks": 4,
+        "max_tones": 4,
+        "order_label": "RDCP",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "n12_full_target_fidelity": 0.1689039557649633,
+        "n12_ground_fidelity": 0.9999283747668164,
+        "n12_ground_gain": 0.8310244190018531,
+        "ground_convergence_delta": 1.190036957865459e-11,
+        "ancilla_excitation_worst": 9.044887599768888e-05,
+        "support_leakage_worst": 8.564216845041717e-05,
+        "outside_target_leakage_worst": 0.0001760907645506616,
+        "physically_plausible": true
+      },
+      "minimum_depth_above_threshold": {
+        "candidate_id": "ground_refine:drcpsqr_blk3_a3_ordDRCP_DRCP_lv0-1-2_blk3_t3",
+        "source": "ground_refine",
+        "objective_variant": "ground_sector",
+        "case_id": "drcpsqr_blk3_a3_ordDRCP_DRCP_lv0-1-2_blk3_t3",
+        "family_key": "drcpsqr",
+        "family_label": "D + R + CPSQR",
+        "blocks": 3,
+        "max_tones": 3,
+        "order_label": "DRCP",
+        "levels": [
+          0,
+          1,
+          2
+        ],
+        "n12_full_target_fidelity": 0.4100764687273729,
+        "n12_ground_fidelity": 0.9978771415548336,
+        "n12_ground_gain": 0.5878006728274607,
+        "ground_convergence_delta": 1.7566950116787439e-09,
+        "ancilla_excitation_worst": 0.00158697496696531,
+        "support_leakage_worst": 0.003994997135769118,
+        "outside_target_leakage_worst": 0.004198736183552723,
+        "physically_plausible": true
+      },
+      "most_physically_plausible": {
+        "candidate_id": "ground_refine:drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+        "source": "ground_refine",
+        "objective_variant": "ground_sector",
+        "case_id": "drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+        "family_key": "drcpsqr",
+        "family_label": "D + R + CPSQR",
+        "blocks": 4,
+        "max_tones": 4,
+        "order_label": "RDCP",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "n12_full_target_fidelity": 0.1689039557649633,
+        "n12_ground_fidelity": 0.9999283747668164,
+        "n12_ground_gain": 0.8310244190018531,
+        "ground_convergence_delta": 1.190036957865459e-11,
+        "ancilla_excitation_worst": 9.044887599768888e-05,
+        "support_leakage_worst": 8.564216845041717e-05,
+        "outside_target_leakage_worst": 0.0001760907645506616,
+        "physically_plausible": true
+      }
+    }
+  },
+  "cross_family_summary": {
+    "best_absolute": {
+      "candidate_id": "ground_refine:drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+      "source": "ground_refine",
+      "objective_variant": "ground_sector",
+      "case_id": "drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 4,
+      "max_tones": 4,
+      "order_label": "RDCP",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.1689039557649633,
+      "n12_ground_fidelity": 0.9999283747668164,
+      "n12_ground_gain": 0.8310244190018531,
+      "ground_convergence_delta": 1.190036957865459e-11,
+      "ancilla_excitation_worst": 9.044887599768888e-05,
+      "support_leakage_worst": 8.564216845041717e-05,
+      "outside_target_leakage_worst": 0.0001760907645506616,
+      "physically_plausible": true
+    },
+    "best_plausible": {
+      "candidate_id": "ground_refine:drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+      "source": "ground_refine",
+      "objective_variant": "ground_sector",
+      "case_id": "drcpsqr_blk4_a4_ordRDCP_RDCP_lv0-1-2-3_blk4_t4",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "blocks": 4,
+      "max_tones": 4,
+      "order_label": "RDCP",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_full_target_fidelity": 0.1689039557649633,
+      "n12_ground_fidelity": 0.9999283747668164,
+      "n12_ground_gain": 0.8310244190018531,
+      "ground_convergence_delta": 1.190036957865459e-11,
+      "ancilla_excitation_worst": 9.044887599768888e-05,
+      "support_leakage_worst": 8.564216845041717e-05,
+      "outside_target_leakage_worst": 0.0001760907645506616,
+      "physically_plausible": true
+    },
+    "comparison_note": "Baseline full-target winners were rescored under the ground-sector objective, then the best seed per family/block was locally refined with the restricted target at N_cav = 12."
+  }
+}

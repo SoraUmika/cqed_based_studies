@@ -1,0 +1,80 @@
+{
+  "archived_baseline_regression": {
+    "best_fit_restricted_process_fidelity_archived": 0.6866025021303022,
+    "best_fit_restricted_process_fidelity_diff": 0.0,
+    "best_fit_restricted_process_fidelity_rerun": 0.6866025021303022,
+    "max_residual_z_error_rad_archived": 0.03236596837755246,
+    "max_residual_z_error_rad_diff": 0.0,
+    "max_residual_z_error_rad_rerun": 0.03236596837755246,
+    "restricted_average_gate_fidelity_archived": 0.7492434015063528,
+    "restricted_average_gate_fidelity_diff": 0.0,
+    "restricted_average_gate_fidelity_rerun": 0.7492434015063528
+  },
+  "date_created": "2026-04-06T19:57:05Z",
+  "description": "Focused validation and regression checks for the extension-pass outputs.",
+  "echo_dominance_audit": {
+    "any_finite_echo_beats_plain_on_both_metrics": true,
+    "findings": [
+      {
+        "beats_plain_on_both_metrics": false,
+        "construction": "echo_finite_gaussian",
+        "family": "equal_angle_aligned_x_off_plus",
+        "fidelity_delta_vs_plain": -0.26750858302899844,
+        "max_residual_z_delta_vs_plain": -0.5997786268181594
+      },
+      {
+        "beats_plain_on_both_metrics": true,
+        "construction": "echo_finite_manifold_aware_multitone",
+        "family": "equal_angle_aligned_x_off_plus",
+        "fidelity_delta_vs_plain": 0.01982828540498094,
+        "max_residual_z_delta_vs_plain": -0.22247491321359802
+      },
+      {
+        "beats_plain_on_both_metrics": false,
+        "construction": "echo_finite_gaussian",
+        "family": "equal_angle_aligned_x_tuned",
+        "fidelity_delta_vs_plain": -0.19959072103040648,
+        "max_residual_z_delta_vs_plain": -0.9661582546902681
+      },
+      {
+        "beats_plain_on_both_metrics": true,
+        "construction": "echo_finite_manifold_aware_multitone",
+        "family": "equal_angle_aligned_x_tuned",
+        "fidelity_delta_vs_plain": 0.052938571453066574,
+        "max_residual_z_delta_vs_plain": -0.6651614128305969
+      }
+    ],
+    "rows_checked": 4
+  },
+  "load_instructions": "Load `extension_validation_summary.json` as JSON and inspect the documented result rows and metadata.",
+  "study_name": "multitone_sqr_no_go_decoupled_echo_dispersive_cqed",
+  "tuned_case_sensitivity": {
+    "case_id": "chi_only_equal_angle_aligned_x_tuned_na2_chiT0p7151483265621014",
+    "dt_rows": [
+      {
+        "best_fit_restricted_process_fidelity": 0.338306143421518,
+        "dt_s": 1e-09,
+        "max_residual_z_error_rad": 1.3859451023231135,
+        "reduced_vs_full_restricted_average_gate_fidelity": 1.0,
+        "reduced_vs_full_restricted_process_fidelity": 1.0,
+        "restricted_average_gate_fidelity": 0.4230254333931126
+      },
+      {
+        "best_fit_restricted_process_fidelity": 0.3444256709724678,
+        "dt_s": 2e-09,
+        "max_residual_z_error_rad": 1.382402356082089,
+        "reduced_vs_full_restricted_average_gate_fidelity": 1.0,
+        "reduced_vs_full_restricted_process_fidelity": 1.0,
+        "restricted_average_gate_fidelity": 0.42698646151278996
+      },
+      {
+        "best_fit_restricted_process_fidelity": 0.32900118309906945,
+        "dt_s": 4e-09,
+        "max_residual_z_error_rad": 1.3316914282689096,
+        "reduced_vs_full_restricted_average_gate_fidelity": 1.0,
+        "reduced_vs_full_restricted_process_fidelity": 1.0,
+        "restricted_average_gate_fidelity": 0.4159563575505997
+      }
+    ]
+  }
+}

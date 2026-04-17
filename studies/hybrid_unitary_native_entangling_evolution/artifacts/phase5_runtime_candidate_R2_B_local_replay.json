@@ -1,0 +1,1374 @@
+{
+  "study_name": "hybrid_unitary_native_entangling_evolution",
+  "date_created": "2026-03-24",
+  "description": "Runtime replay decomposition for R2_B_local_replay.",
+  "symbolic_reference": "N2_B_local_to_B_local",
+  "decomposition": [
+    {
+      "segment_name": "Hq_in_1",
+      "segment_kind": "hq_runtime",
+      "end_time_s": 4e-08,
+      "metadata": {
+        "source_gates": [
+          {
+            "gate_name": "Hq_in_1_ry",
+            "gate_type": "QubitRotation",
+            "duration_s": 2e-08,
+            "parameters": [
+              1.5707963267948966,
+              1.5707963267948966
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 2e-08,
+              "drive_amp": 39269908.16987241,
+              "drive_phase": 1.5707963267948966,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "Hq_in_1_rx",
+            "gate_type": "QubitRotation",
+            "duration_s": 2e-08,
+            "parameters": [
+              3.141592653589793,
+              0.0
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 2e-08,
+              "drive_amp": 78539816.33974482,
+              "drive_phase": 0.0,
+              "sigma_fraction": 0.18
+            }
+          }
+        ],
+        "pulse_hash": "c8cf46969d0ac770b3a29a1f07451285c1ae24b37282caace488d3386480544b",
+        "pulse_count": 2
+      }
+    },
+    {
+      "segment_name": "local_inner_1",
+      "segment_kind": "B_local_direct",
+      "end_time_s": 2.4800000000000004e-06,
+      "metadata": {
+        "source_gates": [
+          {
+            "gate_name": "R1_local_inner_1_0",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              3.03992703909291,
+              0.7382720535883824
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 37999087.98866137,
+              "drive_phase": 0.7382720535883824,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "S1_local_inner_1_1",
+            "gate_type": "SQR",
+            "duration_s": 1.1e-06,
+            "parameters": [
+              6.3603120569302884,
+              0.07705490788581063,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.7171499584384993,
+              0.7180249647002368,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "pulse_metadata": {
+              "mapping": "Simplified multitone Gaussian SQR with canonical waveform convention w(t)~exp(+i*omega*t); tone amplitudes follow additive correction amp_n = theta/(2T) + lambda0*d_lambda_norm (equivalent to coefficient theta/pi + d_lambda_norm).",
+              "duration_s": 1.1e-06,
+              "drive_amp": null,
+              "drive_phase": null,
+              "sigma_fraction": 0.18,
+              "active_tones": [
+                {
+                  "n": 0,
+                  "omega_rad_s": -0.0,
+                  "amp_rad_s": 2891050.9349683123,
+                  "phase_rad": 0.7171499584384993
+                },
+                {
+                  "n": 1,
+                  "omega_rad_s": 17844246.272390027,
+                  "amp_rad_s": 35024.95812991392,
+                  "phase_rad": 0.7180249647002368
+                },
+                {
+                  "n": 2,
+                  "omega_rad_s": 35952386.32768159,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 3,
+                  "omega_rad_s": 54324420.16587471,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 4,
+                  "omega_rad_s": 72960347.78696936,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 5,
+                  "omega_rad_s": 91860169.19096556,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 6,
+                  "omega_rad_s": 111023884.37786332,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 7,
+                  "omega_rad_s": 130451493.34766258,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                }
+              ],
+              "calibration_applied": false,
+              "calibration_summary": null
+            }
+          },
+          {
+            "gate_name": "R2_local_inner_1_2",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              1.5861867017791356,
+              1.5639322955427901
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 19827333.772239193,
+              "drive_phase": 1.5639322955427901,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "D1_local_inner_1_3",
+            "gate_type": "Displacement",
+            "duration_s": 8e-08,
+            "parameters": [
+              0.3966725839700026,
+              1.8362723632528332e-09
+            ],
+            "pulse_metadata": {
+              "mapping": "Square cavity drive with analytic rotating-frame calibration alpha = -i * integral epsilon(t) dt.",
+              "duration_s": 8e-08,
+              "drive_amp": 4958407.299625033,
+              "drive_phase": 1.5707963314240856,
+              "target_alpha": {
+                "real": 0.3966725839700026,
+                "imag": 1.8362723632528332e-09
+              }
+            }
+          },
+          {
+            "gate_name": "R3_local_inner_1_4",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              1.560563718295787,
+              0.004968772099434836
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 19507046.478697337,
+              "drive_phase": 0.004968772099434836,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "S2_local_inner_1_5",
+            "gate_type": "SQR",
+            "duration_s": 1.1e-06,
+            "parameters": [
+              0.09999805560134602,
+              0.09999821717015511,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.051825410895542434,
+              0.05221225379891111,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "pulse_metadata": {
+              "mapping": "Simplified multitone Gaussian SQR with canonical waveform convention w(t)~exp(+i*omega*t); tone amplitudes follow additive correction amp_n = theta/(2T) + lambda0*d_lambda_norm (equivalent to coefficient theta/pi + d_lambda_norm).",
+              "duration_s": 1.1e-06,
+              "drive_amp": null,
+              "drive_phase": null,
+              "sigma_fraction": 0.18,
+              "active_tones": [
+                {
+                  "n": 0,
+                  "omega_rad_s": -0.0,
+                  "amp_rad_s": 45453.661636975456,
+                  "phase_rad": 0.051825410895542434
+                },
+                {
+                  "n": 1,
+                  "omega_rad_s": 17844246.272390027,
+                  "amp_rad_s": 45453.73507734323,
+                  "phase_rad": 0.05221225379891111
+                },
+                {
+                  "n": 2,
+                  "omega_rad_s": 35952386.32768159,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 3,
+                  "omega_rad_s": 54324420.16587471,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 4,
+                  "omega_rad_s": 72960347.78696936,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 5,
+                  "omega_rad_s": 91860169.19096556,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 6,
+                  "omega_rad_s": 111023884.37786332,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 7,
+                  "omega_rad_s": 130451493.34766258,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                }
+              ],
+              "calibration_applied": false,
+              "calibration_summary": null
+            }
+          },
+          {
+            "gate_name": "R4_local_inner_1_6",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              1.5710206465976708,
+              1.5730924562773458
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 19637758.082470886,
+              "drive_phase": 1.5730924562773458,
+              "sigma_fraction": 0.18
+            }
+          }
+        ],
+        "pulse_hash": "1c2d47bde21bc8897650128c832319524f8e0ad6e7d50fd3c7118c7334bf376e",
+        "pulse_count": 7
+      }
+    },
+    {
+      "segment_name": "D_ent_1",
+      "segment_kind": "native_entangler",
+      "end_time_s": 2.7360000000000006e-06,
+      "metadata": {
+        "source_gates": [
+          {
+            "gate_name": "R1_D_ent_D_ent_1_0",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              4.712388976453659,
+              1.5706287829466794
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 58904862.20567074,
+              "drive_phase": 1.5706287829466794,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "W_D_ent_D_ent_1_1",
+            "gate_type": "FreeEvolveCondPhase",
+            "duration_s": 1.7600000000000001e-07,
+            "parameters": [],
+            "pulse_metadata": {
+              "mapping": "Explicit zero-amplitude idle pulse for FreeEvolveCondPhase replay."
+            }
+          },
+          {
+            "gate_name": "R2_D_ent_D_ent_1_2",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              1.5707962951991317,
+              1.570963874874675
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 19634953.689989146,
+              "drive_phase": 1.570963874874675,
+              "sigma_fraction": 0.18
+            }
+          }
+        ],
+        "pulse_hash": "30800ce0588c41779b532c0ba6fe8a0816839e7d9b50072687facef62f2a2a3d",
+        "pulse_count": 3
+      }
+    },
+    {
+      "segment_name": "Hq_in_2",
+      "segment_kind": "hq_runtime",
+      "end_time_s": 2.776e-06,
+      "metadata": {
+        "source_gates": [
+          {
+            "gate_name": "Hq_in_2_ry",
+            "gate_type": "QubitRotation",
+            "duration_s": 2e-08,
+            "parameters": [
+              1.5707963267948966,
+              1.5707963267948966
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 2e-08,
+              "drive_amp": 39269908.16987241,
+              "drive_phase": 1.5707963267948966,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "Hq_in_2_rx",
+            "gate_type": "QubitRotation",
+            "duration_s": 2e-08,
+            "parameters": [
+              3.141592653589793,
+              0.0
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 2e-08,
+              "drive_amp": 78539816.33974482,
+              "drive_phase": 0.0,
+              "sigma_fraction": 0.18
+            }
+          }
+        ],
+        "pulse_hash": "107d975f7e92401de0f1fde260d3db470552d4b3ea6e6a20c84a37d263afb6b8",
+        "pulse_count": 2
+      }
+    },
+    {
+      "segment_name": "local_inner_2",
+      "segment_kind": "B_local_direct",
+      "end_time_s": 5.2160000000000005e-06,
+      "metadata": {
+        "source_gates": [
+          {
+            "gate_name": "R1_local_inner_2_0",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              3.03992703909291,
+              0.7382720535883824
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 37999087.98866137,
+              "drive_phase": 0.7382720535883824,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "S1_local_inner_2_1",
+            "gate_type": "SQR",
+            "duration_s": 1.1e-06,
+            "parameters": [
+              6.3603120569302884,
+              0.07705490788581063,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.7171499584384993,
+              0.7180249647002368,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "pulse_metadata": {
+              "mapping": "Simplified multitone Gaussian SQR with canonical waveform convention w(t)~exp(+i*omega*t); tone amplitudes follow additive correction amp_n = theta/(2T) + lambda0*d_lambda_norm (equivalent to coefficient theta/pi + d_lambda_norm).",
+              "duration_s": 1.1e-06,
+              "drive_amp": null,
+              "drive_phase": null,
+              "sigma_fraction": 0.18,
+              "active_tones": [
+                {
+                  "n": 0,
+                  "omega_rad_s": -0.0,
+                  "amp_rad_s": 2891050.9349683123,
+                  "phase_rad": 0.7171499584384993
+                },
+                {
+                  "n": 1,
+                  "omega_rad_s": 17844246.272390027,
+                  "amp_rad_s": 35024.95812991392,
+                  "phase_rad": 0.7180249647002368
+                },
+                {
+                  "n": 2,
+                  "omega_rad_s": 35952386.32768159,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 3,
+                  "omega_rad_s": 54324420.16587471,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 4,
+                  "omega_rad_s": 72960347.78696936,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 5,
+                  "omega_rad_s": 91860169.19096556,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 6,
+                  "omega_rad_s": 111023884.37786332,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 7,
+                  "omega_rad_s": 130451493.34766258,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                }
+              ],
+              "calibration_applied": false,
+              "calibration_summary": null
+            }
+          },
+          {
+            "gate_name": "R2_local_inner_2_2",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              1.5861867017791356,
+              1.5639322955427901
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 19827333.772239193,
+              "drive_phase": 1.5639322955427901,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "D1_local_inner_2_3",
+            "gate_type": "Displacement",
+            "duration_s": 8e-08,
+            "parameters": [
+              0.3966725839700026,
+              1.8362723632528332e-09
+            ],
+            "pulse_metadata": {
+              "mapping": "Square cavity drive with analytic rotating-frame calibration alpha = -i * integral epsilon(t) dt.",
+              "duration_s": 8e-08,
+              "drive_amp": 4958407.299625033,
+              "drive_phase": 1.5707963314240856,
+              "target_alpha": {
+                "real": 0.3966725839700026,
+                "imag": 1.8362723632528332e-09
+              }
+            }
+          },
+          {
+            "gate_name": "R3_local_inner_2_4",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              1.560563718295787,
+              0.004968772099434836
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 19507046.478697337,
+              "drive_phase": 0.004968772099434836,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "S2_local_inner_2_5",
+            "gate_type": "SQR",
+            "duration_s": 1.1e-06,
+            "parameters": [
+              0.09999805560134602,
+              0.09999821717015511,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.051825410895542434,
+              0.05221225379891111,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "pulse_metadata": {
+              "mapping": "Simplified multitone Gaussian SQR with canonical waveform convention w(t)~exp(+i*omega*t); tone amplitudes follow additive correction amp_n = theta/(2T) + lambda0*d_lambda_norm (equivalent to coefficient theta/pi + d_lambda_norm).",
+              "duration_s": 1.1e-06,
+              "drive_amp": null,
+              "drive_phase": null,
+              "sigma_fraction": 0.18,
+              "active_tones": [
+                {
+                  "n": 0,
+                  "omega_rad_s": -0.0,
+                  "amp_rad_s": 45453.661636975456,
+                  "phase_rad": 0.051825410895542434
+                },
+                {
+                  "n": 1,
+                  "omega_rad_s": 17844246.272390027,
+                  "amp_rad_s": 45453.73507734323,
+                  "phase_rad": 0.05221225379891111
+                },
+                {
+                  "n": 2,
+                  "omega_rad_s": 35952386.32768159,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 3,
+                  "omega_rad_s": 54324420.16587471,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 4,
+                  "omega_rad_s": 72960347.78696936,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 5,
+                  "omega_rad_s": 91860169.19096556,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 6,
+                  "omega_rad_s": 111023884.37786332,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 7,
+                  "omega_rad_s": 130451493.34766258,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                }
+              ],
+              "calibration_applied": false,
+              "calibration_summary": null
+            }
+          },
+          {
+            "gate_name": "R4_local_inner_2_6",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              1.5710206465976708,
+              1.5730924562773458
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 19637758.082470886,
+              "drive_phase": 1.5730924562773458,
+              "sigma_fraction": 0.18
+            }
+          }
+        ],
+        "pulse_hash": "2b835c1c8773485c63ec6355bdb232fc2821a9cdb9270e8846c3daf7836e3e26",
+        "pulse_count": 7
+      }
+    },
+    {
+      "segment_name": "D_ent_2",
+      "segment_kind": "native_entangler",
+      "end_time_s": 5.472e-06,
+      "metadata": {
+        "source_gates": [
+          {
+            "gate_name": "R1_D_ent_D_ent_2_0",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              4.712388976453659,
+              1.5706287829466794
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 58904862.20567074,
+              "drive_phase": 1.5706287829466794,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "W_D_ent_D_ent_2_1",
+            "gate_type": "FreeEvolveCondPhase",
+            "duration_s": 1.7600000000000001e-07,
+            "parameters": [],
+            "pulse_metadata": {
+              "mapping": "Explicit zero-amplitude idle pulse for FreeEvolveCondPhase replay."
+            }
+          },
+          {
+            "gate_name": "R2_D_ent_D_ent_2_2",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              1.5707962951991317,
+              1.570963874874675
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 19634953.689989146,
+              "drive_phase": 1.570963874874675,
+              "sigma_fraction": 0.18
+            }
+          }
+        ],
+        "pulse_hash": "4fed509f047fa70de4be5b6eeabfc07ea518e9377e7d41c5a7719ee9629324de",
+        "pulse_count": 3
+      }
+    },
+    {
+      "segment_name": "local_outer_final",
+      "segment_kind": "B_local_direct",
+      "end_time_s": 7.912e-06,
+      "metadata": {
+        "source_gates": [
+          {
+            "gate_name": "R1_local_outer_final_0",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              3.03992703909291,
+              0.7382720535883824
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 37999087.98866137,
+              "drive_phase": 0.7382720535883824,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "S1_local_outer_final_1",
+            "gate_type": "SQR",
+            "duration_s": 1.1e-06,
+            "parameters": [
+              6.3603120569302884,
+              0.07705490788581063,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.7171499584384993,
+              0.7180249647002368,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "pulse_metadata": {
+              "mapping": "Simplified multitone Gaussian SQR with canonical waveform convention w(t)~exp(+i*omega*t); tone amplitudes follow additive correction amp_n = theta/(2T) + lambda0*d_lambda_norm (equivalent to coefficient theta/pi + d_lambda_norm).",
+              "duration_s": 1.1e-06,
+              "drive_amp": null,
+              "drive_phase": null,
+              "sigma_fraction": 0.18,
+              "active_tones": [
+                {
+                  "n": 0,
+                  "omega_rad_s": -0.0,
+                  "amp_rad_s": 2891050.9349683123,
+                  "phase_rad": 0.7171499584384993
+                },
+                {
+                  "n": 1,
+                  "omega_rad_s": 17844246.272390027,
+                  "amp_rad_s": 35024.95812991392,
+                  "phase_rad": 0.7180249647002368
+                },
+                {
+                  "n": 2,
+                  "omega_rad_s": 35952386.32768159,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 3,
+                  "omega_rad_s": 54324420.16587471,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 4,
+                  "omega_rad_s": 72960347.78696936,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 5,
+                  "omega_rad_s": 91860169.19096556,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 6,
+                  "omega_rad_s": 111023884.37786332,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 7,
+                  "omega_rad_s": 130451493.34766258,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                }
+              ],
+              "calibration_applied": false,
+              "calibration_summary": null
+            }
+          },
+          {
+            "gate_name": "R2_local_outer_final_2",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              1.5861867017791356,
+              1.5639322955427901
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 19827333.772239193,
+              "drive_phase": 1.5639322955427901,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "D1_local_outer_final_3",
+            "gate_type": "Displacement",
+            "duration_s": 8e-08,
+            "parameters": [
+              0.3966725839700026,
+              1.8362723632528332e-09
+            ],
+            "pulse_metadata": {
+              "mapping": "Square cavity drive with analytic rotating-frame calibration alpha = -i * integral epsilon(t) dt.",
+              "duration_s": 8e-08,
+              "drive_amp": 4958407.299625033,
+              "drive_phase": 1.5707963314240856,
+              "target_alpha": {
+                "real": 0.3966725839700026,
+                "imag": 1.8362723632528332e-09
+              }
+            }
+          },
+          {
+            "gate_name": "R3_local_outer_final_4",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              1.560563718295787,
+              0.004968772099434836
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 19507046.478697337,
+              "drive_phase": 0.004968772099434836,
+              "sigma_fraction": 0.18
+            }
+          },
+          {
+            "gate_name": "S2_local_outer_final_5",
+            "gate_type": "SQR",
+            "duration_s": 1.1e-06,
+            "parameters": [
+              0.09999805560134602,
+              0.09999821717015511,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.051825410895542434,
+              0.05221225379891111,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "pulse_metadata": {
+              "mapping": "Simplified multitone Gaussian SQR with canonical waveform convention w(t)~exp(+i*omega*t); tone amplitudes follow additive correction amp_n = theta/(2T) + lambda0*d_lambda_norm (equivalent to coefficient theta/pi + d_lambda_norm).",
+              "duration_s": 1.1e-06,
+              "drive_amp": null,
+              "drive_phase": null,
+              "sigma_fraction": 0.18,
+              "active_tones": [
+                {
+                  "n": 0,
+                  "omega_rad_s": -0.0,
+                  "amp_rad_s": 45453.661636975456,
+                  "phase_rad": 0.051825410895542434
+                },
+                {
+                  "n": 1,
+                  "omega_rad_s": 17844246.272390027,
+                  "amp_rad_s": 45453.73507734323,
+                  "phase_rad": 0.05221225379891111
+                },
+                {
+                  "n": 2,
+                  "omega_rad_s": 35952386.32768159,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 3,
+                  "omega_rad_s": 54324420.16587471,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 4,
+                  "omega_rad_s": 72960347.78696936,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 5,
+                  "omega_rad_s": 91860169.19096556,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 6,
+                  "omega_rad_s": 111023884.37786332,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                },
+                {
+                  "n": 7,
+                  "omega_rad_s": 130451493.34766258,
+                  "amp_rad_s": 45454.54545454545,
+                  "phase_rad": 0.0
+                }
+              ],
+              "calibration_applied": false,
+              "calibration_summary": null
+            }
+          },
+          {
+            "gate_name": "R4_local_outer_final_6",
+            "gate_type": "QubitRotation",
+            "duration_s": 4e-08,
+            "parameters": [
+              1.5710206465976708,
+              1.5730924562773458
+            ],
+            "pulse_metadata": {
+              "mapping": "Gaussian qubit drive with analytic RWA calibration theta = 2 * integral Omega(t) dt.",
+              "duration_s": 4e-08,
+              "drive_amp": 19637758.082470886,
+              "drive_phase": 1.5730924562773458,
+              "sigma_fraction": 0.18
+            }
+          }
+        ],
+        "pulse_hash": "2932f50d305afad04eda52939f47f739c32e5d64c94c231b7018cee826ea334f",
+        "pulse_count": 7
+      }
+    }
+  ],
+  "pulses": [
+    {
+      "channel": "qubit",
+      "t0": 0.0,
+      "duration": 2e-08,
+      "carrier": 0.0,
+      "phase": 1.5707963267948966,
+      "amp": 39269908.16987241,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "Hq_in_1:Hq_in_1:Hq_in_1_ry:Hq_in_1_ry"
+    },
+    {
+      "channel": "qubit",
+      "t0": 2e-08,
+      "duration": 2e-08,
+      "carrier": 0.0,
+      "phase": 0.0,
+      "amp": 78539816.33974482,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "Hq_in_1:Hq_in_1:Hq_in_1_rx:Hq_in_1_rx"
+    },
+    {
+      "channel": "qubit",
+      "t0": 4e-08,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 0.7382720535883824,
+      "amp": 37999087.98866137,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_1:local_inner_1:R1_local_inner_1_0:R1_local_inner_1_0"
+    },
+    {
+      "channel": "qubit",
+      "t0": 8e-08,
+      "duration": 1.1e-06,
+      "carrier": 0.0,
+      "phase": 0.0,
+      "amp": 1.0,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_1:local_inner_1:S1_local_inner_1_1:S1_local_inner_1_1"
+    },
+    {
+      "channel": "qubit",
+      "t0": 1.1800000000000001e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 1.5639322955427901,
+      "amp": 19827333.772239193,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_1:local_inner_1:R2_local_inner_1_2:R2_local_inner_1_2"
+    },
+    {
+      "channel": "storage",
+      "t0": 1.2200000000000002e-06,
+      "duration": 8e-08,
+      "carrier": 0.0,
+      "phase": 1.5707963314240856,
+      "amp": 4958407.299625033,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_1:local_inner_1:D1_local_inner_1_3:D1_local_inner_1_3"
+    },
+    {
+      "channel": "qubit",
+      "t0": 1.3000000000000003e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 0.004968772099434836,
+      "amp": 19507046.478697337,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_1:local_inner_1:R3_local_inner_1_4:R3_local_inner_1_4"
+    },
+    {
+      "channel": "qubit",
+      "t0": 1.3400000000000003e-06,
+      "duration": 1.1e-06,
+      "carrier": 0.0,
+      "phase": 0.0,
+      "amp": 1.0,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_1:local_inner_1:S2_local_inner_1_5:S2_local_inner_1_5"
+    },
+    {
+      "channel": "qubit",
+      "t0": 2.4400000000000004e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 1.5730924562773458,
+      "amp": 19637758.082470886,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_1:local_inner_1:R4_local_inner_1_6:R4_local_inner_1_6"
+    },
+    {
+      "channel": "qubit",
+      "t0": 2.4800000000000004e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 1.5706287829466794,
+      "amp": 58904862.20567074,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "D_ent_1:D_ent_1:R1_D_ent_D_ent_1_0:R1_D_ent_D_ent_1_0"
+    },
+    {
+      "channel": "qubit",
+      "t0": 2.5200000000000004e-06,
+      "duration": 1.7600000000000001e-07,
+      "carrier": 0.0,
+      "phase": 0.0,
+      "amp": 0.0,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "D_ent_1:D_ent_1:W_D_ent_D_ent_1_1:W_D_ent_D_ent_1_1"
+    },
+    {
+      "channel": "qubit",
+      "t0": 2.6960000000000005e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 1.570963874874675,
+      "amp": 19634953.689989146,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "D_ent_1:D_ent_1:R2_D_ent_D_ent_1_2:R2_D_ent_D_ent_1_2"
+    },
+    {
+      "channel": "qubit",
+      "t0": 2.7360000000000006e-06,
+      "duration": 2e-08,
+      "carrier": 0.0,
+      "phase": 1.5707963267948966,
+      "amp": 39269908.16987241,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "Hq_in_2:Hq_in_2:Hq_in_2_ry:Hq_in_2_ry"
+    },
+    {
+      "channel": "qubit",
+      "t0": 2.7560000000000004e-06,
+      "duration": 2e-08,
+      "carrier": 0.0,
+      "phase": 0.0,
+      "amp": 78539816.33974482,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "Hq_in_2:Hq_in_2:Hq_in_2_rx:Hq_in_2_rx"
+    },
+    {
+      "channel": "qubit",
+      "t0": 2.776e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 0.7382720535883824,
+      "amp": 37999087.98866137,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_2:local_inner_2:R1_local_inner_2_0:R1_local_inner_2_0"
+    },
+    {
+      "channel": "qubit",
+      "t0": 2.8160000000000002e-06,
+      "duration": 1.1e-06,
+      "carrier": 0.0,
+      "phase": 0.0,
+      "amp": 1.0,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_2:local_inner_2:S1_local_inner_2_1:S1_local_inner_2_1"
+    },
+    {
+      "channel": "qubit",
+      "t0": 3.916e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 1.5639322955427901,
+      "amp": 19827333.772239193,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_2:local_inner_2:R2_local_inner_2_2:R2_local_inner_2_2"
+    },
+    {
+      "channel": "storage",
+      "t0": 3.956000000000001e-06,
+      "duration": 8e-08,
+      "carrier": 0.0,
+      "phase": 1.5707963314240856,
+      "amp": 4958407.299625033,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_2:local_inner_2:D1_local_inner_2_3:D1_local_inner_2_3"
+    },
+    {
+      "channel": "qubit",
+      "t0": 4.036e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 0.004968772099434836,
+      "amp": 19507046.478697337,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_2:local_inner_2:R3_local_inner_2_4:R3_local_inner_2_4"
+    },
+    {
+      "channel": "qubit",
+      "t0": 4.0760000000000004e-06,
+      "duration": 1.1e-06,
+      "carrier": 0.0,
+      "phase": 0.0,
+      "amp": 1.0,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_2:local_inner_2:S2_local_inner_2_5:S2_local_inner_2_5"
+    },
+    {
+      "channel": "qubit",
+      "t0": 5.176000000000001e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 1.5730924562773458,
+      "amp": 19637758.082470886,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_inner_2:local_inner_2:R4_local_inner_2_6:R4_local_inner_2_6"
+    },
+    {
+      "channel": "qubit",
+      "t0": 5.2160000000000005e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 1.5706287829466794,
+      "amp": 58904862.20567074,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "D_ent_2:D_ent_2:R1_D_ent_D_ent_2_0:R1_D_ent_D_ent_2_0"
+    },
+    {
+      "channel": "qubit",
+      "t0": 5.256e-06,
+      "duration": 1.7600000000000001e-07,
+      "carrier": 0.0,
+      "phase": 0.0,
+      "amp": 0.0,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "D_ent_2:D_ent_2:W_D_ent_D_ent_2_1:W_D_ent_D_ent_2_1"
+    },
+    {
+      "channel": "qubit",
+      "t0": 5.432000000000001e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 1.570963874874675,
+      "amp": 19634953.689989146,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "D_ent_2:D_ent_2:R2_D_ent_D_ent_2_2:R2_D_ent_D_ent_2_2"
+    },
+    {
+      "channel": "qubit",
+      "t0": 5.472e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 0.7382720535883824,
+      "amp": 37999087.98866137,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_outer_final:local_outer_final:R1_local_outer_final_0:R1_local_outer_final_0"
+    },
+    {
+      "channel": "qubit",
+      "t0": 5.512e-06,
+      "duration": 1.1e-06,
+      "carrier": 0.0,
+      "phase": 0.0,
+      "amp": 1.0,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_outer_final:local_outer_final:S1_local_outer_final_1:S1_local_outer_final_1"
+    },
+    {
+      "channel": "qubit",
+      "t0": 6.612e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 1.5639322955427901,
+      "amp": 19827333.772239193,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_outer_final:local_outer_final:R2_local_outer_final_2:R2_local_outer_final_2"
+    },
+    {
+      "channel": "storage",
+      "t0": 6.652e-06,
+      "duration": 8e-08,
+      "carrier": 0.0,
+      "phase": 1.5707963314240856,
+      "amp": 4958407.299625033,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_outer_final:local_outer_final:D1_local_outer_final_3:D1_local_outer_final_3"
+    },
+    {
+      "channel": "qubit",
+      "t0": 6.732000000000001e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 0.004968772099434836,
+      "amp": 19507046.478697337,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_outer_final:local_outer_final:R3_local_outer_final_4:R3_local_outer_final_4"
+    },
+    {
+      "channel": "qubit",
+      "t0": 6.7720000000000006e-06,
+      "duration": 1.1e-06,
+      "carrier": 0.0,
+      "phase": 0.0,
+      "amp": 1.0,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_outer_final:local_outer_final:S2_local_outer_final_5:S2_local_outer_final_5"
+    },
+    {
+      "channel": "qubit",
+      "t0": 7.872e-06,
+      "duration": 4e-08,
+      "carrier": 0.0,
+      "phase": 1.5730924562773458,
+      "amp": 19637758.082470886,
+      "drag": 0.0,
+      "sample_rate": null,
+      "label": "local_outer_final:local_outer_final:R4_local_outer_final_6:R4_local_outer_final_6"
+    }
+  ],
+  "drive_ops": {
+    "qubit": "qubit",
+    "storage": "cavity"
+  },
+  "pulse_hash": "f130592f3d59ad7e149fc31aecb2838f40ae8d30d495ce6dd4041c7be1d50036",
+  "parameters": {
+    "reference_n_cav": 12,
+    "reference_n_tr": 3,
+    "runtime_dt_s": 2e-09
+  },
+  "load_instructions": "Rebuild pulses from R2_B_local_replay or replay the serialized pulse list through cqed_sim.sim.prepare_simulation."
+}

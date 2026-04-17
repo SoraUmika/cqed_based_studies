@@ -1,0 +1,563 @@
+{
+  "study_name": "cluster_state_free_evolution_snap_comparison",
+  "family": "native_fe",
+  "family_title": "D + R + FE",
+  "case_id": "native_fe_b6_n6",
+  "blocks": 6,
+  "optimized_n_cav": 6,
+  "seed": 17,
+  "maxiter": 35,
+  "fidelity": 0.9233997633104247,
+  "block_gauge_fidelity": 0.9234430462432716,
+  "best_fit_block_gauge_fidelity": 0.9234475631446131,
+  "leakage_average": 0.10268092601490778,
+  "leakage_worst": 0.10694245004936387,
+  "unitarity_error": 2.5957373934363486e-15,
+  "objective": 0.08194735919204348,
+  "success": false,
+  "message": "",
+  "metrics": {
+    "fidelity": 0.9233997633104247,
+    "leakage_average": 0.10268092601490797,
+    "leakage_worst": 0.10694245004936409,
+    "leakage_selected": 0.10694245004936409,
+    "checkpoint_leakage_average": 0.0,
+    "checkpoint_leakage_worst": 0.0,
+    "state_error_mean": NaN,
+    "state_error_max": NaN,
+    "state_fidelity_mean": NaN,
+    "state_fidelity_min": NaN,
+    "reduced_state_fidelity_mean": NaN,
+    "reduced_state_fidelity_min": NaN,
+    "observable_error_mean": NaN,
+    "observable_error_max": NaN,
+    "weighted_observable_error": NaN,
+    "trajectory_task_loss": NaN,
+    "trajectory_state_error_mean": NaN,
+    "trajectory_observable_error_mean": NaN,
+    "channel_overlap": NaN,
+    "channel_choi_error": NaN,
+    "channel_superoperator_error": NaN,
+    "trace_preservation_error_mean": NaN,
+    "trace_preservation_error_max": NaN,
+    "trace_loss_mean": NaN,
+    "trace_loss_worst": NaN,
+    "choi_hermiticity_error": NaN,
+    "choi_min_eig": NaN,
+    "complete_positivity_violation": NaN,
+    "duration_metric": 1.006856540084388,
+    "gate_count_metric": 13.26953719508237,
+    "pulse_power_metric": 0.5274453548919841,
+    "amplitude_smoothness_metric": 1.1245598116439095,
+    "robustness_objective": 0.07660023668957527
+  },
+  "gate_depth": 20,
+  "total_duration_ns": 1909.0,
+  "total_wait_time_ns": 1069.0,
+  "total_fe_logical_delta_phi_rad": 19.07549926518494,
+  "total_snap_logical_relative_phase_rad": 0.0,
+  "parameter_count": 48,
+  "snap_gate_count": 0,
+  "snap_phase_count": 0,
+  "entangling_gate_count": 6,
+  "wait_gate_count": 6,
+  "sequence_summary": {
+    "rows": [
+      {
+        "name": "D0",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R0",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE0",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 189.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D1",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R1",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE1",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 167.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D2",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R2",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE2",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 270.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D3",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R3",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE3",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 156.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D4",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R4",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE4",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 125.00000000000001,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D5",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R5",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE5",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 162.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D6",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R6",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      }
+    ],
+    "counts": {
+      "Displacement": 7,
+      "QubitRotation": 7,
+      "FreeEvolveCondPhase": 6
+    },
+    "gate_depth": 20,
+    "total_duration_ns": 1909.0,
+    "selective_block_count": 0,
+    "entangling_block_count": 6,
+    "total_active_tones": 0,
+    "max_active_tones": 0
+  },
+  "sequence_payload": [
+    {
+      "type": "Displacement",
+      "name": "D0",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:0:D0",
+      "time_policy_locked": false,
+      "parameters": [
+        0.22177114420301347,
+        -0.1821499152055169
+      ],
+      "time_param_id": "t_0"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R0",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:1:R0",
+      "time_policy_locked": false,
+      "parameters": [
+        0.4626783492189077,
+        -0.38853601888545036
+      ],
+      "time_param_id": "t_1"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE0",
+      "duration": 1.89e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:2:FE0",
+      "time_policy_locked": false,
+      "wait_time": 1.89e-07,
+      "parameters": [],
+      "time_param_id": "t_2"
+    },
+    {
+      "type": "Displacement",
+      "name": "D1",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:3:D1",
+      "time_policy_locked": false,
+      "parameters": [
+        0.4150650389081608,
+        -0.2881349303121091
+      ],
+      "time_param_id": "t_3"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R1",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:4:R1",
+      "time_policy_locked": false,
+      "parameters": [
+        2.375776963776717,
+        1.2607381363086754
+      ],
+      "time_param_id": "t_4"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE1",
+      "duration": 1.67e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:5:FE1",
+      "time_policy_locked": false,
+      "wait_time": 1.67e-07,
+      "parameters": [],
+      "time_param_id": "t_5"
+    },
+    {
+      "type": "Displacement",
+      "name": "D2",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:6:D2",
+      "time_policy_locked": false,
+      "parameters": [
+        0.5644185842295563,
+        0.06886555764441601
+      ],
+      "time_param_id": "t_6"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R2",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:7:R2",
+      "time_policy_locked": false,
+      "parameters": [
+        2.0219966624997916,
+        1.6178202005536808
+      ],
+      "time_param_id": "t_7"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE2",
+      "duration": 2.7e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:8:FE2",
+      "time_policy_locked": false,
+      "wait_time": 2.7e-07,
+      "parameters": [],
+      "time_param_id": "t_8"
+    },
+    {
+      "type": "Displacement",
+      "name": "D3",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:9:D3",
+      "time_policy_locked": false,
+      "parameters": [
+        0.18500891965503427,
+        -0.39987268658174224
+      ],
+      "time_param_id": "t_9"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R3",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:10:R3",
+      "time_policy_locked": false,
+      "parameters": [
+        1.1024302380190711,
+        1.5558271134738755
+      ],
+      "time_param_id": "t_10"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE3",
+      "duration": 1.5600000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:11:FE3",
+      "time_policy_locked": false,
+      "wait_time": 1.5600000000000002e-07,
+      "parameters": [],
+      "time_param_id": "t_11"
+    },
+    {
+      "type": "Displacement",
+      "name": "D4",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:12:D4",
+      "time_policy_locked": false,
+      "parameters": [
+        -0.4309056820275538,
+        0.334405262448877
+      ],
+      "time_param_id": "t_12"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R4",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:13:R4",
+      "time_policy_locked": false,
+      "parameters": [
+        1.404278243409312,
+        2.707711366790711
+      ],
+      "time_param_id": "t_13"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE4",
+      "duration": 1.2500000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:14:FE4",
+      "time_policy_locked": false,
+      "wait_time": 1.2500000000000002e-07,
+      "parameters": [],
+      "time_param_id": "t_14"
+    },
+    {
+      "type": "Displacement",
+      "name": "D5",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:15:D5",
+      "time_policy_locked": false,
+      "parameters": [
+        -0.3766295466787004,
+        -0.1848698368928589
+      ],
+      "time_param_id": "t_15"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R5",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:16:R5",
+      "time_policy_locked": false,
+      "parameters": [
+        2.1234633404038883,
+        1.8478398585006763
+      ],
+      "time_param_id": "t_16"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE5",
+      "duration": 1.6200000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:17:FE5",
+      "time_policy_locked": false,
+      "wait_time": 1.6200000000000002e-07,
+      "parameters": [],
+      "time_param_id": "t_17"
+    },
+    {
+      "type": "Displacement",
+      "name": "D6",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:18:D6",
+      "time_policy_locked": false,
+      "parameters": [
+        -0.2606916348516187,
+        -0.030351956420988434
+      ],
+      "time_param_id": "t_18"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R6",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:19:R6",
+      "time_policy_locked": false,
+      "parameters": [
+        2.1757752508837904,
+        1.7707175981582781
+      ],
+      "time_param_id": "t_19"
+    }
+  ],
+  "elapsed_s": 305.1332744000247,
+  "date_created": "2026-03-25",
+  "description": "Best native_fe sequence re-optimized at n_cav=6 for the improvement pass. Noisy follow-up uses a local Lindblad surrogate because cqed_sim gate-sequence replay does not apply NoiseSpec for these gates.",
+  "parameters": {
+    "family": "native_fe",
+    "blocks": 6,
+    "optimized_n_cav": 6,
+    "seeds": [
+      17,
+      42
+    ],
+    "maxiter": 35
+  },
+  "load_instructions": "import json; from pathlib import Path; payload = json.loads(Path(filename).read_text(encoding='utf-8'))"
+}

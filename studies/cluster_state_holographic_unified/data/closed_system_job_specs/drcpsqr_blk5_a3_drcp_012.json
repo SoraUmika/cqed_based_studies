@@ -1,0 +1,39 @@
+{
+  "case": {
+    "family_key": "drcpsqr",
+    "family_label": "D + R + CPSQR",
+    "variant_key": "blk5_a3_ordDRCP",
+    "variant_label": "5 blocks / DRCP / n_active=3",
+    "builder_name": "ordered_cpsqr",
+    "builder_kwargs": {
+      "blocks": 5,
+      "order": [
+        "D",
+        "R",
+        "CPSQR"
+      ]
+    },
+    "order_tokens": [
+      "D",
+      "R",
+      "CPSQR"
+    ],
+    "order_label": "DRCP",
+    "levels": [
+      0,
+      1,
+      2
+    ],
+    "max_tones": 3,
+    "blocks": 5
+  },
+  "n_cav": 12,
+  "search_phase": "level_neighbor",
+  "seed": 17,
+  "init_guess": "heuristic",
+  "maxiter": 24,
+  "multistart": 1,
+  "record_updates": {
+    "neighborhood_tag": "level_neighbor"
+  }
+}

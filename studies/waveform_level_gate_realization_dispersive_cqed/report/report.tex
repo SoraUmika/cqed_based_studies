@@ -1,0 +1,459 @@
+\documentclass[aps,pra,twocolumn,reprint,floatfix,amsmath,amssymb]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{array}
+
+\begin{document}
+
+\title{Approximating Unconditional Cavity Displacement in Dispersive Circuit QED}
+\author{Autonomous cQED Research Platform}
+\affiliation{Shyam Shankar Quantum Circuits Group}
+\date{\today}
+
+\begin{abstract}
+An ideal cavity drive is often modeled as the unconditional gate
+\(
+I_q \otimes D(\alpha)
+\),
+but a realistic dispersive qubit-cavity system does not realize that map automatically once the qubit is allowed to occupy \(|e\rangle\) or a superposition. We benchmark five control families for this task: naive single-tone displacement, fast broadband single-tone pulses, two-tone branch-compensated displacement, echoed displacement with qubit \(\pi\) pulses, and hardware-aware optimal control. Using a dispersive Hamiltonian hierarchy that includes the leading dispersive shift, a higher-order correction, cavity self-Kerr, and hardware filtering in the constrained optimization benchmark, we find that the naive square pulse becomes strongly conditional once \(|\chi|T\) is no longer small: at \(\alpha=1\) and \(T=\SI{80}{\nano\second}\), the branch mismatch reaches \(\delta\alpha=0.686\) and the vacuum superposition fidelity falls to \(0.770\). A \(\SI{5}{\nano\second}\) Gaussian pulse suppresses the mismatch to \(0.0539\), but a realistic low-pass filter collapses the achieved displacement unless the pulse is precompensated. The best simple, physically interpretable protocol is a \(\SI{20}{\nano\second}\) two-tone pulse, which yields \(\delta\alpha=8.15\times10^{-4}\), vacuum-branch fidelities above \(0.999996\), residual entanglement below \(10^{-5}\) bits, and \(\bar{F}=0.9857\) with \(F_{\min}=0.9242\) on the explicit fourteen-state benchmark. A constrained hardware-aware optimal-control waveform remains the strongest longer-duration sampled-waveform reference, reaching \(0.958\) mean state fidelity at \(\SI{40}{\nano\second}\). A practical echoed displacement using vacuum-calibrated qubit inversions is not competitive because the inserted \(\pi\) pulse is itself manifold dependent once the cavity is populated.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+In bosonic control protocols for circuit quantum electrodynamics, cavity drives are frequently treated as ideal displacements that act only on the oscillator degree of freedom~\cite{blais2004cavity,blais2021circuit}. At the gate-language level, one writes
+\begin{equation}
+U_{\mathrm{target}} = I_q \otimes D(\alpha),
+\end{equation}
+where \(D(\alpha)\) is the usual displacement operator. This abstraction is useful, but it hides the central difficulty of the dispersive regime: the cavity resonance depends on the qubit state through the dispersive pull \(\chi\), so a pulse calibrated in one qubit manifold is generically detuned in the other~\cite{schuster2007resolving,nguyen2012dispersive}.
+
+Once the qubit is allowed to begin in \(|e\rangle\) or in a superposition, the conditional cavity dynamics can no longer be ignored. The final cavity amplitudes may differ in magnitude and phase between the two qubit branches, and a qubit superposition may emerge entangled with the cavity. Higher-order dispersive terms, cavity self-Kerr, finite pulse duration, bandwidth limits, and hardware transfer effects can then amplify or reshape the failure of the unconditional picture.
+
+The present study asks a practical version of the problem: what control strategy most accurately approximates \(I_q \otimes D(\alpha)\) under a realistic dispersive Hamiltonian, and when should an experimentalist stop treating a cavity pulse as an unconditional displacement at all? We focus on five protocol families: a naive single-tone pulse, fast broadband single-tone pulses, two-tone branch compensation, echoed displacement, and a bounded hardware-aware optimal-control benchmark. The comparison is made on common state and entanglement diagnostics rather than on a single branch-calibration metric alone.
+
+\section{System, Control Protocols, and Metrics}
+\label{sec:methods}
+
+\subsection{Hamiltonian hierarchy}
+
+We model a dispersive transmon-cavity system using the Hamiltonian
+\begin{align}
+\frac{H}{\hbar} &=
+\omega_c a^\dagger a + \frac{\omega_q}{2}\sigma_z
++ \chi a^\dagger a \sigma_z
++ \chi' a^\dagger a (a^\dagger a - 1) \Pi_e
+\nonumber\\
+&\quad
++ \frac{K}{2} a^{\dagger 2} a^2
++ \epsilon(t) a^\dagger + \epsilon^*(t) a,
+\label{eq:fullham}
+\end{align}
+where \(a\) is the cavity lowering operator, \(\Pi_e\) projects onto the excited qubit manifold, \(\chi\) is the leading dispersive shift, \(\chi'\) is the higher-order dispersive correction, and \(K\) is the cavity self-Kerr coefficient. Simulations are performed in the bare-frequency rotating frame, so the branch dependence appears explicitly through the dispersive terms and the drive envelope \(\epsilon(t)\).
+
+Four levels of realism are used:
+\begin{enumerate}
+  \item a minimal dispersive model with \(\chi\) only,
+  \item a higher-order model with \(\chi\) and \(\chi'\),
+  \item a full model with \(\chi\), \(\chi'\), and \(K\),
+  \item a hardware-aware optimal-control benchmark that further includes a low-pass transfer model, amplitude limiting, and boundary smoothing in the control synthesis.
+\end{enumerate}
+
+The default parameters are representative of current transmon-cavity experiments~\cite{koch2007transmon,blais2021circuit}:
+\(\omega_q/2\pi=\SI{6.150}{\giga\hertz}\),
+\(\omega_c/2\pi=\SI{5.241}{\giga\hertz}\),
+\(\alpha/2\pi=\SI{-255}{\mega\hertz}\),
+\(\chi/2\pi=\SI{-2.84}{\mega\hertz}\),
+\(\chi'/2\pi=\SI{-21}{\kilo\hertz}\),
+and \(K/2\pi=\SI{-28}{\kilo\hertz}\).
+The transmon is truncated to three or four levels depending on the validation spot check, the cavity is truncated to \(12\) to \(18\) levels depending on the protocol, and the default propagation step is \(\Delta t = \SI{0.5}{\nano\second}\).
+
+\subsection{Analytic preliminary}
+
+For a fixed qubit branch \(b \in \{g,e\}\), the cavity sees an effective detuning \(\Delta_b\), so the branch displacement after a drive \(\epsilon(t)\) is
+\begin{equation}
+\alpha_b(T) = -i \int_0^T \epsilon(t) e^{-i \Delta_b (T-t)} dt.
+\label{eq:branchalpha}
+\end{equation}
+For a square pulse of complex amplitude \(\epsilon\),
+\begin{equation}
+\alpha_b(T)=\epsilon\frac{1-e^{-i\Delta_b T}}{\Delta_b},
+\label{eq:squarebranch}
+\end{equation}
+which reduces to the ideal displacement \(-i\epsilon T\) only in the small-detuning limit \(|\Delta_b|T \ll 1\). This immediately predicts the central failure mode of the naive pulse: one branch remains near resonance while the other rotates in phase space and misses the target amplitude.
+
+For a qubit superposition input, the final state has the form
+\begin{equation}
+\frac{|g\rangle |\psi_g\rangle + |e\rangle |\psi_e\rangle}{\sqrt{2}},
+\end{equation}
+so the residual qubit-cavity entanglement is controlled by the branch overlap \(|\langle \psi_g | \psi_e \rangle|\). A protocol may therefore appear successful on \(|g\rangle\) and \(|e\rangle\) separately while still failing as an unconditional operation on a superposition input.
+
+\subsection{Protocol families}
+
+\paragraph*{Naive single-tone displacement.}
+The baseline pulse is a single carrier at the nominal cavity frequency with envelope \(f(t)\),
+\begin{equation}
+\epsilon_{\mathrm{1t}}(t) = \epsilon_0 f(t),
+\end{equation}
+where square, Gaussian, and cosine envelopes are compared. The target area is chosen so that the resonant branch ideally implements \(D(\alpha_{\mathrm{target}})\).
+
+\paragraph*{Fast broadband single-tone displacement.}
+The same single-tone structure is used, but the duration is shortened so that the spectral width of the pulse exceeds the branch splitting. This is the simplest physical attempt to make the displacement effectively unconditional.
+
+\paragraph*{Two-tone branch-compensated displacement.}
+Two carriers are applied at the branch frequencies,
+\begin{equation}
+\epsilon_{\mathrm{2t}}(t) =
+\epsilon_g(t)e^{-i\omega_{c,g} t}
++ \epsilon_e(t)e^{-i\omega_{c,e} t},
+\label{eq:twotone}
+\end{equation}
+and the complex weights are solved from the simulated branch response matrix so that both branches end as close as possible to the same target displacement.
+
+\paragraph*{Echoed displacement.}
+The echoed construction uses a symmetric sequence
+\begin{equation}
+D_1 \rightarrow X_\pi \rightarrow D_2 \rightarrow X_\pi,
+\end{equation}
+with the intent of canceling the first-order dispersive phase. In the present study the qubit inversion is implemented by a practical Gaussian-DRAG pulse calibrated in the vacuum manifold.
+
+\paragraph*{Hardware-aware optimal control.}
+The final family optimizes two cavity quadratures directly under the full model using a constrained GRAPE formulation~\cite{khaneja2005grape,cqed_sim}. The optimization includes a first-order low-pass model, an instantaneous amplitude bound, and smooth boundary windows, and it is trained on a representative set of qubit and cavity input states rather than on vacuum alone.
+
+\subsection{Metrics and validation states}
+
+The protocol comparison uses five required diagnostics.
+
+\paragraph*{Branch mismatch.}
+The primary branch metric is
+\begin{equation}
+\delta \alpha = |\alpha_g - \alpha_e|,
+\end{equation}
+where \(\alpha_g\) and \(\alpha_e\) are extracted from the final cavity expectation values in the two qubit branches.
+
+\paragraph*{Residual entanglement.}
+For qubit superposition inputs, the entanglement is quantified by the qubit entropy
+\begin{equation}
+S(\rho_q) = - \mathrm{Tr}(\rho_q \log_2 \rho_q).
+\end{equation}
+
+\paragraph*{State fidelity to the ideal displaced target.}
+For each input \(|\psi_i\rangle\), we compute
+\begin{equation}
+F_i = |\langle \psi_i^{\mathrm{ideal}} | \psi_i^{\mathrm{sim}} \rangle|^2,
+\end{equation}
+with \(|\psi_i^{\mathrm{ideal}}\rangle = (I_q \otimes D(\alpha_{\mathrm{target}})) |\psi_i\rangle\).
+The headline broad-set metric is the mean over the explicit test set,
+\begin{equation}
+\bar{F} = \frac{1}{N}\sum_{i=1}^N F_i.
+\end{equation}
+
+\paragraph*{State test set.}
+The qubit states are \(|g\rangle\), \(|e\rangle\), \((|g\rangle+|e\rangle)/\sqrt{2}\), and \((|g\rangle+i|e\rangle)/\sqrt{2}\). The cavity states are \(|0\rangle\), \(|1\rangle\), \(|2\rangle\), \(|3\rangle\), and a modest coherent state. The optimal-control benchmark is compared on the same broad family of states.
+
+\paragraph*{Wigner agreement.}
+For representative success and failure cases, the reduced cavity state is compared to the ideal displaced cavity state both visually through the Wigner function and quantitatively through the cavity trace distance.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Naive single-tone displacement fails for superposition inputs}
+
+Figure~\ref{fig:branch} compares the branch mismatch for the naive and two-tone protocols over the duration and target-amplitude sweep. The naive square pulse is almost branch independent only in the short-duration corner. By \(\alpha=1\) and \(T=\SI{80}{\nano\second}\), the simulated final branch amplitudes are
+\begin{align}
+\alpha_g &= 0.9961 + 0.0036 i, \\
+\alpha_e &= 0.6783 + 0.6114 i,
+\end{align}
+so the mismatch reaches \(\delta\alpha = 0.6859\). The ground branch is still nearly ideal, with fidelity \(0.999960\), but the excited branch fidelity drops to \(0.622737\).
+
+The more important failure is visible on superposition inputs. For the initial state \((|g\rangle + |e\rangle)/\sqrt{2} \otimes |0\rangle\), the same naive pulse produces fidelity \(0.770319\) and residual entanglement \(0.482920\) bits. The operation is therefore not merely miscalibrated; it is genuinely conditional.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{../figures/unconditional_branch_mismatch.pdf}
+  \caption{Branch-resolved displacement mismatch \(\delta\alpha\) for the naive single-tone pulse (left) and the two-tone compensated pulse (right). Both panels use the same target-amplitude and duration grids. The naive protocol becomes strongly conditional as the pulse duration approaches and exceeds the dispersive timescale, whereas the two-tone construction suppresses the mismatch across the same region.}
+  \label{fig:branch}
+\end{figure}
+
+The duration dependence follows the expected \(|\chi|T\) story. For the naive square pulse at \(\alpha=1\), the superposition fidelity decreases from \(0.994\) at \(\SI{5}{\nano\second}\) to \(0.978\) at \(\SI{20}{\nano\second}\), \(0.770\) at \(\SI{80}{\nano\second}\), and \(0.563\) at \(\SI{160}{\nano\second}\), while the entanglement grows from \(8.5\times10^{-3}\) bits to \(0.792\) bits over the same range. Since \(1/|\chi| = \SI{56.0}{\nano\second}\) for the present parameters, the onset of strong conditionality at tens of nanoseconds is exactly what the analytic estimate suggests.
+
+\subsection{Fast pulses reduce conditionality, but filters remove usable displacement}
+
+Figure~\ref{fig:entfilter}(a) shows the residual entanglement for the three fast single-tone envelope families together with the echoed and two-tone protocols. The best fast single-tone result in the sweep is a \(\SI{5}{\nano\second}\) Gaussian pulse, which yields
+\begin{equation}
+\delta\alpha = 0.0539,\quad F_{+x}=0.997743,\quad S=8.62\times10^{-3}\ \mathrm{bits}.
+\end{equation}
+This is the clearest evidence that a sufficiently broadband pulse can be effectively unconditional in the minimal dispersive sense.
+
+The caveat appears once transfer effects are included. Figure~\ref{fig:entfilter}(b) shows that a low-pass filter preserves the small branch mismatch of the \(\SI{5}{\nano\second}\) Gaussian only by suppressing the achieved displacement itself. After a \(\SI{40}{\mega\hertz}\) low-pass filter, both branch fidelities collapse to about \(0.782\) because the pulse area is no longer sufficient to realize the target displacement. ``Make it fast'' is therefore not a complete strategy unless the hardware distortion is also calibrated or precompensated.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{../figures/unconditional_superposition_entanglement.pdf}
+  \includegraphics[width=\columnwidth]{../figures/unconditional_filter_tradeoff.pdf}
+  \caption{Top: residual entanglement for the vacuum superposition input \((|g\rangle + |e\rangle)/\sqrt{2} \otimes |0\rangle\) as a function of duration for the main protocol families. Bottom: the single-tone tradeoff between branch mismatch and pulse bandwidth, with and without a \(\SI{40}{\mega\hertz}\) low-pass filter. Short pulses are more unconditional, but filtering destroys the target displacement unless the waveform is precompensated.}
+  \label{fig:entfilter}
+\end{figure}
+
+\subsection{Two-tone branch compensation is the best simple protocol}
+
+The most successful physically interpretable strategy is the two-tone pulse of Eq.~(\ref{eq:twotone}). Solving the two-branch complex response equation yields a \(\SI{20}{\nano\second}\) pulse with
+\begin{equation}
+\delta\alpha = 8.15\times10^{-4},
+\end{equation}
+vacuum-branch fidelities above \(0.999996\), and residual superposition entanglement below \(10^{-5}\) bits. The corresponding vacuum superposition fidelity is \(0.997680\), essentially matching the best fast Gaussian pulse while providing a direct calibration interpretation in terms of branch frequencies and tone weights.
+
+The two-tone pulse is also fairly insensitive to small branch-frequency calibration error. In the \(\SI{80}{\nano\second}\) robustness check, varying the branch-frequency offset by \(\pm 10\%\) changed the vacuum superposition fidelity only from \(0.973914\) to \(0.973759\). The present study therefore identifies two-tone compensation as the easiest experimentally calibratable route to high-quality unconditional displacement in this parameter regime.
+
+\subsection{The echoed protocol underperforms because the qubit inversion is not manifold uniform}
+
+The echoed family was intended to cancel the leading dispersive phase error by symmetry. That ideal toggling-frame argument does not survive the realistic waveform model. The best echoed case in the tested family occurs at total duration \(\SI{60}{\nano\second}\), but it still gives only
+\begin{equation}
+\delta\alpha = 0.0787,\quad F_{+x}=0.891,\quad S=0.0288\ \mathrm{bits}.
+\end{equation}
+The protocol is therefore clearly inferior to both the short fast pulse and the short two-tone solution.
+
+The physical reason is straightforward: once the cavity has been displaced, the inserted qubit \(\pi\) pulse is no longer uniform across the populated cavity manifolds. Instead of canceling the conditionality cleanly, the echo introduces an additional number-dependent control error. This makes the practical echoed sequence a negative result for unconditional displacement, even though the ideal toggling-frame picture remains instructive.
+
+\subsection{Constrained optimal control remains the best sampled-waveform benchmark}
+
+Figure~\ref{fig:protocolsummary} summarizes the selected protocol comparison. Within the bounded hardware-aware sampled-waveform family, the strongest result is the constrained optimal-control pulse at \(\SI{40}{\nano\second}\),
+\begin{equation}
+\bar{F} = 0.957535,\qquad F_{\min}=0.874808.
+\end{equation}
+This protocol does not minimize the vacuum branch mismatch as aggressively as the best two-tone solution: its vacuum \(\delta\alpha\) is \(0.104776\), and the vacuum superposition fidelity is \(0.985303\). Its advantage comes instead from better balancing vacuum, low-Fock, and coherent-state performance under the included hardware constraints. However, the explicit broad-state follow-up in Appendix~\ref{tab:multiplexfollowup} shows that once the short calibrated two-tone pulses are rescored on the same fourteen-state benchmark, the \(\SI{20}{\nano\second}\) two-tone pulse is actually the best tested protocol overall.
+
+The comparison therefore has two winners, depending on the metric of interest.
+\begin{itemize}
+  \item The best overall tested protocol, and also the best simple and experimentally interpretable protocol, is the \(\SI{20}{\nano\second}\) two-tone displacement.
+  \item The best bounded sampled-waveform benchmark is the constrained \(\SI{40}{\nano\second}\) optimal-control waveform.
+\end{itemize}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{../figures/unconditional_protocol_summary.pdf}
+  \caption{Compact protocol comparison using a common state-test-set mean fidelity, the vacuum branch mismatch, and the residual entanglement for the vacuum superposition input. The short two-tone pulse is the best simple protocol and, after the appendix follow-up rescoring, the best overall tested protocol on the explicit broad state set. The constrained optimal-control pulse remains the strongest bounded sampled-waveform benchmark.}
+  \label{fig:protocolsummary}
+\end{figure}
+
+\subsection{Wigner diagnostics confirm the physical picture}
+
+Figure~\ref{fig:wigner} compares the reduced cavity Wigner functions for a representative failing case and a representative successful case, both starting from the vacuum superposition input. The naive \(\SI{80}{\nano\second}\) square pulse produces visibly different branch-conditioned cavity states and a correspondingly distorted reduced cavity state. By contrast, the two-tone pulse closely reproduces the ideal displaced cavity Wigner function.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{../figures/unconditional_wigner_comparison.pdf}
+  \caption{Reduced cavity Wigner functions for a representative failure case (naive \(\SI{80}{\nano\second}\) square pulse) and a representative success case (two-tone compensated pulse). Each column shows the actual reduced cavity state for the vacuum superposition input and the corresponding ideal displaced cavity state. The naive pulse leaves a visibly distorted cavity state, whereas the two-tone pulse closely tracks the ideal displacement.}
+  \label{fig:wigner}
+\end{figure}
+
+\section{Validation}
+\label{sec:validation}
+
+Three validation lanes were used.
+
+\paragraph*{Sanity checks.}
+In the ideal limit \(\chi=\chi'=K=0\), the square pulse recovers the unconditional displacement to numerical precision: the ideal-limit spot check gives \(\delta\alpha=0\) and vacuum superposition fidelity \(0.999985\). The naive protocol then departs continuously from that limit as \(|\chi|T\) increases, exactly as predicted by Eq.~(\ref{eq:squarebranch}).
+
+\paragraph*{Mechanism isolation.}
+At \(\alpha=1\) and \(T=\SI{80}{\nano\second}\), the model hierarchy gives \(\delta\alpha = 0.682\) in the minimal model, \(0.686\) after adding \(\chi'\), and \(0.686\) in the full model with Kerr. The dominant mechanism is therefore the leading dispersive pull \(\chi\), not the higher-order nonlinearities.
+
+\paragraph*{Numerical convergence.}
+A direct unconditional-displacement spot check for the representative naive \(\SI{80}{\nano\second}\) square pulse yields
+\begin{itemize}
+  \item \(n_{\mathrm{cav}} = 12,15,18 \rightarrow \delta\alpha = 0.685867, 0.685870, 0.685871\),
+  \item \(n_{\mathrm{tr}} = 3,4 \rightarrow \delta\alpha = 0.685870, 0.685866\),
+  \item \(\Delta t = 0.25, 0.5, 1.0~\si{\nano\second} \rightarrow \delta\alpha = 0.681879, 0.685870, 0.693775\).
+\end{itemize}
+These checks, together with the previously validated propagator settings for the same study family, support the numerical stability of the default choice \(n_{\mathrm{tr}}=3\), \(n_{\mathrm{cav}}=15\), and \(\Delta t=\SI{0.5}{\nano\second}\).
+
+\section{Discussion And Experimental Relevance}
+\label{sec:discussion}
+
+The report's six central questions can now be answered directly.
+
+\paragraph*{Why does the naive cavity pulse fail?}
+Because the qubit-state-dependent dispersive pull detunes the cavity differently in the two branches. A pulse calibrated to be correct in one branch generally rotates and shrinks in the other, and a qubit superposition inherits the mismatch as residual qubit-cavity entanglement.
+
+\paragraph*{How large is the error for realistic \(\chi\), \(\chi'\), Kerr, and duration?}
+For the representative device parameters, the naive \(\SI{80}{\nano\second}\), \(\alpha=1\) square pulse already yields \(\delta\alpha=0.686\) and superposition fidelity \(0.770\). The hierarchy sweep shows that \(\chi'\) and Kerr only weakly perturb this number at the chosen operating point, so the main error scale is set by \(\chi\) and the pulse duration.
+
+\paragraph*{Which protocol best approximates \(I_q \otimes D(\alpha)\)?}
+On the explicit broad test set after the multiplex follow-up, the short \(\SI{20}{\nano\second}\) two-tone pulse is the best tested protocol overall. If one specifically wants a longer bounded sampled waveform, the constrained \(\SI{40}{\nano\second}\) optimal-control pulse is the strongest reference in that narrower class.
+
+\paragraph*{Which protocol is easiest to calibrate experimentally?}
+The two-tone strategy. It requires only branch-frequency estimation and a complex two-tone weight calibration, both of which can be tied directly to standard number-splitting and branch-conditioned displacement measurements.
+
+\paragraph*{Can unconditional displacement be accurate enough for practical hybrid control?}
+Yes, but only with explicit control design. The short Gaussian and short two-tone solutions both achieve vacuum superposition fidelities above \(0.997\), the short two-tone pulse reaches \(\bar{F}=0.9857\) on the explicit broad state set, and the broad-set constrained optimal-control solution still reaches \(0.958\) mean fidelity as the strongest bounded sampled-waveform benchmark. A long naive pulse does not satisfy the same standard.
+
+\paragraph*{When should one stop treating the pulse as unconditional?}
+In the present parameter regime, naive pulses beyond roughly \(\SI{20}{\nano\second}\) already show measurable conditionality, and by \(\SI{80}{\nano\second}\) the operation is clearly a hybrid conditional process rather than a useful approximation to \(I_q \otimes D(\alpha)\). The natural warning scale is set by \(1/|\chi| \approx \SI{56}{\nano\second}\), but in practice the conservative threshold is shorter if high-fidelity superposition control is required.
+
+\subsection{Calibration workflow for hardware}
+
+The simulation results suggest a practical calibration path:
+\begin{enumerate}
+  \item Measure the effective cavity frequencies in the \(|g\rangle\) and \(|e\rangle\) manifolds, for example through branch-conditioned spectroscopy or number-splitting measurements~\cite{schuster2007resolving}.
+  \item Calibrate the displacement amplitude in each branch separately.
+  \item Solve for the relative two-tone amplitudes and phases that equalize the final displacement in the two branches.
+  \item Validate the result on qubit superposition inputs using qubit tomography and branch-conditioned cavity tomography.
+  \item Use Wigner tomography as the final cavity-state validation step.
+\end{enumerate}
+The same logic clarifies why the echo protocol is difficult experimentally: once the cavity is populated, the qubit inversion must be uniform across the relevant manifolds, which is a more demanding control problem than simple vacuum calibration.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+The unconditional displacement gate is not a native operation of a realistic dispersive qubit-cavity system; it is an approximation whose validity depends sharply on control design. In the present device regime, the naive single-tone picture fails once the duration approaches the dispersive timescale, and it fails most severely on the qubit superposition inputs that matter for hybrid quantum control. Two broad lessons follow.
+
+First, the leading dispersive pull \(\chi\) is already enough to explain most of the failure. Second, the best fix depends on what one values most, but the ordering is now clearer after the multiplex follow-up. The short two-tone pulse is not only the most interpretable answer in this study; on the explicit fourteen-state benchmark it is also the best tested protocol overall. The constrained optimal-control waveform remains the strongest bounded sampled-waveform reference, especially if one wants a longer hardware-aware schedule. In either case, the study shows that unconditional displacement can be made accurate enough for practical use, but not by relying on a long naive pulse.
+
+\section{Limitations And Future Work}
+\label{sec:limitations}
+
+All reported simulations are unitary, so the protocol ranking should be interpreted as an upper bound on hardware performance. The optimal-control benchmark is intentionally bounded, not exhaustive: a larger basis, longer optimization, or richer training set could improve it further. The two-tone calibration objective is also vacuum focused, which explains why longer two-tone pulses can still degrade on coherent-state tests even when the vacuum branches are nearly equalized. The multiplex follow-up now also rules out three low-dimensional structured extensions: a full-duration Fourier-compressed multicarrier fit, a segmented branch-resonant fit, and a four-segment jointly optimized shaped-two-tone family.
+
+The most important follow-up directions are therefore clear. The study should be repeated with open-system noise channels, the short two-tone strategy should be combined with hardware-aware precompensation starting from the already successful \(\SI{20}{\nano\second}\) solution, and the optimal-control training set should be widened to include larger coherent amplitudes and nonclassical logical states. Any further multiplex extension should use a materially richer hardware-aware parameterization or accept the complexity of sampled optimal control rather than revisiting the low-dimensional structured families already ruled out here. A manifold-uniform echoed displacement remains an interesting research problem, but the practical vacuum-calibrated echo tested here should not be treated as a competitive unconditional-displacement protocol.
+
+\appendix
+
+\section{Detailed Results And Data}
+\label{app:data}
+
+\begin{table*}[t]
+  \centering
+  \caption{Representative protocol comparison for \(\alpha_{\mathrm{target}}=1\). The broad-set mean fidelity is the primary ranking metric for the selected snapshots. The short two-tone entry is also listed separately because it is the best simple physically interpretable protocol in the study, even though the broad-set selected-snapshot comparison uses the \(\SI{80}{\nano\second}\) two-tone case for a duration-matched contrast.}
+  \label{tab:protocols}
+  \begin{tabular}{@{} l c c c c c c @{}}
+    \toprule
+    Protocol & Duration (ns) & Mean fidelity & Min fidelity & Vacuum \(\delta\alpha\) & Vacuum \(F_{+x}\) & Complexity \\
+    \midrule
+    Naive square & 80 & 0.5658 & 0.0086 & 0.6859 & 0.7703 & Low \\
+    Fast Gaussian & 20 & 0.9133 & 0.7438 & 0.1885 & 0.9772 & Low \\
+    Two-tone selected snapshot & 80 & 0.8849 & 0.3690 & 0.00833 & 0.9739 & Medium \\
+    Two-tone best vacuum match & 20 & --- & --- & \(8.15\times10^{-4}\) & 0.9977 & Medium \\
+    Echoed displacement & 120 & 0.3164 & 0.0213 & 0.3219 & 0.7338 & Medium \\
+    Optimal control & 40 & 0.9575 & 0.8748 & 0.1048 & 0.9853 & High \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
+
+\begin{table}[tb]
+  \centering
+  \caption{Model-hierarchy comparison for the naive square pulse at \(\alpha=1\) and \(T=\SI{80}{\nano\second}\).}
+  \label{tab:hierarchy}
+  \begin{tabular}{@{} l c c c @{}}
+    \toprule
+    Model & \(\delta\alpha\) & \(F_e\) & \(F_{+x}\) \\
+    \midrule
+    Minimal (\(\chi\) only) & 0.682 & 0.6264 & 0.7720 \\
+    \(\chi + \chi'\) & 0.686 & 0.6242 & 0.7708 \\
+    Full (\(\chi + \chi' + K\)) & 0.686 & 0.6227 & 0.7703 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[tb]
+  \centering
+  \caption{Optimized held-sample schedule for the best constrained optimal-control pulse. Values are reported in \si{\mega\radian\per\second}.}
+  \label{tab:ocparams}
+  \begin{tabular}{@{} c c c @{}}
+    \toprule
+    Slice & \(I\) & \(Q\) \\
+    \midrule
+    1 & -27.99 & -116.02 \\
+    2 & 3.38 & 6.51 \\
+    3 & 20.44 & 174.96 \\
+    4 & 7.83 & 143.58 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{../figures/unconditional_optimal_waveform.pdf}
+  \caption{Best constrained optimal-control waveform. The top panel shows the physical in-phase and quadrature controls after the hardware maps are applied. The bottom panel shows the corresponding magnitude spectrum. The control is strongly quadrature dominated, lasts \(\SI{40}{\nano\second}\), and is bandwidth limited by construction.}
+  \label{fig:ocwave}
+\end{figure}
+
+\section{Reproducibility}
+\label{app:repro}
+
+The study uses the local \texttt{cqed\_sim} framework~\cite{cqed_sim} together with the study-specific helper module. The primary machine-readable outputs are the unconditional-displacement artifacts:
+\begin{itemize}
+  \item \path{unconditional_displacement_summary.json}
+  \item \path{unconditional_multiplex_followup.json}
+  \item \path{unconditional_single_tone_summary.json}
+  \item \path{unconditional_two_tone_summary.json}
+  \item \path{unconditional_echo_summary.json}
+  \item \path{unconditional_optimal_control_summary.json}
+  \item \path{unconditional_protocol_comparison.json}
+  \item \path{unconditional_wigner_cases.json}
+  \item \path{unconditional_validation_spotcheck.json}
+\end{itemize}
+
+The report figures are regenerated from the main unconditional-displacement driver and the auxiliary optimal-waveform plotting step. The reproducibility notebook loads the saved artifacts by default and includes rerun paths for the main driver and the multiplex extension. A complete reproduction sequence is:
+\begin{enumerate}
+  \item run the unconditional-displacement driver to regenerate the protocol artifacts and figures,
+  \item run the multiplex follow-up script to regenerate the explicit multicarrier, segmented, and joint-shaped two-tone benchmarks together with the combined follow-up figure,
+  \item run the spot-check validation script to regenerate the direct convergence artifact,
+  \item regenerate the optimal-control waveform figure from the saved optimal-control artifact,
+  \item open the reproducibility notebook to inspect the saved outputs or rerun the workflow with modified parameters.
+\end{enumerate}
+
+\section{Extension: Multiplex Interpretation of the Two-Tone Protocol}
+
+Throughout the main text, the successful ``two-tone'' protocol can be read as the minimal multiplex cavity drive for the present unconditional-displacement problem. In the simplest dispersive setting treated here there are only two dominant branch resonances, one in the \(|g\rangle\) manifold and one in the \(|e\rangle\) manifold. The response-matching equation of Eq.~(\ref{eq:twotone}) is therefore a \(2\times 2\) complex linear system, so two spectral components are the smallest frequency-domain basis that can equalize the two vacuum-branch displacements.
+
+This interpretation clarifies both the strength and the limitation of the best \SI{20}{\nano\second} compensated pulse. As a minimal multiplex design it solves the leading two-branch problem extremely well: for \(\alpha_{\mathrm{target}}=1\) it gives \(\delta\alpha = 8.15\times10^{-4}\), branch fidelities above \(0.999996\), and vacuum-superposition fidelity \(0.997680\). Even at \(\alpha_{\mathrm{target}}=2\), the same short calibrated family keeps the vacuum branch mismatch at only \(2.19\times10^{-3}\), while the vacuum-superposition fidelity has already fallen to \(0.9624\). The implication is that once the occupied cavity support broadens, matching only two spectral points no longer captures the full waveform-level error budget.
+
+A richer multiplex or multitone drive would introduce extra carrier components and phases beyond the two branch frequencies. In principle, those additional degrees of freedom could be used for three related goals: to match more than one effective cavity frequency inside each qubit branch as higher Fock sectors become populated, to pre-shape the spectrum against the hardware transfer function, and to interpolate between the highly interpretable two-tone calibration and the less interpretable but better-performing constrained waveform. The current protocol comparison already points in that direction: the selected \SI{80}{\nano\second} two-tone snapshot keeps \(\delta\alpha\) at only \(8.33\times10^{-3}\) yet reaches only \(\bar{F}=0.8849\) and \(F_{\min}=0.3690\) on the broad state set, whereas the richer constrained waveform reaches \(\bar{F}=0.9575\) and \(F_{\min}=0.8748\). Some of that gain likely comes from using more spectral and temporal degrees of freedom than a strict two-carrier ansatz can provide.
+
+The same extension would also carry nontrivial costs. Extra tones increase spectral crowding, phase-coherence requirements, peak-to-average power, and sensitivity to mixer imbalance or transfer-function miscalibration. In a two-branch dispersive system, more tones are therefore not automatically better. They are justified only when the control objective is no longer dominated by the single \(|g\rangle\) versus \(|e\rangle\) branch split, for example when coherent-state support, higher-order dispersive curvature, or hardware filtering creates multiple relevant effective frequencies inside each branch.
+
+The practical takeaway is therefore tiered. For vacuum or low-occupation unconditional displacement, the present two-tone protocol should be interpreted as an experimentally friendly two-channel multiplex drive and is already close to optimal. For broader bosonic-state performance, a logical next step is not to abandon physical interpretability entirely, but to test an intermediate multiplex family with three or more calibrated spectral components before jumping to unrestricted optimal control.
+
+\section{Extension: Simulated Multiplex Benchmark And Updated Ranking}
+
+To move beyond the qualitative multiplex discussion, we ran an explicit follow-up benchmark with three structured families. Starting from the best \SI{40}{\nano\second} constrained waveform, we first selected the \(K\) strongest Fourier components on its native eight-slice grid, refit the complex carrier weights by least squares to the complex midpoint samples, and re-simulated the resulting full-duration \(K\)-tone drive under the same full Hamiltonian and the same fourteen-state test set used elsewhere in the study. The tone counts tested were \(K = 2, 3, 4, 5, 6, 8\). We then tested a segmented branch-resonant family with the two branch carriers repeated over \(1, 2, 4, 8\) time windows, and finally a four-segment shaped two-tone family in which only one complex scale per segment was jointly optimized while the calibrated two-tone carrier ratio was held fixed. Figure~\ref{fig:multiplexfollowup} and Table~\ref{tab:multiplexfollowup} summarize the result.
+
+The numerical message is unambiguous. This direct full-duration multiplex family is a negative result. The best tested case is the \(8\)-tone approximation, but it still achieves only \(\bar{F}=0.5242\), \(F_{\min}=1.89\times 10^{-3}\), vacuum \(\delta\alpha = 0.7703\), and vacuum-superposition fidelity \(F_{+x}=0.5890\). Simply adding explicit carriers over the full pulse duration does not recover the success of the sampled constrained waveform.
+
+The follow-up also sharpens the comparison among the already calibrated explicit protocols. Once the same broad fourteen-state metric is evaluated for the short and intermediate two-tone cases, the short \SI{20}{\nano\second} two-tone pulse is actually the strongest tested protocol on that state set. It reaches \(\bar{F}=0.9857\), \(F_{\min}=0.9242\), vacuum \(\delta\alpha = 8.15\times10^{-4}\), and vacuum \(F_{+x}=0.9977\). Even the \SI{40}{\nano\second} two-tone pulse remains highly competitive at \(\bar{F}=0.9528\). The earlier statement that the bounded \SI{40}{\nano\second} sampled waveform is the best overall protocol on the broad state set should therefore be replaced by a narrower claim: it is the best \emph{sampled waveform benchmark} tested here, but not the best overall protocol once the short calibrated two-tone pulses are evaluated on the same score.
+
+The structured extensions strengthen that conclusion rather than weakening it. The best segmented branch-resonant case, using eight time windows, still reaches only \(\bar{F}=0.3612\) and \(F_{\min}=8.14\times 10^{-3}\). The low-parameter jointly optimized shaped-two-tone family converges successfully, but even then the best four-segment case reaches only \(\bar{F}=0.1576\) and \(F_{\min}=0.0459\). The physical interpretation is therefore cleaner after the full follow-up: additional carrier frequencies alone are not enough, and even low-dimensional segmented or jointly optimized multiplex refinements do not recover the broad-state robustness of the short calibrated two-tone pulse or the sampled constrained waveform. What the sampled waveform uses, and the structured multiplex families still lack, is a richer form of within-window temporal control.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{../figures/unconditional_multiplex_followup.pdf}
+  \caption{Follow-up multiplex benchmark derived from the best \SI{40}{\nano\second} constrained waveform. Top left: mean and minimum broad-state fidelity versus tone count for the explicit full-duration multiplex family. Top right: mean and minimum fidelity for the segmented branch-resonant family, together with a horizontal reference line for the jointly optimized four-segment shaped two-tone case. Bottom left: midpoint-sample fit of the best segmented branch-resonant case to the constrained waveform coefficients. Bottom right: optimized segment scales for the joint shaped-two-tone family. None of the structured multiplex families approaches the calibrated short two-tone reference or the sampled constrained waveform.}
+  \label{fig:multiplexfollowup}
+\end{figure}
+
+\begin{table}[tb]
+  \centering
+  \small
+  \caption{Updated broad-state comparison after the structured multiplex follow-up at \(\alpha_{\mathrm{target}}=1\).}
+  \label{tab:multiplexfollowup}
+  \begin{tabular}{@{} l c c c c @{} }
+    \toprule
+    Protocol & \(\bar{F}\) & \(F_{\min}\) & \shortstack{Vacuum\\\(\delta\alpha\)} & \shortstack{Vacuum\\\(F_{+x}\)} \\
+    \midrule
+    \shortstack[l]{Two-tone,\\\SI{20}{\nano\second}} & 0.9857 & 0.9242 & \(8.15\times10^{-4}\) & 0.9977 \\
+    \shortstack[l]{Optimal control,\\\SI{40}{\nano\second}} & 0.9575 & 0.8748 & 0.1048 & 0.9853 \\
+    \shortstack[l]{Two-tone,\\\SI{40}{\nano\second}} & 0.9528 & 0.7451 & 0.00267 & 0.9924 \\
+    Best multiplex, 8 tones & 0.5242 & 0.00189 & 0.7703 & 0.5890 \\
+    \shortstack[l]{Segmented branch fit,\\8 segments} & 0.3612 & 0.00814 & 0.1438 & 0.6567 \\
+    \shortstack[l]{Joint-shaped two-tone,\\4 segments} & 0.1576 & 0.0459 & 0.0819 & 0.2279 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\bibliographystyle{apsrev4-2}
+\bibliography{references}
+
+\end{document}

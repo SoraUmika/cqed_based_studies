@@ -60,6 +60,7 @@ Confirm results are stable with respect to numerical parameters.
 
 4. Save the convergence data to `studies/<study_name>/data/convergence/`.
 5. Generate a convergence plot and save to `studies/<study_name>/figures/`.
+6. If an analytic preliminary exists, explicitly compare the numerical result to that limiting-case expectation and record any discrepancy.
 
 ### Check 3 — Literature Comparison (if applicable)
 
@@ -91,4 +92,31 @@ Update the study README with the validation status:
 - [x] Literature comparison — PASSED (see figures/literature_comparison.png)
 ```
 
-Only proceed to report writing (Step 5) when all applicable checks show `[x]`.
+### Check 4 — Reproducibility Artifacts
+
+Before proceeding to the report, verify that key results are saved as machine-readable artifacts:
+
+1. **`artifacts/` directory exists** with at least one file (JSON, NPZ, or CSV).
+2. Each artifact contains enough information to reproduce the result without re-running the optimization (optimized parameters, waveforms, gate sequences).
+3. Artifact files include metadata: `study_name`, `date_created`, `description`.
+4. The report's future `Saved Artifacts` subsection can inventory the files cleanly. If a file cannot be described in one sentence, it is probably not ready for handoff.
+
+### Check 5 — Reproducibility Notebook
+
+Before marking the study COMPLETE, verify:
+
+1. **`scripts/reproducibility_notebook.ipynb` exists** and is a valid Jupyter notebook.
+2. The notebook loads saved data/artifacts and verifies key results without requiring expensive re-runs.
+3. Every code cell is preceded by a markdown cell explaining what the step does and why.
+4. The notebook is self-contained: a user can run it top-to-bottom without reading other files first.
+5. Key figures from the report are re-generated or displayed for visual verification.
+6. **A dedicated "User-Tunable Parameters" cell** exists early in the notebook (before any simulation code) that exposes all adjustable knobs: Hilbert space dimensions, logical subspace indices, optimizer settings (GRAPE steps, dt, amplitude bounds, restarts, iterations), noise model (T₁, T₂, cavity T₁), cost-function weights, probe states, convergence sweep ranges, and diagnostic settings (Wigner grid, time step). No magic numbers in later cells.
+7. **A "Derived Objects" cell** follows the parameters cell and builds all simulation objects (model, subspace, target unitary, noise spec) from those parameters. Re-running these two cells propagates any user change to all downstream code.
+8. **Each reproduction step has dual-path cells**: a default "Load saved results" cell and a commented-out "Re-run with current parameters" cell that uses the tunable parameters. Users can uncomment to re-execute with their choices.
+9. The summary cell includes a **parameter-effect table** mapping each tunable parameter to its default value and its impact on results.
+
+This check is required by AGENTS.md. See the Reproducibility Requirements section for full details.
+
+Only proceed to report writing (Step 5) when all applicable checks show `[x]` and artifacts are saved.
+
+Do not mark a study `COMPLETE` if the README `## Validation` section is missing, unchecked, or disconnected from the actual evidence in `data/`, `figures/`, and `artifacts/`.

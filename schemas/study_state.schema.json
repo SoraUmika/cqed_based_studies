@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "study_state.schema.json",
+  "title": "cQED Study State",
+  "description": "Schema for study_state.json — the machine-readable single source of truth for a study's lifecycle state.",
+  "type": "object",
+  "required": ["study_name", "objective", "problem_class", "status"],
+  "properties": {
+    "study_name": {
+      "type": "string",
+      "description": "Folder name of the study under studies/.",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "objective": {
+      "type": "string",
+      "description": "One-paragraph description of the study's research objective."
+    },
+    "problem_class": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["OPT", "REP", "DES", "ANA"]
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Problem classification(s): OPT=Parameter Optimization, REP=Result Reproduction, DES=Experiment Design, ANA=System Analysis."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["BOOTSTRAP", "PLAN", "IMPLEMENT", "REVIEW", "VALIDATE", "REPORT", "POLISH", "COMPLETE", "BLOCKED"],
+      "description": "Current lifecycle phase of the study."
+    },
+    "loop_iteration": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Current iteration of the research loop (0 = initial, increments on each review cycle)."
+    },
+    "science_directive_version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Version of the SCIENCE_DIRECTIVE.md driving the current iteration."
+    },
+    "completed_tasks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Human-readable list of completed research tasks."
+    },
+    "failed_tasks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tasks that were attempted but failed, with reason."
+    },
+    "pending_tasks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tasks remaining to be done in the current iteration."
+    },
+    "blocked_tasks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tasks blocked by external factors (cqed_sim gaps, compute limits, etc.)."
+    },
+    "key_results": {
+      "type": "object",
+      "description": "Machine-readable summary of headline results (fidelities, verified quantities, comparison metrics). Structure varies by study.",
+      "additionalProperties": true
+    },
+    "review_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "iteration": { "type": "integer" },
+          "decision": { "type": "string", "enum": ["APPROVE", "REVISE", "NEEDS_REWORK"] },
+          "summary": { "type": "string" },
+          "date": { "type": "string", "format": "date" }
+        }
+      },
+      "description": "History of review decisions across iterations."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the study was initialized."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of the last state update."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,169 @@
+{
+  "case_id": "chi_only_structured_xy_na2_chiT1p0",
+  "chi_t_over_2pi": 1.0,
+  "construction": "echo_ideal_instantaneous",
+  "corrections_vector": [
+    -0.7496977817514241,
+    0.7471599814035395,
+    1.165757942942909,
+    -0.11579863375791154
+  ],
+  "date_created": "2026-04-06T07:25:06Z",
+  "description": "Detailed artifact for echo_ideal_instantaneous on chi_only_structured_xy_na2_chiT1p0.",
+  "family": "structured_xy",
+  "load_instructions": "Load `chi_only_structured_xy_na2_chiT1p0_echo_ideal_instantaneous.json` as JSON and inspect the documented result rows and metadata.",
+  "metadata": {
+    "echo_kind": "ideal_instantaneous"
+  },
+  "model_variant": "chi_only",
+  "n_active": 2,
+  "restricted_operator": {
+    "imag": [
+      [
+        0.000327208650684077,
+        0.018922927853397203,
+        0.0,
+        0.0
+      ],
+      [
+        0.018922927853397203,
+        -0.000327208650684078,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.03527600572301995,
+        0.0012290043169483162
+      ],
+      [
+        0.0,
+        0.0,
+        -0.0011837683774086408,
+        0.03403529662429312
+      ]
+    ],
+    "real": [
+      [
+        -0.9998326155616188,
+        0.00030734984913966456,
+        0.0,
+        0.0
+      ],
+      [
+        -0.00030734984913966635,
+        -0.999832615561619,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.9987836529927645,
+        0.03476917136708245
+      ],
+      [
+        0.0,
+        0.0,
+        -0.03477074464830354,
+        0.9988266931577391
+      ]
+    ],
+    "shape": [
+      4,
+      4
+    ]
+  },
+  "seed": null,
+  "study_name": "multitone_sqr_no_go_decoupled_echo_dispersive_cqed",
+  "target_operator": {
+    "imag": [
+      [
+        0.0,
+        -0.32129939280370057,
+        0.0,
+        0.0
+      ],
+      [
+        -0.32129939280370057,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.1254335095007567
+      ],
+      [
+        0.0,
+        0.0,
+        0.1254335095007567,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.9177546256839811,
+        -0.23343767309418806,
+        0.0,
+        0.0
+      ],
+      [
+        0.23343767309418806,
+        0.9177546256839811,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.8181497174250234,
+        -0.5611572636718497
+      ],
+      [
+        0.0,
+        0.0,
+        0.5611572636718497,
+        0.8181497174250234
+      ]
+    ],
+    "shape": [
+      4,
+      4
+    ]
+  },
+  "target_spec": {
+    "description": "Structured XY family with nontrivial block-dependent azimuths.",
+    "family": "structured_xy",
+    "formula": "theta_n = min(0.26 pi + 0.13 pi n, 0.88 pi), phi_n = (0.20 + 0.37 n) pi mod 2 pi",
+    "n_active": 2,
+    "phi_values_rad": [
+      0.6283185307179586,
+      1.7907078125461822
+    ],
+    "theta_values_rad": [
+      0.8168140899333463,
+      1.2252211349000195
+    ]
+  },
+  "tone_specs": [
+    {
+      "amp_rad_s": -5529019.916013109,
+      "drive_frequency_rad_s": 0.0,
+      "n": 0,
+      "omega_rad_s": 38641589639.15446,
+      "phase_rad": 1.7940764736608676
+    },
+    {
+      "amp_rad_s": 8406067.368077584,
+      "drive_frequency_rad_s": -17844246.272392273,
+      "n": 1,
+      "omega_rad_s": 38659433885.42685,
+      "phase_rad": 1.6749091787882706
+    }
+  ],
+  "waveform_samples": null
+}

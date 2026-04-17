@@ -1,0 +1,21 @@
+{
+  "date_created": "2026-04-06T08:56:29Z",
+  "description": "Metric definitions for the rigorous echo follow-up study.",
+  "load_instructions": "Load `metric_definitions.json` as JSON and inspect the documented result rows and metadata.",
+  "metric_definitions": {
+    "best_fit_restricted_process_fidelity": "Restricted process fidelity after the framework's best-fit logical block-phase correction.",
+    "leakage_outside_target_mean": "Mean population leaked outside the addressed logical subspace.",
+    "max_residual_z_error_rad": "Maximum absolute blockwise residual-Z component across addressed manifolds.",
+    "mean_residual_z_error_rad": "Mean absolute blockwise residual-Z component extracted from the SU(2) error generator relative to the target block rotation.",
+    "mean_transverse_error_rad": "Mean norm of the blockwise transverse error-generator component.",
+    "other_target_population_mean": "Mean population transferred into the wrong addressed blocks.",
+    "probe_fidelity_mean": "Mean state fidelity over a fixed explicit logical probe set that includes cavity superpositions and fixed random logical states.",
+    "probe_fidelity_min": "Worst probe-state fidelity over that explicit logical probe set.",
+    "refocus_target": "For the manifold-aware refocusing pulse, the target is blockwise Rx(pi) on every addressed manifold rather than the SQR target.",
+    "restricted_average_gate_fidelity": "Average gate fidelity computed from the restricted process fidelity.",
+    "restricted_process_fidelity": "Process fidelity between the ideal restricted operator and the actual restricted operator, including block-dependent phase errors.",
+    "same_block_population_mean": "Mean retained population inside the correct logical block over basis probes.",
+    "state_transfer_fidelity_mean": "Mean fidelity over the framework spanning transfer set."
+  },
+  "study_name": "multitone_sqr_echo_rigorous_followup"
+}

@@ -1,0 +1,100 @@
+[
+  {
+    "objective": 1,
+    "tasks_completed": [
+      "Loaded and normalized all prior SQR studies plus the native-rich extension.",
+      "Computed reusable per-manifold Pauli error decompositions for the ideal-SQR artifacts with saved propagators.",
+      "Generated unified prior-work and full-grid comparison figures."
+    ],
+    "headline_result": "The original baseline negative result persists, but the broader repository corpus already contains later direct-waveform strict-SQR successes above 0.99.",
+    "best_fidelity": 0.9989941993174668,
+    "comparison_to_baseline": "Baseline direct average gate fidelity remained 0.7245, while the native-rich strict joint fidelity reached 0.99899.",
+    "figures_generated": [
+      "unified_prior_work_comparison",
+      "full_case_construction_heatmap",
+      "per_manifold_error_budget"
+    ],
+    "wall_clock_seconds": 36.98002899999847
+  },
+  {
+    "objective": 2,
+    "tasks_completed": [
+      "Characterized the standalone finite Gaussian refocusing pulse across addressed manifolds.",
+      "Scanned a lightweight compromise pulse over duration, amplitude scale, sigma fraction, and carrier manifold."
+    ],
+    "headline_result": "The inserted finite refocusing pulse is explicitly manifold dependent; a simple compromise pulse improves the worst-manifold fidelity but does not by itself certify echoed strict-SQR success.",
+    "best_fidelity": 0.9192477669119788,
+    "comparison_to_baseline": "This objective remains a standalone pulse audit only; a full echoed-grid rerun with the compromise pulse is still future work.",
+    "figures_generated": [
+      "refocusing_pulse_manifold_dependence"
+    ],
+    "wall_clock_seconds": 36.98002899999847
+  },
+  {
+    "objective": 3,
+    "tasks_completed": [
+      "Aggregated richer direct families from the native-rich study and compared them across duration and model variant.",
+      "Extracted a parameter-count-versus-fidelity tradeoff and a fixed-duration ansatz ranking."
+    ],
+    "headline_result": "The reduced-unitary direct family is the strongest strict-SQR ansatz in the current repository corpus.",
+    "best_fidelity": 0.9989941993174668,
+    "comparison_to_baseline": "The strongest direct family reaches 0.99899 strict joint fidelity, far above the original 0.7245 average-gate baseline.",
+    "figures_generated": [
+      "fidelity_vs_duration_scaling",
+      "ansatz_comparison_fixed_duration",
+      "parameter_count_vs_fidelity"
+    ],
+    "wall_clock_seconds": 36.98002899999847
+  },
+  {
+    "objective": 4,
+    "tasks_completed": [
+      "Reviewed the repository corpus for hybrid direct-plus-echo constructions."
+    ],
+    "headline_result": "No dedicated hybrid SQR family was present in the saved native-rich or baseline studies, so the definitive study cannot make a data-backed hybrid claim yet.",
+    "best_fidelity": null,
+    "comparison_to_baseline": "Hybrid direct-plus-echo optimization remains an unexecuted follow-up rather than a validated result.",
+    "figures_generated": [],
+    "wall_clock_seconds": 36.98002899999847
+  },
+  {
+    "objective": 5,
+    "tasks_completed": [
+      "Constructed a practical ranking table with the decoherence-only fallback factor allowed by the prompt."
+    ],
+    "headline_result": "The practical ranking remains provisional because finite-difference drift sweeps and open-system replays were not rerun in this definitive pass.",
+    "best_fidelity": 0.9989941993174668,
+    "comparison_to_baseline": "The report now ranks constructions by a transparent fallback figure of merit instead of by unitary fidelity alone.",
+    "figures_generated": [],
+    "wall_clock_seconds": 36.98002899999847
+  },
+  {
+    "objective": 6,
+    "tasks_completed": [
+      "Computed an explicit spectral-crowding analysis from the patched Hamiltonian parameters.",
+      "Extracted best strict fidelities versus addressed-manifold count and fit simple extrapolations toward N_active = 8."
+    ],
+    "headline_result": "Strict ideal-SQR performance degrades systematically with addressed-manifold count, especially in the harder model variant.",
+    "best_fidelity": 0.9989941993174668,
+    "comparison_to_baseline": "The original baseline stopped at small addressed windows; the definitive pass now exposes the observed scaling trend and crowding mechanism.",
+    "figures_generated": [
+      "spectral_crowding_diagram",
+      "n_active_scaling"
+    ],
+    "wall_clock_seconds": 36.98002899999847
+  },
+  {
+    "objective": 7,
+    "tasks_completed": [
+      "Computed ansatz parameter-count ratios for all loaded ideal-SQR rows.",
+      "Derived empirical duration extrapolations toward the 0.99 threshold from the saved native-rich runs."
+    ],
+    "headline_result": "The current failure cases are not explained by a simple parameter-count shortage alone; the ansatz-rich direct family still loses ground as the manifold ladder crowds.",
+    "best_fidelity": 0.9989941993174668,
+    "comparison_to_baseline": "The later native-rich study already reaches 0.999999998 CPSQR and 0.99899 strict SQR, so the present limit analysis is about generality, not existence.",
+    "figures_generated": [
+      "parameter_count_vs_fidelity"
+    ],
+    "wall_clock_seconds": 36.98002899999847
+  }
+]

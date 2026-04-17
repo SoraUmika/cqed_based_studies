@@ -1,0 +1,32 @@
+{
+  "artifact_payload": {
+    "displacement": {
+      "dominant_distortion_qubit_e": "chi-induced frequency mismatch (dominant error)",
+      "dominant_distortion_qubit_g": "Kerr-induced phase drift (negligible for alpha < 2, T < 200 ns)",
+      "operation": "D(alpha)",
+      "recommendation": "For unconditional displacement: use fast pulses (T << 1/chi). For conditional displacement: exploit the chi-dependent fidelity.",
+      "regime_qubit_e": "Breaks for |chi*T| > 0.03 cycles (T > 10 ns at chi=-2.84 MHz)",
+      "regime_qubit_g": "Ideal spectator for |chi*T| << 1, alpha < ~3",
+      "waveform": "Square envelope, on-resonance carrier"
+    },
+    "qubit_rotation": {
+      "dominant_distortion": "Fock-dependent rotation angle due to chi-shifted transition frequency",
+      "max_fock_levels": {
+        "100ns": 0,
+        "20ns": 1,
+        "30ns": 1,
+        "40ns": 0,
+        "60ns": 0,
+        "80ns": 0
+      },
+      "operation": "R_X(theta), R_Y(theta)",
+      "recommendation": "Use shorter pulses for higher cavity occupation tolerance. DRAG improves n=0 fidelity but does not fix the Fock-dependent angle shift.",
+      "regime_spectator": "Cavity is acceptable spectator for n < n_max(T)",
+      "waveform": "Gaussian envelope (optionally DRAG-corrected)"
+    }
+  },
+  "date_created": "2026-04-01T13:44:03Z",
+  "description": "cross regime summary",
+  "load_instructions": "Use common.load_json(Path('cross_regime_summary.json')) to load the payload.",
+  "study_name": "waveform_level_gate_realization_dispersive_cqed"
+}

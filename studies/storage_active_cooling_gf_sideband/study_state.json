@@ -1,0 +1,53 @@
+{
+  "study_name": "storage_active_cooling_gf_sideband",
+  "study_path": "studies/storage_active_cooling_gf_sideband",
+  "status": "COMPLETE",
+  "problem_class": [
+    "DES",
+    "ANA",
+    "OPT"
+  ],
+  "created_at": "2026-04-07T23:27:42.7248343-05:00",
+  "updated_at": "2026-04-08T00:54:37.6576290-05:00",
+  "loop_iteration": 0,
+  "science_directive_version": 1,
+  "objective": "Assess whether storage-cavity active cooling based on the transmon |f> manifold and the |g,n> <-> |f,n-1> ladder is spectrally accessible, controllable, and dissipative in the local cqed_sim device for n <= 4.",
+  "completed_tasks": [
+    "Initialized the study folder, README, improvement log, and run-control scaffold.",
+    "Audited the local cqed_sim package for sideband-drive support, Hamiltonian conventions, and open-system readout decay.",
+    "Implemented the shared study helpers, runtime compatibility shim, end-to-end analysis script, convergence-check script, and notebook builder.",
+    "Extracted the dressed storage-conversion and readout-dump frequencies through n=4 and exported machine-readable tables.",
+    "Completed pulse scans across multiple envelope families and selected practical-best storage and dump pulses.",
+    "Simulated single-cycle and repeated-cycle open-system cooling on basis, coherent, and thermal-like initial states.",
+    "Generated report-quality figures, technical report, compiled PDF, and executed reproducibility notebook."
+  ],
+  "failed_tasks": [],
+  "pending_tasks": [],
+  "blocked_tasks": [],
+  "key_results": {
+    "storage_sideband_frequencies_GHz": [
+      6.804115034,
+      6.798434192,
+      6.79275335,
+      6.787072508
+    ],
+    "readout_dump_frequencies_GHz": [
+      3.448825278,
+      3.443144436,
+      3.437463594,
+      3.431782752
+    ],
+    "adjacent_line_spacing_MHz": 5.680842,
+    "single_cycle_success_probabilities": {
+      "1": 0.9734985711304378,
+      "2": 0.9726386810086892,
+      "3": 0.9674519818499168,
+      "4": 0.9620221609231774
+    },
+    "basis_ladder_final_mean_storage_n": 0.07559463299404445,
+    "coherent_ladder_final_mean_storage_n": 0.031503466248085484,
+    "thermal_ladder_final_mean_storage_n": 0.012544243876904138,
+    "main_conclusion": "The effective storage g-f sideband plus readout-assisted dump is usable through n<=4 in the local model, while a direct transmon g-f carrier is not a cooling mechanism."
+  },
+  "review_history": []
+}

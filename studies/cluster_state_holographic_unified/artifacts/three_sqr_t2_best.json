@@ -1,0 +1,5974 @@
+{
+  "schema_version": 2,
+  "success": true,
+  "objective": 0.03284360558874607,
+  "sequence": [
+    {
+      "type": "Displacement",
+      "name": "D0",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:0:D0",
+      "time_policy_locked": false,
+      "parameters": [
+        -0.3565072427660481,
+        -0.17051303447319788
+      ],
+      "time_param_id": "t_0"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R0",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:1:R0",
+      "time_policy_locked": false,
+      "parameters": [
+        2.5551160863701443,
+        0.877348745667639
+      ],
+      "time_param_id": "t_1"
+    },
+    {
+      "type": "PrimitiveGate",
+      "name": "S0",
+      "duration": 1.1e-06,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:2:S0",
+      "time_policy_locked": false,
+      "mode": "matrix",
+      "hilbert_dim": 8,
+      "metadata": {
+        "ideal_kind": "MaskedSQR",
+        "levels": [
+          0,
+          2
+        ],
+        "max_tones": 2,
+        "include_conditional_phase": false
+      },
+      "parameters": [
+        -3.7696215663824604,
+        -0.4110797268934388,
+        3.227257519234369,
+        1.7689457452641262
+      ],
+      "time_param_id": "t_2"
+    },
+    {
+      "type": "Displacement",
+      "name": "D1",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:3:D1",
+      "time_policy_locked": false,
+      "parameters": [
+        0.6458616804918926,
+        -0.024639312808601748
+      ],
+      "time_param_id": "t_3"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R1",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:4:R1",
+      "time_policy_locked": false,
+      "parameters": [
+        1.9847996036663882,
+        1.0881253398107196
+      ],
+      "time_param_id": "t_4"
+    },
+    {
+      "type": "PrimitiveGate",
+      "name": "S1",
+      "duration": 1.1e-06,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:5:S1",
+      "time_policy_locked": false,
+      "mode": "matrix",
+      "hilbert_dim": 8,
+      "metadata": {
+        "ideal_kind": "MaskedSQR",
+        "levels": [
+          0,
+          2
+        ],
+        "max_tones": 2,
+        "include_conditional_phase": false
+      },
+      "parameters": [
+        2.4153316995673575,
+        6.208797172514681,
+        -1.9616193285515462,
+        -5.1406893528011715
+      ],
+      "time_param_id": "t_5"
+    },
+    {
+      "type": "Displacement",
+      "name": "D2",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:6:D2",
+      "time_policy_locked": false,
+      "parameters": [
+        0.31806182691062496,
+        -0.5840762454373347
+      ],
+      "time_param_id": "t_6"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R2",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:7:R2",
+      "time_policy_locked": false,
+      "parameters": [
+        2.078242969630852,
+        -0.6561210523032509
+      ],
+      "time_param_id": "t_7"
+    },
+    {
+      "type": "PrimitiveGate",
+      "name": "S2",
+      "duration": 1.1e-06,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:8:S2",
+      "time_policy_locked": false,
+      "mode": "matrix",
+      "hilbert_dim": 8,
+      "metadata": {
+        "ideal_kind": "MaskedSQR",
+        "levels": [
+          0,
+          2
+        ],
+        "max_tones": 2,
+        "include_conditional_phase": false
+      },
+      "parameters": [
+        -3.654084578264769,
+        0.107871548122177,
+        -0.009755220916167144,
+        9.68988504558778
+      ],
+      "time_param_id": "t_8"
+    },
+    {
+      "type": "Displacement",
+      "name": "D3",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:9:D3",
+      "time_policy_locked": false,
+      "parameters": [
+        0.006228908680255123,
+        0.42785629110603507
+      ],
+      "time_param_id": "t_9"
+    }
+  ],
+  "time_parameters": [
+    {
+      "param_id": "t_0",
+      "gate_type": "Displacement",
+      "group": "instance:0:D0",
+      "bounds": [
+        2e-08,
+        2e-06
+      ],
+      "init": 1.0099999999999999e-06,
+      "value": 8e-08,
+      "optimize": true,
+      "frozen": false,
+      "active": true,
+      "gate_names": [
+        "D0"
+      ]
+    },
+    {
+      "param_id": "t_1",
+      "gate_type": "QubitRotation",
+      "group": "instance:1:R0",
+      "bounds": [
+        2e-08,
+        2e-06
+      ],
+      "init": 1.0099999999999999e-06,
+      "value": 4e-08,
+      "optimize": true,
+      "frozen": false,
+      "active": true,
+      "gate_names": [
+        "R0"
+      ]
+    },
+    {
+      "param_id": "t_2",
+      "gate_type": "PrimitiveGate",
+      "group": "instance:2:S0",
+      "bounds": [
+        2e-08,
+        2e-06
+      ],
+      "init": 1.0099999999999999e-06,
+      "value": 1.1e-06,
+      "optimize": true,
+      "frozen": false,
+      "active": true,
+      "gate_names": [
+        "S0"
+      ]
+    },
+    {
+      "param_id": "t_3",
+      "gate_type": "Displacement",
+      "group": "instance:3:D1",
+      "bounds": [
+        2e-08,
+        2e-06
+      ],
+      "init": 1.0099999999999999e-06,
+      "value": 8e-08,
+      "optimize": true,
+      "frozen": false,
+      "active": true,
+      "gate_names": [
+        "D1"
+      ]
+    },
+    {
+      "param_id": "t_4",
+      "gate_type": "QubitRotation",
+      "group": "instance:4:R1",
+      "bounds": [
+        2e-08,
+        2e-06
+      ],
+      "init": 1.0099999999999999e-06,
+      "value": 4e-08,
+      "optimize": true,
+      "frozen": false,
+      "active": true,
+      "gate_names": [
+        "R1"
+      ]
+    },
+    {
+      "param_id": "t_5",
+      "gate_type": "PrimitiveGate",
+      "group": "instance:5:S1",
+      "bounds": [
+        2e-08,
+        2e-06
+      ],
+      "init": 1.0099999999999999e-06,
+      "value": 1.1e-06,
+      "optimize": true,
+      "frozen": false,
+      "active": true,
+      "gate_names": [
+        "S1"
+      ]
+    },
+    {
+      "param_id": "t_6",
+      "gate_type": "Displacement",
+      "group": "instance:6:D2",
+      "bounds": [
+        2e-08,
+        2e-06
+      ],
+      "init": 1.0099999999999999e-06,
+      "value": 8e-08,
+      "optimize": true,
+      "frozen": false,
+      "active": true,
+      "gate_names": [
+        "D2"
+      ]
+    },
+    {
+      "param_id": "t_7",
+      "gate_type": "QubitRotation",
+      "group": "instance:7:R2",
+      "bounds": [
+        2e-08,
+        2e-06
+      ],
+      "init": 1.0099999999999999e-06,
+      "value": 4e-08,
+      "optimize": true,
+      "frozen": false,
+      "active": true,
+      "gate_names": [
+        "R2"
+      ]
+    },
+    {
+      "param_id": "t_8",
+      "gate_type": "PrimitiveGate",
+      "group": "instance:8:S2",
+      "bounds": [
+        2e-08,
+        2e-06
+      ],
+      "init": 1.0099999999999999e-06,
+      "value": 1.1e-06,
+      "optimize": true,
+      "frozen": false,
+      "active": true,
+      "gate_names": [
+        "S2"
+      ]
+    },
+    {
+      "param_id": "t_9",
+      "gate_type": "Displacement",
+      "group": "instance:9:D3",
+      "bounds": [
+        2e-08,
+        2e-06
+      ],
+      "init": 1.0099999999999999e-06,
+      "value": 8e-08,
+      "optimize": true,
+      "frozen": false,
+      "active": true,
+      "gate_names": [
+        "D3"
+      ]
+    }
+  ],
+  "parameter_vector": [
+    -0.3565072427660481,
+    -0.17051303447319788,
+    2.5551160863701443,
+    0.877348745667639,
+    -3.7696215663824604,
+    -0.4110797268934388,
+    3.227257519234369,
+    1.7689457452641262,
+    0.6458616804918926,
+    -0.024639312808601748,
+    1.9847996036663882,
+    1.0881253398107196,
+    2.4153316995673575,
+    6.208797172514681,
+    -1.9616193285515462,
+    -5.1406893528011715,
+    0.31806182691062496,
+    -0.5840762454373347,
+    2.078242969630852,
+    -0.6561210523032509,
+    -3.654084578264769,
+    0.107871548122177,
+    -0.009755220916167144,
+    9.68988504558778,
+    0.006228908680255123,
+    0.42785629110603507
+  ],
+  "time_raw_vector": [
+    -3.4657359027997265,
+    -4.584967478670572,
+    0.1823215567939544,
+    -3.4657359027997265,
+    -4.584967478670572,
+    0.1823215567939544,
+    -3.4657359027997265,
+    -4.584967478670572,
+    0.1823215567939544,
+    -3.4657359027997265
+  ],
+  "report": {
+    "system": {
+      "kind": "CQEDIdealSystem",
+      "model_class": null,
+      "subsystem_dims": null
+    },
+    "target": {
+      "type": "unitary",
+      "dimension": 4,
+      "pairs": 0,
+      "reduced_pairs": 0,
+      "observables": 0,
+      "checkpoints": 0,
+      "retained_subsystems": null,
+      "gauge": "global",
+      "block_gauge": null,
+      "open_system_probe_strategy": "basis_plus_uniform"
+    },
+    "subspace": {
+      "kind": "custom",
+      "indices": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "dim": 4,
+      "labels": [
+        "|g,0>",
+        "|g,1>",
+        "|e,0>",
+        "|e,1>"
+      ]
+    },
+    "backend": {
+      "type": "ideal",
+      "settings": {
+        "system": {
+          "kind": "CQEDIdealSystem",
+          "model_class": null,
+          "subsystem_dims": null
+        }
+      }
+    },
+    "time_policy": {
+      "mode": "per-instance",
+      "policy": {
+        "default": {
+          "optimize": true,
+          "bounds": [
+            2e-08,
+            2e-06
+          ],
+          "init": 1.0099999999999999e-06
+        }
+      },
+      "shared_groups": {}
+    },
+    "time_grid": {
+      "mode": "hard",
+      "dt": 1e-09,
+      "raw": [
+        8e-08,
+        3.9999999999999994e-08,
+        1.1e-06,
+        8e-08,
+        3.9999999999999994e-08,
+        1.1e-06,
+        8e-08,
+        3.9999999999999994e-08,
+        1.1e-06,
+        8e-08
+      ],
+      "snapped": [
+        8e-08,
+        4e-08,
+        1.1e-06,
+        8e-08,
+        4e-08,
+        1.1e-06,
+        8e-08,
+        4e-08,
+        1.1e-06,
+        8e-08
+      ],
+      "ticks": [
+        80,
+        40,
+        1100,
+        80,
+        40,
+        1100,
+        80,
+        40,
+        1100,
+        80
+      ],
+      "grid_residual": [
+        0.0,
+        -6.617444900424222e-24,
+        0.0,
+        0.0,
+        -6.617444900424222e-24,
+        0.0,
+        0.0,
+        -6.617444900424222e-24,
+        0.0,
+        0.0
+      ]
+    },
+    "hardware_limits": {
+      "dt": 1e-09,
+      "channels": {
+        "qubit_drive": {
+          "A_max": Infinity,
+          "delta_max": Infinity,
+          "slew_max": Infinity,
+          "bw_max": Infinity
+        },
+        "cavity_drive": {
+          "A_max": Infinity,
+          "delta_max": Infinity,
+          "slew_max": Infinity,
+          "bw_max": Infinity
+        }
+      },
+      "gate_type_overrides": {}
+    },
+    "constraints": {
+      "slew": {
+        "enabled": false,
+        "S_max": Infinity,
+        "mode": "penalty",
+        "lambda": 1.0
+      },
+      "tone_spacing": {
+        "enabled": false,
+        "domega_min": 0.0,
+        "Ntones_max": null,
+        "projection": false,
+        "lambda": 1.0
+      },
+      "forbidden_bands": [],
+      "amplitude_detuning": {
+        "enabled": true,
+        "lambda": 1.0,
+        "project": true
+      }
+    },
+    "synthesis_constraints": null,
+    "leakage_penalty": {
+      "weight": 0.05,
+      "metric": "worst",
+      "checkpoint_weight": 0.0,
+      "checkpoints": [],
+      "allowed_subspace": null
+    },
+    "multi_objective": {
+      "fidelity_weight": 1.0,
+      "task_weight": null,
+      "leakage_weight": 0.05,
+      "duration_weight": 0.0,
+      "gate_count_weight": 0.0,
+      "pulse_power_weight": 0.0,
+      "robustness_weight": 0.0,
+      "smoothness_weight": 0.0,
+      "hardware_penalty_weight": 1.0,
+      "mode": "weighted_sum"
+    },
+    "parameter_distribution": null,
+    "parallel": {
+      "enabled": false,
+      "n_jobs": 1,
+      "backend": "multiprocessing",
+      "worker_seeds": [
+        1017
+      ]
+    },
+    "execution": {
+      "requested_engine": "auto",
+      "selected_engine": "numpy",
+      "device": "cpu",
+      "fast_path_used": true,
+      "reason": "Using NumPy fast path; optional JAX dependency is not installed."
+    },
+    "drift_model": {
+      "frame": "rotating_omega_c_omega_q",
+      "chi": 0.0,
+      "chi2": 0.0,
+      "kerr": 0.0,
+      "kerr2": 0.0,
+      "delta_c": 0.0,
+      "delta_q": 0.0
+    },
+    "objective": {
+      "total": 0.03284360558874607,
+      "task_term": 0.029618852927474792,
+      "fidelity_term": 0.029618852927474792,
+      "leakage_term": 0.00322475266127128,
+      "checkpoint_leakage_term": 0.0,
+      "duration_term": 0.9999999999999999,
+      "gate_count_term": 7.759189076299865,
+      "pulse_power_term": 0.18380525064553058,
+      "amplitude_smoothness_term": 1.7574255857503687,
+      "robustness_term": 0.0,
+      "time_reg_term": 0.0,
+      "time_smooth_term": 0.0,
+      "grid_term": 0.0,
+      "hardware_penalty_term": 0.0,
+      "phase2_constraint_term": 0.0,
+      "hardware_breakdown": {
+        "amplitude_penalty": 0.0,
+        "detuning_penalty": 0.0,
+        "slew_penalty": 0.0,
+        "tone_penalty": 0.0
+      },
+      "phase2_constraint_breakdown": {
+        "duration_penalty": 0.0,
+        "bandwidth_penalty": 0.0,
+        "smoothness_penalty": 0.0,
+        "forbidden_parameter_penalty": 0.0
+      }
+    },
+    "constraint_violations": {
+      "amplitude_violations": 0,
+      "detuning_violations": 0,
+      "slew_max_violation": 0.0,
+      "tone_min_spacing": Infinity,
+      "tone_violations": 0,
+      "duration_violation": 0.0,
+      "forbidden_parameter_violations": 0
+    },
+    "metrics": {
+      "fidelity": 0.9703811470725252,
+      "leakage_average": 0.04502736846450328,
+      "leakage_worst": 0.06449505322542559,
+      "leakage_selected": 0.06449505322542559,
+      "checkpoint_leakage_average": 0.0,
+      "checkpoint_leakage_worst": 0.0,
+      "state_error_mean": NaN,
+      "state_error_max": NaN,
+      "state_fidelity_mean": NaN,
+      "state_fidelity_min": NaN,
+      "reduced_state_fidelity_mean": NaN,
+      "reduced_state_fidelity_min": NaN,
+      "observable_error_mean": NaN,
+      "observable_error_max": NaN,
+      "weighted_observable_error": NaN,
+      "trajectory_task_loss": NaN,
+      "trajectory_state_error_mean": NaN,
+      "trajectory_observable_error_mean": NaN,
+      "channel_overlap": NaN,
+      "channel_choi_error": NaN,
+      "channel_superoperator_error": NaN,
+      "trace_preservation_error_mean": NaN,
+      "trace_preservation_error_max": NaN,
+      "trace_loss_mean": NaN,
+      "trace_loss_worst": NaN,
+      "choi_hermiticity_error": NaN,
+      "choi_min_eig": NaN,
+      "complete_positivity_violation": NaN,
+      "duration_metric": 0.9999999999999999,
+      "gate_count_metric": 7.759189076299865,
+      "pulse_power_metric": 0.18380525064553058,
+      "amplitude_smoothness_metric": 1.7574255857503687,
+      "robustness_objective": 0.029618852927474792
+    },
+    "truncation": {
+      "retained_edge_population_average": 0.2429294881952319,
+      "retained_edge_population_worst": 0.5025953286677837,
+      "outside_tail_population_average": 0.04502736846450378,
+      "outside_tail_population_worst": 0.06449505322542594,
+      "outside_population_profile": [
+        {
+          "label": "index=2",
+          "average": 0.006062218131486243,
+          "worst": 0.012364115418831235
+        },
+        {
+          "label": "index=3",
+          "average": 0.0012303019071799553,
+          "worst": 0.0019237556604859694
+        },
+        {
+          "label": "index=6",
+          "average": 0.03573712594329908,
+          "worst": 0.05965354270114841
+        },
+        {
+          "label": "index=7",
+          "average": 0.0019977224825384974,
+          "worst": 0.0042371433775194416
+        }
+      ]
+    },
+    "robustness": {
+      "enabled": false,
+      "aggregate": null,
+      "samples": [],
+      "objective": 0.029618852927474792,
+      "penalty": 0.0
+    },
+    "parameters": {
+      "gates": [
+        {
+          "type": "Displacement",
+          "name": "D0",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:0:D0",
+          "time_policy_locked": false,
+          "parameters": [
+            -0.3565072427660481,
+            -0.17051303447319788
+          ],
+          "time_param_id": "t_0"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R0",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:1:R0",
+          "time_policy_locked": false,
+          "parameters": [
+            2.5551160863701443,
+            0.877348745667639
+          ],
+          "time_param_id": "t_1"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S0",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:2:S0",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 8,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              2
+            ],
+            "max_tones": 2,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            -3.7696215663824604,
+            -0.4110797268934388,
+            3.227257519234369,
+            1.7689457452641262
+          ],
+          "time_param_id": "t_2"
+        },
+        {
+          "type": "Displacement",
+          "name": "D1",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:3:D1",
+          "time_policy_locked": false,
+          "parameters": [
+            0.6458616804918926,
+            -0.024639312808601748
+          ],
+          "time_param_id": "t_3"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R1",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:4:R1",
+          "time_policy_locked": false,
+          "parameters": [
+            1.9847996036663882,
+            1.0881253398107196
+          ],
+          "time_param_id": "t_4"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S1",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:5:S1",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 8,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              2
+            ],
+            "max_tones": 2,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            2.4153316995673575,
+            6.208797172514681,
+            -1.9616193285515462,
+            -5.1406893528011715
+          ],
+          "time_param_id": "t_5"
+        },
+        {
+          "type": "Displacement",
+          "name": "D2",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:6:D2",
+          "time_policy_locked": false,
+          "parameters": [
+            0.31806182691062496,
+            -0.5840762454373347
+          ],
+          "time_param_id": "t_6"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R2",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:7:R2",
+          "time_policy_locked": false,
+          "parameters": [
+            2.078242969630852,
+            -0.6561210523032509
+          ],
+          "time_param_id": "t_7"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S2",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:8:S2",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 8,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              2
+            ],
+            "max_tones": 2,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            -3.654084578264769,
+            0.107871548122177,
+            -0.009755220916167144,
+            9.68988504558778
+          ],
+          "time_param_id": "t_8"
+        },
+        {
+          "type": "Displacement",
+          "name": "D3",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:9:D3",
+          "time_policy_locked": false,
+          "parameters": [
+            0.006228908680255123,
+            0.42785629110603507
+          ],
+          "time_param_id": "t_9"
+        }
+      ],
+      "time_parameters": [
+        {
+          "param_id": "t_0",
+          "gate_type": "Displacement",
+          "group": "instance:0:D0",
+          "bounds": [
+            2e-08,
+            2e-06
+          ],
+          "init": 1.0099999999999999e-06,
+          "value": 8e-08,
+          "optimize": true,
+          "frozen": false,
+          "active": true,
+          "gate_names": [
+            "D0"
+          ]
+        },
+        {
+          "param_id": "t_1",
+          "gate_type": "QubitRotation",
+          "group": "instance:1:R0",
+          "bounds": [
+            2e-08,
+            2e-06
+          ],
+          "init": 1.0099999999999999e-06,
+          "value": 4e-08,
+          "optimize": true,
+          "frozen": false,
+          "active": true,
+          "gate_names": [
+            "R0"
+          ]
+        },
+        {
+          "param_id": "t_2",
+          "gate_type": "PrimitiveGate",
+          "group": "instance:2:S0",
+          "bounds": [
+            2e-08,
+            2e-06
+          ],
+          "init": 1.0099999999999999e-06,
+          "value": 1.1e-06,
+          "optimize": true,
+          "frozen": false,
+          "active": true,
+          "gate_names": [
+            "S0"
+          ]
+        },
+        {
+          "param_id": "t_3",
+          "gate_type": "Displacement",
+          "group": "instance:3:D1",
+          "bounds": [
+            2e-08,
+            2e-06
+          ],
+          "init": 1.0099999999999999e-06,
+          "value": 8e-08,
+          "optimize": true,
+          "frozen": false,
+          "active": true,
+          "gate_names": [
+            "D1"
+          ]
+        },
+        {
+          "param_id": "t_4",
+          "gate_type": "QubitRotation",
+          "group": "instance:4:R1",
+          "bounds": [
+            2e-08,
+            2e-06
+          ],
+          "init": 1.0099999999999999e-06,
+          "value": 4e-08,
+          "optimize": true,
+          "frozen": false,
+          "active": true,
+          "gate_names": [
+            "R1"
+          ]
+        },
+        {
+          "param_id": "t_5",
+          "gate_type": "PrimitiveGate",
+          "group": "instance:5:S1",
+          "bounds": [
+            2e-08,
+            2e-06
+          ],
+          "init": 1.0099999999999999e-06,
+          "value": 1.1e-06,
+          "optimize": true,
+          "frozen": false,
+          "active": true,
+          "gate_names": [
+            "S1"
+          ]
+        },
+        {
+          "param_id": "t_6",
+          "gate_type": "Displacement",
+          "group": "instance:6:D2",
+          "bounds": [
+            2e-08,
+            2e-06
+          ],
+          "init": 1.0099999999999999e-06,
+          "value": 8e-08,
+          "optimize": true,
+          "frozen": false,
+          "active": true,
+          "gate_names": [
+            "D2"
+          ]
+        },
+        {
+          "param_id": "t_7",
+          "gate_type": "QubitRotation",
+          "group": "instance:7:R2",
+          "bounds": [
+            2e-08,
+            2e-06
+          ],
+          "init": 1.0099999999999999e-06,
+          "value": 4e-08,
+          "optimize": true,
+          "frozen": false,
+          "active": true,
+          "gate_names": [
+            "R2"
+          ]
+        },
+        {
+          "param_id": "t_8",
+          "gate_type": "PrimitiveGate",
+          "group": "instance:8:S2",
+          "bounds": [
+            2e-08,
+            2e-06
+          ],
+          "init": 1.0099999999999999e-06,
+          "value": 1.1e-06,
+          "optimize": true,
+          "frozen": false,
+          "active": true,
+          "gate_names": [
+            "S2"
+          ]
+        },
+        {
+          "param_id": "t_9",
+          "gate_type": "Displacement",
+          "group": "instance:9:D3",
+          "bounds": [
+            2e-08,
+            2e-06
+          ],
+          "init": 1.0099999999999999e-06,
+          "value": 8e-08,
+          "optimize": true,
+          "frozen": false,
+          "active": true,
+          "gate_names": [
+            "D3"
+          ]
+        }
+      ],
+      "durations": [
+        8e-08,
+        4e-08,
+        1.1e-06,
+        8e-08,
+        4e-08,
+        1.1e-06,
+        8e-08,
+        4e-08,
+        1.1e-06,
+        8e-08
+      ],
+      "time_grid_per_param": [
+        {
+          "param_id": "t_0",
+          "group": "instance:0:D0",
+          "raw": 8e-08,
+          "snapped": 8e-08,
+          "ticks": 80
+        },
+        {
+          "param_id": "t_1",
+          "group": "instance:1:R0",
+          "raw": 3.9999999999999994e-08,
+          "snapped": 4e-08,
+          "ticks": 40
+        },
+        {
+          "param_id": "t_2",
+          "group": "instance:2:S0",
+          "raw": 1.1e-06,
+          "snapped": 1.1e-06,
+          "ticks": 1100
+        },
+        {
+          "param_id": "t_3",
+          "group": "instance:3:D1",
+          "raw": 8e-08,
+          "snapped": 8e-08,
+          "ticks": 80
+        },
+        {
+          "param_id": "t_4",
+          "group": "instance:4:R1",
+          "raw": 3.9999999999999994e-08,
+          "snapped": 4e-08,
+          "ticks": 40
+        },
+        {
+          "param_id": "t_5",
+          "group": "instance:5:S1",
+          "raw": 1.1e-06,
+          "snapped": 1.1e-06,
+          "ticks": 1100
+        },
+        {
+          "param_id": "t_6",
+          "group": "instance:6:D2",
+          "raw": 8e-08,
+          "snapped": 8e-08,
+          "ticks": 80
+        },
+        {
+          "param_id": "t_7",
+          "group": "instance:7:R2",
+          "raw": 3.9999999999999994e-08,
+          "snapped": 4e-08,
+          "ticks": 40
+        },
+        {
+          "param_id": "t_8",
+          "group": "instance:8:S2",
+          "raw": 1.1e-06,
+          "snapped": 1.1e-06,
+          "ticks": 1100
+        },
+        {
+          "param_id": "t_9",
+          "group": "instance:9:D3",
+          "raw": 8e-08,
+          "snapped": 8e-08,
+          "ticks": 80
+        }
+      ]
+    },
+    "phase_decomposition": [],
+    "optimizer": {
+      "success": true,
+      "name": "auto",
+      "message": "Optimization terminated successfully.",
+      "nit": 59,
+      "multistart": 1,
+      "n_time_params_active": 10,
+      "selected_start_index": 0,
+      "start_objectives": [
+        0.03284360558874607
+      ],
+      "progress": {
+        "schema_version": 1,
+        "every": 1,
+        "live": false,
+        "enabled": false,
+        "history_events": 60,
+        "history_runs": 1,
+        "global_best": {
+          "run_id": "run_000",
+          "objective_total": 0.03284360558874607,
+          "iteration": 59
+        }
+      }
+    },
+    "warm_start": null,
+    "per_fock_blocks": [
+      {
+        "n": 0,
+        "block": [
+          [
+            "(-0.6595772701182664-0.16227930422720285j)",
+            "(0.031165962427254414-0.06254228379772543j)"
+          ],
+          [
+            "(-0.6671603436151796-0.13110307109865757j)",
+            "(-0.05860834702561821-0.036817103007804566j)"
+          ]
+        ],
+        "det_phase": -0.06226522546692143
+      },
+      {
+        "n": 1,
+        "block": [
+          [
+            "(-0.08843010970759786-0.03412990634997474j)",
+            "(-0.7021491699092375-0.15410054060394016j)"
+          ],
+          [
+            "(-0.03075849451171583-0.02970325305803643j)",
+            "(-0.6649493295476304-0.15139069185016826j)"
+          ]
+        ],
+        "det_phase": 0.2789247221583324
+      }
+    ],
+    "warnings": [
+      "High leakage detected; consider increasing cavity truncation or leakage penalty.",
+      "Population reaches levels outside the retained subspace; consider enlarging the truncation or tightening leakage suppression.",
+      "Population accumulates near the truncation edge; validate that the chosen Hilbert-space cutoff is sufficient."
+    ]
+  },
+  "backend": "ideal",
+  "backend_settings": {
+    "system": {
+      "kind": "CQEDIdealSystem",
+      "model_class": null,
+      "subsystem_dims": null
+    }
+  },
+  "metrics": {
+    "fidelity": 0.9703811470725252,
+    "fidelity_loss": 0.029618852927474792,
+    "leakage_average": 0.04502736846450328,
+    "leakage_worst": 0.06449505322542559,
+    "leakage_term": 0.00322475266127128,
+    "objective": 0.029618852927474792,
+    "checkpoint_leakage_average": 0.0,
+    "checkpoint_leakage_worst": 0.0,
+    "checkpoint_leakage_term": 0.0,
+    "leakage_selected": 0.06449505322542559,
+    "duration_metric": 0.9999999999999999,
+    "gate_count_metric": 7.759189076299865,
+    "pulse_power_metric": 0.18380525064553058,
+    "amplitude_smoothness_metric": 1.7574255857503687,
+    "robustness_penalty": 0.0,
+    "robustness_objective": 0.029618852927474792
+  },
+  "history": [
+    {
+      "run_id": "run_000",
+      "iteration": 0,
+      "timestamp": 1774421315.5879855,
+      "objective_total": 0.7882944099413138,
+      "objective_terms": {
+        "infidelity": 0.7751854382960196,
+        "leakage": 0.013108971645294221,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 4.465887643827786,
+        "pulse_power": 0.08002356471462052,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.2248145617039804,
+        "leakage_avg": 0.1368439162985459,
+        "leakage_worst": 0.2621794329058844
+      },
+      "best_so_far": {
+        "objective_total": 0.7882944099413138,
+        "iteration": 0
+      },
+      "params_summary": {
+        "max_amp": 1.5707963267948966,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 1,
+      "timestamp": 1774421315.9128656,
+      "objective_total": 0.5095023266904704,
+      "objective_terms": {
+        "infidelity": 0.5093838388014165,
+        "leakage": 0.00011848788905384212,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 6.25024743922837,
+        "pulse_power": 0.1814596347577111,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.4906161611985836,
+        "leakage_avg": 0.0011105847450797734,
+        "leakage_worst": 0.002369757781076842
+      },
+      "best_so_far": {
+        "objective_total": 0.5095023266904704,
+        "iteration": 1
+      },
+      "params_summary": {
+        "max_amp": 3.1412210011478146,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 2,
+      "timestamp": 1774421316.2159321,
+      "objective_total": 0.4312257023996712,
+      "objective_terms": {
+        "infidelity": 0.43034839515697865,
+        "leakage": 0.0008773072426924988,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 6.629342695182263,
+        "pulse_power": 0.2170558938084456,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.5696516048430214,
+        "leakage_avg": 0.00888153688112428,
+        "leakage_worst": 0.017546144853849976
+      },
+      "best_so_far": {
+        "objective_total": 0.4312257023996712,
+        "iteration": 2
+      },
+      "params_summary": {
+        "max_amp": 3.2291713198144882,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 3,
+      "timestamp": 1774421316.5251176,
+      "objective_total": 0.3109991038702156,
+      "objective_terms": {
+        "infidelity": 0.3095136241601921,
+        "leakage": 0.001485479710023474,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.0396507763356455,
+        "pulse_power": 0.23536867355573168,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.6904863758398079,
+        "leakage_avg": 0.014280779566361285,
+        "leakage_worst": 0.02970959420046948
+      },
+      "best_so_far": {
+        "objective_total": 0.3109991038702156,
+        "iteration": 3
+      },
+      "params_summary": {
+        "max_amp": 3.219562875142012,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 4,
+      "timestamp": 1774421316.8541162,
+      "objective_total": 0.11016183869725095,
+      "objective_terms": {
+        "infidelity": 0.10570441482826454,
+        "leakage": 0.00445742386898641,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.038523986407357,
+        "pulse_power": 0.2661998950377916,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.8942955851717355,
+        "leakage_avg": 0.0660508640701096,
+        "leakage_worst": 0.0891484773797282
+      },
+      "best_so_far": {
+        "objective_total": 0.11016183869725095,
+        "iteration": 4
+      },
+      "params_summary": {
+        "max_amp": 3.1307909003904535,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 5,
+      "timestamp": 1774421317.2052755,
+      "objective_total": 0.07568101880180755,
+      "objective_terms": {
+        "infidelity": 0.07203567521172538,
+        "leakage": 0.003645343590082173,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.102554297201026,
+        "pulse_power": 0.2696393479781029,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9279643247882746,
+        "leakage_avg": 0.06290287717648274,
+        "leakage_worst": 0.07290687180164346
+      },
+      "best_so_far": {
+        "objective_total": 0.07568101880180755,
+        "iteration": 5
+      },
+      "params_summary": {
+        "max_amp": 2.997722789675196,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 6,
+      "timestamp": 1774421317.5423455,
+      "objective_total": 0.06675766072104156,
+      "objective_terms": {
+        "infidelity": 0.06325601688053428,
+        "leakage": 0.0035016438405072736,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.125844132542753,
+        "pulse_power": 0.2764365857681003,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9367439831194657,
+        "leakage_avg": 0.06220830610629932,
+        "leakage_worst": 0.07003287681014547
+      },
+      "best_so_far": {
+        "objective_total": 0.06675766072104156,
+        "iteration": 6
+      },
+      "params_summary": {
+        "max_amp": 2.9989298841681147,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 7,
+      "timestamp": 1774421317.9108894,
+      "objective_total": 0.06330379246939946,
+      "objective_terms": {
+        "infidelity": 0.05984713337793668,
+        "leakage": 0.0034566590914627774,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.139378659844839,
+        "pulse_power": 0.2793134852865934,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9401528666220633,
+        "leakage_avg": 0.06254656932227096,
+        "leakage_worst": 0.06913318182925554
+      },
+      "best_so_far": {
+        "objective_total": 0.06330379246939946,
+        "iteration": 7
+      },
+      "params_summary": {
+        "max_amp": 3.0073602510728277,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 8,
+      "timestamp": 1774421318.2743592,
+      "objective_total": 0.058830971088330526,
+      "objective_terms": {
+        "infidelity": 0.055312078884189764,
+        "leakage": 0.003518892204140761,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.151675204861917,
+        "pulse_power": 0.2815132164756281,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9446879211158102,
+        "leakage_avg": 0.06478237805866216,
+        "leakage_worst": 0.07037784408281522
+      },
+      "best_so_far": {
+        "objective_total": 0.058830971088330526,
+        "iteration": 8
+      },
+      "params_summary": {
+        "max_amp": 3.024125467144601,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 9,
+      "timestamp": 1774421318.638475,
+      "objective_total": 0.05710029011181604,
+      "objective_terms": {
+        "infidelity": 0.05344530032788264,
+        "leakage": 0.0036549897839334047,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.14720810886004,
+        "pulse_power": 0.2784263183285663,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9465546996721174,
+        "leakage_avg": 0.06454446131408059,
+        "leakage_worst": 0.07309979567866809
+      },
+      "best_so_far": {
+        "objective_total": 0.05710029011181604,
+        "iteration": 9
+      },
+      "params_summary": {
+        "max_amp": 3.0215618528468027,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 10,
+      "timestamp": 1774421319.014516,
+      "objective_total": 0.04960691968090076,
+      "objective_terms": {
+        "infidelity": 0.04549974082800745,
+        "leakage": 0.004107178852893307,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.110547262958857,
+        "pulse_power": 0.2568133270129035,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9545002591719925,
+        "leakage_avg": 0.06215354547380861,
+        "leakage_worst": 0.08214357705786612
+      },
+      "best_so_far": {
+        "objective_total": 0.04960691968090076,
+        "iteration": 10
+      },
+      "params_summary": {
+        "max_amp": 3.0060054156200158,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 11,
+      "timestamp": 1774421319.3605824,
+      "objective_total": 0.04802255567358898,
+      "objective_terms": {
+        "infidelity": 0.04405860169278919,
+        "leakage": 0.00396395398079979,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.098860574334122,
+        "pulse_power": 0.25387136673699906,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9559413983072108,
+        "leakage_avg": 0.05884297679237274,
+        "leakage_worst": 0.07927907961599578
+      },
+      "best_so_far": {
+        "objective_total": 0.04802255567358898,
+        "iteration": 11
+      },
+      "params_summary": {
+        "max_amp": 3.01598508342325,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 12,
+      "timestamp": 1774421319.70619,
+      "objective_total": 0.04542794020327968,
+      "objective_terms": {
+        "infidelity": 0.0412544766023738,
+        "leakage": 0.004173463600905875,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.068008511830417,
+        "pulse_power": 0.24531985495982153,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9587455233976262,
+        "leakage_avg": 0.051063830237676605,
+        "leakage_worst": 0.08346927201811749
+      },
+      "best_so_far": {
+        "objective_total": 0.04542794020327968,
+        "iteration": 12
+      },
+      "params_summary": {
+        "max_amp": 3.030764001563216,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 13,
+      "timestamp": 1774421320.057565,
+      "objective_total": 0.04446952368113484,
+      "objective_terms": {
+        "infidelity": 0.040510747864360375,
+        "leakage": 0.003958775816774463,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.06740283948632,
+        "pulse_power": 0.24327761814393034,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9594892521356396,
+        "leakage_avg": 0.049698569188550146,
+        "leakage_worst": 0.07917551633548925
+      },
+      "best_so_far": {
+        "objective_total": 0.04446952368113484,
+        "iteration": 13
+      },
+      "params_summary": {
+        "max_amp": 3.0232931829423038,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 14,
+      "timestamp": 1774421320.4457662,
+      "objective_total": 0.043994301090929555,
+      "objective_terms": {
+        "infidelity": 0.04003547019167053,
+        "leakage": 0.003958830899259025,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.064583783741089,
+        "pulse_power": 0.24183411360738596,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9599645298083295,
+        "leakage_avg": 0.049476186452311,
+        "leakage_worst": 0.0791766179851805
+      },
+      "best_so_far": {
+        "objective_total": 0.043994301090929555,
+        "iteration": 14
+      },
+      "params_summary": {
+        "max_amp": 3.0279101341871817,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 15,
+      "timestamp": 1774421320.826842,
+      "objective_total": 0.042534514879101884,
+      "objective_terms": {
+        "infidelity": 0.03848893036577117,
+        "leakage": 0.004045584513330719,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.046952911664507,
+        "pulse_power": 0.2361436148419128,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9615110696342288,
+        "leakage_avg": 0.049552777396762226,
+        "leakage_worst": 0.08091169026661438
+      },
+      "best_so_far": {
+        "objective_total": 0.042534514879101884,
+        "iteration": 15
+      },
+      "params_summary": {
+        "max_amp": 3.070381680951543,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 16,
+      "timestamp": 1774421321.178822,
+      "objective_total": 0.0419821052015177,
+      "objective_terms": {
+        "infidelity": 0.03798314513558765,
+        "leakage": 0.0039989600659300515,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.03459088050451,
+        "pulse_power": 0.23457757203348242,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9620168548644124,
+        "leakage_avg": 0.049173099564395195,
+        "leakage_worst": 0.07997920131860103
+      },
+      "best_so_far": {
+        "objective_total": 0.0419821052015177,
+        "iteration": 16
+      },
+      "params_summary": {
+        "max_amp": 3.0885812019239673,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 17,
+      "timestamp": 1774421321.5193331,
+      "objective_total": 0.0413303137117801,
+      "objective_terms": {
+        "infidelity": 0.037456860825499816,
+        "leakage": 0.003873452886280282,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 8.02286160813972,
+        "pulse_power": 0.23303947927957241,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9625431391745002,
+        "leakage_avg": 0.0492521299236455,
+        "leakage_worst": 0.07746905772560564
+      },
+      "best_so_far": {
+        "objective_total": 0.0413303137117801,
+        "iteration": 17
+      },
+      "params_summary": {
+        "max_amp": 3.092962185936232,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 18,
+      "timestamp": 1774421321.8452654,
+      "objective_total": 0.04004178315397001,
+      "objective_terms": {
+        "infidelity": 0.03633994729841672,
+        "leakage": 0.003701835855553287,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.988252495295527,
+        "pulse_power": 0.22695955838220855,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9636600527015833,
+        "leakage_avg": 0.049341405725510074,
+        "leakage_worst": 0.07403671711106574
+      },
+      "best_so_far": {
+        "objective_total": 0.04004178315397001,
+        "iteration": 18
+      },
+      "params_summary": {
+        "max_amp": 3.090061087121211,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 19,
+      "timestamp": 1774421322.178542,
+      "objective_total": 0.03929775030570332,
+      "objective_terms": {
+        "infidelity": 0.035504523505298424,
+        "leakage": 0.0037932268004048975,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.970740465640201,
+        "pulse_power": 0.22369377394389012,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9644954764947016,
+        "leakage_avg": 0.04895508033733861,
+        "leakage_worst": 0.07586453600809795
+      },
+      "best_so_far": {
+        "objective_total": 0.03929775030570332,
+        "iteration": 19
+      },
+      "params_summary": {
+        "max_amp": 3.076199744507196,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 20,
+      "timestamp": 1774421322.5181239,
+      "objective_total": 0.03626154559464402,
+      "objective_terms": {
+        "infidelity": 0.03227472036445589,
+        "leakage": 0.003986825230188129,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.847437557509901,
+        "pulse_power": 0.20345263752090836,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9677252796355441,
+        "leakage_avg": 0.04496666544943084,
+        "leakage_worst": 0.07973650460376258
+      },
+      "best_so_far": {
+        "objective_total": 0.03626154559464402,
+        "iteration": 20
+      },
+      "params_summary": {
+        "max_amp": 2.9774808940243305,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 21,
+      "timestamp": 1774421322.8385704,
+      "objective_total": 0.03544315914957909,
+      "objective_terms": {
+        "infidelity": 0.03162010603182319,
+        "leakage": 0.0038230531177558926,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.83528933644581,
+        "pulse_power": 0.2009008988243273,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9683798939681768,
+        "leakage_avg": 0.04455222662164471,
+        "leakage_worst": 0.07646106235511785
+      },
+      "best_so_far": {
+        "objective_total": 0.03544315914957909,
+        "iteration": 21
+      },
+      "params_summary": {
+        "max_amp": 2.9433164187973286,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 22,
+      "timestamp": 1774421323.174296,
+      "objective_total": 0.03355649536059571,
+      "objective_terms": {
+        "infidelity": 0.029987016447915682,
+        "leakage": 0.0035694789126800297,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.799499800535161,
+        "pulse_power": 0.19288528027375207,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9700129835520843,
+        "leakage_avg": 0.04466058655071814,
+        "leakage_worst": 0.0713895782536006
+      },
+      "best_so_far": {
+        "objective_total": 0.03355649536059571,
+        "iteration": 22
+      },
+      "params_summary": {
+        "max_amp": 2.787267874620819,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 23,
+      "timestamp": 1774421323.4955919,
+      "objective_total": 0.03339644545406601,
+      "objective_terms": {
+        "infidelity": 0.02987962026894042,
+        "leakage": 0.0035168251851255884,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.802962305404429,
+        "pulse_power": 0.19368282676736714,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9701203797310596,
+        "leakage_avg": 0.045040647381104054,
+        "leakage_worst": 0.07033650370251177
+      },
+      "best_so_far": {
+        "objective_total": 0.03339644545406601,
+        "iteration": 23
+      },
+      "params_summary": {
+        "max_amp": 2.781847776273104,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 24,
+      "timestamp": 1774421323.8246248,
+      "objective_total": 0.03329524343176382,
+      "objective_terms": {
+        "infidelity": 0.029790629463607998,
+        "leakage": 0.003504613968155823,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.802105533881571,
+        "pulse_power": 0.19388754932224347,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.970209370536392,
+        "leakage_avg": 0.045102874520068365,
+        "leakage_worst": 0.07009227936311646
+      },
+      "best_so_far": {
+        "objective_total": 0.03329524343176382,
+        "iteration": 24
+      },
+      "params_summary": {
+        "max_amp": 2.7832232152243317,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 25,
+      "timestamp": 1774421324.1985648,
+      "objective_total": 0.03313679117243921,
+      "objective_terms": {
+        "infidelity": 0.0295920223167897,
+        "leakage": 0.003544768855649505,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.793850358001472,
+        "pulse_power": 0.19333801003488388,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704079776832103,
+        "leakage_avg": 0.04508483743186986,
+        "leakage_worst": 0.0708953771129901
+      },
+      "best_so_far": {
+        "objective_total": 0.03313679117243921,
+        "iteration": 25
+      },
+      "params_summary": {
+        "max_amp": 2.7877909726252703,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 26,
+      "timestamp": 1774421324.5748167,
+      "objective_total": 0.0331139526996757,
+      "objective_terms": {
+        "infidelity": 0.02956785111660798,
+        "leakage": 0.0035461015830677237,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.791730229973376,
+        "pulse_power": 0.1927936916213226,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.970432148883392,
+        "leakage_avg": 0.04505231205173982,
+        "leakage_worst": 0.07092203166135447
+      },
+      "best_so_far": {
+        "objective_total": 0.0331139526996757,
+        "iteration": 26
+      },
+      "params_summary": {
+        "max_amp": 2.7877376454023755,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 27,
+      "timestamp": 1774421324.9107275,
+      "objective_total": 0.03306855472869135,
+      "objective_terms": {
+        "infidelity": 0.0295331137666891,
+        "leakage": 0.0035354409620022512,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.78507432719121,
+        "pulse_power": 0.1908665719076339,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704668862333109,
+        "leakage_avg": 0.044950404597338844,
+        "leakage_worst": 0.07070881924004502
+      },
+      "best_so_far": {
+        "objective_total": 0.03306855472869135,
+        "iteration": 27
+      },
+      "params_summary": {
+        "max_amp": 2.7882922444208993,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 28,
+      "timestamp": 1774421325.2401485,
+      "objective_total": 0.033063484846731384,
+      "objective_terms": {
+        "infidelity": 0.029533321843581706,
+        "leakage": 0.003530163003149678,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.78533990922515,
+        "pulse_power": 0.19081003853089598,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704666781564183,
+        "leakage_avg": 0.044921688856444736,
+        "leakage_worst": 0.07060326006299356
+      },
+      "best_so_far": {
+        "objective_total": 0.033063484846731384,
+        "iteration": 28
+      },
+      "params_summary": {
+        "max_amp": 2.7880523563995467,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 29,
+      "timestamp": 1774421325.578575,
+      "objective_total": 0.033050026370495277,
+      "objective_terms": {
+        "infidelity": 0.029548047779477615,
+        "leakage": 0.003501978591017663,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.7859156997399355,
+        "pulse_power": 0.19053043543487916,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704519522205224,
+        "leakage_avg": 0.044885363333482475,
+        "leakage_worst": 0.07003957182035325
+      },
+      "best_so_far": {
+        "objective_total": 0.033050026370495277,
+        "iteration": 29
+      },
+      "params_summary": {
+        "max_amp": 2.7855500697596187,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 30,
+      "timestamp": 1774421325.9247465,
+      "objective_total": 0.03304539055195078,
+      "objective_terms": {
+        "infidelity": 0.0295395803441576,
+        "leakage": 0.0035058102077931753,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.785683420656134,
+        "pulse_power": 0.19049619625713432,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704604196558424,
+        "leakage_avg": 0.044911376974478334,
+        "leakage_worst": 0.0701162041558635
+      },
+      "best_so_far": {
+        "objective_total": 0.03304539055195078,
+        "iteration": 30
+      },
+      "params_summary": {
+        "max_amp": 2.7851079861282297,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 31,
+      "timestamp": 1774421326.267203,
+      "objective_total": 0.03302293078758875,
+      "objective_terms": {
+        "infidelity": 0.029481443018063436,
+        "leakage": 0.0035414877695253144,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.783298609904228,
+        "pulse_power": 0.19020936044105077,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9705185569819366,
+        "leakage_avg": 0.04508529443236517,
+        "leakage_worst": 0.07082975539050629
+      },
+      "best_so_far": {
+        "objective_total": 0.03302293078758875,
+        "iteration": 31
+      },
+      "params_summary": {
+        "max_amp": 2.7786544170296708,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 32,
+      "timestamp": 1774421326.6082242,
+      "objective_total": 0.033019489408060695,
+      "objective_terms": {
+        "infidelity": 0.029479047889103716,
+        "leakage": 0.0035404415189569773,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.783265799160848,
+        "pulse_power": 0.1901311914609469,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9705209521108963,
+        "leakage_avg": 0.045046414120108486,
+        "leakage_worst": 0.07080883037913954
+      },
+      "best_so_far": {
+        "objective_total": 0.033019489408060695,
+        "iteration": 32
+      },
+      "params_summary": {
+        "max_amp": 2.775829731275866,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 33,
+      "timestamp": 1774421326.958953,
+      "objective_total": 0.0330044665183644,
+      "objective_terms": {
+        "infidelity": 0.029482758886309024,
+        "leakage": 0.003521707632055382,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.78360944635894,
+        "pulse_power": 0.18934066149048281,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.970517241113691,
+        "leakage_avg": 0.04489607941391904,
+        "leakage_worst": 0.07043415264110764
+      },
+      "best_so_far": {
+        "objective_total": 0.0330044665183644,
+        "iteration": 33
+      },
+      "params_summary": {
+        "max_amp": 2.752913988454746,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 34,
+      "timestamp": 1774421327.2867758,
+      "objective_total": 0.033000604873486286,
+      "objective_terms": {
+        "infidelity": 0.029487767182009295,
+        "leakage": 0.0035128376914769946,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.783757841680119,
+        "pulse_power": 0.18911721667996542,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9705122328179907,
+        "leakage_avg": 0.04494933849183011,
+        "leakage_worst": 0.07025675382953989
+      },
+      "best_so_far": {
+        "objective_total": 0.033000604873486286,
+        "iteration": 34
+      },
+      "params_summary": {
+        "max_amp": 2.748335875713621,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 35,
+      "timestamp": 1774421327.6232357,
+      "objective_total": 0.03298596424391967,
+      "objective_terms": {
+        "infidelity": 0.02952209483503143,
+        "leakage": 0.003463869408888237,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.784494386165611,
+        "pulse_power": 0.1878579839771039,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704779051649686,
+        "leakage_avg": 0.04529028285392639,
+        "leakage_worst": 0.06927738817776474
+      },
+      "best_so_far": {
+        "objective_total": 0.03298596424391967,
+        "iteration": 35
+      },
+      "params_summary": {
+        "max_amp": 2.7235307243411437,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 36,
+      "timestamp": 1774421327.9548702,
+      "objective_total": 0.032980900065055455,
+      "objective_terms": {
+        "infidelity": 0.029519977354142912,
+        "leakage": 0.0034609227109125454,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.784114661883847,
+        "pulse_power": 0.18765505030145085,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704800226458571,
+        "leakage_avg": 0.04528994061743408,
+        "leakage_worst": 0.0692184542182509
+      },
+      "best_so_far": {
+        "objective_total": 0.032980900065055455,
+        "iteration": 36
+      },
+      "params_summary": {
+        "max_amp": 2.719770735328921,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 37,
+      "timestamp": 1774421328.2857666,
+      "objective_total": 0.0329605797538229,
+      "objective_terms": {
+        "infidelity": 0.029514477811818818,
+        "leakage": 0.003446101942004082,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.780652873204339,
+        "pulse_power": 0.18627979535266415,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704855221881812,
+        "leakage_avg": 0.04522720179465223,
+        "leakage_worst": 0.06892203884008163
+      },
+      "best_so_far": {
+        "objective_total": 0.0329605797538229,
+        "iteration": 37
+      },
+      "params_summary": {
+        "max_amp": 2.693240387885998,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 38,
+      "timestamp": 1774421328.611899,
+      "objective_total": 0.03295795893474747,
+      "objective_terms": {
+        "infidelity": 0.029514330001206845,
+        "leakage": 0.003443628933540627,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.780515765741767,
+        "pulse_power": 0.18618552841934366,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704856699987932,
+        "leakage_avg": 0.04520576128212139,
+        "leakage_worst": 0.06887257867081253
+      },
+      "best_so_far": {
+        "objective_total": 0.03295795893474747,
+        "iteration": 38
+      },
+      "params_summary": {
+        "max_amp": 2.6906162147683923,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 39,
+      "timestamp": 1774421328.949873,
+      "objective_total": 0.03294721124811163,
+      "objective_terms": {
+        "infidelity": 0.029524203975104024,
+        "leakage": 0.0034230072730076057,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.780131566660663,
+        "pulse_power": 0.185554090226369,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.970475796024896,
+        "leakage_avg": 0.045097317529820824,
+        "leakage_worst": 0.06846014546015211
+      },
+      "best_so_far": {
+        "objective_total": 0.03294721124811163,
+        "iteration": 39
+      },
+      "params_summary": {
+        "max_amp": 2.670940961705676,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 40,
+      "timestamp": 1774421329.2581086,
+      "objective_total": 0.03294516495762677,
+      "objective_terms": {
+        "infidelity": 0.029528565873721657,
+        "leakage": 0.0034165990839051144,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.780261200747608,
+        "pulse_power": 0.18556911517328634,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704714341262783,
+        "leakage_avg": 0.045082036852874485,
+        "leakage_worst": 0.06833198167810228
+      },
+      "best_so_far": {
+        "objective_total": 0.03294516495762677,
+        "iteration": 40
+      },
+      "params_summary": {
+        "max_amp": 2.669684462618099,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 41,
+      "timestamp": 1774421329.5829253,
+      "objective_total": 0.032936915557406875,
+      "objective_terms": {
+        "infidelity": 0.02957016107284116,
+        "leakage": 0.0033667544845657153,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.780096925364221,
+        "pulse_power": 0.18558805280006013,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704298389271588,
+        "leakage_avg": 0.04498310746430739,
+        "leakage_worst": 0.0673350896913143
+      },
+      "best_so_far": {
+        "objective_total": 0.032936915557406875,
+        "iteration": 41
+      },
+      "params_summary": {
+        "max_amp": 2.6588674397353396,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 42,
+      "timestamp": 1774421329.9053116,
+      "objective_total": 0.03293490593869572,
+      "objective_terms": {
+        "infidelity": 0.029578052548313805,
+        "leakage": 0.003356853390381914,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.779719757473383,
+        "pulse_power": 0.18555437388336865,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9704219474516862,
+        "leakage_avg": 0.04497945479796081,
+        "leakage_worst": 0.06713706780763828
+      },
+      "best_so_far": {
+        "objective_total": 0.03293490593869572,
+        "iteration": 42
+      },
+      "params_summary": {
+        "max_amp": 2.6564958495984135,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 43,
+      "timestamp": 1774421330.2397633,
+      "objective_total": 0.0329254925030089,
+      "objective_terms": {
+        "infidelity": 0.02963178558244539,
+        "leakage": 0.003293706920563511,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.77720019440204,
+        "pulse_power": 0.18532236500895802,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703682144175546,
+        "leakage_avg": 0.04501592588320297,
+        "leakage_worst": 0.06587413841127021
+      },
+      "best_so_far": {
+        "objective_total": 0.0329254925030089,
+        "iteration": 43
+      },
+      "params_summary": {
+        "max_amp": 2.6389218270120836,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 44,
+      "timestamp": 1774421330.56152,
+      "objective_total": 0.03292273651242206,
+      "objective_terms": {
+        "infidelity": 0.02963099043241124,
+        "leakage": 0.0032917460800108156,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.777181235804499,
+        "pulse_power": 0.1852943616300597,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703690095675888,
+        "leakage_avg": 0.04503601172858654,
+        "leakage_worst": 0.06583492160021631
+      },
+      "best_so_far": {
+        "objective_total": 0.03292273651242206,
+        "iteration": 44
+      },
+      "params_summary": {
+        "max_amp": 2.6365575411765594,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 45,
+      "timestamp": 1774421330.90215,
+      "objective_total": 0.03290239280865047,
+      "objective_terms": {
+        "infidelity": 0.02962877978748546,
+        "leakage": 0.0032736130211650062,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.775524953705408,
+        "pulse_power": 0.185020174264375,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703712202125145,
+        "leakage_avg": 0.04524439030064953,
+        "leakage_worst": 0.06547226042330012
+      },
+      "best_so_far": {
+        "objective_total": 0.03290239280865047,
+        "iteration": 45
+      },
+      "params_summary": {
+        "max_amp": 2.608054219444412,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 46,
+      "timestamp": 1774421331.214915,
+      "objective_total": 0.032896795865121425,
+      "objective_terms": {
+        "infidelity": 0.029630476559608265,
+        "leakage": 0.00326631930551316,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.774221109731341,
+        "pulse_power": 0.18488224705308964,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703695234403917,
+        "leakage_avg": 0.04524136317912339,
+        "leakage_worst": 0.0653263861102632
+      },
+      "best_so_far": {
+        "objective_total": 0.032896795865121425,
+        "iteration": 46
+      },
+      "params_summary": {
+        "max_amp": 2.601589404158078,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 47,
+      "timestamp": 1774421331.6643567,
+      "objective_total": 0.03287227800868424,
+      "objective_terms": {
+        "infidelity": 0.029645368826479612,
+        "leakage": 0.0032269091822046294,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.767208970804331,
+        "pulse_power": 0.18427216693795853,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703546311735204,
+        "leakage_avg": 0.04521142337883549,
+        "leakage_worst": 0.06453818364409258
+      },
+      "best_so_far": {
+        "objective_total": 0.03287227800868424,
+        "iteration": 47
+      },
+      "params_summary": {
+        "max_amp": 2.5721123488364586,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 48,
+      "timestamp": 1774421332.1999109,
+      "objective_total": 0.03287057690778855,
+      "objective_terms": {
+        "infidelity": 0.02964520284254102,
+        "leakage": 0.0032253740652475327,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.766777219802937,
+        "pulse_power": 0.18424370743497256,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.970354797157459,
+        "leakage_avg": 0.045202989521415576,
+        "leakage_worst": 0.06450748130495065
+      },
+      "best_so_far": {
+        "objective_total": 0.03287057690778855,
+        "iteration": 48
+      },
+      "params_summary": {
+        "max_amp": 2.5710069432308615,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 49,
+      "timestamp": 1774421332.9709723,
+      "objective_total": 0.03286413581377178,
+      "objective_terms": {
+        "infidelity": 0.029641163846917618,
+        "leakage": 0.003222971966854166,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.764684307585681,
+        "pulse_power": 0.18414922561209682,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703588361530824,
+        "leakage_avg": 0.04515909203677704,
+        "leakage_worst": 0.06445943933708331
+      },
+      "best_so_far": {
+        "objective_total": 0.03286413581377178,
+        "iteration": 49
+      },
+      "params_summary": {
+        "max_amp": 2.566181435424043,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 50,
+      "timestamp": 1774421333.5806158,
+      "objective_total": 0.03285819572312672,
+      "objective_terms": {
+        "infidelity": 0.029635959577816617,
+        "leakage": 0.003222236145310098,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.761393485189608,
+        "pulse_power": 0.18399755189104156,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703640404221834,
+        "leakage_avg": 0.04505074303373954,
+        "leakage_worst": 0.06444472290620196
+      },
+      "best_so_far": {
+        "objective_total": 0.03285819572312672,
+        "iteration": 50
+      },
+      "params_summary": {
+        "max_amp": 2.561577228511307,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 51,
+      "timestamp": 1774421334.2197855,
+      "objective_total": 0.03285247708154188,
+      "objective_terms": {
+        "infidelity": 0.029629537574760945,
+        "leakage": 0.0032229395067809364,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.759306309457996,
+        "pulse_power": 0.1838651487674602,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.970370462425239,
+        "leakage_avg": 0.04493792710752931,
+        "leakage_worst": 0.06445879013561873
+      },
+      "best_so_far": {
+        "objective_total": 0.03285247708154188,
+        "iteration": 51
+      },
+      "params_summary": {
+        "max_amp": 2.5594240666664185,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 52,
+      "timestamp": 1774421334.867499,
+      "objective_total": 0.0328495848985108,
+      "objective_terms": {
+        "infidelity": 0.029629210974706388,
+        "leakage": 0.0032203739238044152,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.759086743479023,
+        "pulse_power": 0.18376744400544476,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703707890252936,
+        "leakage_avg": 0.04493552743752369,
+        "leakage_worst": 0.0644074784760883
+      },
+      "best_so_far": {
+        "objective_total": 0.0328495848985108,
+        "iteration": 52
+      },
+      "params_summary": {
+        "max_amp": 2.5569082716834446,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 53,
+      "timestamp": 1774421335.6022532,
+      "objective_total": 0.03284777599680355,
+      "objective_terms": {
+        "infidelity": 0.02962667281214415,
+        "leakage": 0.003221103184659402,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.759454382850027,
+        "pulse_power": 0.18367973810917562,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703733271878558,
+        "leakage_avg": 0.04496368358491595,
+        "leakage_worst": 0.06442206369318804
+      },
+      "best_so_far": {
+        "objective_total": 0.03284777599680355,
+        "iteration": 53
+      },
+      "params_summary": {
+        "max_amp": 2.5552771512349595,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 54,
+      "timestamp": 1774421336.279369,
+      "objective_total": 0.032847238080729556,
+      "objective_terms": {
+        "infidelity": 0.02962537311728486,
+        "leakage": 0.0032218649634446987,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.75932838174073,
+        "pulse_power": 0.18369084679412487,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703746268827151,
+        "leakage_avg": 0.04496198588946984,
+        "leakage_worst": 0.06443729926889397
+      },
+      "best_so_far": {
+        "objective_total": 0.032847238080729556,
+        "iteration": 54
+      },
+      "params_summary": {
+        "max_amp": 2.555297554062342,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 55,
+      "timestamp": 1774421337.0174277,
+      "objective_total": 0.032845167261805266,
+      "objective_terms": {
+        "infidelity": 0.029619540605524408,
+        "leakage": 0.0032256266562808614,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.758457704169682,
+        "pulse_power": 0.18376721596104353,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703804593944756,
+        "leakage_avg": 0.04495203473780138,
+        "leakage_worst": 0.06451253312561722
+      },
+      "best_so_far": {
+        "objective_total": 0.032845167261805266,
+        "iteration": 55
+      },
+      "params_summary": {
+        "max_amp": 2.555382499128821,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 56,
+      "timestamp": 1774421337.7938185,
+      "objective_total": 0.0328447135422627,
+      "objective_terms": {
+        "infidelity": 0.029618925197184454,
+        "leakage": 0.0032257883450782458,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.758494729000129,
+        "pulse_power": 0.18377254741198704,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703810748028155,
+        "leakage_avg": 0.04496570042427672,
+        "leakage_worst": 0.06451576690156491
+      },
+      "best_so_far": {
+        "objective_total": 0.0328447135422627,
+        "iteration": 56
+      },
+      "params_summary": {
+        "max_amp": 2.5551928386002136,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 57,
+      "timestamp": 1774421338.8033066,
+      "objective_total": 0.03284373091234679,
+      "objective_terms": {
+        "infidelity": 0.029619163102143298,
+        "leakage": 0.003224567810203494,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.759339046726627,
+        "pulse_power": 0.18381027050255416,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703808368978567,
+        "leakage_avg": 0.04502543661363556,
+        "leakage_worst": 0.06449135620406987
+      },
+      "best_so_far": {
+        "objective_total": 0.03284373091234679,
+        "iteration": 57
+      },
+      "params_summary": {
+        "max_amp": 2.555340442791294,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 58,
+      "timestamp": 1774421339.711032,
+      "objective_total": 0.03284363331886999,
+      "objective_terms": {
+        "infidelity": 0.02961885434024014,
+        "leakage": 0.00322477897862985,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.759211711108423,
+        "pulse_power": 0.18380649356419812,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703811456597599,
+        "leakage_avg": 0.045027053646950144,
+        "leakage_worst": 0.064495579572597
+      },
+      "best_so_far": {
+        "objective_total": 0.03284363331886999,
+        "iteration": 58
+      },
+      "params_summary": {
+        "max_amp": 2.5551742468811627,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    },
+    {
+      "run_id": "run_000",
+      "iteration": 59,
+      "timestamp": 1774421340.753863,
+      "objective_total": 0.03284360558874607,
+      "objective_terms": {
+        "infidelity": 0.029618852927474792,
+        "leakage": 0.00322475266127128,
+        "checkpoint_leakage": 0.0,
+        "duration": 0.9999999999999999,
+        "gate_count": 7.759189076299865,
+        "pulse_power": 0.18380525064553058,
+        "robustness": 0.0,
+        "time_reg": 0.0,
+        "grid_penalty": 0.0,
+        "constraint_penalty": 0.0
+      },
+      "metrics": {
+        "fidelity_subspace": 0.9703811470725252,
+        "leakage_avg": 0.04502736846450328,
+        "leakage_worst": 0.06449505322542559
+      },
+      "best_so_far": {
+        "objective_total": 0.03284360558874607,
+        "iteration": 59
+      },
+      "params_summary": {
+        "max_amp": 2.5551160863701443,
+        "max_detuning": 0.0,
+        "times": {
+          "Displacement": 8e-08,
+          "QubitRotation": 4e-08,
+          "PrimitiveGate": 1.1e-06
+        }
+      },
+      "backend": "ideal",
+      "solver_stats": {},
+      "progress_schema_version": 1
+    }
+  ],
+  "history_by_run": {
+    "run_000": [
+      {
+        "run_id": "run_000",
+        "iteration": 0,
+        "timestamp": 1774421315.5879855,
+        "objective_total": 0.7882944099413138,
+        "objective_terms": {
+          "infidelity": 0.7751854382960196,
+          "leakage": 0.013108971645294221,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 4.465887643827786,
+          "pulse_power": 0.08002356471462052,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.2248145617039804,
+          "leakage_avg": 0.1368439162985459,
+          "leakage_worst": 0.2621794329058844
+        },
+        "best_so_far": {
+          "objective_total": 0.7882944099413138,
+          "iteration": 0
+        },
+        "params_summary": {
+          "max_amp": 1.5707963267948966,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 1,
+        "timestamp": 1774421315.9128656,
+        "objective_total": 0.5095023266904704,
+        "objective_terms": {
+          "infidelity": 0.5093838388014165,
+          "leakage": 0.00011848788905384212,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 6.25024743922837,
+          "pulse_power": 0.1814596347577111,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.4906161611985836,
+          "leakage_avg": 0.0011105847450797734,
+          "leakage_worst": 0.002369757781076842
+        },
+        "best_so_far": {
+          "objective_total": 0.5095023266904704,
+          "iteration": 1
+        },
+        "params_summary": {
+          "max_amp": 3.1412210011478146,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 2,
+        "timestamp": 1774421316.2159321,
+        "objective_total": 0.4312257023996712,
+        "objective_terms": {
+          "infidelity": 0.43034839515697865,
+          "leakage": 0.0008773072426924988,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 6.629342695182263,
+          "pulse_power": 0.2170558938084456,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.5696516048430214,
+          "leakage_avg": 0.00888153688112428,
+          "leakage_worst": 0.017546144853849976
+        },
+        "best_so_far": {
+          "objective_total": 0.4312257023996712,
+          "iteration": 2
+        },
+        "params_summary": {
+          "max_amp": 3.2291713198144882,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 3,
+        "timestamp": 1774421316.5251176,
+        "objective_total": 0.3109991038702156,
+        "objective_terms": {
+          "infidelity": 0.3095136241601921,
+          "leakage": 0.001485479710023474,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.0396507763356455,
+          "pulse_power": 0.23536867355573168,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.6904863758398079,
+          "leakage_avg": 0.014280779566361285,
+          "leakage_worst": 0.02970959420046948
+        },
+        "best_so_far": {
+          "objective_total": 0.3109991038702156,
+          "iteration": 3
+        },
+        "params_summary": {
+          "max_amp": 3.219562875142012,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 4,
+        "timestamp": 1774421316.8541162,
+        "objective_total": 0.11016183869725095,
+        "objective_terms": {
+          "infidelity": 0.10570441482826454,
+          "leakage": 0.00445742386898641,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.038523986407357,
+          "pulse_power": 0.2661998950377916,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.8942955851717355,
+          "leakage_avg": 0.0660508640701096,
+          "leakage_worst": 0.0891484773797282
+        },
+        "best_so_far": {
+          "objective_total": 0.11016183869725095,
+          "iteration": 4
+        },
+        "params_summary": {
+          "max_amp": 3.1307909003904535,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 5,
+        "timestamp": 1774421317.2052755,
+        "objective_total": 0.07568101880180755,
+        "objective_terms": {
+          "infidelity": 0.07203567521172538,
+          "leakage": 0.003645343590082173,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.102554297201026,
+          "pulse_power": 0.2696393479781029,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9279643247882746,
+          "leakage_avg": 0.06290287717648274,
+          "leakage_worst": 0.07290687180164346
+        },
+        "best_so_far": {
+          "objective_total": 0.07568101880180755,
+          "iteration": 5
+        },
+        "params_summary": {
+          "max_amp": 2.997722789675196,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 6,
+        "timestamp": 1774421317.5423455,
+        "objective_total": 0.06675766072104156,
+        "objective_terms": {
+          "infidelity": 0.06325601688053428,
+          "leakage": 0.0035016438405072736,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.125844132542753,
+          "pulse_power": 0.2764365857681003,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9367439831194657,
+          "leakage_avg": 0.06220830610629932,
+          "leakage_worst": 0.07003287681014547
+        },
+        "best_so_far": {
+          "objective_total": 0.06675766072104156,
+          "iteration": 6
+        },
+        "params_summary": {
+          "max_amp": 2.9989298841681147,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 7,
+        "timestamp": 1774421317.9108894,
+        "objective_total": 0.06330379246939946,
+        "objective_terms": {
+          "infidelity": 0.05984713337793668,
+          "leakage": 0.0034566590914627774,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.139378659844839,
+          "pulse_power": 0.2793134852865934,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9401528666220633,
+          "leakage_avg": 0.06254656932227096,
+          "leakage_worst": 0.06913318182925554
+        },
+        "best_so_far": {
+          "objective_total": 0.06330379246939946,
+          "iteration": 7
+        },
+        "params_summary": {
+          "max_amp": 3.0073602510728277,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 8,
+        "timestamp": 1774421318.2743592,
+        "objective_total": 0.058830971088330526,
+        "objective_terms": {
+          "infidelity": 0.055312078884189764,
+          "leakage": 0.003518892204140761,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.151675204861917,
+          "pulse_power": 0.2815132164756281,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9446879211158102,
+          "leakage_avg": 0.06478237805866216,
+          "leakage_worst": 0.07037784408281522
+        },
+        "best_so_far": {
+          "objective_total": 0.058830971088330526,
+          "iteration": 8
+        },
+        "params_summary": {
+          "max_amp": 3.024125467144601,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 9,
+        "timestamp": 1774421318.638475,
+        "objective_total": 0.05710029011181604,
+        "objective_terms": {
+          "infidelity": 0.05344530032788264,
+          "leakage": 0.0036549897839334047,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.14720810886004,
+          "pulse_power": 0.2784263183285663,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9465546996721174,
+          "leakage_avg": 0.06454446131408059,
+          "leakage_worst": 0.07309979567866809
+        },
+        "best_so_far": {
+          "objective_total": 0.05710029011181604,
+          "iteration": 9
+        },
+        "params_summary": {
+          "max_amp": 3.0215618528468027,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 10,
+        "timestamp": 1774421319.014516,
+        "objective_total": 0.04960691968090076,
+        "objective_terms": {
+          "infidelity": 0.04549974082800745,
+          "leakage": 0.004107178852893307,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.110547262958857,
+          "pulse_power": 0.2568133270129035,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9545002591719925,
+          "leakage_avg": 0.06215354547380861,
+          "leakage_worst": 0.08214357705786612
+        },
+        "best_so_far": {
+          "objective_total": 0.04960691968090076,
+          "iteration": 10
+        },
+        "params_summary": {
+          "max_amp": 3.0060054156200158,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 11,
+        "timestamp": 1774421319.3605824,
+        "objective_total": 0.04802255567358898,
+        "objective_terms": {
+          "infidelity": 0.04405860169278919,
+          "leakage": 0.00396395398079979,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.098860574334122,
+          "pulse_power": 0.25387136673699906,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9559413983072108,
+          "leakage_avg": 0.05884297679237274,
+          "leakage_worst": 0.07927907961599578
+        },
+        "best_so_far": {
+          "objective_total": 0.04802255567358898,
+          "iteration": 11
+        },
+        "params_summary": {
+          "max_amp": 3.01598508342325,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 12,
+        "timestamp": 1774421319.70619,
+        "objective_total": 0.04542794020327968,
+        "objective_terms": {
+          "infidelity": 0.0412544766023738,
+          "leakage": 0.004173463600905875,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.068008511830417,
+          "pulse_power": 0.24531985495982153,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9587455233976262,
+          "leakage_avg": 0.051063830237676605,
+          "leakage_worst": 0.08346927201811749
+        },
+        "best_so_far": {
+          "objective_total": 0.04542794020327968,
+          "iteration": 12
+        },
+        "params_summary": {
+          "max_amp": 3.030764001563216,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 13,
+        "timestamp": 1774421320.057565,
+        "objective_total": 0.04446952368113484,
+        "objective_terms": {
+          "infidelity": 0.040510747864360375,
+          "leakage": 0.003958775816774463,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.06740283948632,
+          "pulse_power": 0.24327761814393034,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9594892521356396,
+          "leakage_avg": 0.049698569188550146,
+          "leakage_worst": 0.07917551633548925
+        },
+        "best_so_far": {
+          "objective_total": 0.04446952368113484,
+          "iteration": 13
+        },
+        "params_summary": {
+          "max_amp": 3.0232931829423038,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 14,
+        "timestamp": 1774421320.4457662,
+        "objective_total": 0.043994301090929555,
+        "objective_terms": {
+          "infidelity": 0.04003547019167053,
+          "leakage": 0.003958830899259025,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.064583783741089,
+          "pulse_power": 0.24183411360738596,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9599645298083295,
+          "leakage_avg": 0.049476186452311,
+          "leakage_worst": 0.0791766179851805
+        },
+        "best_so_far": {
+          "objective_total": 0.043994301090929555,
+          "iteration": 14
+        },
+        "params_summary": {
+          "max_amp": 3.0279101341871817,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 15,
+        "timestamp": 1774421320.826842,
+        "objective_total": 0.042534514879101884,
+        "objective_terms": {
+          "infidelity": 0.03848893036577117,
+          "leakage": 0.004045584513330719,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.046952911664507,
+          "pulse_power": 0.2361436148419128,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9615110696342288,
+          "leakage_avg": 0.049552777396762226,
+          "leakage_worst": 0.08091169026661438
+        },
+        "best_so_far": {
+          "objective_total": 0.042534514879101884,
+          "iteration": 15
+        },
+        "params_summary": {
+          "max_amp": 3.070381680951543,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 16,
+        "timestamp": 1774421321.178822,
+        "objective_total": 0.0419821052015177,
+        "objective_terms": {
+          "infidelity": 0.03798314513558765,
+          "leakage": 0.0039989600659300515,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.03459088050451,
+          "pulse_power": 0.23457757203348242,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9620168548644124,
+          "leakage_avg": 0.049173099564395195,
+          "leakage_worst": 0.07997920131860103
+        },
+        "best_so_far": {
+          "objective_total": 0.0419821052015177,
+          "iteration": 16
+        },
+        "params_summary": {
+          "max_amp": 3.0885812019239673,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 17,
+        "timestamp": 1774421321.5193331,
+        "objective_total": 0.0413303137117801,
+        "objective_terms": {
+          "infidelity": 0.037456860825499816,
+          "leakage": 0.003873452886280282,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 8.02286160813972,
+          "pulse_power": 0.23303947927957241,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9625431391745002,
+          "leakage_avg": 0.0492521299236455,
+          "leakage_worst": 0.07746905772560564
+        },
+        "best_so_far": {
+          "objective_total": 0.0413303137117801,
+          "iteration": 17
+        },
+        "params_summary": {
+          "max_amp": 3.092962185936232,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 18,
+        "timestamp": 1774421321.8452654,
+        "objective_total": 0.04004178315397001,
+        "objective_terms": {
+          "infidelity": 0.03633994729841672,
+          "leakage": 0.003701835855553287,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.988252495295527,
+          "pulse_power": 0.22695955838220855,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9636600527015833,
+          "leakage_avg": 0.049341405725510074,
+          "leakage_worst": 0.07403671711106574
+        },
+        "best_so_far": {
+          "objective_total": 0.04004178315397001,
+          "iteration": 18
+        },
+        "params_summary": {
+          "max_amp": 3.090061087121211,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 19,
+        "timestamp": 1774421322.178542,
+        "objective_total": 0.03929775030570332,
+        "objective_terms": {
+          "infidelity": 0.035504523505298424,
+          "leakage": 0.0037932268004048975,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.970740465640201,
+          "pulse_power": 0.22369377394389012,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9644954764947016,
+          "leakage_avg": 0.04895508033733861,
+          "leakage_worst": 0.07586453600809795
+        },
+        "best_so_far": {
+          "objective_total": 0.03929775030570332,
+          "iteration": 19
+        },
+        "params_summary": {
+          "max_amp": 3.076199744507196,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 20,
+        "timestamp": 1774421322.5181239,
+        "objective_total": 0.03626154559464402,
+        "objective_terms": {
+          "infidelity": 0.03227472036445589,
+          "leakage": 0.003986825230188129,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.847437557509901,
+          "pulse_power": 0.20345263752090836,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9677252796355441,
+          "leakage_avg": 0.04496666544943084,
+          "leakage_worst": 0.07973650460376258
+        },
+        "best_so_far": {
+          "objective_total": 0.03626154559464402,
+          "iteration": 20
+        },
+        "params_summary": {
+          "max_amp": 2.9774808940243305,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 21,
+        "timestamp": 1774421322.8385704,
+        "objective_total": 0.03544315914957909,
+        "objective_terms": {
+          "infidelity": 0.03162010603182319,
+          "leakage": 0.0038230531177558926,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.83528933644581,
+          "pulse_power": 0.2009008988243273,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9683798939681768,
+          "leakage_avg": 0.04455222662164471,
+          "leakage_worst": 0.07646106235511785
+        },
+        "best_so_far": {
+          "objective_total": 0.03544315914957909,
+          "iteration": 21
+        },
+        "params_summary": {
+          "max_amp": 2.9433164187973286,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 22,
+        "timestamp": 1774421323.174296,
+        "objective_total": 0.03355649536059571,
+        "objective_terms": {
+          "infidelity": 0.029987016447915682,
+          "leakage": 0.0035694789126800297,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.799499800535161,
+          "pulse_power": 0.19288528027375207,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9700129835520843,
+          "leakage_avg": 0.04466058655071814,
+          "leakage_worst": 0.0713895782536006
+        },
+        "best_so_far": {
+          "objective_total": 0.03355649536059571,
+          "iteration": 22
+        },
+        "params_summary": {
+          "max_amp": 2.787267874620819,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 23,
+        "timestamp": 1774421323.4955919,
+        "objective_total": 0.03339644545406601,
+        "objective_terms": {
+          "infidelity": 0.02987962026894042,
+          "leakage": 0.0035168251851255884,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.802962305404429,
+          "pulse_power": 0.19368282676736714,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9701203797310596,
+          "leakage_avg": 0.045040647381104054,
+          "leakage_worst": 0.07033650370251177
+        },
+        "best_so_far": {
+          "objective_total": 0.03339644545406601,
+          "iteration": 23
+        },
+        "params_summary": {
+          "max_amp": 2.781847776273104,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 24,
+        "timestamp": 1774421323.8246248,
+        "objective_total": 0.03329524343176382,
+        "objective_terms": {
+          "infidelity": 0.029790629463607998,
+          "leakage": 0.003504613968155823,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.802105533881571,
+          "pulse_power": 0.19388754932224347,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.970209370536392,
+          "leakage_avg": 0.045102874520068365,
+          "leakage_worst": 0.07009227936311646
+        },
+        "best_so_far": {
+          "objective_total": 0.03329524343176382,
+          "iteration": 24
+        },
+        "params_summary": {
+          "max_amp": 2.7832232152243317,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 25,
+        "timestamp": 1774421324.1985648,
+        "objective_total": 0.03313679117243921,
+        "objective_terms": {
+          "infidelity": 0.0295920223167897,
+          "leakage": 0.003544768855649505,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.793850358001472,
+          "pulse_power": 0.19333801003488388,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704079776832103,
+          "leakage_avg": 0.04508483743186986,
+          "leakage_worst": 0.0708953771129901
+        },
+        "best_so_far": {
+          "objective_total": 0.03313679117243921,
+          "iteration": 25
+        },
+        "params_summary": {
+          "max_amp": 2.7877909726252703,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 26,
+        "timestamp": 1774421324.5748167,
+        "objective_total": 0.0331139526996757,
+        "objective_terms": {
+          "infidelity": 0.02956785111660798,
+          "leakage": 0.0035461015830677237,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.791730229973376,
+          "pulse_power": 0.1927936916213226,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.970432148883392,
+          "leakage_avg": 0.04505231205173982,
+          "leakage_worst": 0.07092203166135447
+        },
+        "best_so_far": {
+          "objective_total": 0.0331139526996757,
+          "iteration": 26
+        },
+        "params_summary": {
+          "max_amp": 2.7877376454023755,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 27,
+        "timestamp": 1774421324.9107275,
+        "objective_total": 0.03306855472869135,
+        "objective_terms": {
+          "infidelity": 0.0295331137666891,
+          "leakage": 0.0035354409620022512,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.78507432719121,
+          "pulse_power": 0.1908665719076339,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704668862333109,
+          "leakage_avg": 0.044950404597338844,
+          "leakage_worst": 0.07070881924004502
+        },
+        "best_so_far": {
+          "objective_total": 0.03306855472869135,
+          "iteration": 27
+        },
+        "params_summary": {
+          "max_amp": 2.7882922444208993,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 28,
+        "timestamp": 1774421325.2401485,
+        "objective_total": 0.033063484846731384,
+        "objective_terms": {
+          "infidelity": 0.029533321843581706,
+          "leakage": 0.003530163003149678,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.78533990922515,
+          "pulse_power": 0.19081003853089598,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704666781564183,
+          "leakage_avg": 0.044921688856444736,
+          "leakage_worst": 0.07060326006299356
+        },
+        "best_so_far": {
+          "objective_total": 0.033063484846731384,
+          "iteration": 28
+        },
+        "params_summary": {
+          "max_amp": 2.7880523563995467,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 29,
+        "timestamp": 1774421325.578575,
+        "objective_total": 0.033050026370495277,
+        "objective_terms": {
+          "infidelity": 0.029548047779477615,
+          "leakage": 0.003501978591017663,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.7859156997399355,
+          "pulse_power": 0.19053043543487916,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704519522205224,
+          "leakage_avg": 0.044885363333482475,
+          "leakage_worst": 0.07003957182035325
+        },
+        "best_so_far": {
+          "objective_total": 0.033050026370495277,
+          "iteration": 29
+        },
+        "params_summary": {
+          "max_amp": 2.7855500697596187,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 30,
+        "timestamp": 1774421325.9247465,
+        "objective_total": 0.03304539055195078,
+        "objective_terms": {
+          "infidelity": 0.0295395803441576,
+          "leakage": 0.0035058102077931753,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.785683420656134,
+          "pulse_power": 0.19049619625713432,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704604196558424,
+          "leakage_avg": 0.044911376974478334,
+          "leakage_worst": 0.0701162041558635
+        },
+        "best_so_far": {
+          "objective_total": 0.03304539055195078,
+          "iteration": 30
+        },
+        "params_summary": {
+          "max_amp": 2.7851079861282297,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 31,
+        "timestamp": 1774421326.267203,
+        "objective_total": 0.03302293078758875,
+        "objective_terms": {
+          "infidelity": 0.029481443018063436,
+          "leakage": 0.0035414877695253144,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.783298609904228,
+          "pulse_power": 0.19020936044105077,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9705185569819366,
+          "leakage_avg": 0.04508529443236517,
+          "leakage_worst": 0.07082975539050629
+        },
+        "best_so_far": {
+          "objective_total": 0.03302293078758875,
+          "iteration": 31
+        },
+        "params_summary": {
+          "max_amp": 2.7786544170296708,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 32,
+        "timestamp": 1774421326.6082242,
+        "objective_total": 0.033019489408060695,
+        "objective_terms": {
+          "infidelity": 0.029479047889103716,
+          "leakage": 0.0035404415189569773,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.783265799160848,
+          "pulse_power": 0.1901311914609469,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9705209521108963,
+          "leakage_avg": 0.045046414120108486,
+          "leakage_worst": 0.07080883037913954
+        },
+        "best_so_far": {
+          "objective_total": 0.033019489408060695,
+          "iteration": 32
+        },
+        "params_summary": {
+          "max_amp": 2.775829731275866,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 33,
+        "timestamp": 1774421326.958953,
+        "objective_total": 0.0330044665183644,
+        "objective_terms": {
+          "infidelity": 0.029482758886309024,
+          "leakage": 0.003521707632055382,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.78360944635894,
+          "pulse_power": 0.18934066149048281,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.970517241113691,
+          "leakage_avg": 0.04489607941391904,
+          "leakage_worst": 0.07043415264110764
+        },
+        "best_so_far": {
+          "objective_total": 0.0330044665183644,
+          "iteration": 33
+        },
+        "params_summary": {
+          "max_amp": 2.752913988454746,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 34,
+        "timestamp": 1774421327.2867758,
+        "objective_total": 0.033000604873486286,
+        "objective_terms": {
+          "infidelity": 0.029487767182009295,
+          "leakage": 0.0035128376914769946,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.783757841680119,
+          "pulse_power": 0.18911721667996542,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9705122328179907,
+          "leakage_avg": 0.04494933849183011,
+          "leakage_worst": 0.07025675382953989
+        },
+        "best_so_far": {
+          "objective_total": 0.033000604873486286,
+          "iteration": 34
+        },
+        "params_summary": {
+          "max_amp": 2.748335875713621,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 35,
+        "timestamp": 1774421327.6232357,
+        "objective_total": 0.03298596424391967,
+        "objective_terms": {
+          "infidelity": 0.02952209483503143,
+          "leakage": 0.003463869408888237,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.784494386165611,
+          "pulse_power": 0.1878579839771039,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704779051649686,
+          "leakage_avg": 0.04529028285392639,
+          "leakage_worst": 0.06927738817776474
+        },
+        "best_so_far": {
+          "objective_total": 0.03298596424391967,
+          "iteration": 35
+        },
+        "params_summary": {
+          "max_amp": 2.7235307243411437,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 36,
+        "timestamp": 1774421327.9548702,
+        "objective_total": 0.032980900065055455,
+        "objective_terms": {
+          "infidelity": 0.029519977354142912,
+          "leakage": 0.0034609227109125454,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.784114661883847,
+          "pulse_power": 0.18765505030145085,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704800226458571,
+          "leakage_avg": 0.04528994061743408,
+          "leakage_worst": 0.0692184542182509
+        },
+        "best_so_far": {
+          "objective_total": 0.032980900065055455,
+          "iteration": 36
+        },
+        "params_summary": {
+          "max_amp": 2.719770735328921,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 37,
+        "timestamp": 1774421328.2857666,
+        "objective_total": 0.0329605797538229,
+        "objective_terms": {
+          "infidelity": 0.029514477811818818,
+          "leakage": 0.003446101942004082,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.780652873204339,
+          "pulse_power": 0.18627979535266415,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704855221881812,
+          "leakage_avg": 0.04522720179465223,
+          "leakage_worst": 0.06892203884008163
+        },
+        "best_so_far": {
+          "objective_total": 0.0329605797538229,
+          "iteration": 37
+        },
+        "params_summary": {
+          "max_amp": 2.693240387885998,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 38,
+        "timestamp": 1774421328.611899,
+        "objective_total": 0.03295795893474747,
+        "objective_terms": {
+          "infidelity": 0.029514330001206845,
+          "leakage": 0.003443628933540627,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.780515765741767,
+          "pulse_power": 0.18618552841934366,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704856699987932,
+          "leakage_avg": 0.04520576128212139,
+          "leakage_worst": 0.06887257867081253
+        },
+        "best_so_far": {
+          "objective_total": 0.03295795893474747,
+          "iteration": 38
+        },
+        "params_summary": {
+          "max_amp": 2.6906162147683923,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 39,
+        "timestamp": 1774421328.949873,
+        "objective_total": 0.03294721124811163,
+        "objective_terms": {
+          "infidelity": 0.029524203975104024,
+          "leakage": 0.0034230072730076057,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.780131566660663,
+          "pulse_power": 0.185554090226369,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.970475796024896,
+          "leakage_avg": 0.045097317529820824,
+          "leakage_worst": 0.06846014546015211
+        },
+        "best_so_far": {
+          "objective_total": 0.03294721124811163,
+          "iteration": 39
+        },
+        "params_summary": {
+          "max_amp": 2.670940961705676,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 40,
+        "timestamp": 1774421329.2581086,
+        "objective_total": 0.03294516495762677,
+        "objective_terms": {
+          "infidelity": 0.029528565873721657,
+          "leakage": 0.0034165990839051144,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.780261200747608,
+          "pulse_power": 0.18556911517328634,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704714341262783,
+          "leakage_avg": 0.045082036852874485,
+          "leakage_worst": 0.06833198167810228
+        },
+        "best_so_far": {
+          "objective_total": 0.03294516495762677,
+          "iteration": 40
+        },
+        "params_summary": {
+          "max_amp": 2.669684462618099,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 41,
+        "timestamp": 1774421329.5829253,
+        "objective_total": 0.032936915557406875,
+        "objective_terms": {
+          "infidelity": 0.02957016107284116,
+          "leakage": 0.0033667544845657153,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.780096925364221,
+          "pulse_power": 0.18558805280006013,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704298389271588,
+          "leakage_avg": 0.04498310746430739,
+          "leakage_worst": 0.0673350896913143
+        },
+        "best_so_far": {
+          "objective_total": 0.032936915557406875,
+          "iteration": 41
+        },
+        "params_summary": {
+          "max_amp": 2.6588674397353396,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 42,
+        "timestamp": 1774421329.9053116,
+        "objective_total": 0.03293490593869572,
+        "objective_terms": {
+          "infidelity": 0.029578052548313805,
+          "leakage": 0.003356853390381914,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.779719757473383,
+          "pulse_power": 0.18555437388336865,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9704219474516862,
+          "leakage_avg": 0.04497945479796081,
+          "leakage_worst": 0.06713706780763828
+        },
+        "best_so_far": {
+          "objective_total": 0.03293490593869572,
+          "iteration": 42
+        },
+        "params_summary": {
+          "max_amp": 2.6564958495984135,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 43,
+        "timestamp": 1774421330.2397633,
+        "objective_total": 0.0329254925030089,
+        "objective_terms": {
+          "infidelity": 0.02963178558244539,
+          "leakage": 0.003293706920563511,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.77720019440204,
+          "pulse_power": 0.18532236500895802,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703682144175546,
+          "leakage_avg": 0.04501592588320297,
+          "leakage_worst": 0.06587413841127021
+        },
+        "best_so_far": {
+          "objective_total": 0.0329254925030089,
+          "iteration": 43
+        },
+        "params_summary": {
+          "max_amp": 2.6389218270120836,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 44,
+        "timestamp": 1774421330.56152,
+        "objective_total": 0.03292273651242206,
+        "objective_terms": {
+          "infidelity": 0.02963099043241124,
+          "leakage": 0.0032917460800108156,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.777181235804499,
+          "pulse_power": 0.1852943616300597,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703690095675888,
+          "leakage_avg": 0.04503601172858654,
+          "leakage_worst": 0.06583492160021631
+        },
+        "best_so_far": {
+          "objective_total": 0.03292273651242206,
+          "iteration": 44
+        },
+        "params_summary": {
+          "max_amp": 2.6365575411765594,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 45,
+        "timestamp": 1774421330.90215,
+        "objective_total": 0.03290239280865047,
+        "objective_terms": {
+          "infidelity": 0.02962877978748546,
+          "leakage": 0.0032736130211650062,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.775524953705408,
+          "pulse_power": 0.185020174264375,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703712202125145,
+          "leakage_avg": 0.04524439030064953,
+          "leakage_worst": 0.06547226042330012
+        },
+        "best_so_far": {
+          "objective_total": 0.03290239280865047,
+          "iteration": 45
+        },
+        "params_summary": {
+          "max_amp": 2.608054219444412,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 46,
+        "timestamp": 1774421331.214915,
+        "objective_total": 0.032896795865121425,
+        "objective_terms": {
+          "infidelity": 0.029630476559608265,
+          "leakage": 0.00326631930551316,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.774221109731341,
+          "pulse_power": 0.18488224705308964,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703695234403917,
+          "leakage_avg": 0.04524136317912339,
+          "leakage_worst": 0.0653263861102632
+        },
+        "best_so_far": {
+          "objective_total": 0.032896795865121425,
+          "iteration": 46
+        },
+        "params_summary": {
+          "max_amp": 2.601589404158078,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 47,
+        "timestamp": 1774421331.6643567,
+        "objective_total": 0.03287227800868424,
+        "objective_terms": {
+          "infidelity": 0.029645368826479612,
+          "leakage": 0.0032269091822046294,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.767208970804331,
+          "pulse_power": 0.18427216693795853,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703546311735204,
+          "leakage_avg": 0.04521142337883549,
+          "leakage_worst": 0.06453818364409258
+        },
+        "best_so_far": {
+          "objective_total": 0.03287227800868424,
+          "iteration": 47
+        },
+        "params_summary": {
+          "max_amp": 2.5721123488364586,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 48,
+        "timestamp": 1774421332.1999109,
+        "objective_total": 0.03287057690778855,
+        "objective_terms": {
+          "infidelity": 0.02964520284254102,
+          "leakage": 0.0032253740652475327,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.766777219802937,
+          "pulse_power": 0.18424370743497256,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.970354797157459,
+          "leakage_avg": 0.045202989521415576,
+          "leakage_worst": 0.06450748130495065
+        },
+        "best_so_far": {
+          "objective_total": 0.03287057690778855,
+          "iteration": 48
+        },
+        "params_summary": {
+          "max_amp": 2.5710069432308615,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 49,
+        "timestamp": 1774421332.9709723,
+        "objective_total": 0.03286413581377178,
+        "objective_terms": {
+          "infidelity": 0.029641163846917618,
+          "leakage": 0.003222971966854166,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.764684307585681,
+          "pulse_power": 0.18414922561209682,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703588361530824,
+          "leakage_avg": 0.04515909203677704,
+          "leakage_worst": 0.06445943933708331
+        },
+        "best_so_far": {
+          "objective_total": 0.03286413581377178,
+          "iteration": 49
+        },
+        "params_summary": {
+          "max_amp": 2.566181435424043,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 50,
+        "timestamp": 1774421333.5806158,
+        "objective_total": 0.03285819572312672,
+        "objective_terms": {
+          "infidelity": 0.029635959577816617,
+          "leakage": 0.003222236145310098,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.761393485189608,
+          "pulse_power": 0.18399755189104156,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703640404221834,
+          "leakage_avg": 0.04505074303373954,
+          "leakage_worst": 0.06444472290620196
+        },
+        "best_so_far": {
+          "objective_total": 0.03285819572312672,
+          "iteration": 50
+        },
+        "params_summary": {
+          "max_amp": 2.561577228511307,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 51,
+        "timestamp": 1774421334.2197855,
+        "objective_total": 0.03285247708154188,
+        "objective_terms": {
+          "infidelity": 0.029629537574760945,
+          "leakage": 0.0032229395067809364,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.759306309457996,
+          "pulse_power": 0.1838651487674602,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.970370462425239,
+          "leakage_avg": 0.04493792710752931,
+          "leakage_worst": 0.06445879013561873
+        },
+        "best_so_far": {
+          "objective_total": 0.03285247708154188,
+          "iteration": 51
+        },
+        "params_summary": {
+          "max_amp": 2.5594240666664185,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 52,
+        "timestamp": 1774421334.867499,
+        "objective_total": 0.0328495848985108,
+        "objective_terms": {
+          "infidelity": 0.029629210974706388,
+          "leakage": 0.0032203739238044152,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.759086743479023,
+          "pulse_power": 0.18376744400544476,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703707890252936,
+          "leakage_avg": 0.04493552743752369,
+          "leakage_worst": 0.0644074784760883
+        },
+        "best_so_far": {
+          "objective_total": 0.0328495848985108,
+          "iteration": 52
+        },
+        "params_summary": {
+          "max_amp": 2.5569082716834446,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 53,
+        "timestamp": 1774421335.6022532,
+        "objective_total": 0.03284777599680355,
+        "objective_terms": {
+          "infidelity": 0.02962667281214415,
+          "leakage": 0.003221103184659402,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.759454382850027,
+          "pulse_power": 0.18367973810917562,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703733271878558,
+          "leakage_avg": 0.04496368358491595,
+          "leakage_worst": 0.06442206369318804
+        },
+        "best_so_far": {
+          "objective_total": 0.03284777599680355,
+          "iteration": 53
+        },
+        "params_summary": {
+          "max_amp": 2.5552771512349595,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 54,
+        "timestamp": 1774421336.279369,
+        "objective_total": 0.032847238080729556,
+        "objective_terms": {
+          "infidelity": 0.02962537311728486,
+          "leakage": 0.0032218649634446987,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.75932838174073,
+          "pulse_power": 0.18369084679412487,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703746268827151,
+          "leakage_avg": 0.04496198588946984,
+          "leakage_worst": 0.06443729926889397
+        },
+        "best_so_far": {
+          "objective_total": 0.032847238080729556,
+          "iteration": 54
+        },
+        "params_summary": {
+          "max_amp": 2.555297554062342,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 55,
+        "timestamp": 1774421337.0174277,
+        "objective_total": 0.032845167261805266,
+        "objective_terms": {
+          "infidelity": 0.029619540605524408,
+          "leakage": 0.0032256266562808614,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.758457704169682,
+          "pulse_power": 0.18376721596104353,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703804593944756,
+          "leakage_avg": 0.04495203473780138,
+          "leakage_worst": 0.06451253312561722
+        },
+        "best_so_far": {
+          "objective_total": 0.032845167261805266,
+          "iteration": 55
+        },
+        "params_summary": {
+          "max_amp": 2.555382499128821,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 56,
+        "timestamp": 1774421337.7938185,
+        "objective_total": 0.0328447135422627,
+        "objective_terms": {
+          "infidelity": 0.029618925197184454,
+          "leakage": 0.0032257883450782458,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.758494729000129,
+          "pulse_power": 0.18377254741198704,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703810748028155,
+          "leakage_avg": 0.04496570042427672,
+          "leakage_worst": 0.06451576690156491
+        },
+        "best_so_far": {
+          "objective_total": 0.0328447135422627,
+          "iteration": 56
+        },
+        "params_summary": {
+          "max_amp": 2.5551928386002136,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 57,
+        "timestamp": 1774421338.8033066,
+        "objective_total": 0.03284373091234679,
+        "objective_terms": {
+          "infidelity": 0.029619163102143298,
+          "leakage": 0.003224567810203494,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.759339046726627,
+          "pulse_power": 0.18381027050255416,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703808368978567,
+          "leakage_avg": 0.04502543661363556,
+          "leakage_worst": 0.06449135620406987
+        },
+        "best_so_far": {
+          "objective_total": 0.03284373091234679,
+          "iteration": 57
+        },
+        "params_summary": {
+          "max_amp": 2.555340442791294,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 58,
+        "timestamp": 1774421339.711032,
+        "objective_total": 0.03284363331886999,
+        "objective_terms": {
+          "infidelity": 0.02961885434024014,
+          "leakage": 0.00322477897862985,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.759211711108423,
+          "pulse_power": 0.18380649356419812,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703811456597599,
+          "leakage_avg": 0.045027053646950144,
+          "leakage_worst": 0.064495579572597
+        },
+        "best_so_far": {
+          "objective_total": 0.03284363331886999,
+          "iteration": 58
+        },
+        "params_summary": {
+          "max_amp": 2.5551742468811627,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      },
+      {
+        "run_id": "run_000",
+        "iteration": 59,
+        "timestamp": 1774421340.753863,
+        "objective_total": 0.03284360558874607,
+        "objective_terms": {
+          "infidelity": 0.029618852927474792,
+          "leakage": 0.00322475266127128,
+          "checkpoint_leakage": 0.0,
+          "duration": 0.9999999999999999,
+          "gate_count": 7.759189076299865,
+          "pulse_power": 0.18380525064553058,
+          "robustness": 0.0,
+          "time_reg": 0.0,
+          "grid_penalty": 0.0,
+          "constraint_penalty": 0.0
+        },
+        "metrics": {
+          "fidelity_subspace": 0.9703811470725252,
+          "leakage_avg": 0.04502736846450328,
+          "leakage_worst": 0.06449505322542559
+        },
+        "best_so_far": {
+          "objective_total": 0.03284360558874607,
+          "iteration": 59
+        },
+        "params_summary": {
+          "max_amp": 2.5551160863701443,
+          "max_detuning": 0.0,
+          "times": {
+            "Displacement": 8e-08,
+            "QubitRotation": 4e-08,
+            "PrimitiveGate": 1.1e-06
+          }
+        },
+        "backend": "ideal",
+        "solver_stats": {},
+        "progress_schema_version": 1
+      }
+    ]
+  }
+}

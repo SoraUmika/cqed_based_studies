@@ -1,0 +1,98 @@
+{
+  "convergence_representative_case": {
+    "best_fit_block_phase_rms_rad": 0.0980945115646645,
+    "best_fit_restricted_process_fidelity": 0.6497067461156566,
+    "case_id": "chi_plus_chiprime_structured_xy_na3_chiT3p0",
+    "chi_t_over_2pi": 3.0,
+    "construction": "full_shared_line",
+    "corrections_vector": [
+      0.7496536775576004,
+      -0.7496536775852787,
+      -0.7496536775576004,
+      -0.5550359253651738,
+      1.4026781781317175,
+      0.10510499070910054
+    ],
+    "duration_ns": 1056.3380281690138,
+    "duration_s": 1.0563380281690138e-06,
+    "family": "structured_xy",
+    "include_chi_prime": true,
+    "leakage_outside_target_max": 0.0,
+    "leakage_outside_target_mean": 0.0,
+    "magnus_vs_full_restricted_average_gate_fidelity": NaN,
+    "magnus_vs_full_restricted_process_fidelity": NaN,
+    "max_residual_z_error_rad": 0.2635592337452705,
+    "max_transverse_error_rad": 1.6294294234866535,
+    "mean_block_average_gate_fidelity": 0.772938197598842,
+    "mean_residual_z_error_rad": 0.09756114439109353,
+    "mean_transverse_error_rad": 1.2190684752443666,
+    "model_variant": "chi_plus_chiprime",
+    "n_active": 3,
+    "n_optimizer_history": 196.0,
+    "optimization_message": "Optimization terminated successfully.",
+    "optimization_success": true,
+    "other_target_population_max": 0.0,
+    "other_target_population_mean": 0.0,
+    "per_block_actual_rotvec_z_rad": [
+      -0.005553669397721999,
+      0.02399581879623434,
+      0.3327405261224472
+    ],
+    "per_block_average_gate_fidelities": [
+      0.89521103500081,
+      0.7835115177327969,
+      0.640092040062919
+    ],
+    "per_block_process_fidelities": [
+      0.842816552501215,
+      0.6752672765991954,
+      0.4601380600943786
+    ],
+    "per_block_residual_z_error_rad": [
+      0.010551264382689428,
+      0.018572935045320656,
+      0.2635592337452705
+    ],
+    "per_block_rotation_angle_errors_rad": [
+      0.8025832214427765,
+      1.197774265839422,
+      1.3005878825061872
+    ],
+    "per_block_rotation_axis_errors_rad": [
+      1.4580424778622385,
+      1.0866429860331812,
+      1.5438468990935965
+    ],
+    "per_block_transverse_error_rad": [
+      0.8152603628644597,
+      1.2125156393819867,
+      1.6294294234866535
+    ],
+    "reduced_vs_full_restricted_average_gate_fidelity": NaN,
+    "reduced_vs_full_restricted_process_fidelity": NaN,
+    "restricted_average_gate_fidelity": 0.6967743038274634,
+    "restricted_fro_error": 0.62804213948537,
+    "restricted_process_fidelity": 0.6462366877987074,
+    "same_block_population_mean": 1.0000023345490356,
+    "same_block_population_min": 1.0000023153773365,
+    "seed": NaN,
+    "source_case": NaN,
+    "uncorrected_restricted_process_fidelity": 0.6462366877987074,
+    "weighted_loss": 0.4209577216380068,
+    "worst_block_average_gate_fidelity": 0.640092040062919
+  },
+  "date_created": "2026-04-06T07:31:55Z",
+  "description": "Sanity and convergence notes for the strict no-detuning multitone-SQR study.",
+  "load_instructions": "Load `validation_summary.json` as JSON and inspect the documented result rows and metadata.",
+  "notes": {
+    "dt_default_s": 2e-09,
+    "pi_pulse_duration_s": 4e-08,
+    "representative_case_selected": true
+  },
+  "sanity_checks": {
+    "aligned_x_ideal_echo_minus_plain_mean": -0.3987296325658236,
+    "decoupled_block_exact_match": 0.9999999999999998,
+    "full_model_vs_magnus_case_count": 44
+  },
+  "study_name": "multitone_sqr_no_go_decoupled_echo_dispersive_cqed"
+}

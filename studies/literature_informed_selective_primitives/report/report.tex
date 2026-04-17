@@ -1,25 +1,18 @@
-\documentclass[11pt, a4paper]{article}
+\documentclass[aps,pra,twocolumn,reprint,amsmath,amssymb]{revtex4-2}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb, amsfonts}
 \usepackage{graphicx}
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
-\usepackage[numbers, sort&compress]{natbib}
 \usepackage{booktabs}
 \usepackage{siunitx}
-\usepackage{caption}
-\usepackage{float}
-\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 
-\title{\textbf{Literature-Informed Selective Pulse Primitives for Dispersive cQED}}
-\author{cQED Autonomous Research Platform \\ Shyam Shankar Quantum Circuits Group}
-\date{\today}
+\usepackage{xcolor}
 
 \begin{document}
 
-\maketitle
+\title{Literature-Informed Selective Pulse Primitives for Dispersive cQED}
+\author{cQED Autonomous Research Platform}
+\affiliation{Shyam Shankar Quantum Circuits Group}
+\date{\today}
 
 \begin{abstract}
 Selective number-resolved qubit control is the operational core behind both selective qubit rotation (SQR) and selective number-dependent arbitrary phase (SNAP) gates in dispersive circuit QED. The consolidated SQR and hybrid-control studies in this repository relied on those primitives, but they did not yet contain one pulse-level reference study tying the literature pulse prescriptions to a validated, noise-aware dataset under the repository's standard cQED parameters. This work fills that gap using $\omega_q/2\pi=\SI{6.150}{GHz}$, $\omega_c/2\pi=\SI{5.241}{GHz}$, $\alpha/2\pi=\SI{-255}{MHz}$, $\chi/2\pi=\SI{-2.84}{MHz}$, $\chi'/2\pi=\SI{-21}{kHz}$, and $K/2\pi=\SI{-28}{kHz}$.
@@ -28,6 +21,8 @@ We implement literature-backed number-selective pulses through the normal \textt
 
 Validation confirms that the results are stable under a finer \SI{1}{ns} time step and an increased cavity cutoff, and that the optimized durations remain consistent with the number-resolution conditions reported in the literature. The resulting dataset provides a reusable pulse reference for downstream SQR, SNAP, and hybrid-control studies.
 \end{abstract}
+
+\maketitle
 
 \section{Introduction}
 
@@ -58,7 +53,7 @@ where $a$ is the storage-cavity lowering operator, $b$ is the transmon lowering 
 
 \subsection{Simulation Parameters}
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Nominal system parameters used throughout the study.}
 \begin{tabular}{@{} l l l @{}}
@@ -77,9 +72,9 @@ Logical window & $n=0,\ldots,3$ & --- \\
 \bottomrule
 \end{tabular}
 \label{tab:params}
-\end{table}
+\end{table*}
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Noise parameters used for the open-system replay.}
 \begin{tabular}{@{} l l l @{}}
@@ -94,7 +89,7 @@ Time step $\Delta t$ & 2 & ns \\
 \bottomrule
 \end{tabular}
 \label{tab:noise}
-\end{table}
+\end{table*}
 
 \subsection{Literature Pulse Definitions}
 
@@ -123,12 +118,12 @@ The closed-system SQR results recover the same qualitative hierarchy seen in the
 
 The more important practical result appears after noisy replay. The best noisy SQR point is not one of the longest, most selective pulses: it is a flat-top Gaussian pulse at $|\chi|T/2\pi=1.0$, with total duration \SI{0.352}{\micro s}, closed cphase fidelity $0.9954$, and noisy average state fidelity $0.9903$. The best noisy Gaussian and cosine-squared points remain excellent, $0.9898$ and $0.9892$, but both require longer durations (\SI{0.458}{\micro s} and \SI{0.599}{\micro s}, respectively). Figure~\ref{fig:sqr_scan} summarizes the full family scan.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
   \centering
   \includegraphics[width=0.95\linewidth]{../figures/sqr_family_scan.pdf}
   \caption{Closed-system and noisy SQR performance for the literature-informed pulse families. Gaussian and cosine-squared pulses dominate the long-duration closed-system regime, while the best noisy operating point shifts to a shorter flat-top Gaussian pulse. Horizontal structure in the noisy panel reflects the fact that several shape and amplitude variants cluster near the same practical fidelity.}
   \label{fig:sqr_scan}
-\end{figure}
+\end{figure*}
 
 Two follow-up observations matter for downstream studies. First, the strict logical process fidelity of the best noisy SQR point is only $0.892$, while the relaxed cphase metric is $0.990$. This confirms again that the physically relevant primitive is the cphase-relaxed one: a later virtual-$Z$ or SNAP cleanup layer is still needed when the application demands strict logical gauge. Second, the best noisy point is exactly the shortest duration in the scan that still resolves the $|\chi|/2\pi=\SI{2.84}{MHz}$ branch splitting well enough to keep spectator errors small.
 
@@ -138,21 +133,21 @@ The geometric SNAP sequence is more demanding because it uses two selective $\pi
 
 The Gaussian-only SNAP family is only slightly worse, with closed fidelity $0.9010$ and noisy average fidelity $0.9331$ at the same duration scale. The main conclusion is therefore not that Gaussian is unusable, but that the flat-top plateau gives a small but consistent improvement at equal duration and equal number-resolution scale. Figure~\ref{fig:snap_scan} shows the full scan.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
   \centering
   \includegraphics[width=0.95\linewidth]{../figures/snap_family_scan.pdf}
   \caption{Closed-system and noisy SNAP performance for Gaussian and flat-top Gaussian literature-style selective pulses. The best points occur once each selective $\pi$ pulse is long enough to resolve the number splitting but not so long that decoherence dominates.}
   \label{fig:snap_scan}
-\end{figure}
+\end{figure*}
 
 Figure~\ref{fig:waveforms} collects the optimized noisy SQR and SNAP waveforms together with the best practical fidelities. The SQR optimum is visibly shorter and more compact, while the SNAP optimum retains the characteristic two-pulse structure of the geometric protocol.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
   \centering
   \includegraphics[width=0.95\linewidth]{../figures/best_waveforms_and_summary.pdf}
   \caption{Optimized noisy-reference waveforms and summary fidelities. The best noisy SQR point is a short flat-top Gaussian pulse at $|\chi|T/2\pi=1$, while the best SNAP point is a two-pulse flat-top Gaussian sequence at $|\chi|T_\pi/2\pi=2.2$.}
   \label{fig:waveforms}
-\end{figure}
+\end{figure*}
 
 \section{Validation}
 
@@ -212,7 +207,7 @@ The third limitation is scope. The study uses a qubit-plus-storage model with a 
 
 The most immediate open question is whether the flat-top advantage found here survives once readout-induced backaction is included explicitly. A second question is how much of the remaining strict-gauge SQR error can be removed by a short appended SNAP cleanup layer without erasing the noisy-duration advantage of the flat-top SQR pulse. Finally, it remains to be tested whether the same pulse hierarchy survives in larger logical windows, where $\chi'$ and Kerr will make long waits and long selective pulses increasingly nonlinear across photon number.
 
-\bibliographystyle{unsrtnat}
+\bibliographystyle{apsrev4-2}
 \bibliography{references}
 
 \end{document}

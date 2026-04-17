@@ -1,0 +1,71 @@
+# Progress Log
+
+## 2026-04-07
+- Initialized the study scaffold in `studies/storage_active_cooling_gf_sideband`.
+- Confirmed that the editable local `cqed_sim` install exposes the three key ingredients needed for the study:
+  - a dispersive transmon-storage-readout model,
+  - effective multilevel sideband controls,
+  - and readout decay in the open-system solver.
+- Identified the main modeling limitation early: the package represents the relevant sidebands as effective control operators rather than deriving them microscopically from the pump Hamiltonian.
+- Implemented the shared helpers, spectrum extraction, pulse scans, open-system cooling simulations, and artifact export.
+- Added a targeted convergence pass for the hardest `n=4` primitive.
+
+## 2026-04-08
+- Refreshed the study to use the exact local device source from the editable `cqed_sim` example instead of relying only on a hardcoded fallback tuple.
+- Updated all exported labels to the user-requested `|q,n_r,n_s>` convention while preserving the internal `(transmon, storage, readout)` tensor ordering.
+- Expanded the pulse-family screen to include:
+  - `bump`,
+  - `phase_modulated_bump`,
+  - and `bb1_like`,
+  in addition to the earlier square, Gaussian, cosine-squared, and DRAG-like candidates.
+- Added a paper-guided comparison to **Fast Sideband Control of a Weakly Coupled Multimode Bosonic Memory** (`arXiv:2503.10623v1`) and used it to motivate:
+  - smooth-ramp pulse screening,
+  - photon-number-resolved calibration scans,
+  - and Floquet checks at the recommended operating points.
+- Re-ran the full study and updated the practical recommendations:
+  - Step A: `bump` is best for `n=1,3,4`; `square` is best for `n=2`
+  - Step B: `cosine_squared` is best for all `n=1..4`
+- Added new saved artifacts:
+  - `data/recommendation_table.csv`
+  - `data/frequency_calibration_scan.csv`
+  - `data/floquet_summary.csv`
+  - `artifacts/frequency_calibration_scan.json`
+  - `artifacts/floquet_summary.json`
+- Added new figures:
+  - `frequency_calibration_curves`
+  - `floquet_doublet_splitting`
+  - `storage_family_comparison`
+- Verified that the local detuning scans over `+-2 MHz` place every recommended pulse at `0.0 MHz` detuning in the effective model.
+- Verified that the Floquet target-doublet splittings track the expected bosonic enhancement for Step A and the near-constant readout scale for Step B, while recording the truncation-boundary warning as an explicit caveat.
+- Rewrote the report and reproducibility notebook so they now:
+  - state the basis, units, frame, and sign conventions explicitly,
+  - use the user-requested state ordering consistently,
+  - distinguish clearly between the sideband literature and the modified storage-cooling ladder studied here,
+  - and report the new pulse/Floquet/calibration results.
+- Performed an independent verification pass on the finished study package.
+- Found one evidence-to-prose mismatch in the report:
+  - the report previously implied that the `phase_modulated_bump` family was also poor for Step A,
+  - but the saved scan shows it can reach high Step A transfer at much longer pulse durations.
+- Corrected the report so it now distinguishes:
+  - poor Step B behavior for `phase_modulated_bump`,
+  - from merely non-practical Step A behavior due to much longer pulses.
+- Strengthened the single-cycle cooling table to include residual transmon excitation and residual readout occupation.
+- Wrote `task_runs/storage_active_cooling_gf_sideband/REVIEW_DIRECTIVE.md` with an APPROVE decision for the current effective-model scope.
+- Verified the updated report source by compiling a temporary `report_verify.pdf`; the normal `report.pdf` file could not be overwritten during the pass because the file was locked by an open viewer.
+- Fixed a follow-on LaTeX issue in the verification pass by changing the single-cycle summary float from `table* [H]` to `table* [t]`, which removed the lingering unresolved cross-reference in the temporary build.
+- Rebuilt `report_verify.pdf` from the corrected `report.tex` until references resolved cleanly; `report_verify.pdf` is now the up-to-date compiled artifact for the verification-improved source.
+- Added an experiment-facing spectroscopy follow-up in the same study package.
+- New follow-up script: `studies/storage_active_cooling_gf_sideband/scripts/run_spectroscopy_followup.py`.
+- New follow-up artifacts:
+  - `data/spectroscopy_followup_summary.csv`
+  - `data/spectroscopy_followup_step_a.csv`
+  - `data/spectroscopy_followup_step_b.csv`
+  - `artifacts/spectroscopy_followup.json`
+  - `artifacts/spectroscopy_measurement_followup.md`
+  - `figures/spectroscopy_followup_step_a`
+  - `figures/spectroscopy_followup_step_b`
+- Follow-up conclusions:
+  - the right first-pass Step A observable is `P_f`, not an `X/Y` projection in the `g-f` manifold,
+  - direct `g-f` carrier control is not the cooling step but is very useful for Step B calibration and qutrit-readout setup,
+  - and a calibrated dump-assisted witness is the best fallback when direct `f` readout is weak.
+- The weak-drive follow-up scans peak at `0.0 MHz` detuning relative to the dressed Step A and Step B predictions for all `n=1..4`, consistent with the earlier effective-model calibration scan.

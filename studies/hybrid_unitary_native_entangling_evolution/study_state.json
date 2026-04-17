@@ -1,0 +1,237 @@
+{
+  "study_name": "hybrid_unitary_native_entangling_evolution",
+  "study_path": "studies/hybrid_unitary_native_entangling_evolution",
+  "status": "COMPLETE",
+  "problem_class": [
+    "OPT",
+    "DES",
+    "ANA"
+  ],
+  "created_at": "2026-03-24T00:00:00Z",
+  "updated_at": "2026-03-25T00:00:00Z",
+  "loop_iteration": 2,
+  "objective": "Convert the symbolic native-entangling conclusion for the established hybrid U_target into a runtime-validated conclusion using cqed_sim replay paths, replayable surrogates, stronger truncation checks, and saved implementation artifacts.",
+  "hypotheses": [
+    "Two native chi-wait entanglers remain necessary after replay validation; one native wait should stay a hard lower bound.",
+    "Replay validation will break the symbolic tie between the exact and archive-local two-wait families once non-replayable locals are replaced by explicit runtime realizations.",
+    "Closed-system runtime ranking will be stable across n_cav = 10, 12, 14, but nominal-noise replay will expose the duration cost of replayable local surrogates."
+  ],
+  "assumptions": [
+    "The target unitary and logical subspace are inherited unchanged from the earlier hybrid_qubit_cavity_control study.",
+    "cqed_sim remains the required simulation and synthesis framework for symbolic search, replay compilation, surrogate optimization, and diagnostics.",
+    "The runtime follow-up preserves the earlier device-point conventions and uses nominal noise parameters T1_q = 30 us, T2_q = 20 us, and T1_c = 250 us.",
+    "Non-replayable local blocks are replaced by GRAPE-derived replayable surrogates at reference truncation n_cav = 12, n_tr = 3."
+  ],
+  "success_criteria": {
+    "runtime_shortlist": "A runtime shortlist reports symbolic and replay-backed metrics side by side for one-wait, two-wait exact-surrogate, two-wait archive-surrogate, and direct replay archive references.",
+    "convergence": "Runtime rankings remain stable across n_cav = 10, 12, 14 with explicit process-fidelity, probe-fidelity, leakage, and Wigner-overlap spans.",
+    "artifacts": "Replay decompositions, surrogate pulse artifacts, CSV tables, JSON payloads, and diagnostic figures are saved in machine-readable form.",
+    "recommendation": "The final study states which candidate is best symbolically, which is best under closed-system replay, and whether the result is architecture-level or hardware-ready."
+  },
+  "completed_tasks": [
+    "Initialized study directory and core study documents.",
+    "Documented the entangling-weighted study scope and cost model in README.md.",
+    "Bootstrapped a unified archive-derived candidate frontier and figure from the prior hybrid study.",
+    "Added and ran a Phase 2 native-block composition search for full U_target candidates.",
+    "Generated Phase 2 machine-readable results and a figure for one-wait and two-wait native constructions.",
+    "Confirmed that two native chi-wait entanglers plus strong local cavity control can realize U_target with near-unit ideal fidelity.",
+    "Generated checkpointed cqed_sim depth diagnostics for shortlisted native-heavy candidates, including Bloch-versus-depth and Wigner-versus-depth outputs.",
+    "Confirmed from depth diagnostics that the one-wait baseline remains stuck at fidelity 0.25, the exact two-wait upper bound is structurally faithful across probes, and the fully archive-driven two-wait candidate remains high fidelity but shows larger transient depth excursions.",
+    "Patched the study scripts to resolve the local cQED_simulation checkout dynamically instead of relying on a stale hardcoded path.",
+    "Added phase5_runtime_validation.py to build replayable runtime candidates, optimize replayable local surrogates, evaluate truncation stability, and emit runtime artifacts.",
+    "Replaced the exact qubit Hadamard with a replayable two-rotation decomposition and replayed FreeEvolveCondPhase through explicit idle evolution.",
+    "Generated GRAPE-derived replayable surrogates for exact_hc and A_local at reference truncation n_cav = 12, n_tr = 3.",
+    "Evaluated runtime candidates at n_cav = 10, 12, 14, including nominal-noise replay at n_cav = 12.",
+    "Generated phase5_candidate_comparison.csv, phase5_convergence_table.csv, phase5_runtime_metrics.csv, phase5_symbolic_metrics.csv, phase5_weight_sensitivity.csv, phase5_runtime_validation.json, and matching figures.",
+    "Updated the report and study documents to reflect the runtime-validated conclusion."
+  ],
+  "failed_tasks": [],
+  "pending_tasks": [],
+  "blocked_tasks": [],
+  "key_results": {
+    "bootstrap_frontier": {
+      "best_native_baseline": "A_ent or D_ent depending on whether the entangler is viewed as the archive baseline or explicit R-W-R realization.",
+      "best_selective_replay_candidate": "B_ent pulse fidelity approximately 0.691.",
+      "main_warning_case": "L1d retains strong ideal structure but collapses under physical replay."
+    },
+    "phase2_native_search": {
+      "one_wait_limit": {
+        "best_label": "N1_exact_hc_to_exact_hc",
+        "ideal_fidelity": 0.24999991232341745,
+        "conclusion": "One native entangler is not sufficient for high-fidelity realization of the full target."
+      },
+      "two_wait_symbolic_upper_bound": {
+        "label": "N2_exact_hc_to_exact_hc",
+        "ideal_fidelity": 0.9999997543589052,
+        "entangling_gate_count": 2,
+        "entangling_time_ns": 352.0,
+        "depth": 11
+      },
+      "best_symbolic_archive_candidate": {
+        "label": "N2_A_local_to_A_local",
+        "ideal_fidelity": 0.9856807733632683,
+        "average_probe_fidelity": 0.9691824058441026,
+        "average_probe_leakage": 0.020478399960793925,
+        "depth": 17
+      }
+    },
+    "phase4_depth_diagnostics": {
+      "one_wait_baseline": {
+        "label": "N1_exact_hc_to_exact_hc",
+        "average_final_probe_fidelity": 0.2500000231740221,
+        "bloch_probe_final_target_overlap": 0.25000028063033447,
+        "wigner_probe_final_target_overlap": 0.24999999484605104
+      },
+      "two_wait_upper_bound": {
+        "label": "N2_exact_hc_to_exact_hc",
+        "average_final_probe_fidelity": 0.9999996537629003,
+        "bloch_probe_final_target_overlap": 0.9999993122050516,
+        "wigner_probe_final_target_overlap": 0.9999999859645312
+      },
+      "archive_local_symbolic_candidate": {
+        "label": "N2_A_local_to_A_local",
+        "average_final_probe_fidelity": 0.9691824136701369,
+        "bloch_probe_final_target_overlap": 0.9538586320488813,
+        "wigner_probe_final_target_overlap": 0.9693644706177679,
+        "max_wigner_negativity": 0.011046421016646546
+      }
+    },
+    "phase5_runtime_validation": {
+      "surrogates": {
+        "exact_hc_runtime": {
+          "nominal_fidelity": 0.9428755295102549,
+          "objective_value": 0.034912539295213874,
+          "duration_us": 1.28,
+          "pulse_count": 160,
+          "all_restarts_hit_iteration_limit": true
+        },
+        "A_local_runtime": {
+          "nominal_fidelity": 0.9476228760415338,
+          "objective_value": 0.030101120525540925,
+          "duration_us": 1.28,
+          "pulse_count": 160,
+          "all_restarts_hit_iteration_limit": true
+        }
+      },
+      "best_closed_system_runtime_candidate": {
+        "label": "R2_exact_runtime_to_exact_runtime",
+        "symbolic_reference": "N2_exact_hc_to_exact_hc",
+        "process_fidelity": 0.9026929270622418,
+        "average_probe_fidelity": 0.8349526191490545,
+        "average_probe_leakage": 0.04317691162402235,
+        "nominal_noise_average_probe_fidelity": 0.6144833666744246,
+        "runtime_total_duration_ns": 4432.000000000001,
+        "wigner_target_overlap": 0.9638353440757689,
+        "entangling_gate_count": 2,
+        "entangling_time_ns": 352.00000000000006
+      },
+      "best_wigner_match_runtime_candidate": {
+        "label": "R2_A_runtime_to_A_runtime",
+        "symbolic_reference": "N2_A_local_to_A_local",
+        "process_fidelity": 0.9015409083663316,
+        "average_probe_fidelity": 0.8121948942556153,
+        "average_probe_leakage": 0.047254869788012056,
+        "nominal_noise_average_probe_fidelity": 0.5804169492873673,
+        "runtime_total_duration_ns": 4432.000000000001,
+        "wigner_target_overlap": 0.9814172155341938,
+        "entangling_gate_count": 2,
+        "entangling_time_ns": 352.00000000000006
+      },
+      "direct_replay_archive_reference": {
+        "label": "R2_B_local_replay",
+        "process_fidelity": 0.16665042877903272,
+        "average_probe_fidelity": 0.18728995560553882,
+        "average_probe_leakage": 0.14323596035167432,
+        "nominal_noise_average_probe_fidelity": 0.04884525575287874,
+        "runtime_total_duration_ns": 7912.0,
+        "wigner_target_overlap": 0.2597422620343216
+      },
+      "one_wait_runtime_baseline": {
+        "label": "R1_exact_runtime_to_exact_runtime",
+        "process_fidelity": 0.2234012222217367,
+        "average_probe_fidelity": 0.21196958700072135,
+        "average_probe_leakage": 0.028603065070561134,
+        "nominal_noise_average_probe_fidelity": 0.048006241284792785,
+        "runtime_total_duration_ns": 2856.000000000001
+      },
+      "truncation_stability": {
+        "R2_exact_runtime_to_exact_runtime": {
+          "process_fidelity_span": 7.670498428091754e-06,
+          "probe_fidelity_span": 9.797940682676476e-06,
+          "leakage_span": 1.1982308799160513e-05,
+          "wigner_overlap_span": 7.873714139683408e-06
+        },
+        "R2_A_runtime_to_A_runtime": {
+          "process_fidelity_span": 2.794971957320591e-05,
+          "probe_fidelity_span": 6.838621947868884e-05,
+          "leakage_span": 6.887631021000595e-05,
+          "wigner_overlap_span": 0.00016906075688472022
+        },
+        "R2_B_local_replay": {
+          "process_fidelity_span": 1.3048950654737101e-06,
+          "probe_fidelity_span": 2.2512090040727184e-06,
+          "leakage_span": 6.463314894761263e-06,
+          "wigner_overlap_span": 3.3014750339677157e-06
+        }
+      },
+      "ranking_shift": "The best experimentally grounded symbolic candidate was N2_A_local_to_A_local, but the best replay-backed closed-system candidate is R2_exact_runtime_to_exact_runtime.",
+      "cost_sensitivity_warning": "If the infidelity weight is reduced by 25 percent, the one-wait replay baseline can appear cheapest despite failing the target. Raw metrics remain primary."
+    }
+  },
+  "latest_figures": [
+    "studies/hybrid_unitary_native_entangling_evolution/figures/phase5_candidate_comparison.pdf",
+    "studies/hybrid_unitary_native_entangling_evolution/figures/phase5_convergence.pdf",
+    "studies/hybrid_unitary_native_entangling_evolution/figures/phase5_wigner_compare_R2_exact_runtime_to_exact_runtime_g0.pdf",
+    "studies/hybrid_unitary_native_entangling_evolution/figures/phase5_wigner_compare_R2_A_runtime_to_A_runtime_g0.pdf",
+    "studies/hybrid_unitary_native_entangling_evolution/report/report.pdf"
+  ],
+  "blockers": [],
+  "compute_notes": {
+    "phase1": "The bootstrap stage reuses legacy JSON payloads and is inexpensive.",
+    "phase2": "The native-block composition search runs quickly because it reuses legacy optimized local and entangling blocks and evaluates candidates with cqed_sim ideal simulation rather than replaying fresh pulse schedules.",
+    "phase3": "Replay-support verification is cheap and was needed to identify the PrimitiveGate plus SNAP path limitation before implementing the runtime workaround.",
+    "phase4": "Checkpointed symbolic depth diagnostics are still inexpensive compared with pulse-level replay. Wigner-grid generation for the 17-step A_local candidate completed comfortably on the local machine.",
+    "phase5": "Runtime validation is dominated by two surrogate optimizations, each with 4 channels, 40 slices, and 3 GRAPE restarts. Once the surrogates exist, replay over n_cav = 10, 12, 14 and figure generation are comparatively cheap."
+  },
+  "science_directive_version": 6,
+  "file_manifest": {
+    "scripts": [
+      "studies/hybrid_unitary_native_entangling_evolution/scripts/common.py",
+      "studies/hybrid_unitary_native_entangling_evolution/scripts/phase1_candidate_bootstrap.py",
+      "studies/hybrid_unitary_native_entangling_evolution/scripts/phase2_native_block_search.py",
+      "studies/hybrid_unitary_native_entangling_evolution/scripts/phase3_replay_support_check.py",
+      "studies/hybrid_unitary_native_entangling_evolution/scripts/phase4_depth_diagnostics.py",
+      "studies/hybrid_unitary_native_entangling_evolution/scripts/phase5_runtime_validation.py"
+    ],
+    "data": [
+      "studies/hybrid_unitary_native_entangling_evolution/data/phase1_candidate_bootstrap.json",
+      "studies/hybrid_unitary_native_entangling_evolution/data/phase2_native_block_search.json",
+      "studies/hybrid_unitary_native_entangling_evolution/data/phase3_replay_support_check.json",
+      "studies/hybrid_unitary_native_entangling_evolution/data/phase4_depth_diagnostics.json",
+      "studies/hybrid_unitary_native_entangling_evolution/data/phase5_candidate_comparison.csv",
+      "studies/hybrid_unitary_native_entangling_evolution/data/phase5_convergence_table.csv",
+      "studies/hybrid_unitary_native_entangling_evolution/data/phase5_runtime_metrics.csv",
+      "studies/hybrid_unitary_native_entangling_evolution/data/phase5_symbolic_metrics.csv",
+      "studies/hybrid_unitary_native_entangling_evolution/data/phase5_runtime_validation.json",
+      "studies/hybrid_unitary_native_entangling_evolution/data/phase5_weight_sensitivity.csv"
+    ],
+    "figures": [
+      "studies/hybrid_unitary_native_entangling_evolution/figures/phase2_native_block_search.pdf",
+      "studies/hybrid_unitary_native_entangling_evolution/figures/phase5_candidate_comparison.pdf",
+      "studies/hybrid_unitary_native_entangling_evolution/figures/phase5_convergence.pdf",
+      "studies/hybrid_unitary_native_entangling_evolution/figures/phase5_weight_sensitivity.pdf",
+      "studies/hybrid_unitary_native_entangling_evolution/figures/phase5_wigner_compare_R2_exact_runtime_to_exact_runtime_g0.pdf",
+      "studies/hybrid_unitary_native_entangling_evolution/figures/phase5_wigner_compare_R2_A_runtime_to_A_runtime_g0.pdf"
+    ],
+    "artifacts": [
+      "studies/hybrid_unitary_native_entangling_evolution/artifacts/phase5_local_surrogate_exact_hc.json",
+      "studies/hybrid_unitary_native_entangling_evolution/artifacts/phase5_local_surrogate_exact_hc_grape.json",
+      "studies/hybrid_unitary_native_entangling_evolution/artifacts/phase5_local_surrogate_A_local.json",
+      "studies/hybrid_unitary_native_entangling_evolution/artifacts/phase5_local_surrogate_A_local_grape.json",
+      "studies/hybrid_unitary_native_entangling_evolution/artifacts/phase5_runtime_candidate_R2_exact_runtime_to_exact_runtime.json",
+      "studies/hybrid_unitary_native_entangling_evolution/artifacts/phase5_runtime_candidate_R2_A_runtime_to_A_runtime.json",
+      "studies/hybrid_unitary_native_entangling_evolution/artifacts/phase5_runtime_candidate_R2_B_local_replay.json"
+    ],
+    "report": "studies/hybrid_unitary_native_entangling_evolution/report/report.tex"
+  }
+}

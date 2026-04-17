@@ -29,6 +29,15 @@ Your job is to recover state from files, detect what remains, and continue from 
 - Update `PROGRESS_LOG.md`, `TASK_CHECKLIST.md`, and `BLOCKERS.md` before stopping.
 - Only write `DONE.md` after explicit final verification.
 
+## cQED Research Context
+
+When resuming a cQED simulation study:
+
+- Read `study_state.json` in the study folder for the machine-readable lifecycle state.
+- Check `IMPROVEMENTS.md` for limitations discovered in prior iterations.
+- If the study has a `REVIEW_DIRECTIVE.md` in `task_runs/`, read it for reviewer feedback to address.
+- Follow all rules from `AGENTS.md` — especially the three validation gates before reporting.
+
 ## Response Format
 - Summarize the recovered state.
 - State the task ID that was resumed.

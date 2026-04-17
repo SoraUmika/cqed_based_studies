@@ -81,6 +81,15 @@ plt.close(fig)
 | Convergence | Validation | x = parameter value, y = metric, log scale for y-axis |
 | Phase diagram | ANA | 2D colormap, labeled contours for operating points |
 
+### 6. Paired Pulse Plots for OPT/DES Studies
+
+If the study optimizes a pulse or waveform, generate both of these appendix-ready figures:
+
+- **Time domain** — I/Q or amplitude/phase versus time, with units.
+- **Frequency domain** — magnitude spectrum versus frequency, with units.
+
+Use consistent styling and save both `.png` and `.pdf` versions. Future agents should be able to verify at a glance that the pulse is physically reasonable and not just numerically high fidelity.
+
 ## Rules
 
 - Never use the default matplotlib color cycle — always use the style file or Tol palettes.
@@ -88,3 +97,4 @@ plt.close(fig)
 - Always save both `.png` and `.pdf`.
 - Always call `plt.close(fig)` after saving to avoid memory leaks in batch scripts.
 - Use `bbox_inches='tight'` to avoid clipped labels.
+- For waveform-optimization studies, paired time-domain and frequency-domain plots are mandatory, not optional.

@@ -1,0 +1,1695 @@
+{
+  "case_id": "snap_interleaved_b6",
+  "family": "snap_interleaved",
+  "family_title": "D + R + FE + interleaved SNAP",
+  "blocks": 6,
+  "seed": 17,
+  "maxiter": 35,
+  "duration_weight": 0.0,
+  "fidelity": 0.9880774560097466,
+  "block_gauge_fidelity": 0.9880776382801151,
+  "best_fit_block_gauge_fidelity": 0.9880768077494948,
+  "leakage_average": 0.01888499153228121,
+  "leakage_worst": 0.019796657194864786,
+  "unitarity_error": 2.2290291339770285e-15,
+  "block_phases_rad": [
+    -0.5194357959765195,
+    -0.5181905017012639
+  ],
+  "best_fit_correction_phases_rad": [
+    0.5194357959765195,
+    0.5181905017012638
+  ],
+  "rms_block_phase_error_rad": 0.0008805560266060639,
+  "objective": 0.012912376849996632,
+  "success": false,
+  "message": "",
+  "metrics": {
+    "fidelity": 0.9880774560097466,
+    "leakage_average": 0.01888499153228107,
+    "leakage_worst": 0.019796657194864897,
+    "leakage_selected": 0.019796657194864897,
+    "checkpoint_leakage_average": 0.0,
+    "checkpoint_leakage_worst": 0.0,
+    "state_error_mean": NaN,
+    "state_error_max": NaN,
+    "state_fidelity_mean": NaN,
+    "state_fidelity_min": NaN,
+    "reduced_state_fidelity_mean": NaN,
+    "reduced_state_fidelity_min": NaN,
+    "observable_error_mean": NaN,
+    "observable_error_max": NaN,
+    "weighted_observable_error": NaN,
+    "trajectory_task_loss": NaN,
+    "trajectory_state_error_mean": NaN,
+    "trajectory_observable_error_mean": NaN,
+    "channel_overlap": NaN,
+    "channel_choi_error": NaN,
+    "channel_superoperator_error": NaN,
+    "trace_preservation_error_mean": NaN,
+    "trace_preservation_error_max": NaN,
+    "trace_loss_mean": NaN,
+    "trace_loss_worst": NaN,
+    "choi_hermiticity_error": NaN,
+    "choi_min_eig": NaN,
+    "complete_positivity_violation": NaN,
+    "duration_metric": 0.9906330749354005,
+    "gate_count_metric": 18.150343715137755,
+    "pulse_power_metric": 0.31977127672498645,
+    "amplitude_smoothness_metric": 0.915485138332399,
+    "robustness_objective": 0.011922543990253387
+  },
+  "gate_depth": 26,
+  "total_duration_ns": 3067.0,
+  "total_wait_time_ns": 1027.0,
+  "total_fe_logical_delta_phi_rad": 18.326040921744557,
+  "total_snap_logical_relative_phase_rad": 3.581741089568066,
+  "parameter_count": 78,
+  "snap_gate_count": 6,
+  "snap_phase_count": 24,
+  "entangling_gate_count": 6,
+  "wait_gate_count": 6,
+  "sequence_summary": {
+    "rows": [
+      {
+        "name": "D0",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R0",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE0",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 133.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "S0",
+        "kind": "SNAP",
+        "duration_ns": 200.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D1",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R1",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE1",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 190.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "S1",
+        "kind": "SNAP",
+        "duration_ns": 200.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D2",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R2",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE2",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 158.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "S2",
+        "kind": "SNAP",
+        "duration_ns": 200.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D3",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R3",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE3",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 162.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "S3",
+        "kind": "SNAP",
+        "duration_ns": 200.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D4",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R4",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE4",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 199.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "S4",
+        "kind": "SNAP",
+        "duration_ns": 200.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D5",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R5",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE5",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 185.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "S5",
+        "kind": "SNAP",
+        "duration_ns": 200.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D6",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R6",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      }
+    ],
+    "counts": {
+      "Displacement": 7,
+      "QubitRotation": 7,
+      "FreeEvolveCondPhase": 6,
+      "SNAP": 6
+    },
+    "gate_depth": 26,
+    "total_duration_ns": 3067.0,
+    "selective_block_count": 0,
+    "entangling_block_count": 6,
+    "total_active_tones": 0,
+    "max_active_tones": 0
+  },
+  "sequence_payload": [
+    {
+      "type": "Displacement",
+      "name": "D0",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:0:D0",
+      "time_policy_locked": false,
+      "parameters": [
+        0.22512571198149137,
+        -0.3024401730740628
+      ],
+      "time_param_id": "t_0"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R0",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:1:R0",
+      "time_policy_locked": false,
+      "parameters": [
+        1.0726526530884208,
+        -0.30060101591972993
+      ],
+      "time_param_id": "t_1"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE0",
+      "duration": 1.33e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:2:FE0",
+      "time_policy_locked": false,
+      "wait_time": 1.33e-07,
+      "parameters": [],
+      "time_param_id": "t_2"
+    },
+    {
+      "type": "SNAP",
+      "name": "S0",
+      "duration": 2.0000000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:3:S0",
+      "time_policy_locked": false,
+      "fock_levels": [],
+      "realization": "ideal-only",
+      "parameters": [
+        0.8202001019453418,
+        0.10450604254821391,
+        3.990699900716983,
+        -1.91476652842413
+      ],
+      "time_param_id": "t_3"
+    },
+    {
+      "type": "Displacement",
+      "name": "D1",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:4:D1",
+      "time_policy_locked": false,
+      "parameters": [
+        0.2287512871908962,
+        -0.15427736884232013
+      ],
+      "time_param_id": "t_4"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R1",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:5:R1",
+      "time_policy_locked": false,
+      "parameters": [
+        1.7701908803264916,
+        1.835082981272341
+      ],
+      "time_param_id": "t_5"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE1",
+      "duration": 1.9e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:6:FE1",
+      "time_policy_locked": false,
+      "wait_time": 1.9e-07,
+      "parameters": [],
+      "time_param_id": "t_6"
+    },
+    {
+      "type": "SNAP",
+      "name": "S1",
+      "duration": 2.0000000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:7:S1",
+      "time_policy_locked": false,
+      "fock_levels": [],
+      "realization": "ideal-only",
+      "parameters": [
+        0.19187735111033347,
+        -0.5516436970096368,
+        1.0164549926656967,
+        1.2635928634802478
+      ],
+      "time_param_id": "t_7"
+    },
+    {
+      "type": "Displacement",
+      "name": "D2",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:8:D2",
+      "time_policy_locked": false,
+      "parameters": [
+        0.3612429559023434,
+        -0.4877757000221481
+      ],
+      "time_param_id": "t_8"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R2",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:9:R2",
+      "time_policy_locked": false,
+      "parameters": [
+        2.4954629353621334,
+        1.67949721394748
+      ],
+      "time_param_id": "t_9"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE2",
+      "duration": 1.58e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:10:FE2",
+      "time_policy_locked": false,
+      "wait_time": 1.58e-07,
+      "parameters": [],
+      "time_param_id": "t_10"
+    },
+    {
+      "type": "SNAP",
+      "name": "S2",
+      "duration": 2.0000000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:11:S2",
+      "time_policy_locked": false,
+      "fock_levels": [],
+      "realization": "ideal-only",
+      "parameters": [
+        0.20762645008236982,
+        -0.4076765537347761,
+        0.7842833237158389,
+        1.1679453441154422
+      ],
+      "time_param_id": "t_11"
+    },
+    {
+      "type": "Displacement",
+      "name": "D3",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:12:D3",
+      "time_policy_locked": false,
+      "parameters": [
+        0.11054164191122734,
+        0.16020909795631058
+      ],
+      "time_param_id": "t_12"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R3",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:13:R3",
+      "time_policy_locked": false,
+      "parameters": [
+        2.146806441342672,
+        1.8170455558393852
+      ],
+      "time_param_id": "t_13"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE3",
+      "duration": 1.6200000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:14:FE3",
+      "time_policy_locked": false,
+      "wait_time": 1.6200000000000002e-07,
+      "parameters": [],
+      "time_param_id": "t_14"
+    },
+    {
+      "type": "SNAP",
+      "name": "S3",
+      "duration": 2.0000000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:15:S3",
+      "time_policy_locked": false,
+      "fock_levels": [],
+      "realization": "ideal-only",
+      "parameters": [
+        -0.6405067867679534,
+        -0.023220936132789985,
+        0.5321655240332749,
+        -1.6918075408048248
+      ],
+      "time_param_id": "t_15"
+    },
+    {
+      "type": "Displacement",
+      "name": "D4",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:16:D4",
+      "time_policy_locked": false,
+      "parameters": [
+        -0.10079080968635556,
+        0.2798269625788893
+      ],
+      "time_param_id": "t_16"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R4",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:17:R4",
+      "time_policy_locked": false,
+      "parameters": [
+        2.0093866236415887,
+        1.1346875499324198
+      ],
+      "time_param_id": "t_17"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE4",
+      "duration": 1.9900000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:18:FE4",
+      "time_policy_locked": false,
+      "wait_time": 1.9900000000000002e-07,
+      "parameters": [],
+      "time_param_id": "t_18"
+    },
+    {
+      "type": "SNAP",
+      "name": "S4",
+      "duration": 2.0000000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:19:S4",
+      "time_policy_locked": false,
+      "fock_levels": [],
+      "realization": "ideal-only",
+      "parameters": [
+        -0.5288253268820341,
+        -0.01447236478183532,
+        -0.11640687791196934,
+        0.36475628083724543
+      ],
+      "time_param_id": "t_19"
+    },
+    {
+      "type": "Displacement",
+      "name": "D5",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:20:D5",
+      "time_policy_locked": false,
+      "parameters": [
+        -0.39686277940145714,
+        0.2071562577634692
+      ],
+      "time_param_id": "t_20"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R5",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:21:R5",
+      "time_policy_locked": false,
+      "parameters": [
+        1.496675879948899,
+        1.2794078702506813
+      ],
+      "time_param_id": "t_21"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE5",
+      "duration": 1.85e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:22:FE5",
+      "time_policy_locked": false,
+      "wait_time": 1.85e-07,
+      "parameters": [],
+      "time_param_id": "t_22"
+    },
+    {
+      "type": "SNAP",
+      "name": "S5",
+      "duration": 2.0000000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:23:S5",
+      "time_policy_locked": false,
+      "fock_levels": [],
+      "realization": "ideal-only",
+      "parameters": [
+        0.0377081332625187,
+        -0.33787603223594104,
+        0.5714088753905959,
+        1.5944910026406693
+      ],
+      "time_param_id": "t_23"
+    },
+    {
+      "type": "Displacement",
+      "name": "D6",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:24:D6",
+      "time_policy_locked": false,
+      "parameters": [
+        0.27255107176233173,
+        0.2781527927131991
+      ],
+      "time_param_id": "t_24"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R6",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:25:R6",
+      "time_policy_locked": false,
+      "parameters": [
+        0.9951294223536142,
+        1.7692124142213057
+      ],
+      "time_param_id": "t_25"
+    }
+  ],
+  "phase_rows": [
+    {
+      "gate_name": "FE0",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.33e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        2.373284754227874
+      ],
+      "delta_phi": [
+        0.0,
+        2.373284754227874
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            2.373284754227874
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.33e-07
+    },
+    {
+      "gate_name": "S0",
+      "gate_type": "SNAP",
+      "duration": 2.0000000000000002e-07,
+      "fock_levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "phases_rad": [
+        0.8202001019453418,
+        0.10450604254821391,
+        3.990699900716983,
+        -1.91476652842413
+      ],
+      "relative_phases_rad": [
+        0.0,
+        -0.7156940593971278,
+        3.1704997987716412,
+        -2.7349666303694717
+      ],
+      "realization": "ideal-only"
+    },
+    {
+      "gate_name": "FE1",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.9e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        3.390406791754105
+      ],
+      "delta_phi": [
+        0.0,
+        3.390406791754105
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            3.390406791754105
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.9e-07
+    },
+    {
+      "gate_name": "S1",
+      "gate_type": "SNAP",
+      "duration": 2.0000000000000002e-07,
+      "fock_levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "phases_rad": [
+        0.19187735111033347,
+        -0.5516436970096368,
+        1.0164549926656967,
+        1.2635928634802478
+      ],
+      "relative_phases_rad": [
+        0.0,
+        -0.7435210481199702,
+        0.8245776415553633,
+        1.0717155123699142
+      ],
+      "realization": "ideal-only"
+    },
+    {
+      "gate_name": "FE2",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.58e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        2.8193909110376243
+      ],
+      "delta_phi": [
+        0.0,
+        2.8193909110376243
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            2.8193909110376243
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.58e-07
+    },
+    {
+      "gate_name": "S2",
+      "gate_type": "SNAP",
+      "duration": 2.0000000000000002e-07,
+      "fock_levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "phases_rad": [
+        0.20762645008236982,
+        -0.4076765537347761,
+        0.7842833237158389,
+        1.1679453441154422
+      ],
+      "relative_phases_rad": [
+        0.0,
+        -0.615303003817146,
+        0.5766568736334691,
+        0.9603188940330724
+      ],
+      "realization": "ideal-only"
+    },
+    {
+      "gate_name": "FE3",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.6200000000000002e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        2.8907678961271848
+      ],
+      "delta_phi": [
+        0.0,
+        2.8907678961271848
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            2.8907678961271848
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.6200000000000002e-07
+    },
+    {
+      "gate_name": "S3",
+      "gate_type": "SNAP",
+      "duration": 2.0000000000000002e-07,
+      "fock_levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "phases_rad": [
+        -0.6405067867679534,
+        -0.023220936132789985,
+        0.5321655240332749,
+        -1.6918075408048248
+      ],
+      "relative_phases_rad": [
+        0.0,
+        0.6172858506351634,
+        1.1726723108012282,
+        -1.0513007540368715
+      ],
+      "realization": "ideal-only"
+    },
+    {
+      "gate_name": "FE4",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.9900000000000002e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        3.5510050082056157
+      ],
+      "delta_phi": [
+        0.0,
+        3.5510050082056157
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            3.5510050082056157
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.9900000000000002e-07
+    },
+    {
+      "gate_name": "S4",
+      "gate_type": "SNAP",
+      "duration": 2.0000000000000002e-07,
+      "fock_levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "phases_rad": [
+        -0.5288253268820341,
+        -0.01447236478183532,
+        -0.11640687791196934,
+        0.36475628083724543
+      ],
+      "relative_phases_rad": [
+        0.0,
+        0.5143529621001988,
+        0.41241844897006474,
+        0.8935816077192795
+      ],
+      "realization": "ideal-only"
+    },
+    {
+      "gate_name": "FE5",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.85e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        3.301185560392155
+      ],
+      "delta_phi": [
+        0.0,
+        3.301185560392155
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            3.301185560392155
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.85e-07
+    },
+    {
+      "gate_name": "S5",
+      "gate_type": "SNAP",
+      "duration": 2.0000000000000002e-07,
+      "fock_levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "phases_rad": [
+        0.0377081332625187,
+        -0.33787603223594104,
+        0.5714088753905959,
+        1.5944910026406693
+      ],
+      "relative_phases_rad": [
+        0.0,
+        -0.37558416549845974,
+        0.5337007421280773,
+        1.5567828693781507
+      ],
+      "realization": "ideal-only"
+    }
+  ],
+  "phase_gate_rows": {
+    "free_evolution": [
+      {
+        "gate_name": "FE0",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.33e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          2.373284754227874
+        ],
+        "delta_phi": [
+          0.0,
+          2.373284754227874
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              2.373284754227874
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.33e-07
+      },
+      {
+        "gate_name": "FE1",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.9e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          3.390406791754105
+        ],
+        "delta_phi": [
+          0.0,
+          3.390406791754105
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              3.390406791754105
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.9e-07
+      },
+      {
+        "gate_name": "FE2",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.58e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          2.8193909110376243
+        ],
+        "delta_phi": [
+          0.0,
+          2.8193909110376243
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              2.8193909110376243
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.58e-07
+      },
+      {
+        "gate_name": "FE3",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.6200000000000002e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          2.8907678961271848
+        ],
+        "delta_phi": [
+          0.0,
+          2.8907678961271848
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              2.8907678961271848
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.6200000000000002e-07
+      },
+      {
+        "gate_name": "FE4",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.9900000000000002e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          3.5510050082056157
+        ],
+        "delta_phi": [
+          0.0,
+          3.5510050082056157
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              3.5510050082056157
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.9900000000000002e-07
+      },
+      {
+        "gate_name": "FE5",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.85e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          3.301185560392155
+        ],
+        "delta_phi": [
+          0.0,
+          3.301185560392155
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              3.301185560392155
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.85e-07
+      }
+    ],
+    "snap": [
+      {
+        "gate_name": "S0",
+        "gate_type": "SNAP",
+        "duration": 2.0000000000000002e-07,
+        "fock_levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "phases_rad": [
+          0.8202001019453418,
+          0.10450604254821391,
+          3.990699900716983,
+          -1.91476652842413
+        ],
+        "relative_phases_rad": [
+          0.0,
+          -0.7156940593971278,
+          3.1704997987716412,
+          -2.7349666303694717
+        ],
+        "realization": "ideal-only"
+      },
+      {
+        "gate_name": "S1",
+        "gate_type": "SNAP",
+        "duration": 2.0000000000000002e-07,
+        "fock_levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "phases_rad": [
+          0.19187735111033347,
+          -0.5516436970096368,
+          1.0164549926656967,
+          1.2635928634802478
+        ],
+        "relative_phases_rad": [
+          0.0,
+          -0.7435210481199702,
+          0.8245776415553633,
+          1.0717155123699142
+        ],
+        "realization": "ideal-only"
+      },
+      {
+        "gate_name": "S2",
+        "gate_type": "SNAP",
+        "duration": 2.0000000000000002e-07,
+        "fock_levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "phases_rad": [
+          0.20762645008236982,
+          -0.4076765537347761,
+          0.7842833237158389,
+          1.1679453441154422
+        ],
+        "relative_phases_rad": [
+          0.0,
+          -0.615303003817146,
+          0.5766568736334691,
+          0.9603188940330724
+        ],
+        "realization": "ideal-only"
+      },
+      {
+        "gate_name": "S3",
+        "gate_type": "SNAP",
+        "duration": 2.0000000000000002e-07,
+        "fock_levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "phases_rad": [
+          -0.6405067867679534,
+          -0.023220936132789985,
+          0.5321655240332749,
+          -1.6918075408048248
+        ],
+        "relative_phases_rad": [
+          0.0,
+          0.6172858506351634,
+          1.1726723108012282,
+          -1.0513007540368715
+        ],
+        "realization": "ideal-only"
+      },
+      {
+        "gate_name": "S4",
+        "gate_type": "SNAP",
+        "duration": 2.0000000000000002e-07,
+        "fock_levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "phases_rad": [
+          -0.5288253268820341,
+          -0.01447236478183532,
+          -0.11640687791196934,
+          0.36475628083724543
+        ],
+        "relative_phases_rad": [
+          0.0,
+          0.5143529621001988,
+          0.41241844897006474,
+          0.8935816077192795
+        ],
+        "realization": "ideal-only"
+      },
+      {
+        "gate_name": "S5",
+        "gate_type": "SNAP",
+        "duration": 2.0000000000000002e-07,
+        "fock_levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "phases_rad": [
+          0.0377081332625187,
+          -0.33787603223594104,
+          0.5714088753905959,
+          1.5944910026406693
+        ],
+        "relative_phases_rad": [
+          0.0,
+          -0.37558416549845974,
+          0.5337007421280773,
+          1.5567828693781507
+        ],
+        "realization": "ideal-only"
+      }
+    ]
+  },
+  "elapsed_s": 100.15481259999797
+}

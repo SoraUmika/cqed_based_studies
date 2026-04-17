@@ -1,0 +1,35 @@
+{
+  "thermometer": {
+    "lowest_temperature_with_qubit_excitation_above_1e-4": 0.05,
+    "temperature_where_readout_penalty_drops_below_0p9": 0.15,
+    "temperature_where_spectroscopy_width_exceeds_0p1_MHz": 0.2
+  },
+  "dephasing": {
+    "tolerable_temperature_K": 0.1,
+    "lowest_t2_us": 0.4471393911307599
+  },
+  "multimode": {
+    "safe_fraction": 0.1111111111111111,
+    "most_dangerous_point": {
+      "detuning_MHz": -240.0,
+      "coupling_MHz": 12.0,
+      "qubit_excited_population": 0.16743152214318577
+    }
+  },
+  "transient": {
+    "0.20 K": {
+      "cavity_response_tau_us": 0.14999992281241634,
+      "qubit_response_tau_us": 0.2128749765590848
+    },
+    "0.50 K": {
+      "cavity_response_tau_us": 0.14878258321782153,
+      "qubit_response_tau_us": 0.08891516982301348
+    }
+  },
+  "figure_stems": [
+    "thermometer_calibration_curves",
+    "dephasing_and_coherence_limits",
+    "multimode_heating_maps",
+    "transient_thermal_step_response"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "checks": [
+    {
+      "name": "zero_temperature_limit",
+      "value": {
+        "cavity_occupation": 0.0,
+        "qubit_excited_population": 0.0
+      },
+      "criterion": "n_c < 1e-8 and p_e < 1e-8",
+      "passed": true
+    },
+    {
+      "name": "bose_consistency_0p20K",
+      "value": {
+        "target_nth": 0.2291404989955412,
+        "simulated_nth": 0.22914049899421152,
+        "relative_error": 5.8029303717445794e-12
+      },
+      "criterion": "relative error < 1e-3",
+      "passed": true
+    },
+    {
+      "name": "thermometry_truncation_2K",
+      "value": {
+        "n_cav_30": 5.271676606495536,
+        "n_cav_36": 5.381975037298543,
+        "relative_difference": 0.02049404355066846
+      },
+      "criterion": "relative difference < 0.03",
+      "passed": true
+    },
+    {
+      "name": "dephasing_truncation_0p20K",
+      "value": {
+        "gamma_12": 100756.93634510317,
+        "gamma_14": 100756.97312778553,
+        "relative_difference": 3.6506339186412245e-07
+      },
+      "criterion": "relative difference < 1e-3",
+      "passed": true
+    },
+    {
+      "name": "analytic_dephasing_scaling_low_temperature",
+      "value": {
+        "temperatures_K": [
+          0.05,
+          0.07,
+          0.1
+        ],
+        "max_relative_error": 1.672166910128534
+      },
+      "criterion": "relative error < 3.0",
+      "passed": true
+    },
+    {
+      "name": "multimode_weak_coupling_limit",
+      "value": {
+        "simulated_readout": 0.0012688048719617221,
+        "cold_readout_baseline": 0.0012688048719619862,
+        "relative_difference": 2.0815781453381884e-13
+      },
+      "criterion": "relative difference < 0.1",
+      "passed": true
+    },
+    {
+      "name": "multimode_truncation_representative_point",
+      "value": {
+        "readout_6": 0.3563282947140484,
+        "readout_8": 0.3584023117155294,
+        "readout_relative_difference": 0.005786840468616039,
+        "pe_6": 0.061937099317467846,
+        "pe_8": 0.06089243885542068,
+        "excitation_relative_difference": 0.017155832180207886
+      },
+      "criterion": "both relative differences < 0.03",
+      "passed": true
+    }
+  ],
+  "passed_all": true
+}

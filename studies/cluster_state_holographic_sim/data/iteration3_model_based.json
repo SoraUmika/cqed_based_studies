@@ -1,0 +1,688 @@
+{
+  "B_model_2blk_ncav8": {
+    "label": "B_model_2blk_ncav8",
+    "fidelity": 0.9152791457395162,
+    "objective": 0.09318207084571693,
+    "success": true,
+    "elapsed_s": 1653.719419999994,
+    "n_cav": 8,
+    "sequence": [
+      {
+        "type": "Displacement",
+        "name": "D0",
+        "duration": 2.0000000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:0:D0",
+        "time_policy_locked": false,
+        "parameters": [
+          -0.4809406529109171,
+          -0.5706623534691807
+        ],
+        "time_param_id": "t_0"
+      },
+      {
+        "type": "SQR",
+        "name": "S0",
+        "duration": 4.0000000000000003e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:1:S0",
+        "time_policy_locked": false,
+        "tone_freqs": [],
+        "tones": null,
+        "parameters": [
+          0.9413195707701744,
+          -2.330748012410743,
+          -2.521911898470893,
+          -3.4575139717172565,
+          -2.7119091806265687,
+          -5.688155610634995,
+          2.0224906086731176,
+          -162.1941562248236,
+          2.081475260660434,
+          0.031498619566844334,
+          -1.9959124957790777,
+          1.685735965568765,
+          -0.033586539941637295,
+          -2.902725767874344,
+          -5.4598091099519355,
+          0.8623269731276821
+        ],
+        "time_param_id": "t_1"
+      },
+      {
+        "type": "ConditionalPhaseSQR",
+        "name": "CP0",
+        "duration": 2.0700000000000001e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:2:CP0",
+        "time_policy_locked": false,
+        "parameters": [
+          -1.770449411959129,
+          0.15743082601907415,
+          -0.10834168276998397,
+          -5.999088093207393,
+          -0.13737515858461669,
+          0.9855771235431705,
+          9.649134624092,
+          18.701251970451636
+        ],
+        "time_param_id": "t_2"
+      },
+      {
+        "type": "SQR",
+        "name": "S1",
+        "duration": 4.0000000000000003e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:3:S1",
+        "time_policy_locked": false,
+        "tone_freqs": [],
+        "tones": null,
+        "parameters": [
+          0.3163418377595218,
+          -1.7811744087447383,
+          3.340831314025825,
+          4.637861727495391,
+          5.997360882238529,
+          2.430264776977418,
+          5.0058804408006985,
+          10.752565658314877,
+          -1.4330018564614548,
+          -0.7799043747097751,
+          -0.6916954761624178,
+          -1.2254905699039544,
+          4.384425423411124,
+          -1.3095042934756593,
+          4.783378648594492,
+          17.729376243700962
+        ],
+        "time_param_id": "t_3"
+      },
+      {
+        "type": "Displacement",
+        "name": "D1",
+        "duration": 2.0000000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:4:D1",
+        "time_policy_locked": false,
+        "parameters": [
+          0.8287365511011169,
+          0.39480998212161983
+        ],
+        "time_param_id": "t_4"
+      },
+      {
+        "type": "SQR",
+        "name": "S2",
+        "duration": 4.0000000000000003e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:5:S2",
+        "time_policy_locked": false,
+        "tone_freqs": [],
+        "tones": null,
+        "parameters": [
+          -1.5746772265517708,
+          2.9535310595754938,
+          -0.3906972417389427,
+          2.0563969344835846,
+          0.989611127979519,
+          -3.013926231646522,
+          7.756790841752983,
+          8.3127929954427,
+          0.8427343754489577,
+          1.1995361971078613,
+          -2.7464673268121063,
+          1.5724409059935738,
+          -0.29486965875269827,
+          2.200466946601694,
+          0.7081911485310184,
+          -8.75376720154998
+        ],
+        "time_param_id": "t_5"
+      },
+      {
+        "type": "ConditionalPhaseSQR",
+        "name": "CP1",
+        "duration": 2.2400000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:6:CP1",
+        "time_policy_locked": false,
+        "parameters": [
+          1.9800573439836877,
+          -0.5967358893360131,
+          -2.976380814296175,
+          -3.303224806643602,
+          -6.838804760319844,
+          -2.73828302541243,
+          2.1428077054186767,
+          4.660510203895999
+        ],
+        "time_param_id": "t_6"
+      },
+      {
+        "type": "SQR",
+        "name": "S3",
+        "duration": 4.0000000000000003e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:7:S3",
+        "time_policy_locked": false,
+        "tone_freqs": [],
+        "tones": null,
+        "parameters": [
+          -1.0572159593492976,
+          0.7749704687333921,
+          1.472780367964258,
+          5.434910882923691,
+          5.203758931739099,
+          -1.6482764086179171,
+          -6.491447829344575,
+          16.189784949296055,
+          6.879115647339987,
+          -2.958258143860373,
+          -0.9355391821815662,
+          -1.0013512935117763,
+          -5.041080400552569,
+          -3.6288155740632355,
+          0.11155071330529572,
+          -3.593787139228335
+        ],
+        "time_param_id": "t_7"
+      },
+      {
+        "type": "Displacement",
+        "name": "D2",
+        "duration": 2.0000000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:8:D2",
+        "time_policy_locked": false,
+        "parameters": [
+          0.6840640190738704,
+          0.1530217184070843
+        ],
+        "time_param_id": "t_8"
+      }
+    ],
+    "strategy": "D+SQR+CP (model-based)",
+    "n_blocks": 2
+  },
+  "D_model_2blk_ncav8": {
+    "label": "D_model_2blk_ncav8",
+    "fidelity": 0.552463734950405,
+    "objective": 0.47770357949613296,
+    "success": true,
+    "elapsed_s": 40.953942899999674,
+    "n_cav": 8,
+    "sequence": [
+      {
+        "type": "Displacement",
+        "name": "D0",
+        "duration": 2.0000000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:0:D0",
+        "time_policy_locked": false,
+        "parameters": [
+          1.002491505516754,
+          0.5412439197854509
+        ],
+        "time_param_id": "t_0"
+      },
+      {
+        "type": "QubitRotation",
+        "name": "R0",
+        "duration": 1.0000000000000001e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:1:R0",
+        "time_policy_locked": false,
+        "parameters": [
+          2.175677841461118,
+          -0.06618210531355799
+        ],
+        "time_param_id": "t_1"
+      },
+      {
+        "type": "FreeEvolveCondPhase",
+        "name": "FE0",
+        "duration": 7.200000000000001e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:2:FE0",
+        "time_policy_locked": false,
+        "wait_time": 7.200000000000001e-08,
+        "parameters": [],
+        "time_param_id": "t_2"
+      },
+      {
+        "type": "Displacement",
+        "name": "D1",
+        "duration": 2.0000000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:3:D1",
+        "time_policy_locked": false,
+        "parameters": [
+          -0.11544264550774916,
+          0.16984259656021247
+        ],
+        "time_param_id": "t_3"
+      },
+      {
+        "type": "QubitRotation",
+        "name": "R1",
+        "duration": 1.0000000000000001e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:4:R1",
+        "time_policy_locked": false,
+        "parameters": [
+          1.4917038814503414,
+          0.7428959875196975
+        ],
+        "time_param_id": "t_4"
+      },
+      {
+        "type": "FreeEvolveCondPhase",
+        "name": "FE1",
+        "duration": 2.0500000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:5:FE1",
+        "time_policy_locked": false,
+        "wait_time": 2.0500000000000002e-07,
+        "parameters": [],
+        "time_param_id": "t_5"
+      },
+      {
+        "type": "Displacement",
+        "name": "D2",
+        "duration": 2.0000000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:6:D2",
+        "time_policy_locked": false,
+        "parameters": [
+          0.5790373477982497,
+          -0.3044609502607793
+        ],
+        "time_param_id": "t_6"
+      },
+      {
+        "type": "QubitRotation",
+        "name": "R2",
+        "duration": 1.0000000000000001e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:7:R2",
+        "time_policy_locked": false,
+        "parameters": [
+          2.177043029467769,
+          2.1141116644695845
+        ],
+        "time_param_id": "t_7"
+      }
+    ],
+    "strategy": "D+R+FE (model-based)",
+    "n_blocks": 2
+  },
+  "fe_wait_time_analysis": {
+    "tau_cz_ns": 176.056338028169,
+    "chi_MHz": -2.84,
+    "gates": [
+      {
+        "name": "FE0",
+        "duration_s": 7.200000000000001e-08,
+        "duration_ns": 72.00000000000001,
+        "tau_cz_ratio": 0.4089600000000001
+      },
+      {
+        "name": "FE1",
+        "duration_s": 2.0500000000000002e-07,
+        "duration_ns": 205.00000000000003,
+        "tau_cz_ratio": 1.1644000000000003
+      }
+    ]
+  },
+  "B_model_2blk_ncav12": {
+    "label": "B_model_2blk_ncav12",
+    "fidelity": 0.9154968258889775,
+    "objective": 0.09321494531039876,
+    "success": true,
+    "elapsed_s": 3305.2419241000025,
+    "n_cav": 12,
+    "sequence": [
+      {
+        "type": "Displacement",
+        "name": "D0",
+        "duration": 2.0000000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:0:D0",
+        "time_policy_locked": false,
+        "parameters": [
+          -0.4944144089116956,
+          -0.550657124485429
+        ],
+        "time_param_id": "t_0"
+      },
+      {
+        "type": "SQR",
+        "name": "S0",
+        "duration": 4.0000000000000003e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:1:S0",
+        "time_policy_locked": false,
+        "tone_freqs": [],
+        "tones": null,
+        "parameters": [
+          1.1032909096546604,
+          -3.154941598359329,
+          -2.8142248779409935,
+          -1.3683176245622801,
+          -3.3743541094282974,
+          -3.48753460583751,
+          4.8970292260226564,
+          10.326282563327691,
+          59.8778661344531,
+          82.3346094579895,
+          280.5013484789783,
+          2531.7064209307373,
+          1.6480448550445557,
+          2.163836804771476,
+          -1.81567591827144,
+          2.291691532435701,
+          -3.7173758174677363,
+          -6.309145154633228,
+          -6.2598124373191455,
+          2.323851544224048,
+          21.240027068288487,
+          30.70529957511056,
+          8.696390240288759,
+          542.9627503516399
+        ],
+        "time_param_id": "t_1"
+      },
+      {
+        "type": "ConditionalPhaseSQR",
+        "name": "CP0",
+        "duration": 2.15e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:2:CP0",
+        "time_policy_locked": false,
+        "parameters": [
+          -0.4208772653321188,
+          -0.2728220433411842,
+          -2.3603349130546483,
+          -3.751854789869059,
+          1.7382757024814093,
+          -2.680723592947328,
+          8.318287703358424,
+          -9.835909796168083,
+          -28.710886121638513,
+          1.4563054311472299,
+          128.85802767818362,
+          457.78299051092984
+        ],
+        "time_param_id": "t_2"
+      },
+      {
+        "type": "SQR",
+        "name": "S1",
+        "duration": 4.0000000000000003e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:3:S1",
+        "time_policy_locked": false,
+        "tone_freqs": [],
+        "tones": null,
+        "parameters": [
+          2.690655558246404,
+          -1.3379555250362827,
+          0.8107814015807271,
+          5.36990230327242,
+          -3.1502637799409414,
+          -3.0621292408962066,
+          -5.4227022579446835,
+          8.678803335986617,
+          2.7603611140759376,
+          32.22828524709944,
+          -167.31734713496567,
+          157.70867968650543,
+          2.3006100797831857,
+          0.3076737773916546,
+          -1.8384547203655157,
+          -0.4442828896524011,
+          5.533850535616899,
+          -0.4376407996113111,
+          -5.5620304996238845,
+          -10.179458487314488,
+          -11.285565374466376,
+          9.437703321246675,
+          27.848914899522676,
+          562.5609569017162
+        ],
+        "time_param_id": "t_3"
+      },
+      {
+        "type": "Displacement",
+        "name": "D1",
+        "duration": 2.0000000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:4:D1",
+        "time_policy_locked": false,
+        "parameters": [
+          0.8017538313639737,
+          0.44188234379527974
+        ],
+        "time_param_id": "t_4"
+      },
+      {
+        "type": "SQR",
+        "name": "S2",
+        "duration": 4.0000000000000003e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:5:S2",
+        "time_policy_locked": false,
+        "tone_freqs": [],
+        "tones": null,
+        "parameters": [
+          -0.6338275404670874,
+          0.7801122502733207,
+          -3.64959096249821,
+          1.2231298547819764,
+          1.3508396485627467,
+          -0.8287511476896292,
+          15.457197742598325,
+          14.201664084586616,
+          79.25997924203509,
+          -2.314797716336193,
+          26.21575803365104,
+          1.776148932122719,
+          3.085214101240133,
+          -0.6896000251451361,
+          0.6472500103183614,
+          2.9331215134645117,
+          -0.25961997594007097,
+          3.1081582034543604,
+          10.604324800258007,
+          -15.881914852099095,
+          48.229898257847154,
+          2.0138089429529797,
+          93.42606147886461,
+          46.017281890548226
+        ],
+        "time_param_id": "t_5"
+      },
+      {
+        "type": "ConditionalPhaseSQR",
+        "name": "CP1",
+        "duration": 2.1900000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:6:CP1",
+        "time_policy_locked": false,
+        "parameters": [
+          3.5073005551172556,
+          -1.0111822123913787,
+          0.22857704219721173,
+          -3.1090464725059337,
+          -8.854966244886887,
+          -13.584616023331348,
+          3.531632693464966,
+          4.449048479160956,
+          -60.05821158530363,
+          -11.146501225865457,
+          -66.17645551338308,
+          -53.987893670981045
+        ],
+        "time_param_id": "t_6"
+      },
+      {
+        "type": "SQR",
+        "name": "S3",
+        "duration": 4.0000000000000003e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:7:S3",
+        "time_policy_locked": false,
+        "tone_freqs": [],
+        "tones": null,
+        "parameters": [
+          -2.4898607327292486,
+          -1.2404434453975077,
+          1.5033447536225866,
+          3.9104700931433776,
+          6.58669376444787,
+          5.6512948811526815,
+          -10.67763347601255,
+          16.281655537467213,
+          8.336771053679067,
+          -1.2479218217878998,
+          0.0849819447002165,
+          -9.033494460913033,
+          4.528748915273772,
+          -5.072392213987913,
+          -0.22742972219782154,
+          -1.2380154308519988,
+          -0.8594837791330938,
+          -10.044360986913883,
+          -3.717214195105092,
+          -8.84316330061442,
+          210.97576129538598,
+          -0.5317969587768746,
+          126.49817898178334,
+          -17.195053870427127
+        ],
+        "time_param_id": "t_7"
+      },
+      {
+        "type": "Displacement",
+        "name": "D2",
+        "duration": 2.0000000000000002e-07,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:8:D2",
+        "time_policy_locked": false,
+        "parameters": [
+          0.7029689766318515,
+          0.15713993566308151
+        ],
+        "time_param_id": "t_8"
+      }
+    ]
+  },
+  "hilbert_convergence": {
+    "8": 0.9152791457395162,
+    "12": 0.9154968258889775
+  }
+}

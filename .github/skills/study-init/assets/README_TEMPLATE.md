@@ -23,6 +23,21 @@
 - `UnitarySynthesizer` for gate optimization
 -->
 
+## Analytic Preliminary
+
+<!-- Start from the first-principles model (Hamiltonian, equations of motion, symmetry argument, or conservation law) whenever feasible.
+State the closed-form or limiting-case reasoning attempted before numerics.
+List every controlled approximation introduced to simplify the problem and why it is valid.
+If no useful analytic answer exists, explain why the problem must be numerical. -->
+
+## cqed_sim Gap Analysis
+
+<!-- Table template:
+| Functionality | Needed? | Available in cqed_sim? | Plan |
+|---|---|---|---|
+| Example feature | Yes | Partial | Use cqed_sim + local helper |
+-->
+
 ## Assumptions
 
 <!-- Physical assumptions, parameter ranges, convergence criteria. Example:
@@ -32,11 +47,33 @@
 - Convergence: fidelity stable to 1e-4 when doubling N_storage
 -->
 
+## Compute & Resource Strategy
+
+<!-- Upfront cost estimate and acceleration plan. Example:
+- Single-point simulation: ~10 s
+- Parameter sweep: ~20 min over 16 parallel workers
+- Long-run bottleneck: GRAPE at 4 pulse durations
+- Planned acceleration: joblib.Parallel, JAX backend unavailable
+-->
+
 ## Expected Outcomes
 
 <!-- What success looks like — quantitative where possible. Example:
 - Fidelity ≥ 99.5% for target unitary
 - Chi shift matches analytic prediction within 1%
+-->
+
+## Known Limitations
+
+<!-- Updated throughout the study. What approximations are being made?
+What is constrained by compute time or framework capability? -->
+
+## Validation
+
+<!-- Keep this current as the study progresses:
+- [ ] Sanity checks
+- [ ] Convergence
+- [ ] Literature comparison (if applicable)
 -->
 
 ## Status

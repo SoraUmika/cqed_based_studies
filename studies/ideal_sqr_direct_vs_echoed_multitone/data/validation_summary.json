@@ -1,0 +1,43 @@
+{
+  "construction_set_ok": true,
+  "convergence_pass": true,
+  "convergence_rows": [
+    {
+      "baseline_fidelity": 0.7245389644102515,
+      "case_id": "chi_only_smooth_x_na2_chiT5p0",
+      "construction": "direct_multitone",
+      "delta_dt2": 0.00028812941154465754,
+      "delta_padding3": -2.3310612828897348e-07,
+      "dt2_fidelity": 0.7248270938217961,
+      "label": "best_direct",
+      "padding3_fidelity": 0.7245387313041232
+    },
+    {
+      "baseline_fidelity": 0.3113412141382031,
+      "case_id": "chi_plus_chiprime_staggered_x_na2_chiT3p0",
+      "construction": "echoed_asymmetric",
+      "delta_dt2": -0.00043889649339040604,
+      "delta_padding3": -1.2610259841894234e-07,
+      "dt2_fidelity": 0.3109023176448127,
+      "label": "best_echo",
+      "padding3_fidelity": 0.3113410880356047
+    }
+  ],
+  "expected_rows": 64,
+  "literature_comparison": "not_applicable_for_this_followup",
+  "n_rows": 64,
+  "row_count_ok": true,
+  "sanity_case": {
+    "delta": -0.00012847655345638032,
+    "direct_fidelity": 0.8626051995691185,
+    "pass": true,
+    "request": {
+      "chi_t_over_2pi": 5.0,
+      "include_chi_prime": false,
+      "model_variant": "chi_only",
+      "n_active": 1,
+      "target_family": "smooth_x"
+    },
+    "symmetric_echo_fidelity": 0.8624767230156621
+  }
+}

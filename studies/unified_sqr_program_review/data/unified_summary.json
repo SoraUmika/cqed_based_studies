@@ -1,0 +1,219 @@
+{
+  "review_title": "Unified SQR Program Review",
+  "date": "2026-03-28",
+  "python_version": "3.12.10",
+  "cqed_sim_version": "0.1.0",
+  "studies_reviewed": [
+    "corrected_sqr_conditioned_rotation_metric",
+    "parameterized_waveform_residual_z_cancellation",
+    "ideal_sqr_direct_vs_echoed_multitone",
+    "native_multitone_sqr_fixed_multiinput_validation",
+    "multitone_sqr_arbitrary_fock_conditional_rotations",
+    "strong_validation_arbitrary_fock_conditional_rotations",
+    "native_rich_multitone_sqr_cpsqr_feasibility",
+    "the_definitive_ideal_sqr_gate_study",
+    "cluster_state_holographic_unified"
+  ],
+  "reruns_performed": [
+    {
+      "study": "native_multitone_sqr_fixed_multiinput_validation",
+      "script": "scripts/run_study.py",
+      "date": "2026-03-28",
+      "outcome": "reproduced_exactly",
+      "wall_clock_s": null
+    },
+    {
+      "study": "the_definitive_ideal_sqr_gate_study",
+      "script": "scripts/run_full_study.py --full",
+      "date": "2026-03-28",
+      "outcome": "reproduced_exactly",
+      "wall_clock_s": 36.98
+    }
+  ],
+  "physical_parameters": {
+    "omega_q_GHz": 6.15,
+    "omega_c_GHz": 5.241,
+    "alpha_MHz": -255.0,
+    "chi_MHz": -2.84,
+    "chi_prime_kHz": -21.0,
+    "kerr": 0.0,
+    "n_tr": 2
+  },
+  "sqr_program_results": {
+    "best_strict_sqr": {
+      "family": "reduced_unitary_direct",
+      "model": "chi_only",
+      "n_active": 2,
+      "chi_t_over_2pi": 6.0,
+      "strict_joint_process_fidelity": 0.999,
+      "cpsqr_joint_process_fidelity": 0.9997,
+      "source_study": "native_rich_multitone_sqr_cpsqr_feasibility"
+    },
+    "best_cpsqr": {
+      "family": "echoed_independent",
+      "model": "chi_plus_chiprime",
+      "n_active": 2,
+      "chi_t_over_2pi": 5.0,
+      "strict_joint_process_fidelity": 0.8677,
+      "cpsqr_joint_process_fidelity": 1.0,
+      "source_study": "native_rich_multitone_sqr_cpsqr_feasibility"
+    },
+    "strict_scaling_by_n_active": [
+      {
+        "n_active": 2,
+        "best_strict": 0.999,
+        "mean_strict": 0.721,
+        "best_cpsqr": 1.0
+      },
+      {
+        "n_active": 3,
+        "best_strict": 0.9975,
+        "mean_strict": 0.675,
+        "best_cpsqr": 1.0
+      },
+      {
+        "n_active": 4,
+        "best_strict": 0.9948,
+        "mean_strict": 0.646,
+        "best_cpsqr": 1.0
+      }
+    ],
+    "min_chi_t_for_strict_0p99": {
+      "n_active": 2,
+      "family": "native_direct_strict",
+      "model": "chi_only",
+      "chi_t_over_2pi": 3.0
+    },
+    "xpi_quality_by_level": [
+      {
+        "level": 0,
+        "process_fidelity_baseline": 0.9993,
+        "process_fidelity_robust": 0.9996
+      },
+      {
+        "level": 1,
+        "process_fidelity_baseline": 0.9716,
+        "process_fidelity_robust": 0.9808
+      },
+      {
+        "level": 2,
+        "process_fidelity_baseline": 0.8926,
+        "process_fidelity_robust": 0.9325
+      },
+      {
+        "level": 3,
+        "process_fidelity_baseline": 0.7734,
+        "process_fidelity_robust": 0.8788
+      },
+      {
+        "level": 4,
+        "process_fidelity_baseline": 0.6298,
+        "process_fidelity_robust": 0.7875
+      }
+    ],
+    "multiinput_validation": [
+      {
+        "source": "Study 2 (baseline multitone)",
+        "f_joint": 0.0084,
+        "quartet_mean": 0.443,
+        "assessment": "fail"
+      },
+      {
+        "source": "Study 5 (arbitrary direct)",
+        "f_joint": 0.601,
+        "quartet_mean": 0.734,
+        "assessment": "partial"
+      },
+      {
+        "source": "Study 3 (ideal SQR direct)",
+        "f_joint": 0.824,
+        "quartet_mean": 0.875,
+        "assessment": "partial"
+      },
+      {
+        "source": "Study 1 (corrected unitary-opt)",
+        "f_joint": 0.9986,
+        "quartet_mean": 1.0,
+        "assessment": "pass"
+      }
+    ]
+  },
+  "cluster_state_results": {
+    "objective": "restricted_ground_sector_transfer",
+    "target_description": "U_joint(|g>x|psi>) approx |g>xH_c|psi> on {|g,0>, |g,1>}",
+    "best_absolute": {
+      "family": "D+R+CPSQR",
+      "blocks": 4,
+      "ordering": "RDCP",
+      "n_active": 4,
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n12_ground_fidelity": 0.9999,
+      "physically_plausible": true
+    },
+    "min_depth_above_0p99": {
+      "sqr": {
+        "blocks": 3,
+        "ordering": "RDS",
+        "n12_ground_fidelity": 0.9997
+      },
+      "cpsqr": {
+        "blocks": 3,
+        "ordering": "DRCP",
+        "n12_ground_fidelity": 0.9979
+      }
+    },
+    "two_block_frontier": {
+      "sqr": 0.9876,
+      "cpsqr": 0.9887,
+      "note": "Below 0.99; fresh search may resolve"
+    },
+    "grape_reference": {
+      "duration_ns": 800,
+      "n_cav": 12,
+      "replay_fidelity": 0.976,
+      "open_system_process_fidelity": 0.919,
+      "note": "Full-target GRAPE only; no ground-sector GRAPE comparison yet"
+    }
+  },
+  "critical_weaknesses": [
+    "Metric inconsistency between Studies 2-5 (restricted) and Studies 7-8 (joint); cqed_sim phase convention patch changed values",
+    "Study 2 baseline multitone: restricted process fidelity = 0.008 but reported as a valid pilot result",
+    "Study 3 best case has optimizer_success=False (convergence failure)",
+    "No GRAPE or unconstrained upper bound for strict SQR at n_active>=3",
+    "No open-system validation for cluster-state ground-sector winners",
+    "No parameter-drift robustness analysis for any SQR solution",
+    "Study 6 basis-expanded zero gain not investigated"
+  ],
+  "definitive_study_rebuild": {
+    "date": "2026-03-28",
+    "wall_clock_s": 36.98,
+    "sanity_checks_pass": true,
+    "checks": [
+      {
+        "name": "baseline_best_direct_matches_expected",
+        "value": 0.6557,
+        "pass": true
+      },
+      {
+        "name": "native_rich_strict_gt_0p99",
+        "value": 0.999,
+        "pass": true
+      },
+      {
+        "name": "native_rich_cpsqr_gt_0p999",
+        "value": 1.0,
+        "pass": true
+      },
+      {
+        "name": "all_4_source_studies_loaded",
+        "rows": 922,
+        "pass": true
+      }
+    ]
+  }
+}

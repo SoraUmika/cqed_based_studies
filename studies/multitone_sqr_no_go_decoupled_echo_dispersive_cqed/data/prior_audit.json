@@ -1,0 +1,28 @@
+{
+  "date_created": "2026-04-06T07:23:06Z",
+  "description": "Repository-scope audit for the strict no-detuning multitone-SQR study.",
+  "load_instructions": "Load `prior_audit.json` as JSON and inspect the documented result rows and metadata.",
+  "strict_scope_mismatches": [
+    {
+      "evidence": "scripts/run_study.py uses parameters=(\"d_lambda\", \"d_alpha\", \"d_omega\").",
+      "issue": "The main optimizer allowed d_omega, so it does not answer the no-artificial-detuning question directly.",
+      "study": "studies/ideal_sqr_direct_vs_echoed_multitone"
+    },
+    {
+      "evidence": "scripts/run_study.py and scripts/run_echo_comparison.py both use parameters=(\"d_lambda\", \"d_alpha\", \"d_omega\").",
+      "issue": "Both the direct and echoed follow-up optimizers allowed d_omega.",
+      "study": "studies/multitone_sqr_arbitrary_fock_conditional_rotations"
+    },
+    {
+      "evidence": "README and scripts/run_study.py describe echoed/complex/basis-expanded families with d_omega optimization.",
+      "issue": "The study explored richer waveform families outside the strict simultaneous shared-line amplitude-plus-azimuth ansatz and also allowed d_omega.",
+      "study": "studies/parameterized_waveform_residual_z_cancellation"
+    },
+    {
+      "evidence": "Execution summary cites native-rich extensions and CPSQR echoed cases rather than the strict simultaneous ansatz studied here.",
+      "issue": "Repository-level positive strict-SQR claims refer to broader native-rich or echoed constructions rather than the strict no-detuning shared-line multitone model.",
+      "study": "task_runs/the_definitive_ideal_sqr_gate_study"
+    }
+  ],
+  "study_name": "multitone_sqr_no_go_decoupled_echo_dispersive_cqed"
+}

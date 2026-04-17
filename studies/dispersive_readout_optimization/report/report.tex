@@ -1,29 +1,20 @@
-\documentclass[11pt, a4paper]{article}
+\documentclass[aps,pra,twocolumn,reprint,amsmath,amssymb]{revtex4-2}
 
-% ── Packages ──────────────────────────────────────────────
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb, amsfonts}
 \usepackage{graphicx}
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
-\usepackage[numbers, sort&compress]{natbib}
 \usepackage{booktabs}
 \usepackage{siunitx}
-\usepackage{caption}
-\usepackage{float}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
 \usepackage{xcolor}
 \graphicspath{{../figures/}}
 
-% ── Metadata ──────────────────────────────────────────────
-\title{\textbf{Dispersive Readout Pulse Optimization in Circuit QED:\\
-From Linear Theory to Hardware-Realistic QND Limits and Leakage Mapping}}
-\author{cQED Autonomous Research Platform \\ Shyam Shankar Quantum Circuits Group}
-\date{\today}
-
 \begin{document}
 
-\maketitle
+\title{Dispersive Readout Pulse Optimization in Circuit QED:
+From Linear Theory to Hardware-Realistic QND Limits and Leakage Mapping}
+\author{cQED Autonomous Research Platform}
+\affiliation{Shyam Shankar Quantum Circuits Group}
+\date{\today}
 
 % ══════════════════════════════════════════════════════════
 % 1. ABSTRACT
@@ -33,6 +24,8 @@ We present a unified study of dispersive readout pulse optimization in circuit q
 
 The main results span four model levels: (1)~In the linear dispersive model, the midpoint-driven square pulse is optimal under peak-amplitude constraints, and GRAPE does not improve upon it. (2)~In the multilevel \texttt{cqed\_sim} replay, structured procedural pulses recover most of the information-theoretic bound while dramatically reducing residual photons: the best free procedural family reaches $F_\eta=0.956$ at \SI{240}{ns} compared with $0.871$ for a square pulse. (3)~Under hardware-realistic waveform transport and phenomenological strong-drive QND penalties, the ring-up/hold/ring-down family emerges as the best practical default, with $F_\eta=0.9599$ at \SI{240}{ns} and superior QND preservation. (4)~At high readout power, visible leakage appears above $\varepsilon/(2\pi)\approx\SI{5.5}{MHz}$ for \SI{240}{ns} pulses, with QND breakdown dominating over high-manifold ionization. The combined analysis provides actionable recommendations for experiment-facing readout pulse design.
 \end{abstract}
+
+\maketitle
 
 % ══════════════════════════════════════════════════════════
 % 2. INTRODUCTION
@@ -87,7 +80,7 @@ The Level~2 model is extended to 5~transmon levels and 18~cavity Fock states, wi
 
 \subsection{Simulation Parameters}
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Nominal system parameters shared across all model levels.}
 \begin{tabular}{@{} l S[table-format=+3.3] l @{}}
@@ -111,9 +104,9 @@ Critical photon number $n_\mathrm{crit}$ & 20.3 & photons \\
 \bottomrule
 \end{tabular}
 \label{tab:params}
-\end{table}
+\end{table*}
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Model-level-specific parameters.}
 \begin{tabular}{@{} l l l l l @{}}
@@ -132,7 +125,7 @@ $ef$ mixing scale & --- & --- & 0.05 & 0.05 \\
 \bottomrule
 \end{tabular}
 \label{tab:model_levels}
-\end{table}
+\end{table*}
 
 \subsection{Pulse Families}
 
@@ -195,7 +188,7 @@ The high-dimensional piecewise linear reference reaches near-perfect detector-li
 \paragraph{Structured families vs.\ square baseline.}
 At the representative \SI{240}{ns} duration, structured procedural families dramatically outperform the square baseline:
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Representative \SI{240}{ns} comparison in the multilevel model.}
 \begin{tabular}{@{} l c c c c @{}}
@@ -211,7 +204,7 @@ Piecewise reference (linear) & 0.985 & 5.572 & 0.979 \\
 \bottomrule
 \end{tabular}
 \label{tab:level1_comparison}
-\end{table}
+\end{table*}
 
 \paragraph{Analytic nulling.}
 In the linear model, two free complex tail segments are sufficient to impose $\alpha_g(T)=\alpha_e(T)=0$ exactly, provided their durations are fixed and amplitudes satisfy the hardware cap. In realistic replay the nulling is approximate but effective: at \SI{336}{ns} the nulled family reaches $F_\eta=0.990$ with only $4.5\times 10^{-2}$ residual photons. At \SI{496}{ns}, $F_\eta=0.9995$ with $3.6\times 10^{-3}$ residual photons. Active emptying thus costs modest additional time.
@@ -222,7 +215,7 @@ In the linear model, two free complex tail segments are sufficient to impose $\a
 \paragraph{Family reordering under the rich model.}
 Once hardware transport and nonlinear QND penalties are included, the ring-hold family leads the frontier at all tested durations (\SIlist{96;240;496}{ns}). This is the central result: low-dimensional procedural structure survives, but the family with the most freedom is no longer the best default.
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Representative \SI{240}{ns} hardware-realistic (rich model) comparison.}
 \small
@@ -240,7 +233,7 @@ Piecewise ref.\ (bal.) & 0.9092 & 0.416 & 0.9933 & $4.09\times 10^{-5}$ & 3.098 
 \end{tabular}
 \normalsize
 \label{tab:level2_comparison}
-\end{table}
+\end{table*}
 
 \paragraph{Transport vs.\ QND decomposition.}
 For the procedural-segments design at \SI{240}{ns}: hardware transport alone lowers fidelity from $0.9628$ to $0.9552$ with no extra disturbance. The nonlinear layer alone leaves fidelity at $0.9625$ but reduces QND preservation from $0.9933$ to $0.9898$ through $p_\mathrm{ind}=3.51\times 10^{-3}$. The full rich model combines both effects ($F_\eta=0.9547$, $Q_\mathrm{QND}=0.9886$). This decomposition explains the ranking change: hardware transport punishes sharp envelopes, while the nonlinear channel punishes high-occupancy excursions. Ring-hold is smooth enough to survive the first and conservative enough to avoid the second.
@@ -250,12 +243,12 @@ At $1.3\times$ nominal amplitude, procedural segments fall to $Q_\mathrm{QND}=0.
 
 Figure~\ref{fig:family_tradeoffs} summarizes the most experimentally relevant comparison at \SI{240}{ns}. Level~1 shows what is possible once multilevel physics and cavity emptying are included, while Level~2 shows what survives once waveform transport and strong-drive disturbance are added. The visual message is the same as the tabulated one: the frontier moves toward smoother, more structured families as the model becomes closer to the lab.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=\textwidth]{readout_family_tradeoffs.pdf}
 \caption{Experiment-facing frontier at the representative \SI{240}{ns} operating point. Left: multilevel replay. Right: hardware-realistic replay with QND penalties. In both panels, moving toward the upper-left corresponds to better assignment fidelity with fewer residual photons, and larger markers indicate better repeated-readout preservation. The ring-hold family is the best practical frontier point once hardware transport and QND penalties are included.}
 \label{fig:family_tradeoffs}
-\end{figure}
+\end{figure*}
 
 \subsection{Level 3: Leakage and Ionization Mapping}
 \label{sec:leakage}
@@ -274,12 +267,12 @@ At fixed detector-limited fidelity target, smoother envelopes (Gaussian) leave o
 
 Figure~\ref{fig:readout_window} translates the high-power study into experimental operating guidance. The leakage threshold shifts downward as pulse duration increases, over-driving penalizes flexible procedural pulses more strongly than smooth Fourier-like ones, and smoother envelopes mainly buy faster cavity emptying once the information-extraction proxy is already saturated.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=\textwidth]{readout_operating_window.pdf}
 \caption{High-power operating guidance for readout design. Left: approximate amplitude at which $P_\mathrm{leak}\approx 10^{-4}$ versus pulse duration. Middle: repeated-readout preservation under a $1.3\times$ over-drive stress test. Right: residual photons at matched detector-limited fidelity. The experimentally relevant message is that the safe operating window shrinks with pulse duration, and smoother families help most when cavity emptying or QND margin is the bottleneck.}
 \label{fig:readout_window}
-\end{figure}
+\end{figure*}
 
 % ══════════════════════════════════════════════════════════
 % 5. VALIDATION
@@ -316,7 +309,7 @@ Two caveats apply. First, the strong-drive disturbance model is phenomenological
 
 The following experiment-facing recommendations emerge from the unified analysis:
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Recommended readout pulse by operating regime.}
 \begin{tabular}{@{} l l l @{}}
@@ -329,7 +322,7 @@ Emptying-critical & Nulled tail & Best residual photons at \SI{240}{ns}+ \\
 High-power exploration & Fourier basis & Lowest QND stress sensitivity \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 The ring-up/hold/ring-down pulse is the recommended practical default for dispersive readout in this device model. It achieves the best balanced performance under the most realistic model tested ($F_\eta=0.9599$, $Q_\mathrm{QND}=0.9921$ at \SI{240}{ns}), survives hardware transport distortion, and remains competitive under perturbation sweeps. Free procedural segments should be reserved for cases where the user can tolerate tighter QND margins and re-optimize against the actual hardware stack.
 
@@ -377,7 +370,7 @@ An experimentalist reading this report should therefore make three concrete deci
 % ══════════════════════════════════════════════════════════
 % 9. REFERENCES
 % ══════════════════════════════════════════════════════════
-\bibliographystyle{unsrtnat}
+\bibliographystyle{apsrev4-2}
 \bibliography{references}
 
 \end{document}

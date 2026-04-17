@@ -1,0 +1,39 @@
+{
+  "case": {
+    "family_key": "drsqr",
+    "family_label": "D + R + SQR",
+    "variant_key": "blk5_a3_ordRDS",
+    "variant_label": "5 blocks / RDS / n_active=3",
+    "builder_name": "ordered_sqr",
+    "builder_kwargs": {
+      "blocks": 5,
+      "order": [
+        "R",
+        "D",
+        "SQR"
+      ]
+    },
+    "order_tokens": [
+      "R",
+      "D",
+      "SQR"
+    ],
+    "order_label": "RDS",
+    "levels": [
+      0,
+      1,
+      3
+    ],
+    "max_tones": 3,
+    "blocks": 5
+  },
+  "n_cav": 12,
+  "search_phase": "level_neighbor",
+  "seed": 17,
+  "init_guess": "heuristic",
+  "maxiter": 24,
+  "multistart": 1,
+  "record_updates": {
+    "neighborhood_tag": "level_neighbor"
+  }
+}

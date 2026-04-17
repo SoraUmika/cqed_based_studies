@@ -1,0 +1,2713 @@
+{
+  "case_id": "drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4",
+  "family_key": "drsqr",
+  "family_label": "D + R + SQR",
+  "variant_key": "blk5_a4_ordRDS",
+  "variant_label": "5 blocks / RDS / n_active=4",
+  "builder_name": "ordered_sqr",
+  "builder_kwargs": {
+    "blocks": 5,
+    "order": [
+      "R",
+      "D",
+      "SQR"
+    ]
+  },
+  "order_tokens": [
+    "R",
+    "D",
+    "SQR"
+  ],
+  "order_label": "RDS",
+  "levels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "max_tones": 4,
+  "blocks": 5,
+  "search_phase": "exact",
+  "optimization_n_cav": 12,
+  "seed": 73,
+  "init_guess": "heuristic",
+  "maxiter": 24,
+  "multistart": 1,
+  "fidelity": 0.9983891022508333,
+  "objective": 0.001854003791161274,
+  "success": false,
+  "message": "",
+  "summary": {
+    "rows": [
+      {
+        "name": "R0",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D0",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "S0",
+        "kind": "MaskedSQR",
+        "duration_ns": 1100.0,
+        "active_tones": 4,
+        "metadata": {
+          "ideal_kind": "MaskedSQR",
+          "levels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "max_tones": 4,
+          "include_conditional_phase": false
+        }
+      },
+      {
+        "name": "R1",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D1",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "S1",
+        "kind": "MaskedSQR",
+        "duration_ns": 1100.0,
+        "active_tones": 4,
+        "metadata": {
+          "ideal_kind": "MaskedSQR",
+          "levels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "max_tones": 4,
+          "include_conditional_phase": false
+        }
+      },
+      {
+        "name": "R2",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D2",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "S2",
+        "kind": "MaskedSQR",
+        "duration_ns": 1100.0,
+        "active_tones": 4,
+        "metadata": {
+          "ideal_kind": "MaskedSQR",
+          "levels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "max_tones": 4,
+          "include_conditional_phase": false
+        }
+      },
+      {
+        "name": "R3",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D3",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "S3",
+        "kind": "MaskedSQR",
+        "duration_ns": 1100.0,
+        "active_tones": 4,
+        "metadata": {
+          "ideal_kind": "MaskedSQR",
+          "levels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "max_tones": 4,
+          "include_conditional_phase": false
+        }
+      },
+      {
+        "name": "R4",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D4",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "S4",
+        "kind": "MaskedSQR",
+        "duration_ns": 1100.0,
+        "active_tones": 4,
+        "metadata": {
+          "ideal_kind": "MaskedSQR",
+          "levels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "max_tones": 4,
+          "include_conditional_phase": false
+        }
+      },
+      {
+        "name": "D5",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      }
+    ],
+    "counts": {
+      "QubitRotation": 5,
+      "Displacement": 6,
+      "MaskedSQR": 5
+    },
+    "gate_depth": 16,
+    "total_duration_ns": 6180.0,
+    "selective_block_count": 5,
+    "entangling_block_count": 0,
+    "total_active_tones": 20,
+    "max_active_tones": 4
+  },
+  "metrics": {
+    "fidelity": 0.9983891022508333,
+    "leakage_average": 0.003129882732198469,
+    "leakage_worst": 0.004862120839892015,
+    "leakage_selected": 0.004862120839892015,
+    "checkpoint_leakage_average": 0.0,
+    "checkpoint_leakage_worst": 0.0,
+    "state_error_mean": NaN,
+    "state_error_max": NaN,
+    "state_fidelity_mean": NaN,
+    "state_fidelity_min": NaN,
+    "reduced_state_fidelity_mean": NaN,
+    "reduced_state_fidelity_min": NaN,
+    "observable_error_mean": NaN,
+    "observable_error_max": NaN,
+    "weighted_observable_error": NaN,
+    "trajectory_task_loss": NaN,
+    "trajectory_state_error_mean": NaN,
+    "trajectory_observable_error_mean": NaN,
+    "channel_overlap": NaN,
+    "channel_choi_error": NaN,
+    "channel_superoperator_error": NaN,
+    "trace_preservation_error_mean": NaN,
+    "trace_preservation_error_max": NaN,
+    "trace_loss_mean": NaN,
+    "trace_loss_worst": NaN,
+    "choi_hermiticity_error": NaN,
+    "choi_min_eig": NaN,
+    "complete_positivity_violation": NaN,
+    "duration_metric": 0.9999999999999999,
+    "gate_count_metric": 11.785012735501333,
+    "pulse_power_metric": 0.10418830784087482,
+    "amplitude_smoothness_metric": 0.834535599109656,
+    "robustness_objective": 0.0016108977491666732
+  },
+  "sequence": [
+    {
+      "type": "QubitRotation",
+      "name": "R0",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:0:R0",
+      "time_policy_locked": false,
+      "parameters": [
+        2.179205502911409,
+        -0.025663504475385037
+      ],
+      "time_param_id": "t_0"
+    },
+    {
+      "type": "Displacement",
+      "name": "D0",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:1:D0",
+      "time_policy_locked": false,
+      "parameters": [
+        -0.4182882508094211,
+        0.3661696663222098
+      ],
+      "time_param_id": "t_1"
+    },
+    {
+      "type": "PrimitiveGate",
+      "name": "S0",
+      "duration": 1.1e-06,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:2:S0",
+      "time_policy_locked": false,
+      "mode": "matrix",
+      "hilbert_dim": 24,
+      "metadata": {
+        "ideal_kind": "MaskedSQR",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "max_tones": 4,
+        "include_conditional_phase": false
+      },
+      "parameters": [
+        -1.5381122134665395,
+        -0.7895734065207173,
+        0.5028330025813466,
+        -0.34636409335359974,
+        -1.145200552094711,
+        0.15779672663946145,
+        -3.3737045398568934,
+        -0.5864005737251966
+      ],
+      "time_param_id": "t_2"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R1",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:3:R1",
+      "time_policy_locked": false,
+      "parameters": [
+        1.4927356217324832,
+        1.8960445630021727
+      ],
+      "time_param_id": "t_3"
+    },
+    {
+      "type": "Displacement",
+      "name": "D1",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:4:D1",
+      "time_policy_locked": false,
+      "parameters": [
+        0.16021536701319516,
+        -0.3863329866118092
+      ],
+      "time_param_id": "t_4"
+    },
+    {
+      "type": "PrimitiveGate",
+      "name": "S1",
+      "duration": 1.1e-06,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:5:S1",
+      "time_policy_locked": false,
+      "mode": "matrix",
+      "hilbert_dim": 24,
+      "metadata": {
+        "ideal_kind": "MaskedSQR",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "max_tones": 4,
+        "include_conditional_phase": false
+      },
+      "parameters": [
+        2.3996999586141974,
+        -2.798367598708543,
+        -2.9690389326842417,
+        -2.9167261706566037,
+        -0.372004745263096,
+        -0.07422684958514233,
+        -0.20610991585704058,
+        -0.3730144507270722
+      ],
+      "time_param_id": "t_5"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R2",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:6:R2",
+      "time_policy_locked": false,
+      "parameters": [
+        1.76682042583862,
+        0.24059613249057388
+      ],
+      "time_param_id": "t_6"
+    },
+    {
+      "type": "Displacement",
+      "name": "D2",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:7:D2",
+      "time_policy_locked": false,
+      "parameters": [
+        0.4105125359354638,
+        0.23490051299324052
+      ],
+      "time_param_id": "t_7"
+    },
+    {
+      "type": "PrimitiveGate",
+      "name": "S2",
+      "duration": 1.1e-06,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:8:S2",
+      "time_policy_locked": false,
+      "mode": "matrix",
+      "hilbert_dim": 24,
+      "metadata": {
+        "ideal_kind": "MaskedSQR",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "max_tones": 4,
+        "include_conditional_phase": false
+      },
+      "parameters": [
+        -0.4109704993887998,
+        1.24183947003463,
+        -4.750924011434877,
+        14.819550636876933,
+        0.6386350200536798,
+        0.938616564521736,
+        0.76699297892336,
+        0.9053864349758034
+      ],
+      "time_param_id": "t_8"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R3",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:9:R3",
+      "time_policy_locked": false,
+      "parameters": [
+        1.4151499199909554,
+        1.5729950922576537
+      ],
+      "time_param_id": "t_9"
+    },
+    {
+      "type": "Displacement",
+      "name": "D3",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:10:D3",
+      "time_policy_locked": false,
+      "parameters": [
+        0.01349262820752285,
+        0.4183805637397035
+      ],
+      "time_param_id": "t_10"
+    },
+    {
+      "type": "PrimitiveGate",
+      "name": "S3",
+      "duration": 1.1e-06,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:11:S3",
+      "time_policy_locked": false,
+      "mode": "matrix",
+      "hilbert_dim": 24,
+      "metadata": {
+        "ideal_kind": "MaskedSQR",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "max_tones": 4,
+        "include_conditional_phase": false
+      },
+      "parameters": [
+        1.8929126988508935,
+        -1.6604249413518972,
+        2.3602650065672477,
+        -2.341743415284766,
+        0.32963796899771736,
+        0.7491273569444651,
+        -2.7251145175728726,
+        0.08903218943426984
+      ],
+      "time_param_id": "t_11"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R4",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:12:R4",
+      "time_policy_locked": false,
+      "parameters": [
+        1.2860910142920992,
+        0.14524395876222373
+      ],
+      "time_param_id": "t_12"
+    },
+    {
+      "type": "Displacement",
+      "name": "D4",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:13:D4",
+      "time_policy_locked": false,
+      "parameters": [
+        0.3752951367588616,
+        -0.28182566422549377
+      ],
+      "time_param_id": "t_13"
+    },
+    {
+      "type": "PrimitiveGate",
+      "name": "S4",
+      "duration": 1.1e-06,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:14:S4",
+      "time_policy_locked": false,
+      "mode": "matrix",
+      "hilbert_dim": 24,
+      "metadata": {
+        "ideal_kind": "MaskedSQR",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "max_tones": 4,
+        "include_conditional_phase": false
+      },
+      "parameters": [
+        0.8400342858936676,
+        -0.8441023769951876,
+        20.328500798847568,
+        -1.928417739982225,
+        -2.535943564236875,
+        -1.580719734154109,
+        2.022924966139155,
+        -0.9804635386440771
+      ],
+      "time_param_id": "t_14"
+    },
+    {
+      "type": "Displacement",
+      "name": "D5",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:15:D5",
+      "time_policy_locked": false,
+      "parameters": [
+        0.24399636302759,
+        -0.08991556927310496
+      ],
+      "time_param_id": "t_15"
+    }
+  ],
+  "parameter_vector": [
+    2.179205502911409,
+    -0.025663504475385037,
+    -0.4182882508094211,
+    0.3661696663222098,
+    -1.5381122134665395,
+    -0.7895734065207173,
+    0.5028330025813466,
+    -0.34636409335359974,
+    -1.145200552094711,
+    0.15779672663946145,
+    -3.3737045398568934,
+    -0.5864005737251966,
+    1.4927356217324832,
+    1.8960445630021727,
+    0.16021536701319516,
+    -0.3863329866118092,
+    2.3996999586141974,
+    -2.798367598708543,
+    -2.9690389326842417,
+    -2.9167261706566037,
+    -0.372004745263096,
+    -0.07422684958514233,
+    -0.20610991585704058,
+    -0.3730144507270722,
+    1.76682042583862,
+    0.24059613249057388,
+    0.4105125359354638,
+    0.23490051299324052,
+    -0.4109704993887998,
+    1.24183947003463,
+    -4.750924011434877,
+    14.819550636876933,
+    0.6386350200536798,
+    0.938616564521736,
+    0.76699297892336,
+    0.9053864349758034,
+    1.4151499199909554,
+    1.5729950922576537,
+    0.01349262820752285,
+    0.4183805637397035,
+    1.8929126988508935,
+    -1.6604249413518972,
+    2.3602650065672477,
+    -2.341743415284766,
+    0.32963796899771736,
+    0.7491273569444651,
+    -2.7251145175728726,
+    0.08903218943426984,
+    1.2860910142920992,
+    0.14524395876222373,
+    0.3752951367588616,
+    -0.28182566422549377,
+    0.8400342858936676,
+    -0.8441023769951876,
+    20.328500798847568,
+    -1.928417739982225,
+    -2.535943564236875,
+    -1.580719734154109,
+    2.022924966139155,
+    -0.9804635386440771,
+    0.24399636302759,
+    -0.08991556927310496
+  ],
+  "time_vector": [
+    4e-08,
+    8e-08,
+    1.1e-06,
+    4e-08,
+    8e-08,
+    1.1e-06,
+    4e-08,
+    8e-08,
+    1.1e-06,
+    4e-08,
+    8e-08,
+    1.1e-06,
+    4e-08,
+    8e-08,
+    1.1e-06,
+    8e-08
+  ],
+  "warm_start_payload": {
+    "schema_version": 2,
+    "success": false,
+    "objective": 0.001854003791161274,
+    "sequence": [
+      {
+        "type": "QubitRotation",
+        "name": "R0",
+        "duration": 4e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:0:R0",
+        "time_policy_locked": false,
+        "parameters": [
+          2.179205502911409,
+          -0.025663504475385037
+        ],
+        "time_param_id": "t_0"
+      },
+      {
+        "type": "Displacement",
+        "name": "D0",
+        "duration": 8e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:1:D0",
+        "time_policy_locked": false,
+        "parameters": [
+          -0.4182882508094211,
+          0.3661696663222098
+        ],
+        "time_param_id": "t_1"
+      },
+      {
+        "type": "PrimitiveGate",
+        "name": "S0",
+        "duration": 1.1e-06,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:2:S0",
+        "time_policy_locked": false,
+        "mode": "matrix",
+        "hilbert_dim": 24,
+        "metadata": {
+          "ideal_kind": "MaskedSQR",
+          "levels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "max_tones": 4,
+          "include_conditional_phase": false
+        },
+        "parameters": [
+          -1.5381122134665395,
+          -0.7895734065207173,
+          0.5028330025813466,
+          -0.34636409335359974,
+          -1.145200552094711,
+          0.15779672663946145,
+          -3.3737045398568934,
+          -0.5864005737251966
+        ],
+        "time_param_id": "t_2"
+      },
+      {
+        "type": "QubitRotation",
+        "name": "R1",
+        "duration": 4e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:3:R1",
+        "time_policy_locked": false,
+        "parameters": [
+          1.4927356217324832,
+          1.8960445630021727
+        ],
+        "time_param_id": "t_3"
+      },
+      {
+        "type": "Displacement",
+        "name": "D1",
+        "duration": 8e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:4:D1",
+        "time_policy_locked": false,
+        "parameters": [
+          0.16021536701319516,
+          -0.3863329866118092
+        ],
+        "time_param_id": "t_4"
+      },
+      {
+        "type": "PrimitiveGate",
+        "name": "S1",
+        "duration": 1.1e-06,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:5:S1",
+        "time_policy_locked": false,
+        "mode": "matrix",
+        "hilbert_dim": 24,
+        "metadata": {
+          "ideal_kind": "MaskedSQR",
+          "levels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "max_tones": 4,
+          "include_conditional_phase": false
+        },
+        "parameters": [
+          2.3996999586141974,
+          -2.798367598708543,
+          -2.9690389326842417,
+          -2.9167261706566037,
+          -0.372004745263096,
+          -0.07422684958514233,
+          -0.20610991585704058,
+          -0.3730144507270722
+        ],
+        "time_param_id": "t_5"
+      },
+      {
+        "type": "QubitRotation",
+        "name": "R2",
+        "duration": 4e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:6:R2",
+        "time_policy_locked": false,
+        "parameters": [
+          1.76682042583862,
+          0.24059613249057388
+        ],
+        "time_param_id": "t_6"
+      },
+      {
+        "type": "Displacement",
+        "name": "D2",
+        "duration": 8e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:7:D2",
+        "time_policy_locked": false,
+        "parameters": [
+          0.4105125359354638,
+          0.23490051299324052
+        ],
+        "time_param_id": "t_7"
+      },
+      {
+        "type": "PrimitiveGate",
+        "name": "S2",
+        "duration": 1.1e-06,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:8:S2",
+        "time_policy_locked": false,
+        "mode": "matrix",
+        "hilbert_dim": 24,
+        "metadata": {
+          "ideal_kind": "MaskedSQR",
+          "levels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "max_tones": 4,
+          "include_conditional_phase": false
+        },
+        "parameters": [
+          -0.4109704993887998,
+          1.24183947003463,
+          -4.750924011434877,
+          14.819550636876933,
+          0.6386350200536798,
+          0.938616564521736,
+          0.76699297892336,
+          0.9053864349758034
+        ],
+        "time_param_id": "t_8"
+      },
+      {
+        "type": "QubitRotation",
+        "name": "R3",
+        "duration": 4e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:9:R3",
+        "time_policy_locked": false,
+        "parameters": [
+          1.4151499199909554,
+          1.5729950922576537
+        ],
+        "time_param_id": "t_9"
+      },
+      {
+        "type": "Displacement",
+        "name": "D3",
+        "duration": 8e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:10:D3",
+        "time_policy_locked": false,
+        "parameters": [
+          0.01349262820752285,
+          0.4183805637397035
+        ],
+        "time_param_id": "t_10"
+      },
+      {
+        "type": "PrimitiveGate",
+        "name": "S3",
+        "duration": 1.1e-06,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:11:S3",
+        "time_policy_locked": false,
+        "mode": "matrix",
+        "hilbert_dim": 24,
+        "metadata": {
+          "ideal_kind": "MaskedSQR",
+          "levels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "max_tones": 4,
+          "include_conditional_phase": false
+        },
+        "parameters": [
+          1.8929126988508935,
+          -1.6604249413518972,
+          2.3602650065672477,
+          -2.341743415284766,
+          0.32963796899771736,
+          0.7491273569444651,
+          -2.7251145175728726,
+          0.08903218943426984
+        ],
+        "time_param_id": "t_11"
+      },
+      {
+        "type": "QubitRotation",
+        "name": "R4",
+        "duration": 4e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:12:R4",
+        "time_policy_locked": false,
+        "parameters": [
+          1.2860910142920992,
+          0.14524395876222373
+        ],
+        "time_param_id": "t_12"
+      },
+      {
+        "type": "Displacement",
+        "name": "D4",
+        "duration": 8e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:13:D4",
+        "time_policy_locked": false,
+        "parameters": [
+          0.3752951367588616,
+          -0.28182566422549377
+        ],
+        "time_param_id": "t_13"
+      },
+      {
+        "type": "PrimitiveGate",
+        "name": "S4",
+        "duration": 1.1e-06,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:14:S4",
+        "time_policy_locked": false,
+        "mode": "matrix",
+        "hilbert_dim": 24,
+        "metadata": {
+          "ideal_kind": "MaskedSQR",
+          "levels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "max_tones": 4,
+          "include_conditional_phase": false
+        },
+        "parameters": [
+          0.8400342858936676,
+          -0.8441023769951876,
+          20.328500798847568,
+          -1.928417739982225,
+          -2.535943564236875,
+          -1.580719734154109,
+          2.022924966139155,
+          -0.9804635386440771
+        ],
+        "time_param_id": "t_14"
+      },
+      {
+        "type": "Displacement",
+        "name": "D5",
+        "duration": 8e-08,
+        "optimize_time": true,
+        "time_bounds": [
+          2e-08,
+          2e-06
+        ],
+        "time_group": "instance:15:D5",
+        "time_policy_locked": false,
+        "parameters": [
+          0.24399636302759,
+          -0.08991556927310496
+        ],
+        "time_param_id": "t_15"
+      }
+    ],
+    "time_parameters": [
+      {
+        "param_id": "t_0",
+        "gate_type": "QubitRotation",
+        "group": "instance:0:R0",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 4e-08,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "R0"
+        ]
+      },
+      {
+        "param_id": "t_1",
+        "gate_type": "Displacement",
+        "group": "instance:1:D0",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 8e-08,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "D0"
+        ]
+      },
+      {
+        "param_id": "t_2",
+        "gate_type": "PrimitiveGate",
+        "group": "instance:2:S0",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 1.1e-06,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "S0"
+        ]
+      },
+      {
+        "param_id": "t_3",
+        "gate_type": "QubitRotation",
+        "group": "instance:3:R1",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 4e-08,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "R1"
+        ]
+      },
+      {
+        "param_id": "t_4",
+        "gate_type": "Displacement",
+        "group": "instance:4:D1",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 8e-08,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "D1"
+        ]
+      },
+      {
+        "param_id": "t_5",
+        "gate_type": "PrimitiveGate",
+        "group": "instance:5:S1",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 1.1e-06,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "S1"
+        ]
+      },
+      {
+        "param_id": "t_6",
+        "gate_type": "QubitRotation",
+        "group": "instance:6:R2",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 4e-08,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "R2"
+        ]
+      },
+      {
+        "param_id": "t_7",
+        "gate_type": "Displacement",
+        "group": "instance:7:D2",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 8e-08,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "D2"
+        ]
+      },
+      {
+        "param_id": "t_8",
+        "gate_type": "PrimitiveGate",
+        "group": "instance:8:S2",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 1.1e-06,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "S2"
+        ]
+      },
+      {
+        "param_id": "t_9",
+        "gate_type": "QubitRotation",
+        "group": "instance:9:R3",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 4e-08,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "R3"
+        ]
+      },
+      {
+        "param_id": "t_10",
+        "gate_type": "Displacement",
+        "group": "instance:10:D3",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 8e-08,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "D3"
+        ]
+      },
+      {
+        "param_id": "t_11",
+        "gate_type": "PrimitiveGate",
+        "group": "instance:11:S3",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 1.1e-06,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "S3"
+        ]
+      },
+      {
+        "param_id": "t_12",
+        "gate_type": "QubitRotation",
+        "group": "instance:12:R4",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 4e-08,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "R4"
+        ]
+      },
+      {
+        "param_id": "t_13",
+        "gate_type": "Displacement",
+        "group": "instance:13:D4",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 8e-08,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "D4"
+        ]
+      },
+      {
+        "param_id": "t_14",
+        "gate_type": "PrimitiveGate",
+        "group": "instance:14:S4",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 1.1e-06,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "S4"
+        ]
+      },
+      {
+        "param_id": "t_15",
+        "gate_type": "Displacement",
+        "group": "instance:15:D5",
+        "bounds": [
+          2e-08,
+          2e-06
+        ],
+        "init": 1.0099999999999999e-06,
+        "value": 8e-08,
+        "optimize": true,
+        "frozen": false,
+        "active": true,
+        "gate_names": [
+          "D5"
+        ]
+      }
+    ],
+    "parameter_vector": [
+      2.179205502911409,
+      -0.025663504475385037,
+      -0.4182882508094211,
+      0.3661696663222098,
+      -1.5381122134665395,
+      -0.7895734065207173,
+      0.5028330025813466,
+      -0.34636409335359974,
+      -1.145200552094711,
+      0.15779672663946145,
+      -3.3737045398568934,
+      -0.5864005737251966,
+      1.4927356217324832,
+      1.8960445630021727,
+      0.16021536701319516,
+      -0.3863329866118092,
+      2.3996999586141974,
+      -2.798367598708543,
+      -2.9690389326842417,
+      -2.9167261706566037,
+      -0.372004745263096,
+      -0.07422684958514233,
+      -0.20610991585704058,
+      -0.3730144507270722,
+      1.76682042583862,
+      0.24059613249057388,
+      0.4105125359354638,
+      0.23490051299324052,
+      -0.4109704993887998,
+      1.24183947003463,
+      -4.750924011434877,
+      14.819550636876933,
+      0.6386350200536798,
+      0.938616564521736,
+      0.76699297892336,
+      0.9053864349758034,
+      1.4151499199909554,
+      1.5729950922576537,
+      0.01349262820752285,
+      0.4183805637397035,
+      1.8929126988508935,
+      -1.6604249413518972,
+      2.3602650065672477,
+      -2.341743415284766,
+      0.32963796899771736,
+      0.7491273569444651,
+      -2.7251145175728726,
+      0.08903218943426984,
+      1.2860910142920992,
+      0.14524395876222373,
+      0.3752951367588616,
+      -0.28182566422549377,
+      0.8400342858936676,
+      -0.8441023769951876,
+      20.328500798847568,
+      -1.928417739982225,
+      -2.535943564236875,
+      -1.580719734154109,
+      2.022924966139155,
+      -0.9804635386440771,
+      0.24399636302759,
+      -0.08991556927310496
+    ],
+    "time_raw_vector": [
+      -4.584967478670572,
+      -3.4657359027997265,
+      0.1823215567939544,
+      -4.584967478670572,
+      -3.4657359027997265,
+      0.1823215567939544,
+      -4.584967478670572,
+      -3.4657359027997265,
+      0.1823215567939544,
+      -4.584967478670572,
+      -3.4657359027997265,
+      0.1823215567939544,
+      -4.584967478670572,
+      -3.4657359027997265,
+      0.1823215567939544,
+      -3.4657359027997265
+    ],
+    "report": {
+      "system": {
+        "kind": "CQEDIdealSystem",
+        "model_class": null,
+        "subsystem_dims": null
+      },
+      "target": {
+        "type": "unitary",
+        "dimension": 4,
+        "pairs": 0,
+        "reduced_pairs": 0,
+        "observables": 0,
+        "checkpoints": 0,
+        "retained_subsystems": null,
+        "gauge": "global",
+        "block_gauge": null,
+        "open_system_probe_strategy": "basis_plus_uniform"
+      },
+      "subspace": {
+        "kind": "custom",
+        "indices": [
+          0,
+          1,
+          12,
+          13
+        ],
+        "dim": 4,
+        "labels": [
+          "|g,0>",
+          "|g,1>",
+          "|e,0>",
+          "|e,1>"
+        ]
+      },
+      "backend": {
+        "type": "ideal",
+        "settings": {
+          "system": {
+            "kind": "CQEDIdealSystem",
+            "model_class": null,
+            "subsystem_dims": null
+          }
+        }
+      },
+      "time_policy": {
+        "mode": "per-instance",
+        "policy": {
+          "default": {
+            "optimize": true,
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06
+          }
+        },
+        "shared_groups": {}
+      },
+      "time_grid": {
+        "mode": "hard",
+        "dt": 1e-09,
+        "raw": [
+          3.9999999999999994e-08,
+          8e-08,
+          1.1e-06,
+          3.9999999999999994e-08,
+          8e-08,
+          1.1e-06,
+          3.9999999999999994e-08,
+          8e-08,
+          1.1e-06,
+          3.9999999999999994e-08,
+          8e-08,
+          1.1e-06,
+          3.9999999999999994e-08,
+          8e-08,
+          1.1e-06,
+          8e-08
+        ],
+        "snapped": [
+          4e-08,
+          8e-08,
+          1.1e-06,
+          4e-08,
+          8e-08,
+          1.1e-06,
+          4e-08,
+          8e-08,
+          1.1e-06,
+          4e-08,
+          8e-08,
+          1.1e-06,
+          4e-08,
+          8e-08,
+          1.1e-06,
+          8e-08
+        ],
+        "ticks": [
+          40,
+          80,
+          1100,
+          40,
+          80,
+          1100,
+          40,
+          80,
+          1100,
+          40,
+          80,
+          1100,
+          40,
+          80,
+          1100,
+          80
+        ],
+        "grid_residual": [
+          -6.617444900424222e-24,
+          0.0,
+          0.0,
+          -6.617444900424222e-24,
+          0.0,
+          0.0,
+          -6.617444900424222e-24,
+          0.0,
+          0.0,
+          -6.617444900424222e-24,
+          0.0,
+          0.0,
+          -6.617444900424222e-24,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "hardware_limits": {
+        "dt": 1e-09,
+        "channels": {
+          "qubit_drive": {
+            "A_max": Infinity,
+            "delta_max": Infinity,
+            "slew_max": Infinity,
+            "bw_max": Infinity
+          },
+          "cavity_drive": {
+            "A_max": Infinity,
+            "delta_max": Infinity,
+            "slew_max": Infinity,
+            "bw_max": Infinity
+          }
+        },
+        "gate_type_overrides": {}
+      },
+      "constraints": {
+        "slew": {
+          "enabled": false,
+          "S_max": Infinity,
+          "mode": "penalty",
+          "lambda": 1.0
+        },
+        "tone_spacing": {
+          "enabled": false,
+          "domega_min": 0.0,
+          "Ntones_max": null,
+          "projection": false,
+          "lambda": 1.0
+        },
+        "forbidden_bands": [],
+        "amplitude_detuning": {
+          "enabled": true,
+          "lambda": 1.0,
+          "project": true
+        }
+      },
+      "synthesis_constraints": null,
+      "leakage_penalty": {
+        "weight": 0.05,
+        "metric": "worst",
+        "checkpoint_weight": 0.0,
+        "checkpoints": [],
+        "allowed_subspace": null
+      },
+      "multi_objective": {
+        "fidelity_weight": 1.0,
+        "task_weight": null,
+        "leakage_weight": 0.05,
+        "duration_weight": 0.0,
+        "gate_count_weight": 0.0,
+        "pulse_power_weight": 0.0,
+        "robustness_weight": 0.0,
+        "smoothness_weight": 0.0,
+        "hardware_penalty_weight": 1.0,
+        "mode": "weighted_sum"
+      },
+      "parameter_distribution": null,
+      "parallel": {
+        "enabled": false,
+        "n_jobs": 1,
+        "backend": "multiprocessing",
+        "worker_seeds": [
+          1073
+        ]
+      },
+      "execution": {
+        "requested_engine": "auto",
+        "selected_engine": "jax",
+        "device": "cpu",
+        "fast_path_used": true,
+        "reason": "Using JAX fast path."
+      },
+      "drift_model": {
+        "frame": "rotating_omega_c_omega_q",
+        "chi": 0.0,
+        "chi2": 0.0,
+        "kerr": 0.0,
+        "kerr2": 0.0,
+        "delta_c": 0.0,
+        "delta_q": 0.0
+      },
+      "objective": {
+        "total": 0.001854003791161274,
+        "task_term": 0.0016108977491666732,
+        "fidelity_term": 0.0016108977491666732,
+        "leakage_term": 0.00024310604199460074,
+        "checkpoint_leakage_term": 0.0,
+        "duration_term": 0.9999999999999999,
+        "gate_count_term": 11.785012735501333,
+        "pulse_power_term": 0.10418830784087482,
+        "amplitude_smoothness_term": 0.834535599109656,
+        "robustness_term": 0.0,
+        "time_reg_term": 0.0,
+        "time_smooth_term": 0.0,
+        "grid_term": 0.0,
+        "hardware_penalty_term": 0.0,
+        "phase2_constraint_term": 0.0,
+        "hardware_breakdown": {
+          "amplitude_penalty": 0.0,
+          "detuning_penalty": 0.0,
+          "slew_penalty": 0.0,
+          "tone_penalty": 0.0
+        },
+        "phase2_constraint_breakdown": {
+          "duration_penalty": 0.0,
+          "bandwidth_penalty": 0.0,
+          "smoothness_penalty": 0.0,
+          "forbidden_parameter_penalty": 0.0
+        }
+      },
+      "constraint_violations": {
+        "amplitude_violations": 0,
+        "detuning_violations": 0,
+        "slew_max_violation": 0.0,
+        "tone_min_spacing": Infinity,
+        "tone_violations": 0,
+        "duration_violation": 0.0,
+        "forbidden_parameter_violations": 0
+      },
+      "metrics": {
+        "fidelity": 0.9983891022508333,
+        "leakage_average": 0.003129882732198469,
+        "leakage_worst": 0.004862120839892015,
+        "leakage_selected": 0.004862120839892015,
+        "checkpoint_leakage_average": 0.0,
+        "checkpoint_leakage_worst": 0.0,
+        "state_error_mean": NaN,
+        "state_error_max": NaN,
+        "state_fidelity_mean": NaN,
+        "state_fidelity_min": NaN,
+        "reduced_state_fidelity_mean": NaN,
+        "reduced_state_fidelity_min": NaN,
+        "observable_error_mean": NaN,
+        "observable_error_max": NaN,
+        "weighted_observable_error": NaN,
+        "trajectory_task_loss": NaN,
+        "trajectory_state_error_mean": NaN,
+        "trajectory_observable_error_mean": NaN,
+        "channel_overlap": NaN,
+        "channel_choi_error": NaN,
+        "channel_superoperator_error": NaN,
+        "trace_preservation_error_mean": NaN,
+        "trace_preservation_error_max": NaN,
+        "trace_loss_mean": NaN,
+        "trace_loss_worst": NaN,
+        "choi_hermiticity_error": NaN,
+        "choi_min_eig": NaN,
+        "complete_positivity_violation": NaN,
+        "duration_metric": 0.9999999999999999,
+        "gate_count_metric": 11.785012735501333,
+        "pulse_power_metric": 0.10418830784087482,
+        "amplitude_smoothness_metric": 0.834535599109656,
+        "robustness_objective": 0.0016108977491666732
+      },
+      "truncation": {
+        "retained_edge_population_average": 0.24966209369627707,
+        "retained_edge_population_worst": 0.5034041071929727,
+        "outside_tail_population_average": 0.0031298827321981993,
+        "outside_tail_population_worst": 0.004862120839891388,
+        "outside_population_profile": [
+          {
+            "label": "index=2",
+            "average": 0.0002903015204094969,
+            "worst": 0.0005339419566282595
+          },
+          {
+            "label": "index=3",
+            "average": 0.0005163081699442688,
+            "worst": 0.0014208079574391842
+          },
+          {
+            "label": "index=4",
+            "average": 0.00037025031220652027,
+            "worst": 0.0006580955593884707
+          },
+          {
+            "label": "index=5",
+            "average": 0.0003234499756792863,
+            "worst": 0.0004281596807366037
+          },
+          {
+            "label": "index=6",
+            "average": 0.0003148913252008339,
+            "worst": 0.0004337582429192228
+          },
+          {
+            "label": "index=7",
+            "average": 0.00010741890839217209,
+            "worst": 0.00018964959495092903
+          },
+          {
+            "label": "index=8",
+            "average": 2.9523456048544308e-05,
+            "worst": 7.490368458202591e-05
+          },
+          {
+            "label": "index=9",
+            "average": 1.5648572989648835e-05,
+            "worst": 3.044645133729755e-05
+          },
+          {
+            "label": "index=10",
+            "average": 8.49634939924721e-06,
+            "worst": 2.4558891521525905e-05
+          },
+          {
+            "label": "index=11",
+            "average": 4.099426542864567e-06,
+            "worst": 1.337354402986426e-05
+          },
+          {
+            "label": "index=14",
+            "average": 0.00023679269300486627,
+            "worst": 0.0003498833659432193
+          },
+          {
+            "label": "index=15",
+            "average": 0.0003337593869558546,
+            "worst": 0.0007696786488062368
+          },
+          {
+            "label": "index=16",
+            "average": 0.00018086561749173992,
+            "worst": 0.0003072223931942233
+          },
+          {
+            "label": "index=17",
+            "average": 0.00017349940156858077,
+            "worst": 0.00038066759573618364
+          },
+          {
+            "label": "index=18",
+            "average": 0.00012099397121383364,
+            "worst": 0.00020772929816385748
+          },
+          {
+            "label": "index=19",
+            "average": 6.604724124412368e-05,
+            "worst": 0.00015602760857847035
+          },
+          {
+            "label": "index=20",
+            "average": 2.6734839229297003e-05,
+            "worst": 6.541393576049679e-05
+          },
+          {
+            "label": "index=21",
+            "average": 7.98515823212373e-06,
+            "worst": 1.928362492453708e-05
+          },
+          {
+            "label": "index=22",
+            "average": 2.0654425297156664e-06,
+            "worst": 4.8522651706203345e-06
+          },
+          {
+            "label": "index=23",
+            "average": 7.509639151811342e-07,
+            "worst": 1.2247762093660098e-06
+          }
+        ]
+      },
+      "robustness": {
+        "enabled": false,
+        "aggregate": null,
+        "samples": [],
+        "objective": 0.0016108977491666732,
+        "penalty": 0.0
+      },
+      "parameters": {
+        "gates": [
+          {
+            "type": "QubitRotation",
+            "name": "R0",
+            "duration": 4e-08,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:0:R0",
+            "time_policy_locked": false,
+            "parameters": [
+              2.179205502911409,
+              -0.025663504475385037
+            ],
+            "time_param_id": "t_0"
+          },
+          {
+            "type": "Displacement",
+            "name": "D0",
+            "duration": 8e-08,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:1:D0",
+            "time_policy_locked": false,
+            "parameters": [
+              -0.4182882508094211,
+              0.3661696663222098
+            ],
+            "time_param_id": "t_1"
+          },
+          {
+            "type": "PrimitiveGate",
+            "name": "S0",
+            "duration": 1.1e-06,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:2:S0",
+            "time_policy_locked": false,
+            "mode": "matrix",
+            "hilbert_dim": 24,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            },
+            "parameters": [
+              -1.5381122134665395,
+              -0.7895734065207173,
+              0.5028330025813466,
+              -0.34636409335359974,
+              -1.145200552094711,
+              0.15779672663946145,
+              -3.3737045398568934,
+              -0.5864005737251966
+            ],
+            "time_param_id": "t_2"
+          },
+          {
+            "type": "QubitRotation",
+            "name": "R1",
+            "duration": 4e-08,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:3:R1",
+            "time_policy_locked": false,
+            "parameters": [
+              1.4927356217324832,
+              1.8960445630021727
+            ],
+            "time_param_id": "t_3"
+          },
+          {
+            "type": "Displacement",
+            "name": "D1",
+            "duration": 8e-08,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:4:D1",
+            "time_policy_locked": false,
+            "parameters": [
+              0.16021536701319516,
+              -0.3863329866118092
+            ],
+            "time_param_id": "t_4"
+          },
+          {
+            "type": "PrimitiveGate",
+            "name": "S1",
+            "duration": 1.1e-06,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:5:S1",
+            "time_policy_locked": false,
+            "mode": "matrix",
+            "hilbert_dim": 24,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            },
+            "parameters": [
+              2.3996999586141974,
+              -2.798367598708543,
+              -2.9690389326842417,
+              -2.9167261706566037,
+              -0.372004745263096,
+              -0.07422684958514233,
+              -0.20610991585704058,
+              -0.3730144507270722
+            ],
+            "time_param_id": "t_5"
+          },
+          {
+            "type": "QubitRotation",
+            "name": "R2",
+            "duration": 4e-08,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:6:R2",
+            "time_policy_locked": false,
+            "parameters": [
+              1.76682042583862,
+              0.24059613249057388
+            ],
+            "time_param_id": "t_6"
+          },
+          {
+            "type": "Displacement",
+            "name": "D2",
+            "duration": 8e-08,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:7:D2",
+            "time_policy_locked": false,
+            "parameters": [
+              0.4105125359354638,
+              0.23490051299324052
+            ],
+            "time_param_id": "t_7"
+          },
+          {
+            "type": "PrimitiveGate",
+            "name": "S2",
+            "duration": 1.1e-06,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:8:S2",
+            "time_policy_locked": false,
+            "mode": "matrix",
+            "hilbert_dim": 24,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            },
+            "parameters": [
+              -0.4109704993887998,
+              1.24183947003463,
+              -4.750924011434877,
+              14.819550636876933,
+              0.6386350200536798,
+              0.938616564521736,
+              0.76699297892336,
+              0.9053864349758034
+            ],
+            "time_param_id": "t_8"
+          },
+          {
+            "type": "QubitRotation",
+            "name": "R3",
+            "duration": 4e-08,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:9:R3",
+            "time_policy_locked": false,
+            "parameters": [
+              1.4151499199909554,
+              1.5729950922576537
+            ],
+            "time_param_id": "t_9"
+          },
+          {
+            "type": "Displacement",
+            "name": "D3",
+            "duration": 8e-08,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:10:D3",
+            "time_policy_locked": false,
+            "parameters": [
+              0.01349262820752285,
+              0.4183805637397035
+            ],
+            "time_param_id": "t_10"
+          },
+          {
+            "type": "PrimitiveGate",
+            "name": "S3",
+            "duration": 1.1e-06,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:11:S3",
+            "time_policy_locked": false,
+            "mode": "matrix",
+            "hilbert_dim": 24,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            },
+            "parameters": [
+              1.8929126988508935,
+              -1.6604249413518972,
+              2.3602650065672477,
+              -2.341743415284766,
+              0.32963796899771736,
+              0.7491273569444651,
+              -2.7251145175728726,
+              0.08903218943426984
+            ],
+            "time_param_id": "t_11"
+          },
+          {
+            "type": "QubitRotation",
+            "name": "R4",
+            "duration": 4e-08,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:12:R4",
+            "time_policy_locked": false,
+            "parameters": [
+              1.2860910142920992,
+              0.14524395876222373
+            ],
+            "time_param_id": "t_12"
+          },
+          {
+            "type": "Displacement",
+            "name": "D4",
+            "duration": 8e-08,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:13:D4",
+            "time_policy_locked": false,
+            "parameters": [
+              0.3752951367588616,
+              -0.28182566422549377
+            ],
+            "time_param_id": "t_13"
+          },
+          {
+            "type": "PrimitiveGate",
+            "name": "S4",
+            "duration": 1.1e-06,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:14:S4",
+            "time_policy_locked": false,
+            "mode": "matrix",
+            "hilbert_dim": 24,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            },
+            "parameters": [
+              0.8400342858936676,
+              -0.8441023769951876,
+              20.328500798847568,
+              -1.928417739982225,
+              -2.535943564236875,
+              -1.580719734154109,
+              2.022924966139155,
+              -0.9804635386440771
+            ],
+            "time_param_id": "t_14"
+          },
+          {
+            "type": "Displacement",
+            "name": "D5",
+            "duration": 8e-08,
+            "optimize_time": true,
+            "time_bounds": [
+              2e-08,
+              2e-06
+            ],
+            "time_group": "instance:15:D5",
+            "time_policy_locked": false,
+            "parameters": [
+              0.24399636302759,
+              -0.08991556927310496
+            ],
+            "time_param_id": "t_15"
+          }
+        ],
+        "time_parameters": [
+          {
+            "param_id": "t_0",
+            "gate_type": "QubitRotation",
+            "group": "instance:0:R0",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 4e-08,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "R0"
+            ]
+          },
+          {
+            "param_id": "t_1",
+            "gate_type": "Displacement",
+            "group": "instance:1:D0",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 8e-08,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "D0"
+            ]
+          },
+          {
+            "param_id": "t_2",
+            "gate_type": "PrimitiveGate",
+            "group": "instance:2:S0",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 1.1e-06,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "S0"
+            ]
+          },
+          {
+            "param_id": "t_3",
+            "gate_type": "QubitRotation",
+            "group": "instance:3:R1",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 4e-08,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "R1"
+            ]
+          },
+          {
+            "param_id": "t_4",
+            "gate_type": "Displacement",
+            "group": "instance:4:D1",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 8e-08,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "D1"
+            ]
+          },
+          {
+            "param_id": "t_5",
+            "gate_type": "PrimitiveGate",
+            "group": "instance:5:S1",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 1.1e-06,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "S1"
+            ]
+          },
+          {
+            "param_id": "t_6",
+            "gate_type": "QubitRotation",
+            "group": "instance:6:R2",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 4e-08,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "R2"
+            ]
+          },
+          {
+            "param_id": "t_7",
+            "gate_type": "Displacement",
+            "group": "instance:7:D2",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 8e-08,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "D2"
+            ]
+          },
+          {
+            "param_id": "t_8",
+            "gate_type": "PrimitiveGate",
+            "group": "instance:8:S2",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 1.1e-06,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "S2"
+            ]
+          },
+          {
+            "param_id": "t_9",
+            "gate_type": "QubitRotation",
+            "group": "instance:9:R3",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 4e-08,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "R3"
+            ]
+          },
+          {
+            "param_id": "t_10",
+            "gate_type": "Displacement",
+            "group": "instance:10:D3",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 8e-08,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "D3"
+            ]
+          },
+          {
+            "param_id": "t_11",
+            "gate_type": "PrimitiveGate",
+            "group": "instance:11:S3",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 1.1e-06,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "S3"
+            ]
+          },
+          {
+            "param_id": "t_12",
+            "gate_type": "QubitRotation",
+            "group": "instance:12:R4",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 4e-08,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "R4"
+            ]
+          },
+          {
+            "param_id": "t_13",
+            "gate_type": "Displacement",
+            "group": "instance:13:D4",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 8e-08,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "D4"
+            ]
+          },
+          {
+            "param_id": "t_14",
+            "gate_type": "PrimitiveGate",
+            "group": "instance:14:S4",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 1.1e-06,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "S4"
+            ]
+          },
+          {
+            "param_id": "t_15",
+            "gate_type": "Displacement",
+            "group": "instance:15:D5",
+            "bounds": [
+              2e-08,
+              2e-06
+            ],
+            "init": 1.0099999999999999e-06,
+            "value": 8e-08,
+            "optimize": true,
+            "frozen": false,
+            "active": true,
+            "gate_names": [
+              "D5"
+            ]
+          }
+        ],
+        "durations": [
+          4e-08,
+          8e-08,
+          1.1e-06,
+          4e-08,
+          8e-08,
+          1.1e-06,
+          4e-08,
+          8e-08,
+          1.1e-06,
+          4e-08,
+          8e-08,
+          1.1e-06,
+          4e-08,
+          8e-08,
+          1.1e-06,
+          8e-08
+        ],
+        "time_grid_per_param": [
+          {
+            "param_id": "t_0",
+            "group": "instance:0:R0",
+            "raw": 3.9999999999999994e-08,
+            "snapped": 4e-08,
+            "ticks": 40
+          },
+          {
+            "param_id": "t_1",
+            "group": "instance:1:D0",
+            "raw": 8e-08,
+            "snapped": 8e-08,
+            "ticks": 80
+          },
+          {
+            "param_id": "t_2",
+            "group": "instance:2:S0",
+            "raw": 1.1e-06,
+            "snapped": 1.1e-06,
+            "ticks": 1100
+          },
+          {
+            "param_id": "t_3",
+            "group": "instance:3:R1",
+            "raw": 3.9999999999999994e-08,
+            "snapped": 4e-08,
+            "ticks": 40
+          },
+          {
+            "param_id": "t_4",
+            "group": "instance:4:D1",
+            "raw": 8e-08,
+            "snapped": 8e-08,
+            "ticks": 80
+          },
+          {
+            "param_id": "t_5",
+            "group": "instance:5:S1",
+            "raw": 1.1e-06,
+            "snapped": 1.1e-06,
+            "ticks": 1100
+          },
+          {
+            "param_id": "t_6",
+            "group": "instance:6:R2",
+            "raw": 3.9999999999999994e-08,
+            "snapped": 4e-08,
+            "ticks": 40
+          },
+          {
+            "param_id": "t_7",
+            "group": "instance:7:D2",
+            "raw": 8e-08,
+            "snapped": 8e-08,
+            "ticks": 80
+          },
+          {
+            "param_id": "t_8",
+            "group": "instance:8:S2",
+            "raw": 1.1e-06,
+            "snapped": 1.1e-06,
+            "ticks": 1100
+          },
+          {
+            "param_id": "t_9",
+            "group": "instance:9:R3",
+            "raw": 3.9999999999999994e-08,
+            "snapped": 4e-08,
+            "ticks": 40
+          },
+          {
+            "param_id": "t_10",
+            "group": "instance:10:D3",
+            "raw": 8e-08,
+            "snapped": 8e-08,
+            "ticks": 80
+          },
+          {
+            "param_id": "t_11",
+            "group": "instance:11:S3",
+            "raw": 1.1e-06,
+            "snapped": 1.1e-06,
+            "ticks": 1100
+          },
+          {
+            "param_id": "t_12",
+            "group": "instance:12:R4",
+            "raw": 3.9999999999999994e-08,
+            "snapped": 4e-08,
+            "ticks": 40
+          },
+          {
+            "param_id": "t_13",
+            "group": "instance:13:D4",
+            "raw": 8e-08,
+            "snapped": 8e-08,
+            "ticks": 80
+          },
+          {
+            "param_id": "t_14",
+            "group": "instance:14:S4",
+            "raw": 1.1e-06,
+            "snapped": 1.1e-06,
+            "ticks": 1100
+          },
+          {
+            "param_id": "t_15",
+            "group": "instance:15:D5",
+            "raw": 8e-08,
+            "snapped": 8e-08,
+            "ticks": 80
+          }
+        ]
+      },
+      "phase_decomposition": [],
+      "optimizer": {
+        "success": false,
+        "name": "auto",
+        "message": "Maximum number of iterations has been exceeded.",
+        "nit": 24,
+        "multistart": 1,
+        "n_time_params_active": 16,
+        "selected_start_index": 0,
+        "start_objectives": [
+          0.001854003791161274
+        ],
+        "progress": {
+          "schema_version": 1,
+          "every": 1,
+          "live": false,
+          "enabled": false,
+          "history_events": 25,
+          "history_runs": 1,
+          "global_best": {
+            "run_id": "run_000",
+            "objective_total": 0.001854003791161274,
+            "iteration": 24
+          }
+        }
+      },
+      "warm_start": null,
+      "per_fock_blocks": [
+        {
+          "n": 0,
+          "block": [
+            [
+              "(-0.7075058919534971+0.04365340667087726j)",
+              "(0.002205293116466708-0.005027291295047849j)"
+            ],
+            [
+              "(-0.7008463170759087+0.0384788721399761j)",
+              "(-0.0021710950899329136+0.005639869122810946j)"
+            ]
+          ],
+          "det_phase": -1.2399976907477666
+        },
+        {
+          "n": 1,
+          "block": [
+            [
+              "(-0.005598467986881691-0.003508055234222719j)",
+              "(-0.7078236505762159+0.0417048912174747j)"
+            ],
+            [
+              "(0.0002079517167371017+0.0037312571233596233j)",
+              "(-0.7022958588491309+0.04484212627160791j)"
+            ]
+          ],
+          "det_phase": 0.8344173795115675
+        }
+      ],
+      "warnings": [
+        "Population accumulates near the truncation edge; validate that the chosen Hilbert-space cutoff is sufficient."
+      ]
+    },
+    "backend": "ideal",
+    "backend_settings": {
+      "system": {
+        "kind": "CQEDIdealSystem",
+        "model_class": null,
+        "subsystem_dims": null
+      }
+    },
+    "metrics": {
+      "fidelity": 0.9983891022508333,
+      "fidelity_loss": 0.0016108977491666732,
+      "leakage_average": 0.003129882732198469,
+      "leakage_worst": 0.004862120839892015,
+      "leakage_term": 0.00024310604199460074,
+      "objective": 0.0016108977491666732,
+      "checkpoint_leakage_average": 0.0,
+      "checkpoint_leakage_worst": 0.0,
+      "checkpoint_leakage_term": 0.0,
+      "leakage_selected": 0.004862120839892015,
+      "duration_metric": 0.9999999999999999,
+      "gate_count_metric": 11.785012735501333,
+      "pulse_power_metric": 0.10418830784087482,
+      "amplitude_smoothness_metric": 0.834535599109656,
+      "robustness_penalty": 0.0,
+      "robustness_objective": 0.0016108977491666732
+    }
+  },
+  "elapsed_s": 111.62815789999149,
+  "neighborhood_tag": "exact",
+  "replay": {
+    "12": {
+      "fidelity": 0.9983891022508333,
+      "leakage_average": 0.003129882732198691,
+      "leakage_worst": 0.004862120839892015,
+      "unitarity_error": 6.304974616440768e-15
+    }
+  }
+}

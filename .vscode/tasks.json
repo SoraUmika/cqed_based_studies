@@ -1,162 +1,294 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Copilot: Init Task Run",
-            "type": "shell",
-            "command": "powershell.exe",
-            "args": [
-                "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                "${workspaceFolder}\\tools\\copilot_task_run.ps1",
-                "-Action",
-                "init",
-                "-TaskFile",
-                "${input:copilotTaskFile}",
-                "-RunDir",
-                "${input:copilotRunDir}"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Copilot: Show Task Run Status",
-            "type": "shell",
-            "command": "powershell.exe",
-            "args": [
-                "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                "${workspaceFolder}\\tools\\copilot_task_run.ps1",
-                "-Action",
-                "status",
-                "-RunDir",
-                "${input:copilotRunDir}"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Research: New Study",
-            "type": "shell",
-            "command": "powershell.exe",
-            "args": [
-                "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                "${workspaceFolder}\\tools\\research_loop.ps1",
-                "-Action",
-                "init",
-                "-StudyName",
-                "${input:researchStudyName}",
-                "-StudyGoal",
-                "${input:researchStudyGoal}"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Research: Study Status",
-            "type": "shell",
-            "command": "powershell.exe",
-            "args": [
-                "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                "${workspaceFolder}\\tools\\research_loop.ps1",
-                "-Action",
-                "status",
-                "-StudyName",
-                "${input:researchStudyName}"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Research: Resume Study",
-            "type": "shell",
-            "command": "powershell.exe",
-            "args": [
-                "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                "${workspaceFolder}\\tools\\research_loop.ps1",
-                "-Action",
-                "resume",
-                "-StudyName",
-                "${input:researchStudyName}"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Research: Run Loop Action",
-            "type": "shell",
-            "command": "powershell.exe",
-            "args": [
-                "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                "${workspaceFolder}\\tools\\research_loop.ps1",
-                "-Action",
-                "${input:researchAction}",
-                "-StudyName",
-                "${input:researchStudyName}"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": []
-        }
-    ],
-    "inputs": [
-        {
-            "id": "copilotTaskFile",
-            "type": "promptString",
-            "description": "Task file path relative to the workspace",
-            "default": "RESEARCH_PLAN.md"
-        },
-        {
-            "id": "copilotRunDir",
-            "type": "promptString",
-            "description": "Task run directory relative to the workspace",
-            "default": "task_runs/research_plan"
-        },
-        {
-            "id": "researchStudyName",
-            "type": "promptString",
-            "description": "Study folder name under studies/",
-            "default": ""
-        },
-        {
-            "id": "researchStudyGoal",
-            "type": "promptString",
-            "description": "Research goal / scientific question",
-            "default": ""
-        },
-        {
-            "id": "researchAction",
-            "type": "pickString",
-            "description": "Research loop action",
-            "options": ["init", "status", "plan", "execute", "review", "validate", "report", "resume", "loop"],
-            "default": "status"
-        }
-    ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Copilot: Init Task Run",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\tools\\copilot_task_run.ps1",
+				"-Action",
+				"init",
+				"-TaskFile",
+				"${input:copilotTaskFile}",
+				"-RunDir",
+				"${input:copilotRunDir}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Copilot: Show Task Run Status",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\tools\\copilot_task_run.ps1",
+				"-Action",
+				"status",
+				"-RunDir",
+				"${input:copilotRunDir}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Research: Quickstart (start or extend a study)",
+			"detail": "ONE COMMAND: initialises the study (or detects extension), builds the @research-loop prompt, and copies it to the clipboard. Paste into Copilot Chat to run the full loop.",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\tools\\research_loop.ps1",
+				"-Action",
+				"quickstart",
+				"-StudyName",
+				"${input:researchStudyName}",
+				"-StudyGoal",
+				"${input:researchStudyGoal}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Research: New Study",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\tools\\research_loop.ps1",
+				"-Action",
+				"init",
+				"-StudyName",
+				"${input:researchStudyName}",
+				"-StudyGoal",
+				"${input:researchStudyGoal}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Research: Study Status",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\tools\\research_loop.ps1",
+				"-Action",
+				"status",
+				"-StudyName",
+				"${input:researchStudyName}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Research: Resume Study",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\tools\\research_loop.ps1",
+				"-Action",
+				"resume",
+				"-StudyName",
+				"${input:researchStudyName}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Research: Run Loop Action",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\tools\\research_loop.ps1",
+				"-Action",
+				"${input:researchAction}",
+				"-StudyName",
+				"${input:researchStudyName}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Research: Generate Recovery Prompt",
+			"detail": "Writes RESUME_PROMPT.md and copies the agent invocation to clipboard. Paste it into Copilot Chat to resume.",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\tools\\research_loop.ps1",
+				"-Action",
+				"recover",
+				"-StudyName",
+				"${input:researchStudyName}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Research: Show Loop Config",
+			"detail": "Prints the active research_config.json settings (models, iteration limits, report mode, retry policy).",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\tools\\research_loop.ps1",
+				"-Action",
+				"config",
+				"-StudyName",
+				"${input:researchStudyName}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Research: Open Loop Config",
+			"detail": "Opens research_config.json for editing (models, max_iterations, report preservation, retry policy).",
+			"type": "shell",
+			"command": "code",
+			"args": [
+				"${workspaceFolder}\\research_config.json"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Research: Start Auto-Watcher",
+			"detail": "Background watcher that auto-fires Opus 4.6 execution/polish via claude CLI. Copies Copilot review prompts to clipboard when Codex review is needed.",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\tools\\auto_loop.ps1",
+				"-StudyName",
+				"${input:researchStudyName}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Research: Start Auto-Watcher (Dry Run)",
+			"detail": "Preview mode: shows what the watcher would do without calling the claude CLI.",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\tools\\auto_loop.ps1",
+				"-StudyName",
+				"${input:researchStudyName}",
+				"-DryRun"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"isBackground": true,
+			"problemMatcher": []
+		},
+	],
+	"inputs": [
+		{
+			"id": "copilotTaskFile",
+			"type": "promptString",
+			"description": "Task file path relative to the workspace",
+			"default": "RESEARCH_PLAN.md"
+		},
+		{
+			"id": "copilotRunDir",
+			"type": "promptString",
+			"description": "Task run directory relative to the workspace",
+			"default": "task_runs/research_plan"
+		},
+		{
+			"id": "researchStudyName",
+			"type": "promptString",
+			"description": "Study folder name under studies/",
+			"default": ""
+		},
+		{
+			"id": "researchStudyGoal",
+			"type": "promptString",
+			"description": "Research goal / scientific question",
+			"default": ""
+		},
+		{
+			"id": "researchAction",
+			"type": "pickString",
+			"description": "Research loop action",
+			"options": [
+				"quickstart",
+				"init",
+				"status",
+				"plan",
+				"execute",
+				"review",
+				"validate",
+				"report",
+				"resume",
+				"recover",
+				"loop",
+				"config"
+			],
+			"default": "status"
+		}
+	]
 }

@@ -1,0 +1,15 @@
+category,parameter,value,unit,source,note
+device,readout_frequency,8596222556.078796,Hz,C:\Users\jl82323\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\examples\sequential_sideband_reset.py,Readout-mode bare frequency.
+device,qubit_frequency,6150358764.4830475,Hz,C:\Users\jl82323\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\examples\sequential_sideband_reset.py,Transmon bare frequency used in the dispersive model.
+device,storage_frequency,5240932800.0,Hz,C:\Users\jl82323\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\examples\sequential_sideband_reset.py,Storage-mode bare frequency.
+device,readout_kappa,4156000.0,1/s,C:\Users\jl82323\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\examples\sequential_sideband_reset.py,Readout linewidth used directly in the open-system replay.
+device,qubit_anharmonicity,-255669694.5244608,Hz,C:\Users\jl82323\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\examples\sequential_sideband_reset.py,Transmon anharmonicity alpha.
+device,chi_storage,-2840421.0,Hz,C:\Users\jl82323\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\examples\sequential_sideband_reset.py,Storage dispersive shift per transmon excitation.
+device,chi_readout,-3000000.0,Hz,C:\Users\jl82323\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\examples\sequential_sideband_reset.py,Readout dispersive shift per transmon excitation.
+device,storage_sideband_nominal_frequency,6803533628.0,Hz,C:\Users\jl82323\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\examples\sequential_sideband_reset.py,Nominal storage gf sideband frequency exported by the local example.
+device,storage_t1,0.00025,s,C:\Users\jl82323\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\examples\sequential_sideband_reset.py,Storage energy-relaxation time used in the available open-system model.
+device,storage_t2_ramsey,0.00015,s,C:\Users\jl82323\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\examples\sequential_sideband_reset.py,Storage Ramsey coherence time from the local example.
+derived,storage_tphi_ramsey,0.00021428571428571427,s,derived from storage_t1 and storage_t2_ramsey,Pure dephasing time inferred by cqed_sim convention.
+reference,transmon_t1_reference,9.812873848245112e-06,s,cQED_simulation/examples/workflows/simulate_fock_tomo_and_sqr_calibration.py,Matched local transmon coherence reference used for sensitivity analysis.
+reference,transmon_t2_ramsey_reference,6.32473112712837e-06,s,cQED_simulation/examples/workflows/simulate_fock_tomo_and_sqr_calibration.py,Matched local Ramsey coherence reference for the transmon.
+derived,transmon_tphi_ramsey_reference,9.332187258158938e-06,s,derived from transmon_t1_reference and transmon_t2_ramsey_reference,Pure dephasing time used when transmon dephasing is enabled.

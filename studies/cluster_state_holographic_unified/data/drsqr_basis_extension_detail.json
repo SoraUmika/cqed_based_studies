@@ -1,0 +1,2302 @@
+{
+  "base_case_id": "drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4",
+  "spectator_levels": [
+    2,
+    3
+  ],
+  "logical_refit": {
+    "record": {
+      "case_id": "drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4_logical_refit",
+      "family_key": "drsqr",
+      "family_label": "D + R + SQR",
+      "variant_key": "blk5_a4_ordRDS",
+      "variant_label": "5 blocks / RDS / n_active=4 / logical_refit",
+      "builder_name": "ordered_sqr",
+      "builder_kwargs": {
+        "blocks": 5,
+        "order": [
+          "R",
+          "D",
+          "SQR"
+        ]
+      },
+      "order_tokens": [
+        "R",
+        "D",
+        "SQR"
+      ],
+      "order_label": "RDS",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "max_tones": 4,
+      "blocks": 5,
+      "search_phase": "logical_refit",
+      "optimization_n_cav": 12,
+      "seed": 17,
+      "init_guess": "heuristic",
+      "maxiter": 4,
+      "multistart": 1,
+      "fidelity": 0.9996411265832155,
+      "objective": 0.00039805003545290705,
+      "success": false,
+      "message": "",
+      "summary": {
+        "rows": [
+          {
+            "name": "R0",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "D0",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "S0",
+            "kind": "MaskedSQR",
+            "duration_ns": 1100.0,
+            "active_tones": 4,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            }
+          },
+          {
+            "name": "R1",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "D1",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "S1",
+            "kind": "MaskedSQR",
+            "duration_ns": 1100.0,
+            "active_tones": 4,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            }
+          },
+          {
+            "name": "R2",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "D2",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "S2",
+            "kind": "MaskedSQR",
+            "duration_ns": 1100.0,
+            "active_tones": 4,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            }
+          },
+          {
+            "name": "R3",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "D3",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "S3",
+            "kind": "MaskedSQR",
+            "duration_ns": 1100.0,
+            "active_tones": 4,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            }
+          },
+          {
+            "name": "R4",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "D4",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "S4",
+            "kind": "MaskedSQR",
+            "duration_ns": 1100.0,
+            "active_tones": 4,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            }
+          },
+          {
+            "name": "D5",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          }
+        ],
+        "counts": {
+          "QubitRotation": 5,
+          "Displacement": 6,
+          "MaskedSQR": 5
+        },
+        "gate_depth": 16,
+        "total_duration_ns": 6180.0,
+        "selective_block_count": 5,
+        "entangling_block_count": 0,
+        "total_active_tones": 20,
+        "max_active_tones": 4
+      },
+      "metrics": {
+        "fidelity": 0.9996411265832155,
+        "leakage_average": 0.0007120375797410039,
+        "leakage_worst": 0.0007835323733674793,
+        "leakage_selected": 0.0007835323733674793,
+        "checkpoint_leakage_average": 0.0,
+        "checkpoint_leakage_worst": 0.0,
+        "state_error_mean": NaN,
+        "state_error_max": NaN,
+        "state_fidelity_mean": NaN,
+        "state_fidelity_min": NaN,
+        "reduced_state_fidelity_mean": NaN,
+        "reduced_state_fidelity_min": NaN,
+        "observable_error_mean": NaN,
+        "observable_error_max": NaN,
+        "weighted_observable_error": NaN,
+        "trajectory_task_loss": NaN,
+        "trajectory_state_error_mean": NaN,
+        "trajectory_observable_error_mean": NaN,
+        "channel_overlap": NaN,
+        "channel_choi_error": NaN,
+        "channel_superoperator_error": NaN,
+        "trace_preservation_error_mean": NaN,
+        "trace_preservation_error_max": NaN,
+        "trace_loss_mean": NaN,
+        "trace_loss_worst": NaN,
+        "choi_hermiticity_error": NaN,
+        "choi_min_eig": NaN,
+        "complete_positivity_violation": NaN,
+        "duration_metric": 0.9999999999999999,
+        "gate_count_metric": 11.139033843456293,
+        "pulse_power_metric": 0.08173299347330924,
+        "amplitude_smoothness_metric": 0.7695245565208318,
+        "robustness_objective": 0.00039805003545290705
+      },
+      "sequence": [
+        {
+          "type": "QubitRotation",
+          "name": "R0",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:0:R0",
+          "time_policy_locked": false,
+          "parameters": [
+            0.730017707983081,
+            0.3941781706303701
+          ],
+          "time_param_id": "t_0"
+        },
+        {
+          "type": "Displacement",
+          "name": "D0",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:1:D0",
+          "time_policy_locked": false,
+          "parameters": [
+            -0.11764318994288099,
+            0.3024880616710971
+          ],
+          "time_param_id": "t_1"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S0",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:2:S0",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "max_tones": 4,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            -1.87886499004864,
+            -1.876721671048178,
+            -1.8415361825641843,
+            1.4631936572996995,
+            -1.7670338392771523,
+            1.91501498465213,
+            1.6854639883234719,
+            -1.5054211579173504
+          ],
+          "time_param_id": "t_2"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R1",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:3:R1",
+          "time_policy_locked": false,
+          "parameters": [
+            1.484976040800666,
+            1.5957225022925074
+          ],
+          "time_param_id": "t_3"
+        },
+        {
+          "type": "Displacement",
+          "name": "D1",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:4:D1",
+          "time_policy_locked": false,
+          "parameters": [
+            -0.01564388213856398,
+            -0.46950515588442254
+          ],
+          "time_param_id": "t_4"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S1",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:5:S1",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "max_tones": 4,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            2.366815914331557,
+            -2.103830989136885,
+            -2.221966913427789,
+            -2.0039956477558674,
+            -0.4280492645667647,
+            0.21090109316705385,
+            -0.25346039841532825,
+            -0.5070359027407717
+          ],
+          "time_param_id": "t_5"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R2",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:6:R2",
+          "time_policy_locked": false,
+          "parameters": [
+            1.8303532025673224,
+            0.23666720396225896
+          ],
+          "time_param_id": "t_6"
+        },
+        {
+          "type": "Displacement",
+          "name": "D2",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:7:D2",
+          "time_policy_locked": false,
+          "parameters": [
+            0.28459189639130894,
+            0.2958126803945475
+          ],
+          "time_param_id": "t_7"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S2",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:8:S2",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "max_tones": 4,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            -0.4884483066201345,
+            1.0478365224614126,
+            -4.548486259371045,
+            3.239255031951714,
+            -0.10245978476992351,
+            1.1399466733416304,
+            1.1845203530264354,
+            1.1361586642660895
+          ],
+          "time_param_id": "t_8"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R3",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:9:R3",
+          "time_policy_locked": false,
+          "parameters": [
+            1.451177349792239,
+            1.6679972878999252
+          ],
+          "time_param_id": "t_9"
+        },
+        {
+          "type": "Displacement",
+          "name": "D3",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:10:D3",
+          "time_policy_locked": false,
+          "parameters": [
+            0.2566055343630041,
+            0.1364830377339561
+          ],
+          "time_param_id": "t_10"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S3",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:11:S3",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "max_tones": 4,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            0.938426797724416,
+            -0.661935255498101,
+            4.213843050494657,
+            -3.2090044323855365,
+            0.0573912315118223,
+            0.6300128015553508,
+            -0.8557309587895856,
+            -6.517337806686884
+          ],
+          "time_param_id": "t_11"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R4",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:12:R4",
+          "time_policy_locked": false,
+          "parameters": [
+            1.6947697421094434,
+            -0.1348717542034138
+          ],
+          "time_param_id": "t_12"
+        },
+        {
+          "type": "Displacement",
+          "name": "D4",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:13:D4",
+          "time_policy_locked": false,
+          "parameters": [
+            0.3364406546655886,
+            -0.11382850527323872
+          ],
+          "time_param_id": "t_13"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S4",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:14:S4",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "max_tones": 4,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            1.4903293990441617,
+            -1.2208190168336273,
+            19.899280079333145,
+            1.1871697030985562,
+            -2.2036856457217637,
+            -2.255331342332506,
+            0.7990285377746246,
+            0.8843083896912387
+          ],
+          "time_param_id": "t_14"
+        },
+        {
+          "type": "Displacement",
+          "name": "D5",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:15:D5",
+          "time_policy_locked": false,
+          "parameters": [
+            0.2288481567909383,
+            -0.15213870104258495
+          ],
+          "time_param_id": "t_15"
+        }
+      ],
+      "parameter_vector": [
+        0.730017707983081,
+        0.3941781706303701,
+        -0.11764318994288099,
+        0.3024880616710971,
+        -1.87886499004864,
+        -1.876721671048178,
+        -1.8415361825641843,
+        1.4631936572996995,
+        -1.7670338392771523,
+        1.91501498465213,
+        1.6854639883234719,
+        -1.5054211579173504,
+        1.484976040800666,
+        1.5957225022925074,
+        -0.01564388213856398,
+        -0.46950515588442254,
+        2.366815914331557,
+        -2.103830989136885,
+        -2.221966913427789,
+        -2.0039956477558674,
+        -0.4280492645667647,
+        0.21090109316705385,
+        -0.25346039841532825,
+        -0.5070359027407717,
+        1.8303532025673224,
+        0.23666720396225896,
+        0.28459189639130894,
+        0.2958126803945475,
+        -0.4884483066201345,
+        1.0478365224614126,
+        -4.548486259371045,
+        3.239255031951714,
+        -0.10245978476992351,
+        1.1399466733416304,
+        1.1845203530264354,
+        1.1361586642660895,
+        1.451177349792239,
+        1.6679972878999252,
+        0.2566055343630041,
+        0.1364830377339561,
+        0.938426797724416,
+        -0.661935255498101,
+        4.213843050494657,
+        -3.2090044323855365,
+        0.0573912315118223,
+        0.6300128015553508,
+        -0.8557309587895856,
+        -6.517337806686884,
+        1.6947697421094434,
+        -0.1348717542034138,
+        0.3364406546655886,
+        -0.11382850527323872,
+        1.4903293990441617,
+        -1.2208190168336273,
+        19.899280079333145,
+        1.1871697030985562,
+        -2.2036856457217637,
+        -2.255331342332506,
+        0.7990285377746246,
+        0.8843083896912387,
+        0.2288481567909383,
+        -0.15213870104258495
+      ],
+      "time_vector": [
+        4e-08,
+        8e-08,
+        1.1e-06,
+        4e-08,
+        8e-08,
+        1.1e-06,
+        4e-08,
+        8e-08,
+        1.1e-06,
+        4e-08,
+        8e-08,
+        1.1e-06,
+        4e-08,
+        8e-08,
+        1.1e-06,
+        8e-08
+      ],
+      "physical": {
+        "status": "retained",
+        "notes": [
+          "Retained at N_cav=12 with fidelity 0.9996 and leakage 0.0008."
+        ],
+        "by_n_cav": {
+          "10": {
+            "fidelity": 0.9996411397244815,
+            "leakage_average": 0.0007120112199355266,
+            "leakage_worst": 0.0007835033642533684,
+            "unitarity_error": 3.4306956076566724e-15,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "candidate_peak_population_by_level": [
+                1.0,
+                1.0,
+                0.1701664391689872,
+                0.013946781973098541,
+                0.0006648855509742266,
+                0.00018356578960888642,
+                0.00011837917898639684,
+                9.154995561559275e-05,
+                6.10431882868128e-05,
+                4.714790630296845e-05
+              ],
+              "candidate_worst_captured_population": 0.9992948390255129,
+              "candidate_max_active_level": 3,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.49952147763634175,
+                    0.061851282982964606,
+                    0.006188848379417577,
+                    0.00025765776836814884,
+                    0.0001547423704474214,
+                    0.00011837917898639684,
+                    9.154995561559275e-05,
+                    6.10431882868128e-05,
+                    3.2539939143517464e-05
+                  ],
+                  "worst_captured_population": 0.9994619878552483,
+                  "max_active_level": 3
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    0.49926315492865625,
+                    1.0,
+                    0.1701664391689872,
+                    0.013946781973098541,
+                    0.0006648855509742266,
+                    0.00010352377614638354,
+                    7.315893791016364e-05,
+                    6.573187227503474e-05,
+                    3.710053554381739e-05,
+                    4.714790630296845e-05
+                  ],
+                  "worst_captured_population": 0.999312414879113,
+                  "max_active_level": 3
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.7256643807076235,
+                    0.08151833338997806,
+                    0.003837883530697529,
+                    0.00021723839180921213,
+                    9.09836837373648e-05,
+                    3.5686582862104905e-05,
+                    2.971228327196089e-05,
+                    3.138588789050279e-05,
+                    3.713447036514422e-05
+                  ],
+                  "worst_captured_population": 0.9996376916927777,
+                  "max_active_level": 3
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    0.7274756149187265,
+                    1.0,
+                    0.17016643916898716,
+                    0.01394678197309854,
+                    0.0006648855509742264,
+                    0.00018356578960888642,
+                    9.637764910743634e-05,
+                    5.804487188044859e-05,
+                    5.0626907940553266e-05,
+                    4.631997166932809e-05
+                  ],
+                  "worst_captured_population": 0.9992948390255129,
+                  "max_active_level": 3
+                }
+              }
+            }
+          },
+          "12": {
+            "fidelity": 0.9996411265832155,
+            "leakage_average": 0.0007120375797410039,
+            "leakage_worst": 0.0007835323733674793,
+            "unitarity_error": 5.330467900157063e-15,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "candidate_peak_population_by_level": [
+                1.0,
+                1.0,
+                0.17016643916898722,
+                0.013946781973098298,
+                0.0006648855509755365,
+                0.00018355545480547937,
+                0.0001183084257070136,
+                9.390674691662377e-05,
+                5.41649357143244e-05,
+                2.9386490954309446e-05,
+                1.8223862800497522e-05,
+                9.191806462730474e-06
+              ],
+              "candidate_worst_captured_population": 0.9992948386994024,
+              "candidate_max_active_level": 3,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.4995214490666555,
+                    0.06185128298395337,
+                    0.006188848399216655,
+                    0.0002576577361534619,
+                    0.0001547675964726484,
+                    0.0001183084257070136,
+                    9.390674691662377e-05,
+                    5.41649357143244e-05,
+                    2.3562947435514976e-05,
+                    9.663221736801094e-06,
+                    3.363030477548001e-06
+                  ],
+                  "worst_captured_population": 0.9994619676709041,
+                  "max_active_level": 3
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    0.4992631486446305,
+                    1.0,
+                    0.17016643916898722,
+                    0.013946781973098296,
+                    0.0006648855509755364,
+                    0.00010222882396834445,
+                    7.382415718687527e-05,
+                    6.044422639147371e-05,
+                    4.356548911279826e-05,
+                    2.4968893940877464e-05,
+                    1.2298222721075738e-05,
+                    6.759943357233623e-06
+                  ],
+                  "worst_captured_population": 0.9993124148791129,
+                  "max_active_level": 3
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.7256643806953798,
+                    0.08151832400298356,
+                    0.003837883530660501,
+                    0.00021732309139108118,
+                    9.028146501815008e-05,
+                    3.5691919534173435e-05,
+                    3.0221159061543655e-05,
+                    2.7197113546171716e-05,
+                    2.2279961830768827e-05,
+                    1.2911146406497246e-05,
+                    5.1144939573884916e-06
+                  ],
+                  "worst_captured_population": 0.9996376874889626,
+                  "max_active_level": 3
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    0.7274756145233552,
+                    1.0,
+                    0.1701664391689872,
+                    0.013946781973098298,
+                    0.0006648855509755365,
+                    0.00018355545480547937,
+                    9.638300879071818e-05,
+                    5.9013196178841075e-05,
+                    4.1227331274054416e-05,
+                    2.9386490954309446e-05,
+                    1.8223862800497522e-05,
+                    9.191806462730474e-06
+                  ],
+                  "worst_captured_population": 0.9992948386994024,
+                  "max_active_level": 3
+                }
+              }
+            }
+          },
+          "14": {
+            "fidelity": 0.9996411266514905,
+            "leakage_average": 0.0007120374433000898,
+            "leakage_worst": 0.0007835321027169773,
+            "unitarity_error": 5.311277261097164e-15,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "candidate_peak_population_by_level": [
+                1.0,
+                1.0,
+                0.17016643916898722,
+                0.013946781973098295,
+                0.0006648855509755365,
+                0.00018355546210289985,
+                0.00011831350111971674,
+                9.38368266732305e-05,
+                5.4194634017098076e-05,
+                3.015809299335916e-05,
+                1.6700076590099615e-05,
+                6.845897894374788e-06,
+                2.3535344968933883e-06,
+                7.184554560823537e-07
+              ],
+              "candidate_worst_captured_population": 0.9992948386993354,
+              "candidate_max_active_level": 3,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.4995214493511604,
+                    0.061851282983944704,
+                    0.00618884839924751,
+                    0.0002576577361200795,
+                    0.00015476744743032761,
+                    0.00011831350111971674,
+                    9.38368266732305e-05,
+                    5.4194634017098076e-05,
+                    2.3970777940211784e-05,
+                    8.992170271895553e-06,
+                    2.765776822633704e-06,
+                    7.298033876577758e-07,
+                    1.6014428738865502e-07
+                  ],
+                  "worst_captured_population": 0.9994619678503179,
+                  "max_active_level": 3
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    0.49926314864011806,
+                    1.0,
+                    0.17016643916898722,
+                    0.013946781973098293,
+                    0.0006648855509755364,
+                    0.00010222758264657245,
+                    7.382138350618659e-05,
+                    6.05397189383495e-05,
+                    4.331716503619915e-05,
+                    2.540095615317139e-05,
+                    1.2211783180708127e-05,
+                    4.652240046866275e-06,
+                    1.4797623235989548e-06,
+                    4.5863454905260817e-07
+                  ],
+                  "worst_captured_population": 0.9993124148791129,
+                  "max_active_level": 3
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.7256643806947385,
+                    0.08151832404226092,
+                    0.003837883530660505,
+                    0.00021732306221131374,
+                    9.028829010646362e-05,
+                    3.569190128069243e-05,
+                    3.022314511164188e-05,
+                    2.7131415731275412e-05,
+                    2.303885668367429e-05,
+                    1.1921268923615234e-05,
+                    4.120160845399921e-06,
+                    1.132051346846944e-06,
+                    2.527537453222145e-07
+                  ],
+                  "worst_captured_population": 0.99963768750423,
+                  "max_active_level": 3
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    0.727475614522641,
+                    1.0,
+                    0.1701664391689872,
+                    0.013946781973098295,
+                    0.0006648855509755365,
+                    0.00018355546210289985,
+                    9.638287229703335e-05,
+                    5.9010614616140784e-05,
+                    4.125589743632217e-05,
+                    3.015809299335916e-05,
+                    1.6700076590099615e-05,
+                    6.845897894374788e-06,
+                    2.3535344968933883e-06,
+                    7.184554560823537e-07
+                  ],
+                  "worst_captured_population": 0.9992948386993354,
+                  "max_active_level": 3
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "wigner": {
+      "by_input": {
+        "|g,0>": {
+          "reduced_state_fidelity": 0.999606960260388,
+          "wigner_rms": 0.002100897362128618,
+          "wigner_l1": 0.0012943918117491531
+        },
+        "|g,1>": {
+          "reduced_state_fidelity": 0.9996525916645599,
+          "wigner_rms": 0.0022097119334576463,
+          "wigner_l1": 0.0014576770295080875
+        },
+        "|e,0>": {
+          "reduced_state_fidelity": 0.9997031330260371,
+          "wigner_rms": 0.0018464591184019579,
+          "wigner_l1": 0.0011651390819692653
+        },
+        "|e,1>": {
+          "reduced_state_fidelity": 0.9996054486453491,
+          "wigner_rms": 0.0019914883982710577,
+          "wigner_l1": 0.0012546958736676655
+        }
+      },
+      "mean_reduced_state_fidelity": 0.9996420333990835,
+      "min_reduced_state_fidelity": 0.9996054486453491,
+      "mean_wigner_rms": 0.00203713920306482,
+      "max_wigner_rms": 0.0022097119334576463,
+      "mean_wigner_l1": 0.001292975949223543
+    }
+  },
+  "augmented_refit": {
+    "record": {
+      "case_id": "drsqr_blk5_a4_ordRDS_RDS_lv0-1-2-3_blk5_t4_augmented_refit",
+      "family_key": "drsqr",
+      "family_label": "D + R + SQR",
+      "variant_key": "blk5_a4_ordRDS",
+      "variant_label": "5 blocks / RDS / n_active=4 / augmented_refit",
+      "builder_name": "ordered_sqr",
+      "builder_kwargs": {
+        "blocks": 5,
+        "order": [
+          "R",
+          "D",
+          "SQR"
+        ]
+      },
+      "order_tokens": [
+        "R",
+        "D",
+        "SQR"
+      ],
+      "order_label": "RDS",
+      "levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "max_tones": 4,
+      "blocks": 5,
+      "search_phase": "augmented_refit",
+      "optimization_n_cav": 12,
+      "seed": 17,
+      "init_guess": "heuristic",
+      "maxiter": 4,
+      "multistart": 1,
+      "fidelity": 0.9111232105179068,
+      "objective": 0.09758209039824242,
+      "success": false,
+      "message": "",
+      "summary": {
+        "rows": [
+          {
+            "name": "R0",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "D0",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "S0",
+            "kind": "MaskedSQR",
+            "duration_ns": 1100.0,
+            "active_tones": 4,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            }
+          },
+          {
+            "name": "R1",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "D1",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "S1",
+            "kind": "MaskedSQR",
+            "duration_ns": 1100.0,
+            "active_tones": 4,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            }
+          },
+          {
+            "name": "R2",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "D2",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "S2",
+            "kind": "MaskedSQR",
+            "duration_ns": 1100.0,
+            "active_tones": 4,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            }
+          },
+          {
+            "name": "R3",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "D3",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "S3",
+            "kind": "MaskedSQR",
+            "duration_ns": 1100.0,
+            "active_tones": 4,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            }
+          },
+          {
+            "name": "R4",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "D4",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "S4",
+            "kind": "MaskedSQR",
+            "duration_ns": 1100.0,
+            "active_tones": 4,
+            "metadata": {
+              "ideal_kind": "MaskedSQR",
+              "levels": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "max_tones": 4,
+              "include_conditional_phase": false
+            }
+          },
+          {
+            "name": "D5",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          }
+        ],
+        "counts": {
+          "QubitRotation": 5,
+          "Displacement": 6,
+          "MaskedSQR": 5
+        },
+        "gate_depth": 16,
+        "total_duration_ns": 6180.0,
+        "selective_block_count": 5,
+        "entangling_block_count": 0,
+        "total_active_tones": 20,
+        "max_active_tones": 4
+      },
+      "metrics": {
+        "fidelity": 0.9111232105179068,
+        "leakage_average": 0.035856699228538874,
+        "leakage_worst": 0.1741060183229841,
+        "leakage_selected": 0.1741060183229841,
+        "checkpoint_leakage_average": 0.0,
+        "checkpoint_leakage_worst": 0.0,
+        "state_error_mean": NaN,
+        "state_error_max": NaN,
+        "state_fidelity_mean": NaN,
+        "state_fidelity_min": NaN,
+        "reduced_state_fidelity_mean": NaN,
+        "reduced_state_fidelity_min": NaN,
+        "observable_error_mean": NaN,
+        "observable_error_max": NaN,
+        "weighted_observable_error": NaN,
+        "trajectory_task_loss": NaN,
+        "trajectory_state_error_mean": NaN,
+        "trajectory_observable_error_mean": NaN,
+        "channel_overlap": NaN,
+        "channel_choi_error": NaN,
+        "channel_superoperator_error": NaN,
+        "trace_preservation_error_mean": NaN,
+        "trace_preservation_error_max": NaN,
+        "trace_loss_mean": NaN,
+        "trace_loss_worst": NaN,
+        "choi_hermiticity_error": NaN,
+        "choi_min_eig": NaN,
+        "complete_positivity_violation": NaN,
+        "duration_metric": 0.9999999999999999,
+        "gate_count_metric": 11.119346862655016,
+        "pulse_power_metric": 0.09497795613718024,
+        "amplitude_smoothness_metric": 0.905388697137218,
+        "robustness_objective": 0.09758209039824242
+      },
+      "sequence": [
+        {
+          "type": "QubitRotation",
+          "name": "R0",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:0:R0",
+          "time_policy_locked": false,
+          "parameters": [
+            1.1662194390108065,
+            -0.23880675877190835
+          ],
+          "time_param_id": "t_0"
+        },
+        {
+          "type": "Displacement",
+          "name": "D0",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:1:D0",
+          "time_policy_locked": false,
+          "parameters": [
+            -0.16012925224293456,
+            0.11671227086284047
+          ],
+          "time_param_id": "t_1"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S0",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:2:S0",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "max_tones": 4,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            -2.2957685276100226,
+            -1.5475056849273576,
+            -4.769963838364475,
+            8.12727019636082,
+            -1.9455776464247403,
+            1.8974009763100788,
+            2.3963046734882187,
+            -2.514965060277794
+          ],
+          "time_param_id": "t_2"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R1",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:3:R1",
+          "time_policy_locked": false,
+          "parameters": [
+            1.7018387440620502,
+            1.4305040631466637
+          ],
+          "time_param_id": "t_3"
+        },
+        {
+          "type": "Displacement",
+          "name": "D1",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:4:D1",
+          "time_policy_locked": false,
+          "parameters": [
+            -0.17965200668205136,
+            -0.31376236775327787
+          ],
+          "time_param_id": "t_4"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S1",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:5:S1",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "max_tones": 4,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            2.399853829034812,
+            -2.113630281921565,
+            -1.595640262530219,
+            -1.0697942408568808,
+            -0.41100874298740453,
+            -0.1016234730011143,
+            -0.11773816036470275,
+            -0.716401754681923
+          ],
+          "time_param_id": "t_5"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R2",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:6:R2",
+          "time_policy_locked": false,
+          "parameters": [
+            1.9985506805151403,
+            0.3164385353585287
+          ],
+          "time_param_id": "t_6"
+        },
+        {
+          "type": "Displacement",
+          "name": "D2",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:7:D2",
+          "time_policy_locked": false,
+          "parameters": [
+            0.24535095148003086,
+            0.2759549165753551
+          ],
+          "time_param_id": "t_7"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S2",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:8:S2",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "max_tones": 4,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            -0.6092261814440494,
+            0.5075881695988418,
+            -5.28445046710183,
+            3.6386787833954854,
+            -0.6534999066285205,
+            1.2362359349264849,
+            1.5576638790906412,
+            0.6616308338433579
+          ],
+          "time_param_id": "t_8"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R3",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:9:R3",
+          "time_policy_locked": false,
+          "parameters": [
+            1.7986720939845502,
+            1.5932976868959197
+          ],
+          "time_param_id": "t_9"
+        },
+        {
+          "type": "Displacement",
+          "name": "D3",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:10:D3",
+          "time_policy_locked": false,
+          "parameters": [
+            0.1200345263239661,
+            0.00730114897543075
+          ],
+          "time_param_id": "t_10"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S3",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:11:S3",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "max_tones": 4,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            1.0392722023676357,
+            -0.7764455900971174,
+            4.599226730223824,
+            -3.0171120373954525,
+            -0.12246054430271514,
+            0.4288799760611439,
+            -0.6687139501515693,
+            -6.813730713738092
+          ],
+          "time_param_id": "t_11"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R4",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:12:R4",
+          "time_policy_locked": false,
+          "parameters": [
+            1.5498129204529596,
+            -0.18055935630530018
+          ],
+          "time_param_id": "t_12"
+        },
+        {
+          "type": "Displacement",
+          "name": "D4",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:13:D4",
+          "time_policy_locked": false,
+          "parameters": [
+            0.12789866866296054,
+            -0.1265909149309783
+          ],
+          "time_param_id": "t_13"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "S4",
+          "duration": 1.1e-06,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:14:S4",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedSQR",
+            "levels": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "max_tones": 4,
+            "include_conditional_phase": false
+          },
+          "parameters": [
+            1.21081341849852,
+            -1.4436878075881527,
+            19.31610354218135,
+            2.4050189014510472,
+            -2.270077880413293,
+            -2.378662227805399,
+            0.31360507587986036,
+            1.6858414041910454
+          ],
+          "time_param_id": "t_14"
+        },
+        {
+          "type": "Displacement",
+          "name": "D5",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:15:D5",
+          "time_policy_locked": false,
+          "parameters": [
+            0.1684990333687988,
+            -0.10790138225022833
+          ],
+          "time_param_id": "t_15"
+        }
+      ],
+      "parameter_vector": [
+        1.1662194390108065,
+        -0.23880675877190835,
+        -0.16012925224293456,
+        0.11671227086284047,
+        -2.2957685276100226,
+        -1.5475056849273576,
+        -4.769963838364475,
+        8.12727019636082,
+        -1.9455776464247403,
+        1.8974009763100788,
+        2.3963046734882187,
+        -2.514965060277794,
+        1.7018387440620502,
+        1.4305040631466637,
+        -0.17965200668205136,
+        -0.31376236775327787,
+        2.399853829034812,
+        -2.113630281921565,
+        -1.595640262530219,
+        -1.0697942408568808,
+        -0.41100874298740453,
+        -0.1016234730011143,
+        -0.11773816036470275,
+        -0.716401754681923,
+        1.9985506805151403,
+        0.3164385353585287,
+        0.24535095148003086,
+        0.2759549165753551,
+        -0.6092261814440494,
+        0.5075881695988418,
+        -5.28445046710183,
+        3.6386787833954854,
+        -0.6534999066285205,
+        1.2362359349264849,
+        1.5576638790906412,
+        0.6616308338433579,
+        1.7986720939845502,
+        1.5932976868959197,
+        0.1200345263239661,
+        0.00730114897543075,
+        1.0392722023676357,
+        -0.7764455900971174,
+        4.599226730223824,
+        -3.0171120373954525,
+        -0.12246054430271514,
+        0.4288799760611439,
+        -0.6687139501515693,
+        -6.813730713738092,
+        1.5498129204529596,
+        -0.18055935630530018,
+        0.12789866866296054,
+        -0.1265909149309783,
+        1.21081341849852,
+        -1.4436878075881527,
+        19.31610354218135,
+        2.4050189014510472,
+        -2.270077880413293,
+        -2.378662227805399,
+        0.31360507587986036,
+        1.6858414041910454,
+        0.1684990333687988,
+        -0.10790138225022833
+      ],
+      "time_vector": [
+        4e-08,
+        8e-08,
+        1.1e-06,
+        4e-08,
+        8e-08,
+        1.1e-06,
+        4e-08,
+        8e-08,
+        1.1e-06,
+        4e-08,
+        8e-08,
+        1.1e-06,
+        4e-08,
+        8e-08,
+        1.1e-06,
+        8e-08
+      ],
+      "physical": {
+        "status": "discarded",
+        "notes": [
+          "N_cav=12 fidelity 0.8875 is below the retained threshold 0.90.",
+          "N_cav=12 worst leakage 0.1044 is above 0.10."
+        ],
+        "by_n_cav": {
+          "10": {
+            "fidelity": 0.8874590003266548,
+            "leakage_average": 0.038380320682866814,
+            "leakage_worst": 0.10436049416475346,
+            "unitarity_error": 3.273650829838389e-15,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "candidate_peak_population_by_level": [
+                1.0,
+                1.0,
+                0.2667222690303655,
+                0.06191555601077173,
+                0.008604213240337203,
+                0.0012738227916812327,
+                0.00045775728484894493,
+                0.00012296620871829947,
+                2.423300975196555e-05,
+                3.7347074660878235e-06
+              ],
+              "candidate_worst_captured_population": 0.9993913087892146,
+              "candidate_max_active_level": 5,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.3716874359862391,
+                    0.024937786326871058,
+                    0.0025191145522949175,
+                    0.00038851396346665373,
+                    6.670657093938527e-05,
+                    1.199881715986488e-05,
+                    1.659551613191285e-06,
+                    1.551525045374612e-07,
+                    1.7405127709755065e-08
+                  ],
+                  "worst_captured_population": 0.9995309485391889,
+                  "max_active_level": 3
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "peak_population_by_level": [
+                    0.36757556781148193,
+                    1.0,
+                    0.1370169517486345,
+                    0.019954458631803357,
+                    0.002516055441903824,
+                    0.00040126348764975604,
+                    9.708698691583895e-05,
+                    3.0670411028853656e-05,
+                    6.074091133219428e-06,
+                    7.241969612161515e-07
+                  ],
+                  "worst_captured_population": 0.9994641808263102,
+                  "max_active_level": 4
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.5507637310690049,
+                    0.03763607586806619,
+                    0.0030725634972517736,
+                    0.0003549329252451771,
+                    0.0001989261186910255,
+                    8.405624871389019e-05,
+                    1.4619182819751813e-05,
+                    1.4131408055591298e-06,
+                    1.0558603435182942e-07
+                  ],
+                  "worst_captured_population": 0.999345946797691,
+                  "max_active_level": 3
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.5179760351347634,
+                    1.0,
+                    0.2667222690303655,
+                    0.06191555601077173,
+                    0.008604213240337203,
+                    0.0012738227916812327,
+                    0.00045775728484894493,
+                    0.00012296620871829947,
+                    2.423300975196555e-05,
+                    3.7347074660878235e-06
+                  ],
+                  "worst_captured_population": 0.9993913087892146,
+                  "max_active_level": 5
+                }
+              }
+            }
+          },
+          "12": {
+            "fidelity": 0.8874590003618082,
+            "leakage_average": 0.03838032059942498,
+            "leakage_worst": 0.10436049389817659,
+            "unitarity_error": 1.0517918292257589e-14,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "candidate_peak_population_by_level": [
+                1.0,
+                1.0,
+                0.26672226903037394,
+                0.0619155560106515,
+                0.008604213241368473,
+                0.0012737975223275572,
+                0.0004579077801062784,
+                0.00012291726796427447,
+                2.3992218597755325e-05,
+                3.4804364814240677e-06,
+                3.893811620234539e-07,
+                3.639500052129016e-08
+              ],
+              "candidate_worst_captured_population": 0.9993912765206868,
+              "candidate_max_active_level": 5,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.37168743599212056,
+                    0.02493778632674248,
+                    0.0025191145412950537,
+                    0.0003885139593342244,
+                    6.670649767925524e-05,
+                    1.1999245573233818e-05,
+                    1.6583011852799713e-06,
+                    1.5724541052772178e-07,
+                    1.44222988692985e-08,
+                    1.6000691323849121e-09,
+                    1.8301860042070463e-10
+                  ],
+                  "worst_captured_population": 0.9995309485454309,
+                  "max_active_level": 3
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "peak_population_by_level": [
+                    0.36757556781005385,
+                    1.0,
+                    0.13701695174864723,
+                    0.01995445863173767,
+                    0.0025160554423083723,
+                    0.0004012607102419721,
+                    9.712976127847743e-05,
+                    3.062476844755538e-05,
+                    6.041809510485658e-06,
+                    7.048526484857648e-07,
+                    5.591567994139729e-08,
+                    3.5508907298608724e-09
+                  ],
+                  "worst_captured_population": 0.9994641786313017,
+                  "max_active_level": 4
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.5507637310676831,
+                    0.03763607587911767,
+                    0.0030725634972492183,
+                    0.0003549334011898613,
+                    0.0001989196814742619,
+                    8.407412125192027e-05,
+                    1.460689139747455e-05,
+                    1.4023984501350556e-06,
+                    1.0577689612430968e-07,
+                    9.744254598762604e-09,
+                    1.0803061811890822e-09
+                  ],
+                  "worst_captured_population": 0.99934594690478,
+                  "max_active_level": 3
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.5179760351332665,
+                    1.0,
+                    0.26672226903037394,
+                    0.0619155560106515,
+                    0.008604213241368473,
+                    0.0012737975223275572,
+                    0.0004579077801062784,
+                    0.00012291726796427447,
+                    2.3992218597755325e-05,
+                    3.4804364814240677e-06,
+                    3.893811620234539e-07,
+                    3.639500052129016e-08
+                  ],
+                  "worst_captured_population": 0.9993912765206868,
+                  "max_active_level": 5
+                }
+              }
+            }
+          },
+          "14": {
+            "fidelity": 0.8874590003618187,
+            "leakage_average": 0.038380320599379986,
+            "leakage_worst": 0.1043604938980659,
+            "unitarity_error": 3.335957535919209e-14,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "candidate_peak_population_by_level": [
+                1.0,
+                1.0,
+                0.2667222690303739,
+                0.0619155560106515,
+                0.008604213241368522,
+                0.001273797597616887,
+                0.00045790743251060515,
+                0.00012291747063135827,
+                2.399298890556781e-05,
+                3.4803125901389122e-06,
+                3.879591004889416e-07,
+                3.452891828398483e-08,
+                2.5469588361396356e-09,
+                1.6455798271259566e-10
+              ],
+              "candidate_worst_captured_population": 0.9993912765958264,
+              "candidate_max_active_level": 5,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.37168743599211607,
+                    0.024937786326742418,
+                    0.002519114541268446,
+                    0.0003885139594269033,
+                    6.670649798293016e-05,
+                    1.1999243584747423e-05,
+                    1.6583052286437088e-06,
+                    1.5724183297266538e-07,
+                    1.4423104032358296e-08,
+                    1.6050585266675525e-09,
+                    1.6447238342220843e-10,
+                    1.3060137345404894e-11,
+                    8.452733984349386e-13
+                  ],
+                  "worst_captured_population": 0.9995309485454035,
+                  "max_active_level": 3
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "peak_population_by_level": [
+                    0.3675755678100533,
+                    1.0,
+                    0.13701695174864725,
+                    0.019954458631737663,
+                    0.002516055442308384,
+                    0.0004012607343212201,
+                    9.712963126277344e-05,
+                    3.062496751764541e-05,
+                    6.041859493554403e-06,
+                    7.047232267811397e-07,
+                    5.5668017721589976e-08,
+                    3.5459236827298788e-09,
+                    2.2588793334680785e-10,
+                    1.588152312774544e-11
+                  ],
+                  "worst_captured_population": 0.9994641786284669,
+                  "max_active_level": 4
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "peak_population_by_level": [
+                    1.0,
+                    0.5507637310676823,
+                    0.03763607587912356,
+                    0.003072563497249217,
+                    0.0003549334010651503,
+                    0.0001989196921260925,
+                    8.40740789217896e-05,
+                    1.4606943678003172e-05,
+                    1.4024013545636957e-06,
+                    1.0577159950555199e-07,
+                    9.68834542788466e-09,
+                    1.0191003078547353e-09,
+                    9.230678436978333e-11,
+                    6.9039630671161425e-12
+                  ],
+                  "worst_captured_population": 0.9993459469045988,
+                  "max_active_level": 3
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.5179760351332651,
+                    1.0,
+                    0.2667222690303739,
+                    0.0619155560106515,
+                    0.008604213241368522,
+                    0.001273797597616887,
+                    0.00045790743251060515,
+                    0.00012291747063135827,
+                    2.399298890556781e-05,
+                    3.4803125901389122e-06,
+                    3.879591004889416e-07,
+                    3.452891828398483e-08,
+                    2.5469588361396356e-09,
+                    1.6455798271259566e-10
+                  ],
+                  "worst_captured_population": 0.9993912765958264,
+                  "max_active_level": 5
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "wigner": {
+      "by_input": {
+        "|g,0>": {
+          "reduced_state_fidelity": 0.9585119941262745,
+          "wigner_rms": 0.017127083797221422,
+          "wigner_l1": 0.008519931591862684
+        },
+        "|g,1>": {
+          "reduced_state_fidelity": 0.956548717615215,
+          "wigner_rms": 0.016941956522958684,
+          "wigner_l1": 0.008895863305429212
+        },
+        "|e,0>": {
+          "reduced_state_fidelity": 0.9401685073131302,
+          "wigner_rms": 0.013098483570531443,
+          "wigner_l1": 0.006533377602291015
+        },
+        "|e,1>": {
+          "reduced_state_fidelity": 0.8970738286877386,
+          "wigner_rms": 0.0281613578977778,
+          "wigner_l1": 0.0158801664018395
+        }
+      },
+      "mean_reduced_state_fidelity": 0.9380757619355896,
+      "min_reduced_state_fidelity": 0.8970738286877386,
+      "mean_wigner_rms": 0.018832220447122336,
+      "max_wigner_rms": 0.0281613578977778,
+      "mean_wigner_l1": 0.009957334725355604
+    },
+    "augmented_target_fidelity": 0.9111232105179068
+  },
+  "interpretation": "does_not_support",
+  "figure_stem": "drsqr_wigner_basis_extension"
+}

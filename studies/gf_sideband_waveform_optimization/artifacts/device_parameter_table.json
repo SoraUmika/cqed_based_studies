@@ -1,0 +1,114 @@
+[
+  {
+    "category": "device",
+    "note": "Readout-mode bare frequency.",
+    "parameter": "readout_frequency",
+    "source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cQED_simulation\\examples\\sequential_sideband_reset.py",
+    "unit": "Hz",
+    "value": 8596222556.078796
+  },
+  {
+    "category": "device",
+    "note": "Transmon bare frequency used in the dispersive model.",
+    "parameter": "qubit_frequency",
+    "source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cQED_simulation\\examples\\sequential_sideband_reset.py",
+    "unit": "Hz",
+    "value": 6150358764.4830475
+  },
+  {
+    "category": "device",
+    "note": "Storage-mode bare frequency.",
+    "parameter": "storage_frequency",
+    "source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cQED_simulation\\examples\\sequential_sideband_reset.py",
+    "unit": "Hz",
+    "value": 5240932800.0
+  },
+  {
+    "category": "device",
+    "note": "Readout linewidth used directly in the open-system replay.",
+    "parameter": "readout_kappa",
+    "source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cQED_simulation\\examples\\sequential_sideband_reset.py",
+    "unit": "1/s",
+    "value": 4156000.0
+  },
+  {
+    "category": "device",
+    "note": "Transmon anharmonicity alpha.",
+    "parameter": "qubit_anharmonicity",
+    "source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cQED_simulation\\examples\\sequential_sideband_reset.py",
+    "unit": "Hz",
+    "value": -255669694.5244608
+  },
+  {
+    "category": "device",
+    "note": "Storage dispersive shift per transmon excitation.",
+    "parameter": "chi_storage",
+    "source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cQED_simulation\\examples\\sequential_sideband_reset.py",
+    "unit": "Hz",
+    "value": -2840421.0
+  },
+  {
+    "category": "device",
+    "note": "Readout dispersive shift per transmon excitation.",
+    "parameter": "chi_readout",
+    "source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cQED_simulation\\examples\\sequential_sideband_reset.py",
+    "unit": "Hz",
+    "value": -3000000.0
+  },
+  {
+    "category": "device",
+    "note": "Nominal storage gf sideband frequency exported by the local example.",
+    "parameter": "storage_sideband_nominal_frequency",
+    "source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cQED_simulation\\examples\\sequential_sideband_reset.py",
+    "unit": "Hz",
+    "value": 6803533628.0
+  },
+  {
+    "category": "device",
+    "note": "Storage energy-relaxation time used in the available open-system model.",
+    "parameter": "storage_t1",
+    "source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cQED_simulation\\examples\\sequential_sideband_reset.py",
+    "unit": "s",
+    "value": 0.00025
+  },
+  {
+    "category": "device",
+    "note": "Storage Ramsey coherence time from the local example.",
+    "parameter": "storage_t2_ramsey",
+    "source": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cQED_simulation\\examples\\sequential_sideband_reset.py",
+    "unit": "s",
+    "value": 0.00015
+  },
+  {
+    "category": "derived",
+    "note": "Pure dephasing time inferred by cqed_sim convention.",
+    "parameter": "storage_tphi_ramsey",
+    "source": "derived from storage_t1 and storage_t2_ramsey",
+    "unit": "s",
+    "value": 0.00021428571428571427
+  },
+  {
+    "category": "reference",
+    "note": "Matched local transmon coherence reference used for sensitivity analysis.",
+    "parameter": "transmon_t1_reference",
+    "source": "cQED_simulation/examples/workflows/simulate_fock_tomo_and_sqr_calibration.py",
+    "unit": "s",
+    "value": 9.812873848245112e-06
+  },
+  {
+    "category": "reference",
+    "note": "Matched local Ramsey coherence reference for the transmon.",
+    "parameter": "transmon_t2_ramsey_reference",
+    "source": "cQED_simulation/examples/workflows/simulate_fock_tomo_and_sqr_calibration.py",
+    "unit": "s",
+    "value": 6.32473112712837e-06
+  },
+  {
+    "category": "derived",
+    "note": "Pure dephasing time used when transmon dephasing is enabled.",
+    "parameter": "transmon_tphi_ramsey_reference",
+    "source": "derived from transmon_t1_reference and transmon_t2_ramsey_reference",
+    "unit": "s",
+    "value": 9.332187258158938e-06
+  }
+]

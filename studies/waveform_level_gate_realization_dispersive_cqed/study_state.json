@@ -1,0 +1,150 @@
+{
+  "study_name": "waveform_level_gate_realization_dispersive_cqed",
+  "study_path": "studies/waveform_level_gate_realization_dispersive_cqed",
+  "status": "COMPLETE",
+  "problem_class": [
+    "ANA",
+    "DES"
+  ],
+  "created_at": "2026-04-01T00:00:00Z",
+  "updated_at": "2026-04-02T18:00:00Z",
+  "loop_iteration": 1,
+  "objective": "Quantify when square cavity displacements and Gaussian or DRAG qubit rotations in a dispersive transmon-cavity system still realize their ideal gate-level descriptions, and identify the regime boundaries where waveform-level corrections become necessary.",
+  "hypotheses": [
+    "Square cavity displacements remain effectively unconditional only when |chi| T / 2pi is small enough that the excited-state cavity detuning stays perturbative.",
+    "Gaussian or DRAG qubit rotations calibrated in the vacuum manifold become Fock-dependent once n chi T is no longer small, limiting broadband spectator behavior.",
+    "A naive echoed displacement sequence will fail to recover unconditional superposition-state fidelity once the inserted pi pulses themselves become Fock-dependent in the populated cavity."
+  ],
+  "assumptions": [
+    "Closed-system dispersive dynamics with no Lindblad decoherence channels.",
+    "Three transmon levels and a truncated cavity Fock basis are sufficient after the reported convergence checks.",
+    "The dispersive Hamiltonian with chi, chi-prime, and Kerr captures the relevant waveform-level distortions at the chosen operating point.",
+    "The echoed-displacement follow-up uses vacuum-calibrated Gaussian or DRAG pi pulses and therefore probes the simplest refocusing construction rather than a manifold-adaptive design."
+  ],
+  "success_criteria": {
+    "displacement": "Map fidelity, entanglement, and dominant-error trends for square cavity displacements over amplitude and duration.",
+    "rotation": "Extract Fock-resolved effective qubit-rotation metrics and identify the spectator-safe cavity occupations and pulse durations.",
+    "validation": "Pass sanity, convergence, and literature-comparison gates with explicit numerical evidence.",
+    "reporting": "Produce a reproducible report, artifact set, and notebook that include the echoed-displacement negative result in the paper itself."
+  },
+  "completed_tasks": [
+    "Initialized the study folder, README, IMPROVEMENTS log, and shared helper modules.",
+    "Audited cqed_sim conventions for tensor ordering, Hamiltonian terms, and carrier definitions.",
+    "Ran the square-displacement study and saved fidelity, ablation, and phase-space artifacts and figures.",
+    "Ran the qubit-rotation study and saved Fock-resolved, DRAG, entanglement, and regime-map artifacts and figures.",
+    "Completed cross-regime synthesis and validation with explicit convergence and sanity-check evidence.",
+    "Wrote and built the report, bibliography, and reproducibility notebook.",
+    "Executed the echoed-displacement extension and saved echo comparison artifacts and figures.",
+    "Integrated the echoed-displacement evidence into the report body and appendix, then rebuilt the PDF successfully with pdflatex and bibtex.",
+    "Completed the approval-style review artifact and final polish closeout for the study.",
+    "Extended the report and study documentation to interpret the two-tone cavity pulse as the minimal multiplex drive and to record when richer multitone compensation is likely justified.",
+    "Ran an explicit multiplex-drive follow-up benchmark, archived the new artifact and figure pair, and updated the report around the resulting negative multicarrier result and the corrected broad-state ranking.",
+    "Ran segmented and jointly optimized structured multiplex follow-ups, updated the reproducibility notebook, and reconciled the archival report and state files with the final protocol ranking."
+  ],
+  "failed_tasks": [],
+  "pending_tasks": [],
+  "blocked_tasks": [],
+  "key_results": {
+    "displacement": {
+      "ground_state": "For |g>, square displacements remain above 0.999 fidelity across the tested amplitudes for pulse durations up to 100 ns.",
+      "excited_state": "For |e>, fidelity collapses once |chi| T / 2pi becomes appreciable; at T = 100 ns and |alpha| = 2.0 the fidelity is about 0.06, and at 200 ns it is about 0.002.",
+      "dominant_error": "The dispersive shift chi accounts for more than 99 percent of the displacement error, while chi-prime and Kerr remain minor corrections at the studied operating point.",
+      "multiplex_interpretation": "The successful two-tone displacement should be read as the minimal two-channel multiplex solution to the g/e branch split; the extended multiplex follow-up shows that extra carriers alone, segmented branch-resonant fits, and low-parameter jointly optimized shaped-two-tone refinements do not replace short branch-calibrated control or richer within-window temporal shaping.",
+      "best_broad_state_protocol": "On the explicit 14-state benchmark evaluated in the multiplex follow-up, the 20 ns two-tone pulse is the strongest tested protocol, with mean fidelity 0.9857 and minimum fidelity 0.9242."
+    },
+    "multiplex_followup": {
+      "best_case": "The best full-duration Fourier-compressed multiplex drive used 8 tones at 40 ns but reached only mean fidelity 0.5242 and minimum fidelity 0.00189.",
+      "best_segmented_case": "The best segmented branch-resonant fit used 8 segments at 40 ns but reached only mean fidelity 0.3612 and minimum fidelity 0.00814.",
+      "best_joint_shaped_case": "The best jointly optimized shaped-two-tone case used 4 segments at 40 ns and reached only mean fidelity 0.1576 and minimum fidelity 0.0459 after a successful local Powell optimization.",
+      "two_tone_references": "The calibrated two-tone references at 20 ns and 40 ns reached mean fidelities 0.9857 and 0.9528, respectively, on the same broad state set.",
+      "interpretation": "The negative multiplex results indicate that the sampled optimal waveform's success depends on richer within-window temporal structure, not just on the presence of additional carrier frequencies or low-dimensional structured segmentation."
+    },
+    "qubit_rotation": {
+      "vacuum": "An X_pi pulse at 40 ns reaches 0.998759 fidelity without DRAG and 0.999841 with the optimal 0.5 ns DRAG coefficient in the n = 0 manifold.",
+      "fock_dependence": "At 40 ns the Fock-resolved X_pi fidelity falls from about 0.999 at n = 0 to about 0.483 at n = 5, showing strong photon-number selectivity.",
+      "entanglement": "Applying an X_pi pulse with the cavity in |alpha| = 2.0 generates about 0.54 bits of qubit-cavity entanglement and reduces state fidelity to about 0.36."
+    },
+    "echoed_displacement": {
+      "superposition_failure": "For the representative fixed-displacement, Gaussian-20-ns echo protocol, the echo-to-bare infidelity ratio stays above 1 throughout the tested (|alpha|, T) grid for the |+x> input.",
+      "representative_points": {
+        "plus_x_alpha1_T100ns": {
+          "bare_fidelity": 0.698611192474159,
+          "echo_fidelity": 0.6269881273491232,
+          "infidelity_ratio": 1.2376437147396197
+        },
+        "plus_x_alpha2_T200ns": {
+          "bare_fidelity": 0.264779098865326,
+          "echo_fidelity": 0.08492974480583007,
+          "infidelity_ratio": 1.2446201487274005
+        },
+        "e_alpha1_T200ns": {
+          "bare_fidelity": 0.6797763246300697,
+          "echo_fidelity": 0.903268247615859,
+          "infidelity_ratio": 0.3020832612796913
+        }
+      }
+    }
+  },
+  "latest_figures": [
+    "studies/waveform_level_gate_realization_dispersive_cqed/figures/combined_regime_map.pdf",
+    "studies/waveform_level_gate_realization_dispersive_cqed/figures/displacement_infidelity_heatmap.pdf",
+    "studies/waveform_level_gate_realization_dispersive_cqed/figures/qubit_rotation_fock_resolved_infidelity.pdf",
+    "studies/waveform_level_gate_realization_dispersive_cqed/figures/echo_improvement_heatmap.pdf",
+    "studies/waveform_level_gate_realization_dispersive_cqed/figures/unconditional_multiplex_followup.pdf",
+    "studies/waveform_level_gate_realization_dispersive_cqed/report/report.pdf"
+  ],
+  "blockers": [],
+  "compute_notes": {
+    "main_study": "The main waveform and regime-map sweeps completed within the planned single-machine CPU budget and did not require GPU acceleration.",
+    "echo_extension": "The echoed-displacement extension added a modest post-report parameter sweep over alpha, duration, pi-pulse family, and fairness convention.",
+    "report_build": "latexmk was unavailable because the local MiKTeX installation lacks perl, so the final PDF was built with explicit pdflatex and bibtex passes instead.",
+    "multiplex_extension": "The first multiplex-drive extension was documentation only and synthesized the existing two-tone, broad-state, and constrained-waveform results.",
+    "multiplex_followup": "The extended multiplex follow-up ran in about 39.0 s and evaluated full-duration K = 2, 3, 4, 5, 6, 8 carrier approximations, segmented branch-resonant fits with 1 / 2 / 4 / 8 windows, and a successfully converged 4-segment jointly optimized shaped-two-tone family together with refreshed 20 ns / 40 ns / 80 ns two-tone references."
+  },
+  "science_directive_version": 1,
+  "review_iterations": 1,
+  "reviewer_decision": "APPROVE",
+  "file_manifest": {
+    "scripts": [
+      "studies/waveform_level_gate_realization_dispersive_cqed/scripts/common.py",
+      "studies/waveform_level_gate_realization_dispersive_cqed/scripts/runtime_compat.py",
+      "studies/waveform_level_gate_realization_dispersive_cqed/scripts/displacement_study.py",
+      "studies/waveform_level_gate_realization_dispersive_cqed/scripts/qubit_rotation_study.py",
+      "studies/waveform_level_gate_realization_dispersive_cqed/scripts/cross_regime_synthesis.py",
+      "studies/waveform_level_gate_realization_dispersive_cqed/scripts/echoed_displacement_study.py",
+      "studies/waveform_level_gate_realization_dispersive_cqed/scripts/multiplex_displacement_followup.py",
+      "studies/waveform_level_gate_realization_dispersive_cqed/scripts/reproducibility_notebook.ipynb"
+    ],
+    "data": [
+      "studies/waveform_level_gate_realization_dispersive_cqed/data/displacement_sweep.npz"
+    ],
+    "figures": [
+      "studies/waveform_level_gate_realization_dispersive_cqed/figures/displacement_infidelity_heatmap.pdf",
+      "studies/waveform_level_gate_realization_dispersive_cqed/figures/displacement_ablation.pdf",
+      "studies/waveform_level_gate_realization_dispersive_cqed/figures/qubit_rotation_fock_resolved_infidelity.pdf",
+      "studies/waveform_level_gate_realization_dispersive_cqed/figures/qubit_rotation_drag_sweep.pdf",
+      "studies/waveform_level_gate_realization_dispersive_cqed/figures/qubit_rotation_entanglement_vs_cavity.pdf",
+      "studies/waveform_level_gate_realization_dispersive_cqed/figures/combined_regime_map.pdf",
+      "studies/waveform_level_gate_realization_dispersive_cqed/figures/validation_convergence.pdf",
+      "studies/waveform_level_gate_realization_dispersive_cqed/figures/echo_improvement_heatmap.pdf",
+      "studies/waveform_level_gate_realization_dispersive_cqed/figures/unconditional_multiplex_followup.pdf"
+    ],
+    "artifacts": [
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/convention_audit.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/displacement_ablation.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/displacement_regime_map.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/displacement_trajectory.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/echo_analytic_estimate.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/echoed_displacement_results.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/cross_regime_summary.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/qubit_rotation_drag_sweep.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/qubit_rotation_entanglement_vs_alpha.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/qubit_rotation_fock_resolved.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/qubit_rotation_regime_map.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/unconditional_multiplex_followup.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/validation_convergence.json",
+      "studies/waveform_level_gate_realization_dispersive_cqed/artifacts/validation_sanity.json"
+    ],
+    "report": "studies/waveform_level_gate_realization_dispersive_cqed/report/report.tex"
+  }
+}

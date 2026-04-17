@@ -1,0 +1,26 @@
+{
+  "notes": [
+    {
+      "id": "audit_target_mismatch",
+      "statement": "The earlier baseline arbitrary-rotation study optimized arbitrary SU(2) block targets rather than an ideal x-axis SQR gate."
+    },
+    {
+      "id": "audit_echo_mismatch",
+      "statement": "The earlier residual-Z follow-up used only one mid-sequence X_pi pulse, so it did not test the requested half-SQR -> pi -> half-SQR -> pi construction."
+    },
+    {
+      "conclusion": "A direct ideal SQR requires Theta_n = theta_n and Phi_n = 0 for every active manifold.",
+      "equation": "U_n^dir approx exp[-i (Theta_n X + Phi_n Z)/2], with Theta_n = int Omega_n dt and Phi_n = int delta_n dt.",
+      "id": "direct_first_order"
+    },
+    {
+      "conclusion": "A symmetric echoed sequence cancels first-order Z-type phase if the two halves accumulate the same Phi_n.",
+      "equation": "U_n^echo approx exp[-i ((Theta_{n,1}+Theta_{n,2}) X + (Phi_{n,1}-Phi_{n,2}) Z)/2] when X_pi is ideal and the target axis is X.",
+      "id": "echo_first_order"
+    },
+    {
+      "id": "finite_pi_obstruction",
+      "statement": "Once the inserted X_pi pulses become manifold dependent, the clean toggling-frame cancellation is spoiled and the echoed protocol can fail even when the ideal first-order algebra is favorable."
+    }
+  ]
+}

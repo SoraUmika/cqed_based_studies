@@ -1,0 +1,170 @@
+\documentclass[aps,pra,twocolumn,reprint,amsmath,amssymb]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{xcolor}
+
+\begin{document}
+
+\title{Auto Workflow Probe Study}
+\author{Execution Engineer}
+\date{\today}
+
+\begin{abstract}
+This planning-stage skeleton is initialized during the plan phase so the study has the expected report files in place before implementation. The full report content is intentionally deferred to the report phase.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+This file is a minimal report skeleton created during the plan phase. It will be populated with study results in a later report invocation.
+
+\section{System and Methods}
+Content deferred to the report phase.
+
+\section{Results}
+Content deferred to the report phase.
+
+\section{Validation}
+Content deferred to the report phase.
+
+\section{Discussion}
+Content deferred to the report phase.
+
+\section{Conclusion}
+Content deferred to the report phase.
+
+\section{Limitations and Future Work}
+Content deferred to the report phase.
+
+% ===== Research Extension -- Iteration 1 (2026-04-06) =====
+\clearpage
+\section{Extension: Validated Free-Dispersive Probe (Iteration 1)}
+\label{sec:extension-1}
+
+This extension preserves the plan-phase skeleton required by the repository report-preservation setting while recording the validated results of the minimal probe. The study asks whether free dispersive idle evolution alone can generate a relative qubit phase of $\pi$ between the $n=0$ and $n=1$ cavity manifolds in finite time. Within the standard dispersive regime of circuit QED and transmon hardware~\cite{blais2004cavity,koch2007transmon}, the answer is yes: the first positive idle time is $t_{\pi}=\pi/|\chi|$ and, for $\chi/2\pi = \SI{-2.84}{\mega\hertz}$, the probe gives $t_{\pi}=\SI{176.056338}{\nano\second}$. The lightweight numerical confirmation uses the local cQED simulation framework~\cite{cqed_sim} only to verify the sign convention and the phase-accumulation helper against the analytic result.
+
+\subsection{System and Methods}
+The minimal rotating-frame Hamiltonian is
+\begin{equation}
+\frac{H}{\hbar} = \chi \hat{n} |e\rangle\langle e|,
+\label{eq:extension-hamiltonian}
+\end{equation}
+where $\hat{n}$ is the storage-mode occupation operator and $\chi$ is the qubit-storage dispersive shift. Equation~\eqref{eq:extension-hamiltonian} implies the excited-branch phase difference
+\begin{equation}
+\Delta \phi_{1,0}(t) = -\chi t,
+\label{eq:extension-relative-phase}
+\end{equation}
+so the first positive idle time at which the relative phase reaches $\pi$ is $t_{\pi}=\pi/|\chi|$.
+
+The numerical confirmation evaluates the closed-form free-evolution helper from cqed\_sim rather than integrating an equation of motion, which keeps the workload negligible and makes the comparison a direct test of the framework convention against Eq.~\eqref{eq:extension-relative-phase}. Table~\ref{tab:extension-parameters} lists the representative parameters used in the probe.
+
+\begin{table}[h]
+\caption{Representative parameters used in the minimal probe.}
+\label{tab:extension-parameters}
+\begin{tabular}{ll}
+\toprule
+Parameter & Value \\
+\midrule
+Qubit frequency & \SI{6.150}{\giga\hertz} \\
+Cavity frequency & \SI{5.241}{\giga\hertz} \\
+Anharmonicity & \SI{-255}{\mega\hertz} \\
+Dispersive shift & \SI{-2.84}{\mega\hertz} \\
+Self-Kerr & \SI{-28}{\kilo\hertz} \\
+Qubit truncation & 2 levels \\
+Cavity truncations & 2 and 3 Fock states \\
+Samples in idle-time scan & 51 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Results}
+Figure~\ref{fig:extension-phase-scan} shows the relative excited-branch phase against idle time. The analytic line and the two framework-backed evaluations are visually indistinguishable over the full scan. The first positive crossing of the $\pi$ target occurs at $t_{\pi}=\SI{176.056338}{\nano\second}$, matching the closed-form prediction. The phase increases linearly because the probe is restricted to the first-order dispersive model and to the $n=0,1$ manifolds, for which the cavity self-Kerr contribution vanishes identically.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{../figures/phase_difference_vs_idle_time.pdf}
+\caption{Relative excited-branch phase between the $n=1$ and $n=0$ cavity manifolds during free dispersive evolution. The analytic prediction and the two framework-backed evaluations coincide over the full scan, and the first positive $\pi$ crossing occurs at \SI{176.056338}{\nano\second}.}
+\label{fig:extension-phase-scan}
+\end{figure}
+
+\subsection{Validation}
+The probe passed all three required validation gates. First, the sanity check gives $\Delta\phi_{1,0}(0)=0$ and recovers the expected linear phase law of Eq.~\eqref{eq:extension-relative-phase}. Second, the convergence check is exact at the sampled precision: increasing the cavity truncation from 2 to 3 Fock states changes the wrapped phase trace by $0\,\mathrm{rad}$ over all 51 sample points. Third, the maximum wrapped mismatch between the analytic phase and the helper evaluation is $8.882\times 10^{-16}\,\mathrm{rad}$, which is consistent with floating-point roundoff. A literature comparison was not required because this study is an internal workflow probe rather than a benchmark-reproduction exercise.
+
+\subsection{Discussion}
+The result is intentionally modest but useful for repository validation. It verifies that the framework convention used in the probe yields the expected dispersive manifold shift and that the staged loop can carry a study from analytic planning through implementation, validation, and report generation without invoking heavy numerics. Because the probe is confined to free closed-system evolution, it should not be interpreted as a statement about experimentally realized gate performance or about higher-order dispersive corrections.
+
+\subsection{Conclusion}
+For the minimal dispersive Hamiltonian of Eq.~\eqref{eq:extension-hamiltonian}, free idle evolution alone is sufficient to generate a conditional qubit phase difference of $\pi$ between the $n=0$ and $n=1$ cavity manifolds whenever $\chi \neq 0$. For the representative shift $\chi/2\pi = \SI{-2.84}{\mega\hertz}$, the first positive crossing occurs at \SI{176.056338}{\nano\second}. The numerical confirmation reproduces this value within machine precision while keeping the total runtime near one second.
+
+\subsection{Limitations and Future Work}
+Known limitations are straightforward. The probe keeps only the first-order dispersive Hamiltonian and omits decoherence, higher-order shifts, and drive-induced errors. The numerical evidence is intentionally lightweight and is restricted to a helper-based confirmation rather than a full pulse-sequence simulation.
+
+Suggested improvements for the next iteration are likewise limited in scope. \textbf{[P1 | LOW]} Add a time-domain idle-sequence cross-check if a later reviewer requires a more explicit dynamics-based validation path. \textbf{[P2 | LOW]} Repeat the probe with nonzero higher-order dispersive terms to show how the ideal $t_{\pi}=\pi/|\chi|$ relation deforms away from the strict first-order limit. The remaining open question is how robust the same idle-time condition remains once decoherence and higher-order dispersive corrections are introduced.
+
+\bibliographystyle{apsrev4-2}
+\bibliography{references}
+
+\appendix
+
+\section{Detailed Results and Data}
+Content deferred to the report phase.
+
+\section{Reproducibility}
+Content deferred to the report phase.
+
+\clearpage
+\section{Appendix Extension: Detailed Results and Reproducibility (Iteration 1)}
+\label{app:extension-1}
+
+\subsection{Detailed Results and Data}
+The saved scan spans 51 evenly spaced idle times over $[0, 2 t_{\pi}]$, or $[0, \SI{352.112676}{\nano\second}]$. The analytic trace and the two framework-backed traces agree pointwise at the plotted resolution, so the single figure is sufficient to summarize the full dataset for this probe. Table~\ref{tab:extension-summary} records the compact numerical digest that supports the report claims.
+
+\begin{table}[h]
+\caption{Compact numerical digest for the validated probe.}
+\label{tab:extension-summary}
+\begin{tabular}{ll}
+\toprule
+Quantity & Value \\
+\midrule
+First positive $\pi$ crossing & \SI{176.056338}{\nano\second} \\
+Maximum wrapped analytic mismatch & $8.882\times 10^{-16}\,\mathrm{rad}$ \\
+Maximum wrapped truncation difference & $0\,\mathrm{rad}$ \\
+Measured runtime & \SI{1.12}{\second} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Reproducibility}
+\subsubsection{Modeling and Simulation Assumptions}
+The calculation uses a two-level qubit, cavity truncations of 2 and 3 Fock states, closed-system evolution, and the first-order dispersive convention in which the excited-branch phase shift is proportional to photon number. The comparison quantity is the wrapped relative phase modulo $2\pi$.
+
+\subsubsection{Reproduction Procedure}
+\begin{enumerate}
+	\item From the study root, run \path{python scripts/free_dispersive_pi_probe.py}.
+	\item Confirm that the script writes one CSV file, one JSON artifact, and one dual-format figure, and that it reports the first positive $\pi$ crossing near \SI{176.056338}{\nano\second}.
+	\item Open \path{scripts/reproducibility_notebook.ipynb} for the fast load-first walkthrough and optional commented rerun path.
+\end{enumerate}
+
+\subsubsection{Saved Artifacts}
+\begin{table*}[t]
+\scriptsize
+\caption{Machine-readable outputs and supporting files for the probe study.}
+\label{tab:extension-artifacts}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llll}
+\toprule
+Filename & Format & Contents & Load example \\
+\midrule
+\shortstack[l]{\path{artifacts/}\\\path{free_dispersive_pi_probe_summary.json}} & JSON & \shortstack[l]{Metadata, parameters,\\analytic $t_{\pi}$, and\\wrapped-error metrics} & \shortstack[l]{\path{json.loads(}\\\path{path.read_text())}} \\
+\shortstack[l]{\path{data/}\\\path{phase_difference_samples.csv}} & CSV & \shortstack[l]{51 samples of the analytic\\and framework-backed\\phase traces} & \shortstack[l]{\path{np.genfromtxt(}\\\path{path, names=True)}} \\
+\shortstack[l]{\path{figures/}\\\path{phase_difference_vs_idle_time.pdf}} & PDF & \shortstack[l]{Vector figure used in\\the report} & Open directly in a PDF viewer \\
+\shortstack[l]{\path{figures/}\\\path{phase_difference_vs_idle_time.png}} & PNG & \shortstack[l]{Raster quick-look\\figure} & Open directly as an image \\
+\shortstack[l]{\path{scripts/}\\\path{free_dispersive_pi_probe.py}} & Python & \shortstack[l]{Self-contained study\\script for the minimal rerun} & \shortstack[l]{\path{python scripts/}\\\path{free_dispersive_pi_probe.py}} \\
+\shortstack[l]{\path{scripts/}\\\path{reproducibility_notebook.ipynb}} & Notebook & \shortstack[l]{Load-first interactive\\walkthrough} & Open in VS Code or Jupyter \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+
+\end{document}

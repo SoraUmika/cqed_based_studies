@@ -1,0 +1,1561 @@
+{
+  "candidates": {
+    "drsnap_unbounded": {
+      "key": "drsnap_unbounded",
+      "label": "D-R-SNAP",
+      "family": "D-R-SNAP",
+      "category": "decomposition",
+      "max_amplitude": null,
+      "fit_ideal_fidelity": 0.4999999999991908,
+      "fit_objective": 0.5000000000008091,
+      "fit_success": true,
+      "fit_message": "",
+      "elapsed_s": 0.9521831000456586,
+      "gate_summary": {
+        "rows": [
+          {
+            "name": "D1",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R1",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "SNAP1",
+            "type": "SNAP",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "D2",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R2",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "SNAP2",
+            "type": "SNAP",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "D3",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          }
+        ],
+        "gate_count": 7,
+        "gate_counts": {
+          "Displacement": 3,
+          "QubitRotation": 2,
+          "SNAP": 2
+        },
+        "total_duration_ns": 2520.0,
+        "selective_gate_count": 2,
+        "total_active_tones": 4,
+        "max_active_tones": 2
+      },
+      "sequence": [
+        {
+          "name": "D1",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            1.174409367621065,
+            0.0083153784239366
+          ]
+        },
+        {
+          "name": "R1",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            1.8300374493741425,
+            -0.9727425269634468
+          ]
+        },
+        {
+          "name": "SNAP1",
+          "type": "SNAP",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            0.28171784572445935,
+            -0.0009728173485693729
+          ]
+        },
+        {
+          "name": "D2",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.16038631286291083,
+            -0.12783634856040213
+          ]
+        },
+        {
+          "name": "R2",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            2.496123342115852,
+            0.2381634862133515
+          ]
+        },
+        {
+          "name": "SNAP2",
+          "type": "SNAP",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            -0.12880262706794676,
+            2.7504813002836558e-05
+          ]
+        },
+        {
+          "name": "D3",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.21608912344498052,
+            0.03559500378794096
+          ]
+        }
+      ],
+      "embedded_evaluations": {
+        "2": {
+          "fidelity": 0.4999999999991908,
+          "block_fidelity": 0.499999999999197,
+          "leakage_average": 2.7755575615628914e-17,
+          "leakage_worst": 1.1102230246251565e-16
+        },
+        "8": {
+          "fidelity": 0.23118024951740818,
+          "block_fidelity": 0.23118115448217394,
+          "leakage_average": 0.6519901434819702,
+          "leakage_worst": 0.6983290957320946
+        },
+        "10": {
+          "fidelity": 0.2311762986866628,
+          "block_fidelity": 0.23117720473713477,
+          "leakage_average": 0.6519663737600296,
+          "leakage_worst": 0.6983349731219004
+        },
+        "12": {
+          "fidelity": 0.23117628322058584,
+          "block_fidelity": 0.2311771892749902,
+          "leakage_average": 0.651966240966025,
+          "leakage_worst": 0.6983349937152743
+        },
+        "15": {
+          "fidelity": 0.2311762831928536,
+          "block_fidelity": 0.23117718924726272,
+          "leakage_average": 0.6519662406373057,
+          "leakage_worst": 0.6983349937379484
+        }
+      },
+      "pulse_replay": {},
+      "artifact_path": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\holographic_cluster_state_followup\\artifacts\\drsnap_unbounded_operators.npz"
+    },
+    "drsnap_bounded": {
+      "key": "drsnap_bounded",
+      "label": "Bounded D-R-SNAP",
+      "family": "D-R-SNAP",
+      "category": "decomposition",
+      "max_amplitude": 0.3,
+      "fit_ideal_fidelity": 0.44224461893228506,
+      "fit_objective": 0.5577553810677149,
+      "fit_success": true,
+      "fit_message": "",
+      "elapsed_s": 1.1956987000303343,
+      "gate_summary": {
+        "rows": [
+          {
+            "name": "D1",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R1",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "SNAP1",
+            "type": "SNAP",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "D2",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R2",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "SNAP2",
+            "type": "SNAP",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "D3",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          }
+        ],
+        "gate_count": 7,
+        "gate_counts": {
+          "Displacement": 3,
+          "QubitRotation": 2,
+          "SNAP": 2
+        },
+        "total_duration_ns": 2520.0,
+        "selective_gate_count": 2,
+        "total_active_tones": 4,
+        "max_active_tones": 2
+      },
+      "sequence": [
+        {
+          "name": "D1",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.28528340397794943,
+            -0.08814104403588607
+          ]
+        },
+        {
+          "name": "R1",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.3,
+            1.5701843204651298
+          ]
+        },
+        {
+          "name": "SNAP1",
+          "type": "SNAP",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            0.2572256733327915,
+            -0.0010000538022173564
+          ]
+        },
+        {
+          "name": "D2",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.09543212845360192,
+            0.021987286546370836
+          ]
+        },
+        {
+          "name": "R2",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            0.3,
+            -1.570655990485627
+          ]
+        },
+        {
+          "name": "SNAP2",
+          "type": "SNAP",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            -0.24721267098337052,
+            0.000338815017464478
+          ]
+        },
+        {
+          "name": "D3",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.19861468271461996,
+            0.042131867470128315
+          ]
+        }
+      ],
+      "embedded_evaluations": {
+        "2": {
+          "fidelity": 0.44224461893228506,
+          "block_fidelity": 0.44224461893549905,
+          "leakage_average": 5.551115123125783e-17,
+          "leakage_worst": 2.220446049250313e-16
+        },
+        "8": {
+          "fidelity": 0.44213388429228523,
+          "block_fidelity": 0.4421431539120485,
+          "leakage_average": 0.0005906972252966158,
+          "leakage_worst": 0.0011113288683322065
+        },
+        "10": {
+          "fidelity": 0.4421338842919602,
+          "block_fidelity": 0.44214315391172676,
+          "leakage_average": 0.0005906972268087396,
+          "leakage_worst": 0.001111328871351791
+        },
+        "12": {
+          "fidelity": 0.44213388429196016,
+          "block_fidelity": 0.44214315391172676,
+          "leakage_average": 0.0005906972268089616,
+          "leakage_worst": 0.0011113288713523461
+        },
+        "15": {
+          "fidelity": 0.44213388429196016,
+          "block_fidelity": 0.44214315391172676,
+          "leakage_average": 0.0005906972268089616,
+          "leakage_worst": 0.0011113288713523461
+        }
+      },
+      "pulse_replay": {},
+      "artifact_path": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\holographic_cluster_state_followup\\artifacts\\drsnap_bounded_operators.npz"
+    },
+    "dsqrcp_unbounded": {
+      "key": "dsqrcp_unbounded",
+      "label": "D-SQR-CPSQR",
+      "family": "D-SQR-CPSQR",
+      "category": "sqr_like",
+      "max_amplitude": null,
+      "fit_ideal_fidelity": 1.0,
+      "fit_objective": 0.0,
+      "fit_success": true,
+      "fit_message": "",
+      "elapsed_s": 43.78495110000949,
+      "gate_summary": {
+        "rows": [
+          {
+            "name": "D1",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "S1",
+            "type": "SQR",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "CP1",
+            "type": "ConditionalPhaseSQR",
+            "duration_ns": 160.0,
+            "active_tones": 2
+          },
+          {
+            "name": "S2",
+            "type": "SQR",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "D2",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "S3",
+            "type": "SQR",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "CP2",
+            "type": "ConditionalPhaseSQR",
+            "duration_ns": 160.0,
+            "active_tones": 2
+          },
+          {
+            "name": "S4",
+            "type": "SQR",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "D3",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          }
+        ],
+        "gate_count": 9,
+        "gate_counts": {
+          "Displacement": 3,
+          "SQR": 4,
+          "ConditionalPhaseSQR": 2
+        },
+        "total_duration_ns": 4960.0,
+        "selective_gate_count": 6,
+        "total_active_tones": 12,
+        "max_active_tones": 2
+      },
+      "sequence": [
+        {
+          "name": "D1",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.5882462882890075,
+            -0.5204004021620228
+          ]
+        },
+        {
+          "name": "S1",
+          "type": "SQR",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            1.993760647804947,
+            2.338541927573491,
+            0.03661960042594281,
+            -1.0671479287296644
+          ]
+        },
+        {
+          "name": "CP1",
+          "type": "ConditionalPhaseSQR",
+          "duration_s": 1.6e-07,
+          "duration_ns": 160.0,
+          "active_tones": 2,
+          "parameters": [
+            0.180040642478502,
+            -1.6249025902073395
+          ]
+        },
+        {
+          "name": "S2",
+          "type": "SQR",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            1.644940289159111,
+            1.7201497899434015,
+            -0.12108203138441408,
+            -0.7864053546336192
+          ]
+        },
+        {
+          "name": "D2",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.5204004149277562,
+            -0.5882462701871526
+          ]
+        },
+        {
+          "name": "S3",
+          "type": "SQR",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            1.0227360460877304,
+            3.378258754789642,
+            1.2940559134199399,
+            0.10360736512891494
+          ]
+        },
+        {
+          "name": "CP2",
+          "type": "ConditionalPhaseSQR",
+          "duration_s": 1.6e-07,
+          "duration_ns": 160.0,
+          "active_tones": 2,
+          "parameters": [
+            0.03357987135743901,
+            -0.002605131151867751
+          ]
+        },
+        {
+          "name": "S4",
+          "type": "SQR",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            1.7133281334405241,
+            1.680808134029813,
+            0.06144411077003766,
+            0.4282712771390827
+          ]
+        },
+        {
+          "name": "D3",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.5882462634864725,
+            0.5204004296471293
+          ]
+        }
+      ],
+      "embedded_evaluations": {
+        "2": {
+          "fidelity": 1.0,
+          "block_fidelity": 1.0,
+          "leakage_average": 0.0,
+          "leakage_worst": 0.0
+        },
+        "8": {
+          "fidelity": 0.5977537310934682,
+          "block_fidelity": 0.5984981418509374,
+          "leakage_average": 0.48786317206223573,
+          "leakage_worst": 0.591987091285245
+        },
+        "10": {
+          "fidelity": 0.5977337215251464,
+          "block_fidelity": 0.598484791225335,
+          "leakage_average": 0.4878208486554203,
+          "leakage_worst": 0.591996549105027
+        },
+        "12": {
+          "fidelity": 0.597735531145124,
+          "block_fidelity": 0.5984865710317556,
+          "leakage_average": 0.48781644075602726,
+          "leakage_worst": 0.5919970259871663
+        },
+        "15": {
+          "fidelity": 0.5977355268236707,
+          "block_fidelity": 0.598486565897359,
+          "leakage_average": 0.4878164596694078,
+          "leakage_worst": 0.5919970265621624
+        }
+      },
+      "pulse_replay": {
+        "8": {
+          "supported": true,
+          "fidelity": 0.21628303120112638,
+          "block_fidelity": NaN,
+          "leakage_average": 0.6046757181600196,
+          "leakage_worst": 0.720335561584056,
+          "metrics": {
+            "unitarity_error": 0.0006344017291600424,
+            "fidelity": 0.21628303120112638,
+            "fidelity_loss": 0.7837169687988736,
+            "leakage_average": 0.6046757181600196,
+            "leakage_worst": 0.720335561584056,
+            "leakage_term": 0.0,
+            "objective": 0.7837169687988736
+          }
+        },
+        "12": {
+          "supported": true,
+          "fidelity": 0.21634123259645627,
+          "block_fidelity": NaN,
+          "leakage_average": 0.605434174022109,
+          "leakage_worst": 0.723800038426536,
+          "metrics": {
+            "unitarity_error": 0.0007723211612581145,
+            "fidelity": 0.21634123259645627,
+            "fidelity_loss": 0.7836587674035438,
+            "leakage_average": 0.605434174022109,
+            "leakage_worst": 0.723800038426536,
+            "leakage_term": 0.0,
+            "objective": 0.7836587674035438
+          }
+        }
+      },
+      "artifact_path": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\holographic_cluster_state_followup\\artifacts\\dsqrcp_unbounded_operators.npz"
+    },
+    "dsqrcp_bounded": {
+      "key": "dsqrcp_bounded",
+      "label": "Bounded D-SQR-CPSQR",
+      "family": "D-SQR-CPSQR",
+      "category": "sqr_like",
+      "max_amplitude": 0.3,
+      "fit_ideal_fidelity": 0.5629974817430459,
+      "fit_objective": 0.4370041456386309,
+      "fit_success": true,
+      "fit_message": "",
+      "elapsed_s": 30.94978230004199,
+      "gate_summary": {
+        "rows": [
+          {
+            "name": "D1",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "S1",
+            "type": "SQR",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "CP1",
+            "type": "ConditionalPhaseSQR",
+            "duration_ns": 160.0,
+            "active_tones": 2
+          },
+          {
+            "name": "S2",
+            "type": "SQR",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "D2",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "S3",
+            "type": "SQR",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "CP2",
+            "type": "ConditionalPhaseSQR",
+            "duration_ns": 160.0,
+            "active_tones": 2
+          },
+          {
+            "name": "S4",
+            "type": "SQR",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "D3",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          }
+        ],
+        "gate_count": 9,
+        "gate_counts": {
+          "Displacement": 3,
+          "SQR": 4,
+          "ConditionalPhaseSQR": 2
+        },
+        "total_duration_ns": 4960.0,
+        "selective_gate_count": 6,
+        "total_active_tones": 12,
+        "max_active_tones": 2
+      },
+      "sequence": [
+        {
+          "name": "D1",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.29342604297846037,
+            -0.0624592451283454
+          ]
+        },
+        {
+          "name": "S1",
+          "type": "SQR",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            -0.3,
+            0.3,
+            0.2607050638909639,
+            -1.4852669953063917
+          ]
+        },
+        {
+          "name": "CP1",
+          "type": "ConditionalPhaseSQR",
+          "duration_s": 1.6e-07,
+          "duration_ns": 160.0,
+          "active_tones": 2,
+          "parameters": [
+            0.3,
+            -0.3
+          ]
+        },
+        {
+          "name": "S2",
+          "type": "SQR",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            -0.3,
+            0.3,
+            0.1724657195388552,
+            -1.6711239356259229
+          ]
+        },
+        {
+          "name": "D2",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.03019522450638484,
+            0.2984765458407227
+          ]
+        },
+        {
+          "name": "S3",
+          "type": "SQR",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            0.3,
+            0.3,
+            -0.42768383886757416,
+            -2.141366750184001
+          ]
+        },
+        {
+          "name": "CP2",
+          "type": "ConditionalPhaseSQR",
+          "duration_s": 1.6e-07,
+          "duration_ns": 160.0,
+          "active_tones": 2,
+          "parameters": [
+            -0.3,
+            0.3
+          ]
+        },
+        {
+          "name": "S4",
+          "type": "SQR",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            0.3,
+            0.3,
+            -0.51173241561436,
+            -1.8717911563538867
+          ]
+        },
+        {
+          "name": "D3",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.2848316774314687,
+            -0.09418552691401068
+          ]
+        }
+      ],
+      "embedded_evaluations": {
+        "2": {
+          "fidelity": 0.5629974817430459,
+          "block_fidelity": 0.5636516079676898,
+          "leakage_average": 4.996003610813204e-16,
+          "leakage_worst": 6.661338147750939e-16
+        },
+        "8": {
+          "fidelity": 0.5287677396358487,
+          "block_fidelity": 0.5292612808968142,
+          "leakage_average": 0.04034637465603688,
+          "leakage_worst": 0.07668131026367653
+        },
+        "10": {
+          "fidelity": 0.5287677395958943,
+          "block_fidelity": 0.5292612808513971,
+          "leakage_average": 0.04034637492667628,
+          "leakage_worst": 0.07668131082968122
+        },
+        "12": {
+          "fidelity": 0.5287677395959076,
+          "block_fidelity": 0.5292612808514093,
+          "leakage_average": 0.04034637492662271,
+          "leakage_worst": 0.07668131082957852
+        },
+        "15": {
+          "fidelity": 0.5287677395959076,
+          "block_fidelity": 0.5292612808514093,
+          "leakage_average": 0.04034637492662266,
+          "leakage_worst": 0.0766813108295783
+        }
+      },
+      "pulse_replay": {
+        "8": {
+          "supported": true,
+          "fidelity": 0.3495080305196585,
+          "block_fidelity": NaN,
+          "leakage_average": 0.03225345767086543,
+          "leakage_worst": 0.11143464961243932,
+          "metrics": {
+            "unitarity_error": 0.00037155797510634133,
+            "fidelity": 0.3495080305196585,
+            "fidelity_loss": 0.6504919694803415,
+            "leakage_average": 0.03225345767086543,
+            "leakage_worst": 0.11143464961243932,
+            "leakage_term": 0.0,
+            "objective": 0.6504919694803415
+          }
+        },
+        "12": {
+          "supported": true,
+          "fidelity": 0.34950769887234046,
+          "block_fidelity": NaN,
+          "leakage_average": 0.032253865111087215,
+          "leakage_worst": 0.11143588167183172,
+          "metrics": {
+            "unitarity_error": 0.0008474149927980835,
+            "fidelity": 0.34950769887234046,
+            "fidelity_loss": 0.6504923011276595,
+            "leakage_average": 0.032253865111087215,
+            "leakage_worst": 0.11143588167183172,
+            "leakage_term": 0.0,
+            "objective": 0.6504923011276595
+          }
+        }
+      },
+      "artifact_path": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\holographic_cluster_state_followup\\artifacts\\dsqrcp_bounded_operators.npz"
+    },
+    "drsqrcp_bounded": {
+      "key": "drsqrcp_bounded",
+      "label": "Hybrid D-R-SQR-CPSQR",
+      "family": "D-R-SQR-CPSQR",
+      "category": "sqr_like",
+      "max_amplitude": 0.3,
+      "fit_ideal_fidelity": 0.585793381230426,
+      "fit_objective": 0.41420661881184534,
+      "fit_success": true,
+      "fit_message": "",
+      "elapsed_s": 19.343601300031878,
+      "gate_summary": {
+        "rows": [
+          {
+            "name": "D1",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R1",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "S1",
+            "type": "SQR",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "CP1",
+            "type": "ConditionalPhaseSQR",
+            "duration_ns": 160.0,
+            "active_tones": 2
+          },
+          {
+            "name": "R2",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "D2",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R3",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "S2",
+            "type": "SQR",
+            "duration_ns": 1100.0,
+            "active_tones": 2
+          },
+          {
+            "name": "CP2",
+            "type": "ConditionalPhaseSQR",
+            "duration_ns": 160.0,
+            "active_tones": 2
+          },
+          {
+            "name": "R4",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "D3",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          }
+        ],
+        "gate_count": 11,
+        "gate_counts": {
+          "Displacement": 3,
+          "QubitRotation": 4,
+          "SQR": 2,
+          "ConditionalPhaseSQR": 2
+        },
+        "total_duration_ns": 2920.0,
+        "selective_gate_count": 4,
+        "total_active_tones": 8,
+        "max_active_tones": 2
+      },
+      "sequence": [
+        {
+          "name": "D1",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.12140122546487259,
+            0.2743387367026887
+          ]
+        },
+        {
+          "name": "R1",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            0.3,
+            -1.064698296420434
+          ]
+        },
+        {
+          "name": "S1",
+          "type": "SQR",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            0.3,
+            -0.3,
+            -1.0210240504089263,
+            -1.1127927692247246
+          ]
+        },
+        {
+          "name": "CP1",
+          "type": "ConditionalPhaseSQR",
+          "duration_s": 1.6e-07,
+          "duration_ns": 160.0,
+          "active_tones": 2,
+          "parameters": [
+            -0.3,
+            0.3
+          ]
+        },
+        {
+          "name": "R2",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.3,
+            1.5875055577056982
+          ]
+        },
+        {
+          "name": "D2",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.29901845148557127,
+            0.024248003447109485
+          ]
+        },
+        {
+          "name": "R3",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.3,
+            1.4247674914686606
+          ]
+        },
+        {
+          "name": "S2",
+          "type": "SQR",
+          "duration_s": 1.1e-06,
+          "duration_ns": 1100.0,
+          "active_tones": 2,
+          "parameters": [
+            -0.3,
+            -0.3,
+            -2.465370759992351,
+            0.979579132663821
+          ]
+        },
+        {
+          "name": "CP2",
+          "type": "ConditionalPhaseSQR",
+          "duration_s": 1.6e-07,
+          "duration_ns": 160.0,
+          "active_tones": 2,
+          "parameters": [
+            -0.3,
+            0.3
+          ]
+        },
+        {
+          "name": "R4",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.3,
+            1.6630790434752216
+          ]
+        },
+        {
+          "name": "D3",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.0614961571605855,
+            -0.2936293967818627
+          ]
+        }
+      ],
+      "embedded_evaluations": {
+        "2": {
+          "fidelity": 0.585793381230426,
+          "block_fidelity": 0.5870618514815786,
+          "leakage_average": 1.0547118733938987e-15,
+          "leakage_worst": 1.2212453270876722e-15
+        },
+        "8": {
+          "fidelity": 0.5733789818009739,
+          "block_fidelity": 0.573473964860095,
+          "leakage_average": 0.019965707131710253,
+          "leakage_worst": 0.06445057813347332
+        },
+        "10": {
+          "fidelity": 0.573378981693523,
+          "block_fidelity": 0.5734739647510076,
+          "leakage_average": 0.01996570755852481,
+          "leakage_worst": 0.06445057886217953
+        },
+        "12": {
+          "fidelity": 0.5733789816935184,
+          "block_fidelity": 0.5734739647510023,
+          "leakage_average": 0.01996570755854618,
+          "leakage_worst": 0.06445057886217676
+        },
+        "15": {
+          "fidelity": 0.5733789816935183,
+          "block_fidelity": 0.5734739647510023,
+          "leakage_average": 0.01996570755854618,
+          "leakage_worst": 0.06445057886217631
+        }
+      },
+      "pulse_replay": {
+        "8": {
+          "supported": true,
+          "fidelity": 0.20433616327163368,
+          "block_fidelity": NaN,
+          "leakage_average": 0.17908963555788643,
+          "leakage_worst": 0.5344245929130143,
+          "metrics": {
+            "unitarity_error": 0.0002181026223060269,
+            "fidelity": 0.20433616327163368,
+            "fidelity_loss": 0.7956638367283664,
+            "leakage_average": 0.17908963555788643,
+            "leakage_worst": 0.5344245929130143,
+            "leakage_term": 0.0,
+            "objective": 0.7956638367283664
+          }
+        },
+        "12": {
+          "supported": true,
+          "fidelity": 0.20433668264008656,
+          "block_fidelity": NaN,
+          "leakage_average": 0.17909105756740365,
+          "leakage_worst": 0.5344276590928277,
+          "metrics": {
+            "unitarity_error": 0.0005190409102247183,
+            "fidelity": 0.20433668264008656,
+            "fidelity_loss": 0.7956633173599135,
+            "leakage_average": 0.17909105756740365,
+            "leakage_worst": 0.5344276590928277,
+            "leakage_term": 0.0,
+            "objective": 0.7956633173599135
+          }
+        }
+      },
+      "artifact_path": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\holographic_cluster_state_followup\\artifacts\\drsqrcp_bounded_operators.npz"
+    },
+    "drfe_unbounded": {
+      "key": "drfe_unbounded",
+      "label": "D-R-FreeEvolve",
+      "family": "D-R-FreeEvolve",
+      "category": "entangler_assisted",
+      "max_amplitude": null,
+      "fit_ideal_fidelity": 0.7071102513102618,
+      "fit_objective": 0.29288974868973816,
+      "fit_success": true,
+      "fit_message": "",
+      "elapsed_s": 4.946212199982256,
+      "gate_summary": {
+        "rows": [
+          {
+            "name": "D1",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R1",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "FE1",
+            "type": "FreeEvolveCondPhase",
+            "duration_ns": 163.00000000000003,
+            "active_tones": 0
+          },
+          {
+            "name": "D2",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R2",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "FE2",
+            "type": "FreeEvolveCondPhase",
+            "duration_ns": 184.0,
+            "active_tones": 0
+          },
+          {
+            "name": "D3",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R3",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          }
+        ],
+        "gate_count": 8,
+        "gate_counts": {
+          "Displacement": 3,
+          "QubitRotation": 3,
+          "FreeEvolveCondPhase": 2
+        },
+        "total_duration_ns": 707.0,
+        "selective_gate_count": 0,
+        "total_active_tones": 0,
+        "max_active_tones": 0
+      },
+      "sequence": [
+        {
+          "name": "D1",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            1.402802820477908,
+            0.8494746883756311
+          ]
+        },
+        {
+          "name": "R1",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            1.9986016351604723,
+            0.0018975800917699008
+          ]
+        },
+        {
+          "name": "FE1",
+          "type": "FreeEvolveCondPhase",
+          "duration_s": 1.6300000000000002e-07,
+          "duration_ns": 163.00000000000003,
+          "active_tones": 0,
+          "parameters": [
+            1.6300000000000002e-07
+          ]
+        },
+        {
+          "name": "D2",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.2779625171304803,
+            -0.7300738850871312
+          ]
+        },
+        {
+          "name": "R2",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            3.1351004708268437,
+            0.09210466261494514
+          ]
+        },
+        {
+          "name": "FE2",
+          "type": "FreeEvolveCondPhase",
+          "duration_s": 1.84e-07,
+          "duration_ns": 184.0,
+          "active_tones": 0,
+          "parameters": [
+            1.84e-07
+          ]
+        },
+        {
+          "name": "D3",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.07768174067620726,
+            0.029386848969334092
+          ]
+        },
+        {
+          "name": "R3",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            1.571257626344203,
+            1.564650360746441
+          ]
+        }
+      ],
+      "embedded_evaluations": {
+        "2": {
+          "fidelity": 0.7071102513102618,
+          "block_fidelity": 0.7071102694471069,
+          "leakage_average": 0.0,
+          "leakage_worst": 0.0
+        },
+        "8": {
+          "fidelity": 0.23468697349512202,
+          "block_fidelity": 0.25163823631619275,
+          "leakage_average": 0.6952896260887814,
+          "leakage_worst": 0.8042609571797508
+        },
+        "10": {
+          "fidelity": 0.23431021314400116,
+          "block_fidelity": 0.2508822160960391,
+          "leakage_average": 0.6963969263622516,
+          "leakage_worst": 0.8076933693115653
+        },
+        "12": {
+          "fidelity": 0.23428117069366716,
+          "block_fidelity": 0.2508471595231041,
+          "leakage_average": 0.6964444105464002,
+          "leakage_worst": 0.8078412813245208
+        },
+        "15": {
+          "fidelity": 0.23428036199668323,
+          "block_fidelity": 0.2508464659922662,
+          "leakage_average": 0.6964452072864749,
+          "leakage_worst": 0.8078437117248363
+        }
+      },
+      "pulse_replay": {},
+      "artifact_path": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\holographic_cluster_state_followup\\artifacts\\drfe_unbounded_operators.npz"
+    },
+    "drfe_bounded": {
+      "key": "drfe_bounded",
+      "label": "Bounded D-R-FreeEvolve",
+      "family": "D-R-FreeEvolve",
+      "category": "entangler_assisted",
+      "max_amplitude": 0.3,
+      "fit_ideal_fidelity": 0.5654943279836824,
+      "fit_objective": 0.4345056731336177,
+      "fit_success": true,
+      "fit_message": "",
+      "elapsed_s": 24.316993699991144,
+      "gate_summary": {
+        "rows": [
+          {
+            "name": "D1",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R1",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "FE1",
+            "type": "FreeEvolveCondPhase",
+            "duration_ns": 179.0,
+            "active_tones": 0
+          },
+          {
+            "name": "D2",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R2",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          },
+          {
+            "name": "FE2",
+            "type": "FreeEvolveCondPhase",
+            "duration_ns": 172.0,
+            "active_tones": 0
+          },
+          {
+            "name": "D3",
+            "type": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0
+          },
+          {
+            "name": "R3",
+            "type": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0
+          }
+        ],
+        "gate_count": 8,
+        "gate_counts": {
+          "Displacement": 3,
+          "QubitRotation": 3,
+          "FreeEvolveCondPhase": 2
+        },
+        "total_duration_ns": 711.0,
+        "selective_gate_count": 0,
+        "total_active_tones": 0,
+        "max_active_tones": 0
+      },
+      "sequence": [
+        {
+          "name": "D1",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.2996453380226286,
+            0.014583257568343442
+          ]
+        },
+        {
+          "name": "R1",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.3,
+            1.5542259823523417
+          ]
+        },
+        {
+          "name": "FE1",
+          "type": "FreeEvolveCondPhase",
+          "duration_s": 1.79e-07,
+          "duration_ns": 179.0,
+          "active_tones": 0,
+          "parameters": [
+            1.79e-07
+          ]
+        },
+        {
+          "name": "D2",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.299841013776202,
+            -0.009765575132035428
+          ]
+        },
+        {
+          "name": "R2",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            0.3,
+            1.4878575814700536
+          ]
+        },
+        {
+          "name": "FE2",
+          "type": "FreeEvolveCondPhase",
+          "duration_s": 1.72e-07,
+          "duration_ns": 172.0,
+          "active_tones": 0,
+          "parameters": [
+            1.72e-07
+          ]
+        },
+        {
+          "name": "D3",
+          "type": "Displacement",
+          "duration_s": 8e-08,
+          "duration_ns": 80.0,
+          "active_tones": 0,
+          "parameters": [
+            0.29995905591734107,
+            -0.004956286228362804
+          ]
+        },
+        {
+          "name": "R3",
+          "type": "QubitRotation",
+          "duration_s": 4e-08,
+          "duration_ns": 40.0,
+          "active_tones": 0,
+          "parameters": [
+            -0.3,
+            1.5660407066143263
+          ]
+        }
+      ],
+      "embedded_evaluations": {
+        "2": {
+          "fidelity": 0.5654943279836824,
+          "block_fidelity": 0.5655008660404144,
+          "leakage_average": 3.885780586188048e-16,
+          "leakage_worst": 4.440892098500626e-16
+        },
+        "8": {
+          "fidelity": 0.5369376709398653,
+          "block_fidelity": 0.536966980535362,
+          "leakage_average": 0.08600275252916006,
+          "leakage_worst": 0.18794383016939953
+        },
+        "10": {
+          "fidelity": 0.5369376711150987,
+          "block_fidelity": 0.5369669807090798,
+          "leakage_average": 0.0860027527160771,
+          "leakage_worst": 0.18794383374649415
+        },
+        "12": {
+          "fidelity": 0.536937671115262,
+          "block_fidelity": 0.5369669807092414,
+          "leakage_average": 0.08600275271620911,
+          "leakage_worst": 0.1879438337492133
+        },
+        "15": {
+          "fidelity": 0.5369376711152621,
+          "block_fidelity": 0.5369669807092416,
+          "leakage_average": 0.08600275271620908,
+          "leakage_worst": 0.18794383374921442
+        }
+      },
+      "pulse_replay": {},
+      "artifact_path": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\holographic_cluster_state_followup\\artifacts\\drfe_bounded_operators.npz"
+    }
+  },
+  "summary": {
+    "best_embedded_key": "dsqrcp_unbounded",
+    "best_sqr_key": "dsqrcp_bounded"
+  }
+}

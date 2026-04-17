@@ -1,0 +1,800 @@
+\documentclass[aps,pra,twocolumn,reprint,amsmath,amssymb,floatfix]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{braket}
+\usepackage{multirow}
+
+\begin{document}
+
+\title{Holographic Cluster-State Synthesis in Circuit QED:\\
+Consolidated Study of Decomposition Strategies and Optimal Control}
+
+\author{Autonomous Research Agent}
+\affiliation{Quantum Circuits Group}
+\date{\today}
+
+\begin{abstract}
+We study the synthesis of the per-site cluster / transfer unitary for
+holographic one-dimensional cluster-state generation in a dispersive
+transmon-cavity system. The logical target acts on the four-state subspace
+$\{\ket{g,0},\ket{g,1},\ket{e,0},\ket{e,1}\}$ and is equal to
+$\mathrm{SWAP}\cdot\mathrm{CZ}\cdot(H\otimes I)$.
+This report consolidates three iterative studies spanning initial decomposition
+search, physical validation, and direct GRAPE benchmarking into a single
+coherent account.
+The main findings are: (i) native gate decompositions that appear
+exact ($F=1.000$) in a two-level cavity truncation are Hilbert-space
+artifacts that collapse to $F < 0.10$ at $N_{\mathrm{cav}}=8$;
+(ii) bounded-displacement optimization does not rescue these routes;
+(iii) the only physically validated high-fidelity implementation is
+direct GRAPE at $N_{\mathrm{cav}}\geq 12$, achieving replay fidelity
+$F_{\mathrm{replay}}=0.956$ and open-system process fidelity
+$F_{\mathrm{open}}=0.901$ at \SI{400}{ns};
+(iv) the best ideal-gate decomposition is a four-SQR / three-tone sequence
+with ideal fidelity $0.9989$ and total nominal gate time \SI{4960}{ns};
+(v) the GRAPE speed frontier reaches $F>0.99$ by \SI{200}{ns} and
+$F>0.9999$ by \SI{300}{ns} at $N_{\mathrm{cav}}=8$, over an order of
+magnitude faster than the best ideal decomposition.
+\end{abstract}
+
+\maketitle
+
+%% ---------------------------------------------------------------
+\section{Introduction}
+%% ---------------------------------------------------------------
+
+Sequential or holographic generation of one-dimensional cluster states is
+attractive because a small processor can produce a much larger entangled
+resource state by repeatedly applying a fixed per-site operation
+\cite{raussendorf2001one,briegel2001persistent,barratt2021parallel}.
+In circuit QED (cQED) the natural register consists of a superconducting
+transmon qubit dispersively coupled to a microwave cavity: the transmon
+plays the role of the physical qubit being teleported into the chain, while
+the cavity Fock space encodes the growing entanglement bond
+\cite{blais2021circuit,ofek2016extending}.
+
+The control problem is then concrete: synthesize the per-site
+cluster / transfer unitary using experimentally motivated gate primitives ---
+cavity displacements, qubit rotations, and frequency-selective qubit
+rotations (SQRs) driven at specific Fock-conditioned frequencies.
+The challenge is that these primitives live in an infinite-dimensional
+Hilbert space and must be truncated numerically, that entangling operations
+like the SQR acquire Fock-dependent dispersive phases during their finite
+execution time, and that the dispersive coupling $\chi$ sets an energy scale
+that constrains how fast conditional gates can be applied.
+
+This consolidated report merges findings from three successive studies.
+The first study (\textit{initial decomposition}) searched for compact gate
+sequences and found several candidates with near-perfect ideal fidelity ---
+but failed to validate them against enlarged Hilbert-space truncations.
+The second study (\textit{physical validation}) revealed that the apparent
+exact solutions were truncation artifacts, and identified a \SI{400}{ns}
+GRAPE pulse as the first physically credible high-fidelity candidate.
+The third study (\textit{ideal-gate synthesis}) reframed the question as an
+ideal-gate compilation problem, systematically searched five ansatz families,
+and benchmarked the best result against direct GRAPE.
+
+Together these three phases answer the synthesis question comprehensively:
+they establish what can be achieved with structured native-gate sequences,
+how fast direct optimal control can go, and which physical caveats limit
+the former class of solutions.
+
+%% ---------------------------------------------------------------
+\section{Target Unitary}
+\label{sec:target}
+%% ---------------------------------------------------------------
+
+\subsection{Basis convention}
+
+All optimizations use the logical basis ordering
+\begin{equation}
+  \mathcal{B}_{\mathrm{log}} =
+  \{\ket{g,0},\ket{g,1},\ket{e,0},\ket{e,1}\},
+\label{eq:basis}
+\end{equation}
+where $g$ ($e$) denotes the transmon ground (first excited) state and
+$n\in\{0,1\}$ denotes the cavity Fock occupation.
+In the physical Hilbert space of dimension $2N_{\mathrm{cav}}$,
+the four logical indices are $(0, 1, N_{\mathrm{cav}}, N_{\mathrm{cav}}+1)$.
+
+\subsection{Target matrix}
+
+In the basis of Eq.~\eqref{eq:basis} the target is
+\begin{equation}
+U_{\mathrm{target}} =
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 0 & 1 & 0 \\
+1 & 0 & -1 & 0 \\
+0 & 1 & 0 & 1 \\
+0 & -1 & 0 & 1
+\end{pmatrix},
+\label{eq:utarget}
+\end{equation}
+which is obtained from the \texttt{cqed\_sim} factory as
+\texttt{make\_target("cluster", n\_match=1)}
+and is equivalent to the operator decomposition
+\begin{equation}
+U_{\mathrm{target}} = \mathrm{SWAP}\cdot\mathrm{CZ}\cdot(H\otimes I),
+\label{eq:utarget_decomp}
+\end{equation}
+where $H$ acts on the transmon and $I$ on the cavity logical qubit.
+The global phase is ignored throughout.
+
+An alternative equivalent convention is available as
+\texttt{make\_target("cluster", n\_match=1, which="u2")}; all reported
+optimizations use the convention of Eq.~\eqref{eq:utarget}.
+
+\subsection{Physical interpretation}
+
+Equation~\eqref{eq:utarget_decomp} describes the transfer step of the
+holographic algorithm: $H\otimes I$ creates superposition in the transmon;
+$\mathrm{CZ}$ imprints a controlled phase, generating entanglement between
+the transmon and the logical cavity qubit; $\mathrm{SWAP}$ transfers the
+transmon state into the cavity register while making room for the next site.
+After the transmon is re-initialized, repeating the operation extends the
+cluster-state bond to the next site.
+
+%% ---------------------------------------------------------------
+\section{Physical System and Gate Primitives}
+\label{sec:system}
+%% ---------------------------------------------------------------
+
+\subsection{Hamiltonian}
+
+The dispersive transmon-cavity Hamiltonian in the rotating frame is
+\cite{blais2021circuit}
+\begin{align}
+\hat{H}/\hbar &= \omega_c a^\dagger a + \omega_q b^\dagger b
++ \frac{\alpha}{2}b^\dagger b(b^\dagger b-1) \notag\\
+&\quad + \chi\, a^\dagger a\,b^\dagger b
++ \chi' a^{\dagger 2}a^2\,b^\dagger b
++ K\, a^{\dagger 2}a^2,
+\label{eq:H}
+\end{align}
+where $a$ ($b$) is the cavity (transmon) annihilation operator,
+$\omega_c$ ($\omega_q$) is the resonator (transmon) frequency,
+$\alpha$ is the transmon anharmonicity, $\chi$ is the dispersive coupling,
+$\chi'$ is the higher-order dispersive correction, and $K$ is the
+cavity self-Kerr. Numerical values are listed in Table~\ref{tab:params}.
+
+\begin{table}[htbp]
+\centering
+\caption{Physical parameters used throughout all studies.}
+\label{tab:params}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Parameter & Value & Unit \\
+\midrule
+$\omega_c/2\pi$ & 5.241 & GHz \\
+$\omega_q/2\pi$ & 6.150 & GHz \\
+$\alpha/2\pi$   & $-255$ & MHz \\
+$\chi/2\pi$     & $-2.84$ & MHz \\
+$\chi'/2\pi$    & $-21$ & kHz \\
+$K/2\pi$        & $-28$ & kHz \\
+$N_{\mathrm{tr}}$ & 2 & levels \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Gate primitives}
+
+\paragraph{Displacement $D(\alpha)$.}
+The cavity displacement operator
+\begin{equation}
+  D(\alpha) = \exp(\alpha a^\dagger - \alpha^\ast a)
+\end{equation}
+is implemented as a coherent drive on the storage mode.
+Nominal duration: \SI{80}{ns}.
+
+\paragraph{Qubit rotation $R(\theta,\phi)$.}
+The transmon single-qubit rotation
+\begin{equation}
+  R_{xy}(\theta,\phi) =
+  \exp\!\left[-i\frac{\theta}{2}
+  (\cos\phi\,\sigma_x + \sin\phi\,\sigma_y)\right]
+\end{equation}
+acts only on the transmon and does not address any specific Fock level.
+Nominal duration: \SI{40}{ns}.
+
+\paragraph{Selective qubit rotation (SQR).}
+The ideal SQR implements an independent qubit rotation at each addressed
+Fock level $n$,
+\begin{equation}
+  \mathrm{SQR}(\{\theta_n,\phi_n\}) =
+  \sum_{n\in\mathcal{L}} \ket{n}\!\bra{n}\otimes R_{xy}(\theta_n,\phi_n)
+  + \sum_{n\notin\mathcal{L}} \ket{n}\!\bra{n}\otimes I,
+\end{equation}
+where $\mathcal{L}$ is the set of addressed levels.
+The parameter \texttt{max\_tones} denotes $|\mathcal{L}|$.
+Nominal duration: \SI{1100}{ns}.
+
+\paragraph{Conditional-phase SQR (CPSQR).}
+The CPSQR block applies a qubit-state-dependent phase at each addressed level:
+\begin{equation}
+  U_{\mathrm{CPSQR}}(\{\varphi_n\},t) \sim
+  \sum_{n\in\mathcal{L}}
+  \bigl(e^{-i\varphi_n/2}\ket{g,n}\!\bra{g,n}
+  + e^{+i\varphi_n/2}\ket{e,n}\!\bra{e,n}\bigr),
+\end{equation}
+composed with dispersive drift $U_{\mathrm{drift}}(t)$ over the gate duration.
+The dispersive drift energy levels are
+\begin{align}
+  E_{g,n} &= \delta_c n + \tfrac{K}{2}n(n-1), \\
+  E_{e,n} &= \delta_c n + \delta_q + \chi n + \chi' n(n-1) + \tfrac{K}{2}n(n-1),
+\end{align}
+so that the $n$-dependent $\chi$ term generates the conditional phase used
+for entanglement. Nominal duration: \SI{160}{ns}.
+
+\paragraph{Free-evolution entangler (FE).}
+When included, the free-evolution block applies $e^{-i\hat{H}_{\mathrm{eff}}t}$
+where $\hat{H}_{\mathrm{eff}}$ includes the full dispersive drift.
+The duration $t$ is a variational parameter bounded in $[40,400]$ ns.
+
+\paragraph{GRAPE.}
+Direct numerical optimal control (GRAPE \cite{khaneja2005optimal}) uses
+four piecewise-constant quadrature channels (storage I/Q, qubit I/Q) sampled
+at $\Delta t=\SI{4}{ns}$, amplitude bound $2\pi\times\SI{50}{MHz}$,
+a unitary objective on the logical subspace with global-phase gauge,
+and a leakage penalty of weight $0.02$.
+
+%% ---------------------------------------------------------------
+\section{Methods}
+\label{sec:methods}
+%% ---------------------------------------------------------------
+
+\subsection{Hilbert-space truncation convention}
+
+In the physical simulator, $N_{\mathrm{cav}}$ cavity Fock levels and
+$N_{\mathrm{tr}}=2$ transmon levels are retained.
+Ideal-gate synthesis uses a small truncation ($N_{\mathrm{cav}}=4$) for
+computational efficiency; physical validation uses $N_{\mathrm{cav}}\in\{8,12\}$.
+The critical distinction between these regimes is the central methodological
+finding of this study and is discussed in Sec.~\ref{sec:truncation}.
+
+\subsection{Decomposition search strategy}
+\label{sec:decomp_strategy}
+
+The ideal-gate synthesis search evaluates five ansatz families, constructed
+from the primitives above:
+\begin{enumerate}
+  \item $D + R + \mathrm{SQR}$ with three SQR blocks (three-SQR hypothesis);
+  \item $D + R + \mathrm{SQR}$ with four SQR blocks;
+  \item $D + \mathrm{SQR} + \mathrm{CPSQR}$ (compact entangling);
+  \item $D + R + \mathrm{SQR} + \mathrm{CPSQR}$;
+  \item $D + R + U_{\mathrm{FE}}$ (free-evolution entangler).
+\end{enumerate}
+Each family is parameterized by the addressed Fock levels and the tone
+budget \texttt{max\_tones}.
+Optimization uses \texttt{UnitarySynthesizer} from \texttt{cqed\_sim} with
+a multi-objective combining fidelity, leakage penalty (weight $0.05$),
+and optional duration penalty.
+The procedure is two-stage: a screening pass (20 iterations) followed by
+refinement of promising cases (60 iterations), with an additional
+100-iteration final pass for the best three-SQR candidate.
+
+\subsection{GRAPE benchmark}
+
+The GRAPE benchmark uses six durations from \SI{100}{ns} to \SI{400}{ns},
+ten random seeds per duration, and 250 L-BFGS-B iterations per seed,
+all at $N_{\mathrm{cav}}=8$.
+A compact truncation probe additionally runs \SIlist{200;300}{ns} at
+$N_{\mathrm{cav}}\in\{8,10,12\}$ with three seeds and 150 iterations to
+check sensitivity to cavity truncation.
+
+\subsection{Physical validation protocol}
+
+Physical validation proceeds in two steps.
+First, the best candidate sequences are re-simulated at enlarged truncation
+($N_{\mathrm{cav}}=12$, later up to $N_{\mathrm{cav}}=15$) without
+re-optimization (``truncation probe'').
+Second, the best GRAPE waveforms are replayed through the full
+$N_{\mathrm{cav}}=12$ physical model (``waveform replay''), and the best
+are also propagated through a Lindblad open-system model to yield a
+process fidelity in the presence of decoherence.
+
+%% ---------------------------------------------------------------
+\section{Results}
+\label{sec:results}
+%% ---------------------------------------------------------------
+
+\subsection{Truncation artifacts in ideal decompositions}
+\label{sec:truncation}
+
+The most important finding of this study is not a positive result but a
+critical negative one: ideal decompositions that appear exact in a small
+Hilbert space are Hilbert-space truncation artifacts.
+
+The initial decomposition search at $N_{\mathrm{cav}}=2$ found Strategy~B
+(two blocks of $D+\mathrm{SQR}+\mathrm{CPSQR}$) with ideal fidelity
+$F=1.000$ at unbounded displacement amplitude.
+At first, this appeared to be a valid exact decomposition.
+Physical validation at enlarged truncation revealed otherwise:
+\begin{itemize}
+  \item At $N_{\mathrm{cav}}=8$: $F=0.094$, leakage $\approx 93\%$.
+  \item At $N_{\mathrm{cav}}=12$: $F=0.598$, leakage $\approx 49\%$.
+\end{itemize}
+The root cause is that unbounded displacement amplitudes displace the
+cavity state far out of the Fock-0/1 subspace, so the $N_{\mathrm{cav}}=2$
+simulation simply truncates the leakage and reports perfect overlap.
+Bounded-displacement optimization (constraining $|\alpha|\leq 0.3$) reduces
+the leakage to $\approx 3\%$, but the subspace fidelity then drops to
+$F\leq 0.53$, giving a replay fidelity of only $F_{\mathrm{replay}}=0.35$.
+
+All strategies based on native SNAP-style operations, free-evolution
+entanglers, or compact SQR-CPSQR blocks suffer from the same failure mode
+at physical truncation. Table~\ref{tab:native} summarizes the six strategies
+evaluated in the initial study.
+
+\begin{table}[htbp]
+\centering
+\caption{Initial decomposition strategies and their fidelities. Strategy labels
+  A--E follow the initial study convention. ``Ideal'' fidelity is at
+  $N_{\mathrm{cav}}=2$; ``physical'' is at $N_{\mathrm{cav}}\geq 8$.}
+\label{tab:native}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+Label & Sequence & Ideal $F$ & Physical $F$ & Status \\
+\midrule
+A & $D+R+\mathrm{SNAP}$ & 0.500 & 0.500 & Non-expressive \\
+B & $D+\mathrm{SQR}+\mathrm{CP}$ (2 blk) & 1.000 & 0.094 & Artifact \\
+C & $\mathrm{SQR}+\mathrm{CP}$ (no $D$) & 0.500 & 0.500 & Non-expressive \\
+D & $D+R+\mathrm{FE}$ (2 blk) & 0.9999 & 0.093 & Artifact \\
+E & GRAPE \SI{400}{ns} & 0.999 & 0.956 & Validated \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The lesson is that $N_{\mathrm{cav}}=2$ is insufficient for any synthesis
+claiming to target the four-state logical subspace unless it can be confirmed
+that no population leaves Fock levels $0$ and $1$ at any intermediate step.
+
+\subsection{GRAPE benchmark frontier}
+\label{sec:grape}
+
+The GRAPE benchmark at $N_{\mathrm{cav}}=8$ is summarized in
+Table~\ref{tab:grape} and Fig.~\ref{fig:grape_frontier}.
+
+\begin{table}[htbp]
+\centering
+\caption{Direct GRAPE benchmark at $N_{\mathrm{cav}}=8$.
+  Best, median, and worst seed fidelity per duration.}
+\label{tab:grape}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Duration (ns) & Best & Median & Worst \\
+\midrule
+100 & 0.9387 & 0.8963 & 0.8095 \\
+150 & 0.9756 & 0.9341 & 0.8605 \\
+200 & 0.9902 & 0.9803 & 0.9706 \\
+250 & 0.9972 & 0.9912 & 0.9559 \\
+300 & 0.99997 & 0.9945 & 0.9912 \\
+400 & 0.99975 & 0.9979 & 0.9918 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Key thresholds:
+\begin{itemize}
+  \item $F > 0.95$ achieved by \SI{150}{ns}.
+  \item $F > 0.99$ achieved by \SI{200}{ns}.
+  \item $F > 0.999$ achieved by \SI{250}{ns}.
+  \item Peak best-seed $F = 0.99997$ at \SI{300}{ns}.
+\end{itemize}
+
+The slight regression at \SI{400}{ns} relative to \SI{300}{ns} is a
+finite-seeds sampling effect; the median continues to improve.
+
+\begin{figure}[t]
+\includegraphics[width=\columnwidth]
+  {../../holographic_cluster_state_ideal_gate_followup/figures/grape_benchmark_frontier.pdf}
+\caption{GRAPE benchmark frontier showing best, median, and worst seed per
+  duration at $N_{\mathrm{cav}}=8$.
+  The shaded band spans worst to best; the dashed line marks $F=0.99$.}
+\label{fig:grape_frontier}
+\end{figure}
+
+\subsection{Ideal-gate decomposition families}
+\label{sec:ideal_decomp}
+
+Five gate-family ansatzes were searched using \texttt{UnitarySynthesizer}
+at $N_{\mathrm{cav}}=4$.
+Results are shown in Table~\ref{tab:families} and Fig.~\ref{fig:decomp_tradeoff}.
+
+\begin{table}[htbp]
+\centering
+\caption{Best ideal decomposition per gate family (optimized at $N_{\mathrm{cav}}=4$).
+  Time is total nominal gate time; ``Sel.''\ counts selective blocks (SQR+CPSQR);
+  ``Ent.''\ counts entangling blocks (CPSQR+FE).}
+\label{tab:families}
+\begin{tabular}{@{}lccccl@{}}
+\toprule
+Family & $F$ & Time (ns) & Dep. & Sel./Ent. & Outcome \\
+\midrule
+$D\!+\!R\!+\!\mathrm{SQR}$ (4 SQR, $t\!=\!3$)
+  & \textbf{0.9989} & 4960 & 13 & 4/0 & Successful \\
+$D\!+\!R\!+\!\mathrm{SQR}$ (3 SQR, $t\!=\!3$)
+  & 0.9944 & 3740 & 10 & 3/0 & Near-target \\
+$D\!+\!R\!+\!\mathrm{SQR}\!+\!\mathrm{CPSQR}$
+  & 0.9030 & 2913 & 11 & 4/2 & Fam.-limited \\
+$D\!+\!\mathrm{SQR}\!+\!\mathrm{CPSQR}$
+  & 0.9030 & 4954 & 9  & 6/2 & Fam.-limited \\
+$D\!+\!R\!+\!U_{\mathrm{FE}}$
+  & 0.8005 & 611  & 11 & 0/3 & Fam.-limited \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The four-SQR family wins on ideal fidelity with $F=0.9989$, using
+levels $\{0,1,2\}$ in each selective block (i.e., addressing the lowest
+three Fock levels).
+The best three-SQR sequence addresses levels $\{0,2,3\}$ and reaches
+$F=0.9944$; it is the best \emph{compact} near-solution even though it
+does not achieve exact synthesis.
+CPSQR-assisted families stall near $F=0.903$ regardless of tone budget,
+suggesting they are limited by ansatz expressivity rather than optimization
+quality.
+The free-evolution family is structurally fast (\SI{611}{ns} total) but
+reaches only $F=0.801$, well below the other families.
+
+\begin{figure}[t]
+\includegraphics[width=\columnwidth]
+  {../../holographic_cluster_state_ideal_gate_followup/figures/decomposition_tradeoff.pdf}
+\caption{Fidelity vs.\ total nominal gate time for the best candidate from
+  each ideal-gate family.
+  The dashed line marks $F=0.99$; GRAPE points from
+  Table~\ref{tab:grape} are shown for reference.}
+\label{fig:decomp_tradeoff}
+\end{figure}
+
+\subsection{Explicit test of the three-SQR hypothesis}
+\label{sec:three_sqr}
+
+The three-SQR branch was treated as a primary research question:
+is three SQR blocks sufficient for exact synthesis of $U_{\mathrm{target}}$?
+Figure~\ref{fig:three_sqr} shows the best ideal fidelity as a function
+of \texttt{max\_tones}.
+
+\begin{figure}[htbp]
+\includegraphics[width=\columnwidth]
+  {../../holographic_cluster_state_ideal_gate_followup/figures/three_sqr_tone_budget.pdf}
+\caption{Best ideal fidelity of the three-SQR ansatz as a function of the
+  tone budget \texttt{max\_tones}. The jump from $2\to 3$ tones shows that
+  the earlier two-tone saturation was an artificial search restriction,
+  not a fundamental expressivity boundary.}
+\label{fig:three_sqr}
+\end{figure}
+
+The best fidelities per tone budget are
+$0.9382$ (\texttt{max\_tones}$=1$),
+$0.9704$ (\texttt{max\_tones}$=2$),
+$0.9944$ (\texttt{max\_tones}$=3$),
+and $0.9557$ (\texttt{max\_tones}$=4$).
+Two observations stand out.
+First, the regression at four tones ($0.9557 < 0.9944$) is more likely an
+optimization-landscape artifact than a fundamental loss of expressivity;
+the parameter space is substantially larger and the search budget was fixed.
+Second, the three-SQR hypothesis was not \emph{disproved}: the near-target
+$0.9944$ result could in principle be improved further with a larger
+optimization budget or a better initialization strategy.
+However, it was not established as \emph{sufficient} either, since the
+gap from $0.9944$ to $1.0000$ was not closed.
+
+\subsection{Physical validation of GRAPE candidates}
+\label{sec:validation}
+
+The GRAPE benchmark at $N_{\mathrm{cav}}=8$ is not a final physical verdict.
+Table~\ref{tab:validation} summarizes the truncation-convergence probe and
+physical replay results.
+
+\begin{table}[htbp]
+\centering
+\caption{Truncation convergence and replay fidelities for GRAPE waveforms.
+  ``Replay'' denotes re-simulation at $N_{\mathrm{cav}}=12$;
+  ``open'' is the Lindblad process fidelity.}
+\label{tab:validation}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Duration & $F$ (N8) & $F$ (N10) & $F$ (N12) & $F_{\mathrm{open}}$ \\
+\midrule
+200 ns (best seed) & 0.9902 & $\approx0.95$ & $\approx0.95$ & --- \\
+300 ns (best seed) & 0.99997 & degraded & degraded & --- \\
+400 ns (best seed) & 0.99975 & --- & 0.956 & 0.901 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two points from the validation are important.
+First, the \SI{300}{ns} best seed is extremely strong at $N_{\mathrm{cav}}=8$
+but degrades noticeably at larger truncations, meaning the benchmark should
+not be taken as a converged physical result.
+Second, the \SI{400}{ns} waveform from the \emph{direct} $N_{\mathrm{cav}}=12$
+GRAPE pass (not the $N_{\mathrm{cav}}=8$ benchmark) achieves replay fidelity
+$0.956$ and open-system process fidelity $0.901$, establishing it as the
+only physically credible high-fidelity route in this study.
+Early $N_{\mathrm{cav}}=8$ GRAPE solutions, when replayed at $N_{\mathrm{cav}}=12$,
+dropped to $F_{\mathrm{replay}} \approx 0.12$, demonstrating that training
+truncation matters critically for physical predictions.
+
+\subsection{Comparison: GRAPE vs.\ ideal decomposition}
+\label{sec:comparison}
+
+Figure~\ref{fig:grape_vs_decomp} places the best ideal decomposition and the
+GRAPE frontier on the same axes.
+
+\begin{figure}[htbp]
+\includegraphics[width=\columnwidth]
+  {../../holographic_cluster_state_ideal_gate_followup/figures/grape_vs_best_decomposition.pdf}
+\caption{Best ideal decomposition (four-SQR / three-tone, $F=0.9989$,
+  \SI{4960}{ns}) versus the GRAPE benchmark frontier.
+  GRAPE crosses $F=0.9989$ between \SI{200}{ns} and \SI{250}{ns},
+  and reaches $F>0.9999$ by \SI{300}{ns}.}
+\label{fig:grape_vs_decomp}
+\end{figure}
+
+The comparison is unambiguous: GRAPE crosses the fidelity achieved by the
+best ideal decomposition between \SI{200}{ns} and \SI{250}{ns} in total gate
+time, while the decomposition requires \SI{4960}{ns}.
+The ideal decomposition is therefore slower by a factor of approximately $16$--$25$
+at the same fidelity level.
+
+This does not mean that the ideal decomposition is useless.
+Structured gate sequences have interpretability advantages (every gate has
+a physical motivation), they can serve as initial guesses for pulse
+refinement, and they may be more robust to certain systematic errors.
+But for raw gate speed or for targets where protocol fidelity must exceed
+$0.999$, direct GRAPE is the better strategy.
+
+%% ---------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+%% ---------------------------------------------------------------
+
+\subsection{What does and does not work}
+
+The clearest take-away is that \textbf{Hilbert-space truncation must be
+validated}. Any synthesis result reported at $N_{\mathrm{cav}}=2$ should be
+treated as a hypothesis, not a result, until confirmed at $N_{\mathrm{cav}}\geq 8$.
+The failure mode is subtle because a small truncation can make sequences
+appear exact by cutting off the leakage: the simulator reports perfect
+fidelity on the logical subspace simply because the population that leaked
+into high Fock levels was truncated away.
+
+The bounded-displacement fix is a partial remedy: it reduces leakage but
+simultaneously reduces the available Hilbert-space reach, leading to a
+fidelity ceiling below any useful threshold.
+
+\subsection{The right synthesis strategy for different goals}
+
+The three strategies below address distinct experimental priorities.
+Table~\ref{tab:strategy} provides a concise comparison.
+
+\begin{table}[htbp]
+\centering
+\caption{Strategy comparison at a glance.
+  $F_\mathrm{id}$: ideal fidelity.
+  $F_\mathrm{phys}$: physically validated fidelity (replay or open-system).}
+\label{tab:strategy}
+\begin{tabular}{@{}lcccl@{}}
+\toprule
+Strategy & $F_\mathrm{id}$ & Time & $F_\mathrm{phys}$ & Priority \\
+\midrule
+GRAPE / $N_{\mathrm{cav}}\geq 12$   & ---    & \SI{400}{ns} & 0.956 & Speed/fidelity \\
+4-SQR / 3-tone                       & 0.9989 & \SI{4960}{ns} & --- & Interpretability \\
+3-SQR / 3-tone                       & 0.9944 & \SI{3740}{ns} & --- & Compact near-sol. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Minimum gate time / highest fidelity.}
+Direct GRAPE at $N_{\mathrm{cav}}\geq 12$ is the recommended route.
+The physically validated result achieves $F_{\mathrm{replay}}=0.956$ and
+$F_{\mathrm{open}}=0.901$ at \SI{400}{ns} (see Appendix~\ref{app:states} for
+the corresponding output-state observables).
+The $N_{\mathrm{cav}}=8$ closed benchmark suggests $F>0.999$ may be reachable
+at \SI{300}{ns}, but any waveform optimized at that truncation must be
+re-validated at $N_{\mathrm{cav}}=12$ before being treated as a physical result.
+The expected output states are listed in Appendix~\ref{app:states}: each logical
+input maps to a cavity superposition state with a definite transmon polarization
+(Fig.~\ref{fig:obs}), and the target cavity Wigner functions exhibit interference
+fringes (Fig.~\ref{fig:wigner}) that directly confirm entanglement generation.
+
+\paragraph{Structured / interpretable gate sequence.}
+The four-SQR / three-tone decomposition ($F=0.9989$, total time \SI{4960}{ns},
+depth 13) is the best systematically derived ideal-gate sequence.
+Its structure makes every gate step physically interpretable:
+displacements inject coherent amplitude into the cavity; qubit rotations set
+the superposition axis; selective qubit rotations at Fock levels $\{0,1,2\}$
+imprint level-dependent phases that generate entanglement between qubit and
+cavity over the four repetitions.
+This sequence is stable under ideal truncation enlargement ($F=0.9900$ at
+$N_{\mathrm{cav}}=8$, average leakage $\approx 2\%$), making it a reliable
+reference solution and a natural warm-start candidate for GRAPE refinement.
+
+\paragraph{Compact near-solution.}
+The three-SQR / three-tone ansatz ($F=0.9944$, \SI{3740}{ns}) requires
+three instead of four SQR blocks and is $25\%$ shorter in total gate time.
+It remains an incomplete result: the optimization has not closed the gap to
+exact synthesis, and the sequence degrades sharply to $F\approx 0.79$ at
+$N_{\mathrm{cav}}=8$ (ideal), indicating non-trivial leakage that would
+worsen under physical truncation.
+It is best used as a starting point for a dedicated higher-budget optimization
+or a formal expressivity analysis of the three-SQR family.
+
+\subsection{Open questions}
+
+The three-SQR hypothesis remains open: neither sufficiency nor insufficiency
+was established. Addressing this would require a denser search over level
+subsets and initializations, or a formal circuit expressivity argument.
+
+The GRAPE truncation probe suggests that $N_{\mathrm{cav}}=8$ is not
+always sufficient for a converged benchmark; a systematic convergence study
+comparing $N_{\mathrm{cav}}=8, 10, 12$ across all durations would be valuable.
+
+Finally, the ideal decomposition results are purely ideal (zero decoherence).
+Incorporating the dispersive drift into the SQR timing---which is already
+done for CPSQR blocks in the current framework---would provide a more
+physical ideal-gate fidelity for the SQR-heavy decompositions.
+
+%% ---------------------------------------------------------------
+\section{Conclusions}
+\label{sec:conclusions}
+%% ---------------------------------------------------------------
+
+This study consolidates three iterative investigations of holographic
+cluster-state synthesis in a dispersive transmon-cavity system into a single
+coherent account. The main conclusions are:
+
+\begin{enumerate}
+  \item \textbf{Truncation artifacts are the dominant failure mode} for
+    compact gate decompositions. Any sequence claiming exact fidelity at
+    $N_{\mathrm{cav}}=2$ must be validated at $N_{\mathrm{cav}}\geq 8$.
+  \item \textbf{The only physically validated high-fidelity implementation}
+    is direct GRAPE at $N_{\mathrm{cav}}\geq 12$:
+    $F_{\mathrm{replay}}=0.956$, $F_{\mathrm{open}}=0.901$ at \SI{400}{ns}.
+  \item \textbf{GRAPE speed frontier}: $F>0.95$ by \SI{150}{ns},
+    $F>0.99$ by \SI{200}{ns}, $F>0.9999$ by \SI{300}{ns} (at $N_{\mathrm{cav}}=8$;
+    larger truncations may require longer durations).
+  \item \textbf{Best ideal-gate decomposition}: four-SQR / three-tone,
+    $F=0.9989$, \SI{4960}{ns}, depth 13. This is over $16\times$ slower
+    than the GRAPE benchmark at equivalent fidelity.
+  \item \textbf{Three-SQR hypothesis}: best result $F=0.9944$ at
+    \texttt{max\_tones}$=3$; neither provably sufficient nor insufficient.
+    Earlier saturation at \texttt{max\_tones}$=2$ was an artificial search limit.
+  \item \textbf{CPSQR/FE families are family-limited}: both stall well below
+    the four-SQR result ($F\leq 0.903$ and $F\leq 0.801$ respectively)
+    and are unlikely to be rescued by more optimization.
+\end{enumerate}
+
+For a research program targeting high-fidelity cluster-state generation,
+the recommended strategy is direct GRAPE optimization at $N_{\mathrm{cav}}\geq 12$
+with waveform replay validation, targeting the \SIrange{200}{300}{ns} duration
+range for optimal speed-fidelity trade-off. Ideal-gate decompositions are
+valuable as structured reference solutions and potential GRAPE warm starts,
+but they do not compete with direct optimal control in raw performance.
+
+%% ---------------------------------------------------------------
+\bibliography{references}
+%% ---------------------------------------------------------------
+
+%% ---------------------------------------------------------------
+\appendix
+%% ---------------------------------------------------------------
+
+\section{Target Output States: Qubit and Cavity Observables}
+\label{app:states}
+
+This appendix documents the exact quantum states produced by
+$U_{\mathrm{target}} = \mathrm{SWAP}\cdot\mathrm{CZ}\cdot(H\otimes I)$
+for each of the four computational-basis inputs.
+These serve as the ground truth against which any experimental or numerical
+implementation should be compared.
+
+\subsection{Analytical output states}
+\label{app:analytic}
+
+In the ordered basis $\{\ket{g,0},\ket{g,1},\ket{e,0},\ket{e,1}\}$ the target
+maps each logical input to a product state in the transmon and a superposition
+in the cavity logical qubit:
+\begin{align}
+U_{\mathrm{target}}\ket{g,0} &=
+  \ket{g}\otimes\frac{\ket{0}+\ket{1}}{\sqrt{2}}, \label{eq:out_g0}\\
+U_{\mathrm{target}}\ket{g,1} &=
+  \ket{e}\otimes\frac{\ket{0}-\ket{1}}{\sqrt{2}}, \label{eq:out_g1}\\
+U_{\mathrm{target}}\ket{e,0} &=
+  \ket{g}\otimes\frac{\ket{0}-\ket{1}}{\sqrt{2}}, \label{eq:out_e0}\\
+U_{\mathrm{target}}\ket{e,1} &=
+  \ket{e}\otimes\frac{\ket{0}+\ket{1}}{\sqrt{2}}. \label{eq:out_e1}
+\end{align}
+In every case the transmon factorizes from the cavity after the gate:
+inputs with even parity ($\ket{g,0}$ and $\ket{e,1}$) map the cavity to
+$(\ket{0}+\ket{1})/\sqrt{2}$; inputs with odd parity
+($\ket{g,1}$ and $\ket{e,0}$) map the cavity to
+$(\ket{0}-\ket{1})/\sqrt{2}$.
+The transmon is deterministically polarized to $\ket{g}$ or $\ket{e}$
+depending on the input cavity occupation.
+
+\subsection{Transmon Bloch-vector components and cavity populations}
+
+Figure~\ref{fig:obs} shows the transmon Bloch-vector expectation values
+$\langle X\rangle$, $\langle Y\rangle$, $\langle Z\rangle$ and the cavity
+Fock populations $P(n=0)$, $P(n=1)$ for all four target output states,
+computed from Eqs.~\eqref{eq:out_g0}--\eqref{eq:out_e1}.
+
+\begin{figure}[htbp]
+\includegraphics[width=\columnwidth]{../figures/appendix_state_observables.pdf}
+\caption{Target output-state observables computed analytically from
+  $U_{\mathrm{target}}$.
+  \emph{Left:} transmon Bloch-vector components for each logical input.
+  $\langle X\rangle = \langle Y\rangle = 0$ for all inputs; only
+  $\langle Z\rangle = \pm 1$ is non-zero, confirming the transmon
+  is fully polarized after the gate.
+  \emph{Right:} cavity Fock populations, showing equal $P(n=0)=P(n=1)=0.5$
+  in all cases, consistent with the $(\ket{0}\pm\ket{1})/\sqrt{2}$ cavity
+  output states.}
+\label{fig:obs}
+\end{figure}
+
+Key signatures for experimental or numerical verification:
+\begin{itemize}
+  \item The transmon should satisfy $|\langle Z\rangle|=1$ and
+    $\langle X\rangle=\langle Y\rangle=0$ after the gate.
+    Any deviation indicates residual qubit-cavity entanglement or leakage.
+  \item The cavity Fock populations should be equal: $P(0)=P(1)=0.5$.
+    An imbalance directly measures the failure of the displacement / rotation
+    steps to create an equal superposition.
+  \item The off-diagonal coherence $\langle a+a^\dagger\rangle
+    = \mathrm{Re}\langle\alpha\rangle$ should be $\pm 1/\sqrt{2}$, with
+    the sign distinguishing $(\ket{0}+\ket{1})/\sqrt{2}$ from
+    $(\ket{0}-\ket{1})/\sqrt{2}$.
+\end{itemize}
+
+\subsection{Cavity Wigner functions}
+
+Figure~\ref{fig:wigner} shows the cavity Wigner function
+\begin{equation}
+W(\alpha) = \frac{2}{\pi}\,\mathrm{Tr}
+  \bigl[\hat{\rho}_{\mathrm{cav}}\,D(\alpha)\,(-1)^{a^\dagger a}\,D^\dagger(\alpha)\bigr]
+\end{equation}
+for each logical input sector.
+The left column is the target Wigner function from
+Eqs.~\eqref{eq:out_g0}--\eqref{eq:out_e1};
+the right column is the Wigner function achieved by Strategy~B
+($D+\mathrm{SQR}+\mathrm{CP}$, two blocks, $N_{\mathrm{cav}}=8$)
+from the initial study.
+
+\begin{figure}[htbp]
+\includegraphics[width=\columnwidth]{../figures/appendix_wigner.pdf}
+\caption{Cavity Wigner functions per logical input sector.
+  \emph{Left column:} target $W(\alpha)$, exhibiting the characteristic
+  interference fringes (negative regions near $\mathrm{Re}\,\alpha=0$)
+  of the $(\ket{0}\pm\ket{1})/\sqrt{2}$ superposition states.
+  \emph{Right column:} Strategy~B achieved Wigner function.
+  The large mismatch and the absence of negative values in the
+  $\ket{g,0}$ sector (cavity fidelity 0.884) and the qualitative
+  failure in $\ket{g,1}$ (cavity fidelity 0.544) confirm that
+  Strategy~B does not physically prepare the correct cavity state
+  despite its apparent ideal-subspace fidelity.
+  Cavity fidelity values: 0.884, 0.544, 0.815, 0.499
+  for $\ket{g,0}$, $\ket{g,1}$, $\ket{e,0}$, $\ket{e,1}$, respectively.}
+\label{fig:wigner}
+\end{figure}
+
+The interference fringes visible in the target Wigner functions are the
+hallmark of the non-classical superposition created by the gate.
+Their absence or deformation in the Strategy~B panels directly reflects
+the truncation-induced leakage: population displaced into Fock levels
+$n\geq 2$ contributes to decoherence of the logical $\ket{0}/\ket{1}$
+superposition, washing out the fringes.
+This visual comparison makes the physical failure of native decompositions
+concrete, and motivates the use of GRAPE with $N_{\mathrm{cav}}\geq 12$
+as the only currently validated route to the correct cavity state.
+
+\end{document}

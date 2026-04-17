@@ -1,0 +1,73 @@
+Traceback (most recent call last):
+  File "C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cqed_based_study\studies\cluster_state_holographic_sim\scripts\iteration4_v2.py", line 154, in <module>
+    r = run_opt(seq, lbl, max_amp=amp)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cqed_based_study\studies\cluster_state_holographic_sim\scripts\iteration4_v2.py", line 100, in run_opt
+    res = synth.fit(target=target, init_guess="heuristic",
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\cqed_sim\unitary_synthesis\optim.py", line 2332, in fit
+    start_results = [_run_single_start(p, reporter=serial_reporter) for p in payloads]
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\cqed_sim\unitary_synthesis\optim.py", line 1713, in _run_single_start
+    res = minimize(
+          ^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Roaming\Python\Python312\site-packages\scipy\optimize\_minimize.py", line 775, in minimize
+    res = _minimize_powell(fun, x0, args, callback, bounds, **options)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Roaming\Python\Python312\site-packages\scipy\optimize\_optimize.py", line 3567, in _minimize_powell
+    fval, x, direc1 = _linesearch_powell(func, x, direc1,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Roaming\Python\Python312\site-packages\scipy\optimize\_optimize.py", line 3243, in _linesearch_powell
+    res = _recover_from_bracket_error(_minimize_scalar_brent,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Roaming\Python\Python312\site-packages\scipy\optimize\_optimize.py", line 3136, in _recover_from_bracket_error
+    res = solver(fun, bracket, args, **options)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Roaming\Python\Python312\site-packages\scipy\optimize\_optimize.py", line 2735, in _minimize_scalar_brent
+    brent.optimize()
+  File "C:\Users\dazzl\AppData\Roaming\Python\Python312\site-packages\scipy\optimize\_optimize.py", line 2500, in optimize
+    xa, xb, xc, fa, fb, fc, funcalls = self.get_bracket_info()
+                                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Roaming\Python\Python312\site-packages\scipy\optimize\_optimize.py", line 2467, in get_bracket_info
+    xa, xb, xc, fa, fb, fc, funcalls = bracket(func, args=args)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Roaming\Python\Python312\site-packages\scipy\optimize\_optimize.py", line 3032, in bracket
+    fa = func(*(xa,) + args)
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Roaming\Python\Python312\site-packages\scipy\optimize\_optimize.py", line 3236, in myfunc
+    return func(p + alpha*xi)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Roaming\Python\Python312\site-packages\scipy\optimize\_optimize.py", line 560, in function_wrapper
+    fx = function(np.copy(x), *(wrapper_args + args))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\cqed_sim\unitary_synthesis\optim.py", line 1597, in _objective
+    val, _, _ = _evaluate_objective_vector(x, sequence, payload, return_simulation=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\cqed_sim\unitary_synthesis\optim.py", line 1393, in _evaluate_objective_vector
+    fast_result = fast_evaluator.evaluate(sequence, return_artifacts=return_simulation)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\cqed_sim\unitary_synthesis\fast_eval.py", line 404, in evaluate
+    full_operator = self._compose_operator(gate_matrices)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\Box\Shyam Shankar Quantum Circuits Group\Users\Users_JianJun\cQED_simulation\cqed_sim\unitary_synthesis\fast_eval.py", line 252, in _compose_operator
+    acc = self._jnp.eye(self.full_dim, dtype=self._jnp.complex64)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Local\Programs\Python\Python312\Lib\site-packages\jax\_src\numpy\lax_numpy.py", line 5841, in eye
+    output = _eye(N, M=M, k=k, dtype=dtype)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Local\Programs\Python\Python312\Lib\site-packages\jax\_src\numpy\lax_numpy.py", line 5864, in _eye
+    return (i + offset == j).astype(dtype)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Local\Programs\Python\Python312\Lib\site-packages\jax\_src\numpy\array_methods.py", line 125, in _astype
+    return lax_numpy.astype(self, dtype, copy=copy, device=device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Local\Programs\Python\Python312\Lib\site-packages\jax\_src\numpy\lax_numpy.py", line 5371, in astype
+    dtype = dtypes.check_and_canonicalize_user_dtype(dtype, "astype")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Local\Programs\Python\Python312\Lib\site-packages\jax\_src\dtypes.py", line 1097, in check_and_canonicalize_user_dtype
+    if issubdtype(dtype, extended):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dazzl\AppData\Local\Programs\Python\Python312\Lib\site-packages\jax\_src\dtypes.py", line 489, in issubdtype
+    @set_module('jax.numpy')
+    
+KeyboardInterrupt

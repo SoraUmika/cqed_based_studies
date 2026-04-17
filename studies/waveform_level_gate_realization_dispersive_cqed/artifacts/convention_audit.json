@@ -1,0 +1,30 @@
+﻿{
+    "study_name":  "waveform_level_gate_realization_dispersive_cqed",
+    "date_created":  "2026-04-01T00:00:00Z",
+    "description":  "Verified implementation conventions for tensor ordering, Hamiltonian terms, and carrier definitions.",
+    "load_instructions":  "Use common.load_json(Path(\u0027convention_audit.json\u0027)) to load the payload.",
+    "artifact_payload":  {
+                             "available_drive_channels":  [
+                                                              "qubit",
+                                                              "transmon",
+                                                              "storage",
+                                                              "cavity",
+                                                              "sideband"
+                                                          ],
+                             "carrier_convention":  "Pulse.carrier = -transition_frequency_in_frame; exp(+i*omega*t) convention",
+                             "chi_convention":  "positive chi -\u003e qubit frequency increases with photon number; chi = 2pi*(-2.84 MHz)",
+                             "displacement_calibration":  "epsilon = i*alpha/T; decomposed to amp=|epsilon|, phase=arg(epsilon)",
+                             "drive_hamiltonian":  "H_drive = epsilon(t) * a_dag + epsilon*(t) * a (cavity) or similar for qubit",
+                             "flat_index":  "idx = q * n_cav + n",
+                             "hamiltonian_in_frame":  "H_0/hbar = (alpha/2) b^dag^2 b^2 + (K/2) n_c(n_c-1) + chi n_c n_q + chi2 n_c(n_c-1) n_q",
+                             "qubit_pulse_calibration":  "amp = theta / (2*T*area_fraction); Gaussian sigma = SIGMA_FRACTION*T",
+                             "rotating_frame":  "bare frequency: omega_q_frame = omega_q, omega_c_frame = omega_c",
+                             "subsystem_dims":  "(n_tr=3, n_cav=15)",
+                             "tensor_ordering":  "transmon first, cavity second: |q,n\u003e = |q\u003e x |n\u003e",
+                             "verified_ideal_limits":  {
+                                                           "displacement_chi0_alpha0p5":  "fidelity 0.999998 with T=100ns",
+                                                           "displacement_chi0_alpha1":  "fidelity 0.99999 with T=100ns",
+                                                           "qubit_pi_rotation_chi0_vacuum":  "angle 3.134 rad (pi=3.142), |f\u003e leakage ~0.01%"
+                                                       }
+                         }
+}

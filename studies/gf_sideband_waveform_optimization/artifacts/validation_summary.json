@@ -1,0 +1,192 @@
+{
+  "analytic_frequency_validation": [
+    {
+      "analytic_rotating_frequency_MHz": -255.6696945244608,
+      "difference_kHz": 0.0,
+      "exact_rotating_frequency_MHz": -255.6696945244608,
+      "mode": "storage",
+      "n": 1
+    },
+    {
+      "analytic_rotating_frequency_MHz": -261.3505365244608,
+      "difference_kHz": 0.0,
+      "exact_rotating_frequency_MHz": -261.3505365244608,
+      "mode": "storage",
+      "n": 2
+    },
+    {
+      "analytic_rotating_frequency_MHz": -267.0313785244608,
+      "difference_kHz": 5.6843418860808015e-11,
+      "exact_rotating_frequency_MHz": -267.03137852446076,
+      "mode": "storage",
+      "n": 3
+    },
+    {
+      "analytic_rotating_frequency_MHz": -255.6696945244608,
+      "difference_kHz": 0.0,
+      "exact_rotating_frequency_MHz": -255.6696945244608,
+      "mode": "readout",
+      "n": 1
+    },
+    {
+      "analytic_rotating_frequency_MHz": -261.6696945244608,
+      "difference_kHz": 5.6843418860808015e-11,
+      "exact_rotating_frequency_MHz": -261.66969452446074,
+      "mode": "readout",
+      "n": 2
+    },
+    {
+      "analytic_rotating_frequency_MHz": -267.6696945244608,
+      "difference_kHz": 0.0,
+      "exact_rotating_frequency_MHz": -267.6696945244608,
+      "mode": "readout",
+      "n": 3
+    }
+  ],
+  "convergence_summary": [
+    {
+      "baseline_leakage_probability": 4.597017211338539e-17,
+      "baseline_target_probability": 0.9938639857416514,
+      "criterion": "selective",
+      "dt_0p5ns_delta": 0.0001907333493825769,
+      "dt_1p0ns_delta": 0.003780041537417067,
+      "family": "gaussian",
+      "larger_truncation_delta": -3.8106598293508043e-06,
+      "mode": "storage",
+      "n": 2
+    },
+    {
+      "baseline_leakage_probability": 1.1796119636642288e-16,
+      "baseline_target_probability": 0.9955343802207625,
+      "criterion": "unselective",
+      "dt_0p5ns_delta": 0.0014176247823354249,
+      "dt_1p0ns_delta": 0.0020671303626007553,
+      "family": "square",
+      "larger_truncation_delta": 2.926250253221241e-07,
+      "mode": "storage",
+      "n": 1
+    },
+    {
+      "baseline_leakage_probability": 1.5439038936193583e-16,
+      "baseline_target_probability": 0.9938683695765063,
+      "criterion": "selective",
+      "dt_0p5ns_delta": 0.00017958906482951065,
+      "dt_1p0ns_delta": 0.003469176752070924,
+      "family": "gaussian",
+      "larger_truncation_delta": -5.66371644415975e-05,
+      "mode": "readout",
+      "n": 1
+    },
+    {
+      "baseline_leakage_probability": 0.0,
+      "baseline_target_probability": 0.9955351699155007,
+      "criterion": "unselective",
+      "dt_0p5ns_delta": 0.0014236779726209958,
+      "dt_1p0ns_delta": 0.0015343489325194692,
+      "family": "square",
+      "larger_truncation_delta": 1.5964275479340984e-07,
+      "mode": "readout",
+      "n": 3
+    }
+  ],
+  "literature_alignment": {
+    "device_specific_caveat": "The readout-mode sideband becomes strongly limited by the available readout decay channel once long selective pulses are used, so the closed-system family ranking does not translate directly into practical selective readout control.",
+    "fast_regime": "The fastest winners are square pulses, consistent with the expectation that hard-edged pulses maximize transfer rate when selectivity is not required.",
+    "selective_regime": "The selective winners are smooth Gaussian-family pulses, consistent with the usual sideband-control expectation that smoother edges suppress off-resonant spectral weight."
+  },
+  "two_tone_convergence_summary": [
+    {
+      "baseline_peak_target_probability": 0.9999925376218558,
+      "baseline_peak_time_ns": 29.500000000000004,
+      "case_role": "best_resonant",
+      "dt_0p5ns_peak_target_delta": 5.14939505080747e-06,
+      "dt_1p0ns_peak_target_delta": -0.00010834764709588551,
+      "dt_1p0ns_peak_time_delta_ns": 0.5,
+      "larger_truncation_peak_target_delta": -4.17721945922267e-09,
+      "larger_truncation_peak_time_delta_ns": 0.0,
+      "n": 1,
+      "reduced_model_peak_target_error": 4.119597031282396e-07,
+      "reduced_model_peak_time_error_ns": 0.0
+    },
+    {
+      "baseline_peak_target_probability": 0.996645888166122,
+      "baseline_peak_time_ns": 348.25,
+      "case_role": "best_detuned",
+      "dt_0p5ns_peak_target_delta": 0.00012154522554330693,
+      "dt_1p0ns_peak_target_delta": 0.002493482767216171,
+      "dt_1p0ns_peak_time_delta_ns": 0.75,
+      "larger_truncation_peak_target_delta": -2.297941157580752e-06,
+      "larger_truncation_peak_time_delta_ns": 0.0,
+      "n": 1,
+      "reduced_model_peak_target_error": 6.277697843226626e-06,
+      "reduced_model_peak_time_error_ns": 0.0
+    },
+    {
+      "baseline_peak_target_probability": 0.6083205625115231,
+      "baseline_peak_time_ns": 79.75000000000001,
+      "case_role": "best_resonant",
+      "dt_0p5ns_peak_target_delta": -2.497778398613537e-05,
+      "dt_1p0ns_peak_target_delta": 1.98418879722162e-05,
+      "dt_1p0ns_peak_time_delta_ns": 1.25,
+      "larger_truncation_peak_target_delta": 1.8390045526395227e-06,
+      "larger_truncation_peak_time_delta_ns": 0.0,
+      "n": 3,
+      "reduced_model_peak_target_error": -0.39167156315063023,
+      "reduced_model_peak_time_error_ns": -8.749999999999986
+    },
+    {
+      "baseline_peak_target_probability": 0.4655497602678289,
+      "baseline_peak_time_ns": 252.00000000000003,
+      "case_role": "best_detuned",
+      "dt_0p5ns_peak_target_delta": 4.8088805676360646e-05,
+      "dt_1p0ns_peak_target_delta": 0.000867587231192346,
+      "dt_1p0ns_peak_time_delta_ns": 0.9999999999999716,
+      "larger_truncation_peak_target_delta": 7.591752829716469e-07,
+      "larger_truncation_peak_time_delta_ns": 0.0,
+      "n": 3,
+      "reduced_model_peak_target_error": -0.5310898502004499,
+      "reduced_model_peak_time_error_ns": -96.24999999999997
+    }
+  ],
+  "two_tone_frequency_validation": [
+    {
+      "n": 1,
+      "readout_leg_analytic_rotating_frequency_MHz": -255.6696945244608,
+      "readout_leg_difference_kHz": 0.0,
+      "readout_leg_exact_rotating_frequency_MHz": -255.6696945244608,
+      "readout_leg_lab_frequency_GHz": 3.4488252783628397,
+      "readout_matrix_element": 1.0,
+      "storage_leg_analytic_rotating_frequency_MHz": -255.6696945244608,
+      "storage_leg_difference_kHz": 0.0,
+      "storage_leg_exact_rotating_frequency_MHz": -255.6696945244608,
+      "storage_leg_lab_frequency_GHz": 6.804115034441636,
+      "storage_matrix_element": 1.0
+    },
+    {
+      "n": 2,
+      "readout_leg_analytic_rotating_frequency_MHz": -261.3505365244608,
+      "readout_leg_difference_kHz": 0.0,
+      "readout_leg_exact_rotating_frequency_MHz": -261.3505365244608,
+      "readout_leg_lab_frequency_GHz": 3.4431444363628407,
+      "readout_matrix_element": 1.0,
+      "storage_leg_analytic_rotating_frequency_MHz": -261.3505365244608,
+      "storage_leg_difference_kHz": 0.0,
+      "storage_leg_exact_rotating_frequency_MHz": -261.3505365244608,
+      "storage_leg_lab_frequency_GHz": 6.798434192441636,
+      "storage_matrix_element": 1.4142135623730951
+    },
+    {
+      "n": 3,
+      "readout_leg_analytic_rotating_frequency_MHz": -267.0313785244608,
+      "readout_leg_difference_kHz": 5.6843418860808015e-11,
+      "readout_leg_exact_rotating_frequency_MHz": -267.03137852446076,
+      "readout_leg_lab_frequency_GHz": 3.437463594362842,
+      "readout_matrix_element": 1.0,
+      "storage_leg_analytic_rotating_frequency_MHz": -267.0313785244608,
+      "storage_leg_difference_kHz": 5.6843418860808015e-11,
+      "storage_leg_exact_rotating_frequency_MHz": -267.03137852446076,
+      "storage_leg_lab_frequency_GHz": 6.792753350441636,
+      "storage_matrix_element": 1.7320508075688772
+    }
+  ]
+}

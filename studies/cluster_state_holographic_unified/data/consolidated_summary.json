@@ -1,0 +1,213 @@
+{
+  "_meta": {
+    "description": "Consolidated quantitative results from all three holographic cluster-state studies.",
+    "studies_merged": [
+      "cluster_state_holographic_sim",
+      "holographic_cluster_state_followup",
+      "holographic_cluster_state_ideal_gate_followup"
+    ],
+    "date_consolidated": "2026-03-25",
+    "target_unitary": "make_target('cluster', n_match=1) == SWAP · CZ · (H ⊗ I)",
+    "basis": ["|g,0>", "|g,1>", "|e,0>", "|e,1>"],
+    "target_matrix_explicit": {
+      "note": "U_target = (1/sqrt(2)) * [[1,0,1,0],[1,0,-1,0],[0,1,0,1],[0,-1,0,1]]",
+      "global_phase": "ignored throughout"
+    }
+  },
+  "physical_parameters": {
+    "omega_c_GHz": 5.241,
+    "omega_q_GHz": 6.150,
+    "alpha_MHz": -255.0,
+    "chi_MHz": -2.84,
+    "chi_prime_kHz": -21.0,
+    "kerr_kHz": -28.0,
+    "n_tr": 2,
+    "n_cav_ideal_synthesis": 4,
+    "n_cav_grape_benchmark": 8,
+    "n_cav_physical_validation": 12
+  },
+  "gate_time_reference_ns": {
+    "Displacement": 80.0,
+    "QubitRotation": 40.0,
+    "SQR": 1100.0,
+    "ConditionalPhaseSQR": 160.0,
+    "FreeEvolveCondPhase_default": 176.2
+  },
+  "grape_settings": {
+    "dt_ns": 4.0,
+    "amp_bound_2pi_MHz": 50.0,
+    "channels": ["storage_I", "storage_Q", "qubit_I", "qubit_Q"],
+    "seeds_per_duration": 10,
+    "maxiter_per_seed": 250,
+    "leakage_penalty_weight": 0.02
+  },
+  "grape_benchmark": {
+    "_note": "Closed benchmark at N_cav=8. Not a converged physical result; see truncation_probe.",
+    "durations_ns": [100, 150, 200, 250, 300, 400],
+    "best_fidelity":   [0.9387, 0.9756, 0.9902, 0.9972, 0.999965, 0.999749],
+    "median_fidelity": [0.8963, 0.9341, 0.9803, 0.9912, 0.9945,   0.9979  ],
+    "worst_fidelity":  [0.8095, 0.8605, 0.9706, 0.9559, 0.9912,   0.9918  ],
+    "threshold_summary": {
+      "F_gt_0p95_shortest_ns": 150,
+      "F_gt_0p99_shortest_ns": 200,
+      "F_gt_0p999_shortest_ns": 250,
+      "peak_best_seed_fidelity": 0.999965,
+      "peak_best_seed_duration_ns": 300
+    }
+  },
+  "grape_truncation_probe": {
+    "_note": "Compact convergence check: 3 seeds, 150 iter at N_cav=8,10,12 for 200 and 300 ns.",
+    "200ns": {
+      "N_cav_8_best":  0.9902,
+      "N_cav_10_best": 0.950,
+      "N_cav_12_best": 0.950
+    },
+    "300ns": {
+      "N_cav_8_best":  0.999965,
+      "N_cav_10_best": "degraded",
+      "N_cav_12_best": "degraded"
+    },
+    "interpretation": "N_cav=8 benchmark is a speed reference, not a physically converged result. Use N_cav>=12 for final physical fidelities."
+  },
+  "grape_physical_validation": {
+    "_note": "Best complete point from the validated 500-1000 ns N_cav=12 frontier.",
+    "duration_ns": 800,
+    "n_cav_optimization": 12,
+    "replay_fidelity": 0.976047891029903,
+    "open_system_process_fidelity": 0.918704803974449,
+    "source_artifact": "artifacts/grape_frontier_nc12_800ns_best.npz"
+  },
+  "ideal_decomposition_families": {
+    "_note": "All optimized at N_cav=4 using UnitarySynthesizer. Fidelity metric: subspace_unitary_fidelity, gauge=global.",
+    "four_sqr_three_tone": {
+      "family": "D + R + SQR (4 blocks)",
+      "max_tones": 3,
+      "addressed_levels": [0, 1, 2],
+      "ideal_fidelity": 0.998917,
+      "total_time_ns": 4960,
+      "gate_depth": 13,
+      "selective_blocks": 4,
+      "entangling_blocks": 0,
+      "total_active_tones": 12,
+      "outcome": "successful",
+      "artifact": "artifacts/four_sqr_best.json",
+      "truncation_probe": {
+        "N_cav_4": 0.998917,
+        "N_cav_6": 0.9900,
+        "N_cav_8": 0.9904,
+        "note": "Stable; ~2% leakage at larger truncations"
+      }
+    },
+    "three_sqr_three_tone": {
+      "family": "D + R + SQR (3 blocks)",
+      "max_tones": 3,
+      "addressed_levels": [0, 2, 3],
+      "ideal_fidelity": 0.994361,
+      "total_time_ns": 3740,
+      "gate_depth": 10,
+      "selective_blocks": 3,
+      "entangling_blocks": 0,
+      "total_active_tones": 9,
+      "outcome": "near_target",
+      "artifact": "artifacts/three_sqr_best_overall.json",
+      "truncation_probe": {
+        "N_cav_4": 0.994361,
+        "N_cav_6": 0.8063,
+        "N_cav_8": 0.7906,
+        "note": "Sharp degradation at larger truncations"
+      }
+    },
+    "drsqrcpsqr": {
+      "family": "D + R + SQR + CPSQR (2 blocks)",
+      "ideal_fidelity": 0.903027,
+      "total_time_ns": 2913,
+      "gate_depth": 11,
+      "selective_blocks": 4,
+      "entangling_blocks": 2,
+      "total_active_tones": 16,
+      "outcome": "family_limited",
+      "artifact": "artifacts/drsqrcpsqr_best.json"
+    },
+    "dsqrcpsqr": {
+      "family": "D + SQR + CPSQR (2 blocks)",
+      "ideal_fidelity": 0.903005,
+      "total_time_ns": 4954,
+      "gate_depth": 9,
+      "selective_blocks": 6,
+      "entangling_blocks": 2,
+      "total_active_tones": 24,
+      "outcome": "family_limited",
+      "artifact": "artifacts/dsqrcpsqr_best.json"
+    },
+    "drfe": {
+      "family": "D + R + FreeEvolveCondPhase (2 blocks)",
+      "ideal_fidelity": 0.800522,
+      "total_time_ns": 611,
+      "gate_depth": 11,
+      "selective_blocks": 0,
+      "entangling_blocks": 3,
+      "total_active_tones": 0,
+      "outcome": "family_limited",
+      "artifact": "artifacts/drfe_best.json"
+    }
+  },
+  "three_sqr_tone_budget": {
+    "_note": "Dedicated search testing 3-SQR at max_tones = 1,2,3,4.",
+    "max_tones_1": {"best_fidelity": 0.9382, "outcome": "tone_limited"},
+    "max_tones_2": {"best_fidelity": 0.9704, "outcome": "prior_saturation_was_artificial"},
+    "max_tones_3": {"best_fidelity": 0.9944, "outcome": "near_target"},
+    "max_tones_4": {"best_fidelity": 0.9557, "outcome": "regression_likely_optimization_limited"},
+    "conclusion": "3-SQR hypothesis neither proved nor disproved. Jump from 2->3 tones (+0.024) shows prior saturation was a search restriction."
+  },
+  "native_decomposition_artifacts": {
+    "_note": "Initial study (cluster_state_holographic_sim) strategies evaluated at N_cav=2 vs N_cav>=8.",
+    "strategy_A": {
+      "sequence": "D + R + SNAP",
+      "ideal_fidelity_N2": 0.500,
+      "physical_fidelity_N8": 0.500,
+      "status": "non_expressive"
+    },
+    "strategy_B": {
+      "sequence": "D + SQR + CP (2 blocks, unbounded)",
+      "ideal_fidelity_N2": 1.000,
+      "physical_fidelity_N8": 0.094,
+      "leakage_N8": 0.93,
+      "status": "truncation_artifact",
+      "note": "Apparent exact solution is artifact of N_cav=2 truncation cutting off leakage"
+    },
+    "strategy_B_bounded": {
+      "sequence": "D + SQR + CP (2 blocks, |alpha|<=0.3)",
+      "ideal_fidelity_N12": 0.529,
+      "leakage_N12": 0.032,
+      "replay_fidelity": 0.350,
+      "status": "bounded_rescue_insufficient"
+    },
+    "strategy_C": {
+      "sequence": "SQR + CP (no displacement)",
+      "ideal_fidelity_N2": 0.500,
+      "physical_fidelity_N8": 0.500,
+      "status": "non_expressive"
+    },
+    "strategy_D": {
+      "sequence": "D + R + FreeEvolveCondPhase (2 blocks, unbounded)",
+      "ideal_fidelity_N2": 0.9999,
+      "physical_fidelity_N8": 0.093,
+      "status": "truncation_artifact"
+    },
+    "strategy_E": {
+      "sequence": "GRAPE 800 ns (best validated frontier point)",
+      "ideal_fidelity_N8": 0.999,
+      "replay_fidelity_N12": 0.976,
+      "status": "physically_validated"
+    }
+  },
+  "key_conclusions": [
+    "N_cav=2 synthesis is unreliable: truncation artifacts produce apparent exact solutions with >90% leakage at N_cav=8.",
+    "Bounded-displacement optimization reduces leakage but does not recover useful subspace fidelity.",
+    "The best currently validated GRAPE route at N_cav>=12 is the 800 ns frontier point: F_replay=0.976, F_open=0.919. The explored settings did not yet reach replay 0.99.",
+    "Best ideal decomposition: 4-SQR / 3-tone, F=0.9989, 4960 ns, stable under ideal truncation enlargement.",
+    "Best compact near-solution: 3-SQR / 3-tone, F=0.9944, 3740 ns, degrades at N_cav>4.",
+    "GRAPE speed frontier: F>0.99 at 200 ns, F>0.9999 at 300 ns (N_cav=8). ~16x faster than best ideal decomp at equivalent fidelity.",
+    "CPSQR/FE families are family-limited (F<=0.903 and F<=0.801 respectively) and unlikely to improve with more optimization."
+  ]
+}

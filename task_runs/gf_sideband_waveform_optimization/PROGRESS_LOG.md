@@ -1,0 +1,39 @@
+# Progress Log
+
+## 2026-04-10
+- Initialized the study scaffold in `studies/gf_sideband_waveform_optimization`.
+- Confirmed that the editable local `cqed_sim` install exposes:
+  - the three-mode dispersive transmon-storage-readout model,
+  - structured storage-sideband and readout-sideband drive targets,
+  - and the time-domain replay path needed for waveform comparison.
+- Confirmed that the readout-sideband API supports general `n` manifolds through `sideband_transition_frequency(..., readout_level=...)`, so both requested mode types are in scope.
+- Logged the main modeling boundary up front: the local framework provides an effective sideband control operator rather than a microscopic pump Hamiltonian.
+- Implemented the shared helpers, waveform-family builders, coarse sweep runner, finalist enrichment pass, validation script, and notebook builder.
+- Ran the full waveform study and produced the four-way closed-system recommendation:
+  - selective storage: `gaussian`
+  - fast storage: `square`
+  - selective readout: `gaussian`
+  - fast readout: `square`
+- Found the most important practical caveat in the open-system follow-up:
+  - storage-sideband recommendations survive essentially unchanged,
+  - but the selective readout-sideband regime collapses under the available readout decay model.
+- Final conservative durations:
+  - storage selective: `300 ns`
+  - storage unselective: `12 ns`
+  - readout selective: `220 ns` closed-system only
+  - readout unselective: `12 ns`
+- Validated the rotating-frequency formulas against the exact model and verified timestep/truncation convergence.
+- Wrote the markdown report, the LaTeX report, the compiled PDF, and the executed reproducibility notebook.
+- Reopened the study after identifying that the original pass had not made the device parameter provenance and transmon decoherence assumptions explicit enough.
+- Exported a machine-readable device-parameter table and noise-scenario table so the exact cQED parameter sources are now recorded in the study artifacts.
+- Confirmed that the simulator natively supports transmon `T1` and `Tphi`, then extended the study-local noise wrapper to include those channels.
+- Added a matched local transmon-reference sensitivity study using the tomography workflow that shares the same storage/readout frequency scale.
+- Reran the finalist open-system analysis under both mode-only noise and transmon-inclusive noise scenarios.
+- Added a transmon-reference reranking pass over the shortlist and found that only the storage fast-square pulse remains threshold-valid under the original metrics.
+- Added a gate-oriented ranking artifact and confirmed that the analytic waveform families remain state-transfer pulses rather than phase-clean coherent SWAP gates.
+- Rebuilt the report, notebook, and handoff summaries to reflect the stronger open-system conclusions.
+- Extended the study with a simultaneous two-tone storage-to-readout transfer module that drives the storage and readout sidebands at the same time and compares the full simulation against the reduced three-state ladder for the single-photon case.
+- Verified the key single-photon mechanism numerically: the resonant bright-state protocol reaches `0.9999977` closed-system target transfer at `29.5 ns` with roughly `0.50` intermediate-state occupation, while the detuned Raman-like case reduces the peak intermediate population to `0.121` but slows to `348 ns`.
+- Ran noisy replays for the selected two-tone cases and found that the resonant single-photon protocol still peaks near `0.955` with mode noise and `0.953` with the matched transmon reference, whereas the slow detuned case falls to about `0.561` and `0.556`, respectively, because readout decay dominates.
+- Confirmed that the clean reduced three-state picture is specific to `n = 1`; for `n = 2,3`, the same constant simultaneous drive opens a longer conversion chain and the best resonant closed-system target probability stalls around `0.61-0.69`.
+- Updated the validation script, reproducibility-notebook builder, README, improvement log, and markdown report so the two-tone extension is captured in the saved artifacts and study narrative.

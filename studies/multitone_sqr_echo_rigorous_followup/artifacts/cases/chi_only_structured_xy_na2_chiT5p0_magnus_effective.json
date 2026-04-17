@@ -1,0 +1,748 @@
+{
+  "case_request": {
+    "chi_t_over_2pi": 5.0,
+    "family": "structured_xy",
+    "include_chi_prime": false,
+    "model_variant": "chi_only",
+    "n_active": 2,
+    "seed": null
+  },
+  "comparison_spec": {
+    "description": "Structured XY family with nontrivial block-dependent azimuths.",
+    "family": "structured_xy",
+    "formula": "theta_n = min(0.26 pi + 0.13 pi n, 0.88 pi), phi_n = (0.20 + 0.37 n) pi mod 2 pi",
+    "n_active": 2,
+    "phi_values_rad": [
+      0.6283185307179586,
+      1.7907078125461822
+    ],
+    "theta_values_rad": [
+      0.8168140899333463,
+      1.2252211349000195
+    ]
+  },
+  "construction": "magnus_effective",
+  "date_created": "2026-04-06T09:04:09Z",
+  "description": "Artifact for magnus_effective on chi_only_structured_xy_na2_chiT5p0.",
+  "full_operator_columns_on_logical_inputs": {
+    "imag": [
+      [
+        -0.06419777354178169,
+        0.0,
+        0.0,
+        0.0,
+        -0.7554392514882667,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.04356257733580893,
+        0.0,
+        0.0,
+        0.0,
+        -0.7489826895647081,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        -0.755439251488267,
+        0.0,
+        0.0,
+        0.0,
+        0.06419777354178169,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.7489826895647081,
+        0.0,
+        0.0,
+        0.0,
+        -0.043562577335808816,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        -0.017917665734796584,
+        0.0,
+        0.0,
+        0.0,
+        -0.6518198680906723,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.21935626289146248,
+        0.0,
+        0.0,
+        0.0,
+        -0.6237067119396493,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.6518198680906724,
+        0.0,
+        0.0,
+        0.0,
+        -0.017917665734796362,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.6237067119396493,
+        0.0,
+        0.0,
+        0.0,
+        -0.2193562628914627,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "shape": [
+      8,
+      8
+    ]
+  },
+  "load_instructions": "Load `chi_only_structured_xy_na2_chiT5p0_magnus_effective.json` as JSON and inspect the documented result rows and metadata.",
+  "probe_metrics": {
+    "probe_fidelity_mean": 0.3280937425831089,
+    "probe_fidelity_min": 0.11144065172915676,
+    "probe_rows": [
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5000000000000002,
+            "x": 0.07363685495173791,
+            "y": 0.11076218454566136,
+            "z": -0.9911152062537885
+          },
+          {
+            "level": 1,
+            "population": 0.4999999999999997,
+            "x": -0.3388831796174966,
+            "y": 0.27424754375915356,
+            "z": -0.8999702635723066
+          }
+        ],
+        "label": "equal_ground",
+        "state_fidelity": 0.11147448782519652
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5000000000000001,
+            "x": 0.14201901086907323,
+            "y": 0.982520078016717,
+            "z": 0.12035321701472901
+          },
+          {
+            "level": 1,
+            "population": 0.4999999999999996,
+            "x": 0.21818447867458565,
+            "y": 0.9534025095488458,
+            "z": 0.20837271426811765
+          }
+        ],
+        "label": "equal_plus",
+        "state_fidelity": 0.47023385143528135
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5,
+            "x": 0.9871211750056762,
+            "y": -0.14961963363374925,
+            "z": 0.05661935258121448
+          },
+          {
+            "level": 1,
+            "population": 0.4999999999999998,
+            "x": 0.9151796128836323,
+            "y": -0.12574553482344547,
+            "z": -0.38292863125409005
+          }
+        ],
+        "label": "equal_plus_i",
+        "state_fidelity": 0.4498356998507079
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5000000000000001,
+            "x": 0.14201901086907323,
+            "y": 0.982520078016717,
+            "z": 0.12035321701472901
+          },
+          {
+            "level": 1,
+            "population": 0.4999999999999996,
+            "x": 0.21818447867458565,
+            "y": 0.9534025095488458,
+            "z": 0.20837271426811765
+          }
+        ],
+        "label": "alternating_plus",
+        "state_fidelity": 0.47023385143528135
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5985913622198634,
+            "x": 0.35536273364368554,
+            "y": 0.20014540380968587,
+            "z": -0.9130493660646968
+          },
+          {
+            "level": 1,
+            "population": 0.4014086377801367,
+            "x": 0.021902100936875793,
+            "y": 0.7278374448603485,
+            "z": 0.6853998481424622
+          }
+        ],
+        "label": "random_logical_seed17",
+        "state_fidelity": 0.11144065172915676
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5908537482724884,
+            "x": 0.7895882731952919,
+            "y": -0.3803366042868038,
+            "z": -0.4815541779198477
+          },
+          {
+            "level": 1,
+            "population": 0.40914625172751157,
+            "x": 0.5688957556892259,
+            "y": 0.2322479134784045,
+            "z": -0.7889350580648016
+          }
+        ],
+        "label": "random_logical_seed29",
+        "state_fidelity": 0.35534391322302983
+      }
+    ]
+  },
+  "restricted_operator": {
+    "imag": [
+      [
+        -0.06419777354178169,
+        -0.7554392514882667,
+        0.0,
+        0.0
+      ],
+      [
+        -0.755439251488267,
+        0.06419777354178169,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.04356257733580893,
+        -0.7489826895647081
+      ],
+      [
+        0.0,
+        0.0,
+        -0.7489826895647081,
+        -0.043562577335808816
+      ]
+    ],
+    "real": [
+      [
+        -0.017917665734796584,
+        -0.6518198680906723,
+        0.0,
+        0.0
+      ],
+      [
+        0.6518198680906724,
+        -0.017917665734796362,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -0.21935626289146248,
+        -0.6237067119396493
+      ],
+      [
+        0.0,
+        0.0,
+        0.6237067119396493,
+        -0.2193562628914627
+      ]
+    ],
+    "shape": [
+      4,
+      4
+    ]
+  },
+  "study_name": "multitone_sqr_echo_rigorous_followup",
+  "summary_row": {
+    "active_duration_ns": 1760.5633802816897,
+    "best_fit_block_phase_rms_rad": 0.0,
+    "best_fit_restricted_process_fidelity": 0.0517610789083484,
+    "case_id": "chi_only_structured_xy_na2_chiT5p0",
+    "chi_t_over_2pi": 5.0,
+    "construction": "magnus_effective",
+    "evaluation_target_family": "structured_xy",
+    "family": "structured_xy",
+    "include_chi_prime": false,
+    "leakage_outside_target_max": 4.440892098500626e-16,
+    "leakage_outside_target_mean": 2.220446049250313e-16,
+    "magnus_vs_full_restricted_process_fidelity": 0.013514195428673851,
+    "max_residual_z_error_rad": 1.3873172251087837,
+    "max_transverse_error_rad": 2.6467222135908104,
+    "mean_block_average_gate_fidelity": 0.3830266625241324,
+    "mean_residual_z_error_rad": 0.7266702792970996,
+    "mean_transverse_error_rad": 2.5055889963571305,
+    "model_variant": "chi_only",
+    "n_active": 2,
+    "other_target_population_max": 0.0,
+    "other_target_population_mean": 0.0,
+    "per_block_average_gate_fidelities": [
+      0.4288099435179422,
+      0.33724338153032263
+    ],
+    "per_block_process_fidelities": [
+      0.1432149152769133,
+      0.005865072295483924
+    ],
+    "per_block_residual_z_error_rad": [
+      0.06602333348541554,
+      1.3873172251087837
+    ],
+    "per_block_rotation_angle_errors_rad": [
+      2.2889413144642554,
+      1.4740622893204545
+    ],
+    "per_block_rotation_axis_errors_rad": [
+      3.0362152949612047,
+      2.0447597974676475
+    ],
+    "per_block_transverse_error_rad": [
+      2.3644557791234506,
+      2.6467222135908104
+    ],
+    "probe_fidelity_mean": 0.3280937425831089,
+    "probe_fidelity_min": 0.11144065172915676,
+    "restricted_average_gate_fidelity": 0.24140886312667872,
+    "restricted_fro_error": 1.242971751297798,
+    "restricted_process_fidelity": 0.0517610789083484,
+    "restricted_unitarity_error": 9.585510084184029e-16,
+    "same_block_population_mean": 0.9999999999999999,
+    "same_block_population_min": 0.9999999999999996,
+    "seed": null,
+    "state_transfer_fidelity_mean": 0.2191333038964433,
+    "state_transfer_fidelity_min": 0.09951504805135246,
+    "target_phi_values_rad": [
+      0.6283185307179586,
+      1.7907078125461822
+    ],
+    "target_theta_values_rad": [
+      0.8168140899333463,
+      1.2252211349000195
+    ],
+    "total_gate_duration_ns": 1760.5633802816897,
+    "uncorrected_restricted_process_fidelity": 0.0517610789083484,
+    "weighted_loss": 1.1118374467224414,
+    "worst_block_average_gate_fidelity": 0.33724338153032263
+  },
+  "validation": {
+    "basis_metrics": [
+      {
+        "dominant_block": 0,
+        "input_block": 0,
+        "input_label": "|g,0>",
+        "input_qubit_level": 0,
+        "leakage_population": 0.0,
+        "other_target_population": 0.0,
+        "same_block_population": 1.0000000000000007
+      },
+      {
+        "dominant_block": 0,
+        "input_block": 0,
+        "input_label": "|e,0>",
+        "input_qubit_level": 1,
+        "leakage_population": 1.1102230246251565e-16,
+        "other_target_population": 0.0,
+        "same_block_population": 0.9999999999999999
+      },
+      {
+        "dominant_block": 1,
+        "input_block": 1,
+        "input_label": "|g,1>",
+        "input_qubit_level": 0,
+        "leakage_population": 4.440892098500626e-16,
+        "other_target_population": 0.0,
+        "same_block_population": 0.9999999999999996
+      },
+      {
+        "dominant_block": 1,
+        "input_block": 1,
+        "input_label": "|e,1>",
+        "input_qubit_level": 1,
+        "leakage_population": 3.3306690738754696e-16,
+        "other_target_population": 0.0,
+        "same_block_population": 0.9999999999999997
+      }
+    ],
+    "best_fit_logical_block_phase": {
+      "logical_levels": [
+        0,
+        1
+      ],
+      "phases_rad": [
+        0.0,
+        0.0
+      ]
+    },
+    "best_fit_restricted_process_fidelity": 0.0517610789083484,
+    "block_phase_diagnostics": {
+      "applied_correction_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "best_fit_block_gauge_fidelity": 0.22751061273784218,
+      "best_fit_correction_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "block_gauge_fidelity": 0.22751061273784218,
+      "block_phases_rad": [
+        -2.7755575615628914e-17,
+        2.7755575615628914e-17
+      ],
+      "corrected_block_gauge_fidelity": 0.22751061273784218,
+      "corrected_block_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "corrected_relative_block_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "relative_block_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "residual_block_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "rms_block_phase_error_rad": 0.0
+    },
+    "block_population_matrix": [
+      [
+        1.0000000000000002,
+        0.0
+      ],
+      [
+        0.0,
+        0.9999999999999996
+      ]
+    ],
+    "conditioned_sector_metrics": [
+      {
+        "bloch_distance": 1.850532423084681,
+        "bloch_radius": 1.0,
+        "dominant_error": "mixed-or-crosstalk-like",
+        "fidelity": 0.143882437778085,
+        "n": 0,
+        "phi_error_rad": 1.9265514500182634,
+        "phi_simulated_rad": 2.554869980736222,
+        "purity": 1.0,
+        "sector_population": 1.0000000000000004,
+        "simulated_bloch_x": 0.07363685495173788,
+        "simulated_bloch_y": 0.11076218454566134,
+        "simulated_bloch_z": -0.9911152062537885,
+        "target_bloch_x": 0.42847700858219223,
+        "target_bloch_y": -0.5897480079501013,
+        "target_bloch_z": 0.6845471059286886,
+        "target_phi_rad": 0.6283185307179586,
+        "target_theta_rad": 0.8168140899333463,
+        "theta_error_rad": 2.1913770524171454,
+        "theta_simulated_rad": 3.008191142350492,
+        "weight": 0.5
+      },
+      {
+        "bloch_distance": 1.7662023599644334,
+        "bloch_radius": 1.0,
+        "dominant_error": "mixed-or-crosstalk-like",
+        "fidelity": 0.2201323059140166,
+        "n": 1,
+        "phi_error_rad": 2.2413140880311175,
+        "phi_simulated_rad": 4.0320219005773,
+        "purity": 1.0000000000000004,
+        "sector_population": 0.9999999999999994,
+        "simulated_bloch_x": -0.33888317961749653,
+        "simulated_bloch_y": 0.2742475437591535,
+        "simulated_bloch_z": -0.8999702635723066,
+        "target_bloch_x": 0.9182213134082465,
+        "target_bloch_y": 0.20524678070734623,
+        "target_bloch_z": 0.33873792024529126,
+        "target_phi_rad": 1.7907078125461822,
+        "target_theta_rad": 1.2252211349000195,
+        "theta_error_rad": 1.4652764916535892,
+        "theta_simulated_rad": 2.6904976265536087,
+        "weight": 0.5
+      }
+    ],
+    "leakage_loss": 2.220446049250313e-16,
+    "leakage_outside_target_max": 4.440892098500626e-16,
+    "leakage_outside_target_mean": 2.220446049250313e-16,
+    "logical_block_phase": {
+      "logical_levels": [
+        0,
+        1
+      ],
+      "phases_rad": [
+        0.0,
+        0.0
+      ]
+    },
+    "logical_levels": [
+      0,
+      1
+    ],
+    "logical_weights": [
+      0.5,
+      0.5
+    ],
+    "metadata": {
+      "construction": "magnus_effective",
+      "has_transfer_set": true,
+      "logical_block_phase_applied": {
+        "logical_levels": [
+          0,
+          1
+        ],
+        "phases_rad": [
+          0.0,
+          0.0
+        ]
+      },
+      "logical_block_phase_best_fit": {
+        "logical_levels": [
+          0,
+          1
+        ],
+        "phases_rad": [
+          0.0,
+          0.0
+        ]
+      },
+      "logical_indices": [
+        0,
+        4,
+        1,
+        5
+      ],
+      "subspace_metric_source": "restricted_operator"
+    },
+    "objective_weights": {
+      "leakage_weight": 0.35,
+      "preservation_weight": 0.35,
+      "qubit_weight": 0.2,
+      "subspace_weight": 1.0
+    },
+    "other_target_population_max": 0.0,
+    "other_target_population_mean": 0.0,
+    "preservation_loss": 0.0,
+    "qubit_loss": 0.8179926281539492,
+    "restricted_fro_error": 1.242971751297798,
+    "restricted_process_fidelity": 0.0517610789083484,
+    "restricted_unitarity_error": 9.585510084184029e-16,
+    "same_block_population_mean": 0.9999999999999999,
+    "same_block_population_min": 0.9999999999999996,
+    "state_transfer_fidelity_mean": 0.2191333038964433,
+    "state_transfer_fidelity_min": 0.09951504805135246,
+    "subspace_loss": 0.9482389210916516,
+    "transfer_metrics": [
+      {
+        "fidelity": 0.14388243777808507,
+        "label": "basis_0",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.14388243777808515,
+        "label": "basis_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.22013230591401653,
+        "label": "basis_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.22013230591401656,
+        "label": "basis_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.6111784787133503,
+        "label": "plus_0_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.5313689140623921,
+        "label": "phase_0_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.11147448782519659,
+        "label": "plus_0_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.11147448782519659,
+        "label": "phase_0_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.09951504805135246,
+        "label": "plus_0_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.09951504805135246,
+        "label": "phase_0_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.09951504805135249,
+        "label": "plus_1_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.09951504805135249,
+        "label": "phase_1_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.11147448782519652,
+        "label": "plus_1_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.11147448782519656,
+        "label": "phase_1_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.3776123400222656,
+        "label": "plus_2_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.4139854986546851,
+        "label": "phase_2_3",
+        "weight": 0.0625
+      }
+    ],
+    "uncorrected_restricted_process_fidelity": 0.0517610789083484,
+    "weighted_loss": 1.1118374467224414
+  }
+}

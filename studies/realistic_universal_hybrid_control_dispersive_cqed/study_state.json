@@ -1,0 +1,81 @@
+{
+  "study_name": "realistic_universal_hybrid_control_dispersive_cqed",
+  "study_path": "studies/realistic_universal_hybrid_control_dispersive_cqed",
+  "status": "COMPLETE",
+  "problem_class": [
+    "ANA",
+    "DES"
+  ],
+  "created_at": "2026-04-14T00:00:00Z",
+  "updated_at": "2026-04-14T00:30:00Z",
+  "loop_iteration": 1,
+  "objective": "Determine whether the ideal universal primitive gate set for a dispersive transmon-cavity system survives the realistic Hamiltonian once chi, chi-prime, Kerr, and finite-duration phase accumulation are enforced, and identify the strongest physically meaningful non-GRAPE constructive alternative.",
+  "hypotheses": [
+    "The strict ideal primitive gate set will not survive literally once realistic dispersive phase accumulation is enforced.",
+    "A weaker phase-aware constructive library will remain viable, built around branch-compensated displacement, spectator-limited qubit pulses, relaxed selective control, and an explicit gauge-cleanup layer.",
+    "Sequence-level runtime evidence will remain weaker than primitive-level evidence, so a fully pulse-backed non-GRAPE universal architecture will still be open."
+  ],
+  "assumptions": [
+    "Inherited repository studies are the source of record for their own simulations and validations.",
+    "The nominal device point shared across the inherited studies is representative of the realistic dispersive regime of interest.",
+    "This study adds analytic synthesis and machine-readable integration rather than a new global control search."
+  ],
+  "success_criteria": {
+    "analytic": "Derive and visualize the timing and phase-budget conflict between unconditional and selective control.",
+    "integration": "Consolidate the inherited primitive-level and sequence-level evidence into one machine-readable summary.",
+    "reporting": "Produce a complete report, figures, notebook, README, and handoff files with a clear universality verdict."
+  },
+  "completed_tasks": [
+    "Audited the local cqed_sim API reference and package surface relevant to dispersive hybrid control.",
+    "Integrated the inherited displacement, waveform-level, selective-pulse, strict-SQR, relaxed-CPSQR, arbitrary-control, and runtime hybrid-unitary evidence into one synthesis dataset.",
+    "Generated machine-readable summary artifacts plus the timing-hierarchy and phase-budget figures.",
+    "Built the reproducibility notebook.",
+    "Executed the reproducibility notebook end-to-end via nbconvert.",
+    "Wrote and compiled the report and bibliography."
+  ],
+  "failed_tasks": [],
+  "pending_tasks": [],
+  "blocked_tasks": [],
+  "key_results": {
+    "top_level_verdict": "The strict ideal primitive gate set does not survive literally once realistic dispersive dynamics are enforced. A weaker phase-aware constructive library does survive, but a fully pulse-backed non-GRAPE universal stack is not yet demonstrated.",
+    "unconditional_displacement": "The best simple constructive displacement is a 20 ns two-tone branch-compensated pulse with mean broad-state fidelity 0.9857 at |chi|T/2pi = 0.057.",
+    "unconditional_qubit_rotation": "A 40 ns vacuum-calibrated DRAG X_pi pulse reaches 0.99984 fidelity in vacuum but does not remain unconditional once photons occupy the cavity; the inherited study reports fidelity about 0.483 by the n = 5 manifold.",
+    "practical_selective_control": "The best noisy relaxed selective rotation is a short flat-top Gaussian pulse at |chi|T/2pi = 1.0 with average relaxed fidelity 0.9903.",
+    "strict_sqr": "Strict full-joint ideal SQR remains limited to easier low-dimensional direct multitone cases; the strongest inherited strict case reaches joint process fidelity 0.9988 at |chi|T/2pi = 5.0.",
+    "arbitrary_conditional_control": "Hard arbitrary target classes do not support a general strict positive claim, but segmented relaxed control reaches essentially unit relaxed joint-process fidelity on difficult random-target slices.",
+    "sequence_level": "The best replay-backed hybrid-unitary runtime candidate still requires GRAPE-derived local surrogates and falls to noisy average probe fidelity 0.61448 at total duration 4.432 us."
+  },
+  "latest_figures": [
+    "studies/realistic_universal_hybrid_control_dispersive_cqed/figures/timescale_hierarchy.pdf",
+    "studies/realistic_universal_hybrid_control_dispersive_cqed/figures/phase_budget.pdf",
+    "studies/realistic_universal_hybrid_control_dispersive_cqed/report/report.pdf"
+  ],
+  "blockers": [],
+  "compute_notes": {
+    "synthesis_build": "The synthesis build reused validated inherited artifacts and completed quickly on CPU.",
+    "notebook": "The reproducibility notebook was generated from a lightweight builder script and executed successfully via python -m jupyter nbconvert --execute.",
+    "report_build": "The report was compiled with pdflatex, bibtex, pdflatex, pdflatex."
+  },
+  "review_iterations": 1,
+  "reviewer_decision": "APPROVE",
+  "file_manifest": {
+    "scripts": [
+      "studies/realistic_universal_hybrid_control_dispersive_cqed/scripts/common.py",
+      "studies/realistic_universal_hybrid_control_dispersive_cqed/scripts/build_synthesis_dataset.py",
+      "studies/realistic_universal_hybrid_control_dispersive_cqed/scripts/build_reproducibility_notebook.py",
+      "studies/realistic_universal_hybrid_control_dispersive_cqed/scripts/reproducibility_notebook.ipynb"
+    ],
+    "data": [
+      "studies/realistic_universal_hybrid_control_dispersive_cqed/data/synthesis_summary.json"
+    ],
+    "figures": [
+      "studies/realistic_universal_hybrid_control_dispersive_cqed/figures/timescale_hierarchy.pdf",
+      "studies/realistic_universal_hybrid_control_dispersive_cqed/figures/phase_budget.pdf"
+    ],
+    "artifacts": [
+      "studies/realistic_universal_hybrid_control_dispersive_cqed/artifacts/primitive_verdicts.json",
+      "studies/realistic_universal_hybrid_control_dispersive_cqed/artifacts/analytic_phase_budget.json",
+      "studies/realistic_universal_hybrid_control_dispersive_cqed/artifacts/primitive_matrix_table.tex"
+    ],
+    "report": "studies/realistic_universal_hybrid_control_dispersive_cqed/report/report.tex"
+  }

@@ -1,0 +1,489 @@
+{
+  "title": "Native / Rich Multitone Feasibility for Ideal SQR and CPSQR",
+  "selected_families": [
+    "reduced_unitary_direct",
+    "native_direct_strict",
+    "gaussian_seed",
+    "echoed_independent",
+    "echoed_asymmetric"
+  ],
+  "negative_control": {
+    "artifact_path": "C:\\Users\\jl82323\\Box\\Shyam Shankar Quantum Circuits Group\\Users\\Users_JianJun\\cqed_based_study\\studies\\ideal_sqr_direct_vs_echoed_multitone\\artifacts\\cases\\chi_plus_chiprime_smooth_x_na3_chiT3p0_direct_multitone.json",
+    "saved_restricted_process_fidelity": 0.4949180359503573,
+    "recomputed_strict_joint_process_fidelity": 0.8241907925828335,
+    "recomputed_strict_reduced_single_ground_mean": 0.8329805318532896,
+    "recomputed_strict_reduced_quartet_mean": 0.8746835797434201,
+    "recomputed_strict_full_quartet_mean": 0.8746835797434201
+  },
+  "executive_summary": [
+    "Direct native multitone does not achieve a convincing general strict ideal-SQR claim across the tested family set once quartet validation and full joint metrics are enforced.",
+    "Relaxed CPSQR is materially easier than strict SQR: the best CPSQR joint process fidelity reached 1.0000 for echoed_independent on chi_plus_chiprime_staggered_x_na2_chiT5p0.",
+    "The strongest strict-SQR joint result was 0.9988 for reduced_unitary_direct on chi_only_smooth_x_na2_chiT5p0.",
+    "Echo helps in some cases, but the dominant improvement is more robust for relaxed CPSQR than for full strict-SQR success.",
+    "The reduced qubit-only view is consistently more optimistic than the full joint-unitary view."
+  ],
+  "key_findings": [
+    "Selected families after the hard-model screen: reduced_unitary_direct, native_direct_strict, gaussian_seed, echoed_independent, echoed_asymmetric.",
+    "Best strict-SQR family: reduced_unitary_direct with reduced quartet 0.9994 and joint process 0.9988.",
+    "Best CPSQR family: echoed_independent with reduced quartet 1.0000 and joint process 1.0000.",
+    "Legacy negative control: saved strict joint metric 0.4949 became reduced quartet 0.8747 and full quartet 0.8747 under the patched-package replay."
+  ],
+  "duration_thresholds": [
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_only",
+      "n_active": 2,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9992105682475486
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_only",
+      "n_active": 2,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.995,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9992105682475486
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_only",
+      "n_active": 2,
+      "metric_name": "cpsqr_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 2.0,
+      "best_value": 0.9996650331292496
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_only",
+      "n_active": 2,
+      "metric_name": "strict_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9989911074651836
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_only",
+      "n_active": 2,
+      "metric_name": "cpsqr_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 2.0,
+      "best_value": 0.9996650252580355
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_only",
+      "n_active": 3,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9980749868268214
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_only",
+      "n_active": 3,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.995,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9980749868268214
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_only",
+      "n_active": 3,
+      "metric_name": "cpsqr_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9989055831766304
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_only",
+      "n_active": 3,
+      "metric_name": "strict_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9974903599242493
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_only",
+      "n_active": 3,
+      "metric_name": "cpsqr_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9989053094898289
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 2,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9992105681746026
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 2,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.995,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9992105681746026
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 2,
+      "metric_name": "cpsqr_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 2.0,
+      "best_value": 0.999665034294758
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 2,
+      "metric_name": "strict_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9989911073924642
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 2,
+      "metric_name": "cpsqr_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 2.0,
+      "best_value": 0.9996650264235887
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 3,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9925513484626066
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 3,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.995,
+      "minimum_chi_t_over_2pi": null,
+      "best_value": 0.9925513484626066
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 3,
+      "metric_name": "cpsqr_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9953037009193899
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 3,
+      "metric_name": "strict_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": null,
+      "best_value": 0.984539165133222
+    },
+    {
+      "family_name": "native_direct_strict",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 3,
+      "metric_name": "cpsqr_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9952978706153739
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_only",
+      "n_active": 2,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9992136605070834
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_only",
+      "n_active": 2,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.995,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9992136605070834
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_only",
+      "n_active": 2,
+      "metric_name": "cpsqr_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 2.0,
+      "best_value": 0.9997124804211694
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_only",
+      "n_active": 2,
+      "metric_name": "strict_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9989941993174668
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_only",
+      "n_active": 2,
+      "metric_name": "cpsqr_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 2.0,
+      "best_value": 0.9997124741362192
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_only",
+      "n_active": 3,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9980816432478091
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_only",
+      "n_active": 3,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.995,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9980816432478091
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_only",
+      "n_active": 3,
+      "metric_name": "cpsqr_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9990030661482924
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_only",
+      "n_active": 3,
+      "metric_name": "strict_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9974970162702833
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_only",
+      "n_active": 3,
+      "metric_name": "cpsqr_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9990028235178572
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 2,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9992136605070732
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 2,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.995,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9992136605070732
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 2,
+      "metric_name": "cpsqr_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 2.0,
+      "best_value": 0.9997124804210671
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 2,
+      "metric_name": "strict_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9989941993174435
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 2,
+      "metric_name": "cpsqr_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 2.0,
+      "best_value": 0.999712474136117
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 3,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9925777613008225
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 3,
+      "metric_name": "strict_reduced_process_mean",
+      "threshold": 0.995,
+      "minimum_chi_t_over_2pi": null,
+      "best_value": 0.9925777613008225
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 3,
+      "metric_name": "cpsqr_reduced_process_mean",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9956827971675638
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 3,
+      "metric_name": "strict_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": null,
+      "best_value": 0.9845653430082427
+    },
+    {
+      "family_name": "reduced_unitary_direct",
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 3,
+      "metric_name": "cpsqr_joint_process_fidelity",
+      "threshold": 0.99,
+      "minimum_chi_t_over_2pi": 3.0,
+      "best_value": 0.9956776608527718
+    }
+  ],
+  "representative_rows": {
+    "strict_best": {
+      "active_duration_ns": 1760.5633802816897,
+      "case_id": "chi_only_smooth_x_na2_chiT5p0",
+      "chi_t_over_2pi": 5.0,
+      "classification_label": "full_ideal_sqr_success",
+      "classification_level": 5,
+      "cpsqr_full_quartet_mean": 0.9998173300009608,
+      "cpsqr_full_quartet_min": 0.9994928919455937,
+      "cpsqr_joint_average_gate_fidelity": 0.9997174765522596,
+      "cpsqr_joint_operator_2norm": 0.022809414953170577,
+      "cpsqr_joint_process_fidelity": 0.9996468456903245,
+      "cpsqr_mean_residual_z_error_rad": 0.03360851139666836,
+      "cpsqr_mean_transverse_error_rad": 0.010733003213242323,
+      "cpsqr_reduced_pair_mean": 0.9998105195960683,
+      "cpsqr_reduced_process_mean": 0.9996468526502376,
+      "cpsqr_reduced_quartet_mean": 0.9998173225905006,
+      "cpsqr_reduced_quartet_min": 0.9994929020947046,
+      "cpsqr_reduced_single_ground_mean": 0.9999633896083865,
+      "duration_ns": 1760.5633802816897,
+      "fairness_mode": "fixed_total_duration",
+      "family_name": "reduced_unitary_direct",
+      "include_chi_prime": false,
+      "leakage_outside_target_mean": 5.551115123125783e-17,
+      "model_variant": "chi_only",
+      "n_active": 2,
+      "objective_mode": "strict",
+      "other_target_population_mean": 0.0,
+      "random_seed": NaN,
+      "same_block_population_mean": 1.0,
+      "same_block_population_min": 0.9999999999999998,
+      "stage": "comparison",
+      "strict_full_quartet_mean": 0.9994135866044034,
+      "strict_full_quartet_min": 0.9989093653905423,
+      "strict_joint_average_gate_fidelity": 0.9990106059105628,
+      "strict_joint_operator_2norm": 0.06391355083304001,
+      "strict_joint_process_fidelity": 0.9987632573882036,
+      "strict_mean_residual_z_error_rad": 0.050886613501481985,
+      "strict_mean_transverse_error_rad": 0.03648237924160836,
+      "strict_reduced_pair_mean": 0.9993266572722188,
+      "strict_reduced_process_mean": 0.9989978404814617,
+      "strict_reduced_quartet_mean": 0.9994135866044036,
+      "strict_reduced_quartet_min": 0.9989093653905422,
+      "strict_reduced_single_ground_mean": 0.9996463096303196,
+      "target_family": "smooth_x",
+      "total_gate_duration_ns": 1760.5633802816897
+    },
+    "cpsqr_best": {
+      "active_duration_ns": 1760.5633802816897,
+      "case_id": "chi_plus_chiprime_staggered_x_na2_chiT5p0",
+      "chi_t_over_2pi": 5.0,
+      "classification_label": "reduced_ideal_sqr_success",
+      "classification_level": 4,
+      "cpsqr_full_quartet_mean": 0.999999739101594,
+      "cpsqr_full_quartet_min": 0.9999987342817246,
+      "cpsqr_joint_average_gate_fidelity": 0.9999997907749153,
+      "cpsqr_joint_operator_2norm": 0.0007169543642400379,
+      "cpsqr_joint_process_fidelity": 0.9999997384686441,
+      "cpsqr_mean_residual_z_error_rad": 0.00037414441338477875,
+      "cpsqr_mean_transverse_error_rad": 0.0007337378011446658,
+      "cpsqr_reduced_pair_mean": 0.9999995827809638,
+      "cpsqr_reduced_process_mean": 0.9999997384686508,
+      "cpsqr_reduced_quartet_mean": 0.9999997391550672,
+      "cpsqr_reduced_quartet_min": 0.9999987342777676,
+      "cpsqr_reduced_single_ground_mean": 0.9999997993830205,
+      "duration_ns": 1760.5633802816897,
+      "fairness_mode": "fixed_active_duration",
+      "family_name": "echoed_independent",
+      "include_chi_prime": true,
+      "leakage_outside_target_mean": 2.7755575615628914e-17,
+      "model_variant": "chi_plus_chiprime",
+      "n_active": 2,
+      "objective_mode": "strict",
+      "other_target_population_mean": 0.0,
+      "random_seed": NaN,
+      "same_block_population_mean": 1.0,
+      "same_block_population_min": 0.9999999999999999,
+      "stage": "screen",
+      "strict_full_quartet_mean": 0.9999997365178984,
+      "strict_full_quartet_min": 0.9999987342871585,
+      "strict_joint_average_gate_fidelity": 0.894190060434655,
+      "strict_joint_operator_2norm": 1.999999995561038,
+      "strict_joint_process_fidelity": 0.8677375755433187,
+      "strict_mean_residual_z_error_rad": 0.0003688053156306629,
+      "strict_mean_transverse_error_rad": 0.0007585286811040212,
+      "strict_reduced_pair_mean": 0.999999579500818,
+      "strict_reduced_process_mean": 0.9999997357982527,
+      "strict_reduced_quartet_mean": 0.9999997365178985,
+      "strict_reduced_quartet_min": 0.9999987342871584,
+      "strict_reduced_single_ground_mean": 0.9999997954849422,
+      "target_family": "staggered_x",
+      "total_gate_duration_ns": 1840.56338028169
+    }
+  },
+  "discussion_tex": "The patched-package screen and follow-up comparison agree on the central hierarchy. Strict ideal SQR is the hardest standard and is not broadly established by the tested family class. CPSQR is more reachable because the dominant coherent mismatch is often well described by a manifold-dependent post-rotation $Z$ phase. Even then, the reduced qubit-only picture is more optimistic than the full joint picture, so claims based only on one-state or reduced metrics would overstate what the waveform actually realizes on the addressed qubit-cavity subspace.",
+  "conclusion_tex": "What is convincingly demonstrated is narrower than a full positive strict-SQR claim: the best native/rich multitone families can approach useful reduced qubit-only conditioned control, and the strongest composite families can further improve the relaxed CPSQR objective. What is ruled out for the tested family set is a broad claim that native or modestly enriched multitone waveforms generically realize full ideal SQR once full joint validation is enforced. Strict ideal SQR is therefore not convincingly established here, whereas CPSQR is the more plausible success notion for this waveform class. The current best family and threshold table are recorded in the machine-readable summary JSON and the report appendix."
+}

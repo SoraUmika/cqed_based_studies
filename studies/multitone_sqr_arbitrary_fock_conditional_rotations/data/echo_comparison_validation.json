@@ -1,0 +1,79 @@
+{
+  "all_passed": true,
+  "best_echo_case_id": "chi_only_na3_chiT5p0_familyD_seed317160",
+  "best_echo_sequence_family": "echoed_fixed_total",
+  "checks": [
+    {
+      "details": {
+        "best_echoed_sqr.json": true,
+        "best_single_pulse.json": true,
+        "chi_only_na3_chiT5p0_familyD_seed317160_echoed_fixed_total.json": true,
+        "chi_only_na3_chiT5p0_familyD_seed317160_echoed_fixed_total.npz": true,
+        "echo_best_waveforms.png": true,
+        "echo_block_error_breakdown.png": true,
+        "echo_branch_metric_means.png": true,
+        "echo_comparison_results.json": true,
+        "echo_comparison_summary.json": true,
+        "echo_comparison_summary.md": true,
+        "echo_delta_tradeoff.png": true,
+        "echo_duration_scan.png": true,
+        "validation_summary.json": true
+      },
+      "name": "artifacts_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "baseline_all_passed": true
+      },
+      "name": "baseline_single_pulse_validation_inherited",
+      "passed": true
+    },
+    {
+      "details": {
+        "sequence_kinds": [
+          "half_sqr",
+          "x_pi",
+          "half_sqr",
+          "x_pi"
+        ]
+      },
+      "name": "explicit_echo_sequence_order",
+      "passed": true
+    },
+    {
+      "details": {
+        "best_echo_sequence_family": "echoed_fixed_total",
+        "best_single_sequence_family": "single_pulse"
+      },
+      "name": "previous_study_was_single_pulse_only",
+      "passed": true
+    },
+    {
+      "details": {
+        "baseline": 0.6061322134677875,
+        "delta": -0.0008052191590408597,
+        "replayed": 0.6053269943087466
+      },
+      "name": "best_echo_time_step_convergence",
+      "passed": true
+    },
+    {
+      "details": {
+        "baseline": 0.6061322134677875,
+        "delta": 6.258496373368061e-07,
+        "replayed": 0.6061328393174248
+      },
+      "name": "best_echo_truncation_convergence",
+      "passed": true
+    },
+    {
+      "details": {
+        "reason": "The echoed extension is an original optimization-and-analysis study, not a reproduction benchmark.",
+        "status": "not_applicable"
+      },
+      "name": "literature_comparison",
+      "passed": true
+    }
+  ]
+}

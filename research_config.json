@@ -1,0 +1,87 @@
+{
+  "version": "1.2",
+
+  "_note": "Edit this file to control the research loop. All agents and the orchestration script read this file. Keys prefixed with _ are comments and are ignored by the script.",
+
+  "_workflow_note": "DEFAULT WORKFLOW: (1) Claude Code Opus 4.6 executes the study and writes the report. (2) Copilot Codex 5.4 xHigh critically reviews the report as Science Director. (3) If review fails, Codex generates a follow-up prompt sent back to Opus. (4) Loop until Codex approves. (5) Opus performs final readability polish. See AGENTS.md Multi-Agent Research Loop for full protocol.",
+
+  "_model_selection_note": "IMPORTANT: Model selection is manual. Select the correct model in the agent picker BEFORE invoking each agent. The model_id values below are the documented intended models — treat them as documentation and as the values to select in the picker. For execution: open Claude Code and select Opus 4.6. For review: open Copilot and select Codex 5.4 xHigh.",
+
+  "models": {
+    "_note": "Three roles: execution (primary research agent + report writer), review (science director + critical reviewer), documentation (report writing, same as execution). Select the correct model before invoking @execution-engineer or @science-director.",
+    "execution": {
+      "model_id": "claude-opus-4-6",
+      "platform": "Claude Code",
+      "agent": "@execution-engineer",
+      "role": "Primary Research Executor and Communicator — full study lifecycle: code writing, simulation, debugging, figure generation, validation, report writing, and documentation",
+      "_candidates": "claude-opus-4-6 (preferred). Falls back to Codex 5.4 xHigh if Opus is unavailable."
+    },
+    "review": {
+      "model_id": "Codex 5.4 xHigh",
+      "platform": "GitHub Copilot",
+      "agent": "@science-director",
+      "reasoning": "xHigh",
+      "role": "Science Director and Critical Reviewer — research planning, physics reasoning, report quality review, evidence-claim verification, follow-up prompt generation, and APPROVE/REVISE decisions. See science-director.agent.md for the full review protocol.",
+      "_candidates": "Codex 5.4 xHigh (required for physics reasoning quality). Do not use a weaker model for review — the reviewer must be capable of rigorous critical assessment."
+    },
+    "documentation": {
+      "model_id": "claude-opus-4-6",
+      "platform": "Claude Code",
+      "role": "Report writing — LaTeX generation, figure captions, IMPROVEMENTS.md. Same as execution (Opus is the communicator/writer).",
+      "_candidates": "claude-opus-4-6 (preferred). Codex 5.4 xHigh acceptable if Opus is unavailable."
+    }
+  },
+
+  "loop": {
+    "max_iterations": 14,
+    "min_iterations": 1,
+    "_note_max_iterations": "The reviewer will refuse to issue another REVISE after this many iterations. Set higher if you expect many refinement cycles.",
+    "stages": {
+      "1_execute": "Opus 4.6 (Claude Code) runs the study end-to-end (plan → implement → validate → report)",
+      "2_review": "Codex 5.4 xHigh (Copilot) reviews the completed report as Science Director for technical correctness and writing quality",
+      "3_refine": "If review fails, Codex generates a FOLLOWUP_PROMPT.md; Opus runs another iteration",
+      "4_polish": "After technical approval, Opus performs a final readability and coherence pass"
+    },
+    "stopping_criteria": {
+      "require_validation_pass": true,
+      "require_report_complete": true,
+      "require_review_approval": true,
+      "require_all_blockers_resolved": false,
+      "_note": "require_all_blockers_resolved=false allows completion with documented open issues. require_review_approval=true means Codex (Science Director) must explicitly issue APPROVE before the study is marked COMPLETE."
+    }
+  },
+
+  "retry": {
+    "auto_recover_on_failure": true,
+    "max_retries_per_phase": 3,
+    "blocked_phase_policy": "continue_with_partial",
+    "_note_blocked_policy": "continue_with_partial: move to next phase with gaps documented. stop_and_report: halt the loop and write a blocker report.",
+    "_note_auto_recover": "When true, the recover action generates a rich RESUME_PROMPT.md that pre-fills the next Copilot invocation with full context."
+  },
+
+  "report": {
+    "preserve_existing_report": true,
+    "extension_mode": "append_iteration_section",
+    "backup_before_write": true,
+    "backup_suffix": ".bak",
+    "_note_extension_mode": "append_iteration_section: adds a new LaTeX \\section{} block before \\end{document}, never touching prior content. structured_extend: merges into existing structure (requires manual review).",
+    "_note_preserve": "If preserve_existing_report=true, the Execution Engineer reads the prior report.tex before writing. New material is always added below the existing content."
+  },
+
+  "review": {
+    "output_file": "REVIEW_DIRECTIVE.md",
+    "followup_prompt_file": "FOLLOWUP_PROMPT.md",
+    "approval_signal": "APPROVE",
+    "revision_signal": "REVISE",
+    "rework_signal": "NEEDS_REWORK",
+    "_note": "Codex (Science Director) writes REVIEW_DIRECTIVE.md in the task_runs/<study>/ directory after every review. If decision is REVISE or NEEDS_REWORK, it also writes FOLLOWUP_PROMPT.md — a ready-to-paste prompt for the next Opus invocation."
+  },
+
+  "logging": {
+    "verbose_progress_log": true,
+    "max_execution_summary_lines": 500,
+    "generate_recovery_prompt": true,
+    "recovery_prompt_file": "RESUME_PROMPT.md",
+    "_note": "recovery_prompt_file is written inside the task_runs/<study>/ directory after every phase transition."
+  }
+}

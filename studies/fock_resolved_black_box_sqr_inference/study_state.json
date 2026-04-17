@@ -1,0 +1,107 @@
+{
+  "study_name": "fock_resolved_black_box_sqr_inference",
+  "study_path": "studies/fock_resolved_black_box_sqr_inference",
+  "status": "COMPLETE",
+  "problem_class": [
+    "ANA",
+    "DES"
+  ],
+  "created_at": "2026-03-31T05:46:41Z",
+  "updated_at": "2026-03-31T09:25:00Z",
+  "loop_iteration": 0,
+  "phase_retry_counts": {},
+  "objective": "Validate whether qubit-state tomography combined with known dispersive wait evolution and calibrated cavity displacement can recover effective Fock-resolved qubit output states of a black-box SQR gate using forward simulation, constrained least squares, and MLE ground-truth validation.",
+  "hypotheses": [
+    "Single-qubit Cholesky MLE provides a trustworthy baseline with fidelity improving monotonically with shot count.",
+    "Wait-only tomography recovers weighted transverse Fock-sector information for Fock-diagonal outputs.",
+    "Displacement-only tomography is uninformative after tracing out the cavity.",
+    "Combined displacement-plus-wait reveals cavity coherences through diagonal-model residuals but does not identify p_n or Z_n separately.",
+    "Full-state Cholesky-plus-softmax MLE is non-unique under the stated measurement constraints."
+  ],
+  "assumptions": [
+    "Two-mode dispersive transmon-storage model with rad/s frequencies and seconds unless a cqed_sim tomography helper explicitly uses ns.",
+    "Logical Fock window n = 0..3 with convergence spot checks at larger truncation.",
+    "Informative protocol ordering is displacement then known dispersive wait then qubit tomography rotation.",
+    "Shot noise is always included; robustness studies add small rotation, displacement, chi, and chi-prime calibration errors plus wait-time decoherence surrogates.",
+    "Full p_n and Z_n recovery is not claimed unless an extra assumption or measurement primitive removes the analytic nullspace."
+  ],
+  "success_criteria": {
+    "single_qubit_baseline": "Mean fidelity exceeds 0.995 at the high-shot end of the baseline sweep.",
+    "recoverable_transverse_inference": "Wait-only and/or combined inference reconstruct weighted transverse sector amplitudes accurately on diagonal benchmark cases.",
+    "displacement_only_null_result": "Displacement-only design matrix remains rank deficient and reconstruction fails.",
+    "full_state_mle_nullspace": "Multiple random restarts yield materially different p_n / Z_n assignments at nearly identical objective value, or an exact gauge-family construction exhibits the same degeneracy directly.",
+    "coherence_witness": "Combined-protocol residuals separate coherent from diagonal cases by a clear margin.",
+    "pulse_level_consistency": "Near-ideal pulse-level cases follow the same identifiability boundary as the analytic cases."
+  },
+  "completed_tasks": [
+    "Initialize study directory and state files",
+    "Review AGENTS.md, cqed_sim API reference, and related prior studies",
+    "Perform analytic identifiability derivation before implementation",
+    "Write the first science directive and study-specific scaffolding",
+    "Implement study runtime helpers and common utilities",
+    "Implement the single-qubit tomography baseline",
+    "Implement the diagonal-model forward kernels and transverse inference solvers",
+    "Implement the diagnostic full-state MLE and explicit gauge-family non-identifiability construction",
+    "Generate ideal and pulse-level black-box case libraries",
+    "Run the study, validate results, generate figures, write the report, and create the reproducibility notebook"
+  ],
+  "failed_tasks": [],
+  "pending_tasks": [],
+  "blocked_tasks": [],
+  "key_results": {
+    "best_single_qubit_mle_mean_fidelity": 0.9985614474129451,
+    "wait_only_transverse_rank": 8,
+    "displacement_only_transverse_rank": 2,
+    "combined_coherence_residual": 0.13874443898912447,
+    "wait_only_coherence_residual": 1.6166553364287884e-16,
+    "best_pulse_case_weighted_rmse": 0.002600532748325747,
+    "worst_pulse_case_weighted_rmse": 0.2573170868337862,
+    "exact_gauge_family_count": 2
+  },
+  "latest_figures": [
+    "studies/fock_resolved_black_box_sqr_inference/figures/protocol_schematic.pdf",
+    "studies/fock_resolved_black_box_sqr_inference/figures/single_qubit_fidelity_scaling.pdf",
+    "studies/fock_resolved_black_box_sqr_inference/figures/protocol_comparison.pdf",
+    "studies/fock_resolved_black_box_sqr_inference/figures/coherence_witness_residuals.pdf",
+    "studies/fock_resolved_black_box_sqr_inference/figures/robustness_sensitivity.pdf",
+    "studies/fock_resolved_black_box_sqr_inference/figures/pulse_case_recovery.pdf",
+    "studies/fock_resolved_black_box_sqr_inference/figures/full_state_nonuniqueness.pdf",
+    "studies/fock_resolved_black_box_sqr_inference/figures/waveform_examples.pdf"
+  ],
+  "blockers": [],
+  "compute_notes": {
+    "api_review": "Completed locally against the active cqed_sim checkout at C:/Users/jl82323/Box/Shyam Shankar Quantum Circuits Group/Users/Users_JianJun/cQED_simulation.",
+    "full_runtime_s": 104.7,
+    "pulse_level_optimization": "One optimized multitone near-ideal case plus one seed waveform and one leakage replay were sufficient to reproduce the analytic identifiability boundary at pulse level.",
+    "known_helper_limitation": "run_conditioned_multitone_validation(simulation_mode='full') is not directly compatible with n_tr=3 targets without explicit qubit-subspace truncation."
+  },
+  "science_directive_version": 1,
+  "file_manifest": {
+    "scripts": [
+      "studies/fock_resolved_black_box_sqr_inference/scripts/common.py",
+      "studies/fock_resolved_black_box_sqr_inference/scripts/runtime_compat.py",
+      "studies/fock_resolved_black_box_sqr_inference/scripts/study_lib.py",
+      "studies/fock_resolved_black_box_sqr_inference/scripts/run_study.py",
+      "studies/fock_resolved_black_box_sqr_inference/scripts/validate_results.py",
+      "studies/fock_resolved_black_box_sqr_inference/scripts/reproducibility_notebook.ipynb"
+    ],
+    "data": [
+      "studies/fock_resolved_black_box_sqr_inference/data/study_results.json",
+      "studies/fock_resolved_black_box_sqr_inference/data/study_summary.json",
+      "studies/fock_resolved_black_box_sqr_inference/data/study_summary.md",
+      "studies/fock_resolved_black_box_sqr_inference/data/validation_inputs.json",
+      "studies/fock_resolved_black_box_sqr_inference/data/validation_summary.json"
+    ],
+    "figures": [
+      "studies/fock_resolved_black_box_sqr_inference/figures/protocol_schematic.pdf",
+      "studies/fock_resolved_black_box_sqr_inference/figures/single_qubit_fidelity_scaling.pdf",
+      "studies/fock_resolved_black_box_sqr_inference/figures/protocol_comparison.pdf",
+      "studies/fock_resolved_black_box_sqr_inference/figures/coherence_witness_residuals.pdf",
+      "studies/fock_resolved_black_box_sqr_inference/figures/robustness_sensitivity.pdf",
+      "studies/fock_resolved_black_box_sqr_inference/figures/pulse_case_recovery.pdf",
+      "studies/fock_resolved_black_box_sqr_inference/figures/full_state_nonuniqueness.pdf",
+      "studies/fock_resolved_black_box_sqr_inference/figures/waveform_examples.pdf"
+    ],
+    "report": "studies/fock_resolved_black_box_sqr_inference/report/report.pdf"
+  }
+}

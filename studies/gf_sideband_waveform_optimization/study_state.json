@@ -1,0 +1,187 @@
+{
+  "study_name": "gf_sideband_waveform_optimization",
+  "study_path": "studies/gf_sideband_waveform_optimization",
+  "status": "REVIEW_REQUESTED",
+  "problem_class": [
+    "OPT",
+    "ANA",
+    "DES"
+  ],
+  "created_at": "2026-04-10T00:00:00Z",
+  "updated_at": "2026-04-10T18:05:00-05:00",
+  "loop_iteration": 1,
+  "phase_retry_counts": {},
+  "objective": "Determine which waveform families are best for the effective |f,n-1> <-> |g,n> sideband interaction in the local simulator, separating selective control from fastest practical unselective control for both storage-mode and readout-mode sidebands while making the cQED parameter provenance and transmon-decoherence assumptions explicit, and extend the study to test whether a simultaneous two-tone storage-sideband plus readout-sideband drive can rapidly transfer a storage photon into the readout mode under the local device parameters.",
+  "hypotheses": [
+    "Smooth-edge pulses will outperform square pulses in the selective regime because they suppress high-frequency spectral weight that drives neighboring sideband manifolds.",
+    "Square or nearly square pulses will remain strongest contenders in the fastest unselective regime because they maximize effective Rabi rate for a fixed duration.",
+    "Open-system replay will make the practical winner set more restrictive than the closed-system winner set, especially for the readout sideband.",
+    "A resonant simultaneous two-tone drive will produce a bright-state single-photon storage-to-readout transfer on a tens-of-nanoseconds timescale.",
+    "A detuned simultaneous two-tone drive will reduce intermediate-state population but become more vulnerable to readout decay because of the slower effective exchange."
+  ],
+  "assumptions": [
+    "The local sideband-reset example provides the authoritative Hamiltonian and mode-noise parameters.",
+    "The effective sideband-control abstraction is acceptable for waveform ranking within the current environment.",
+    "Low-lying manifolds n=1,2,3 are sufficient for the main comparison.",
+    "The matched local tomography workflow provides a reasonable transmon-decoherence sensitivity anchor because the sideband-reset example does not export transmon T1/T2.",
+    "The simultaneous two-tone transfer experiment is primarily a single-photon protocol study; n>1 cases are treated as diagnostics because the constant drive opens a longer conversion chain."
+  ],
+  "success_criteria": {
+    "analytic": "State the minimal effective sideband model, matrix-element scaling, and the expected speed-selectivity tradeoff from first principles before relying on numerics.",
+    "numerical": "Generate mode-resolved waveform rankings, calibrated durations, leakage/selectivity metrics, gate-oriented diagnostics, and open-system summaries from full multilevel simulator replay.",
+    "outputs": "Save scripts, figures, machine-readable summaries, a markdown report, a LaTeX report/PDF, and a reproducibility notebook.",
+    "validation": "Demonstrate sanity checks, convergence, and an honest scope-limited comparison to the sideband literature where applicable."
+  },
+  "completed_tasks": [
+    "Initialized the study and run directories.",
+    "Created the README, improvements log, state file, and task-run planning documents.",
+    "Implemented the shared sideband-study helpers and waveform sweep runner.",
+    "Executed the storage/readout waveform comparison and generated the baseline figures and machine-readable outputs.",
+    "Exported an explicit device-parameter provenance table and noise-scenario table.",
+    "Added transmon-decoherence support to the study noise wrapper and executed the mode-only and transmon-inclusive open-system follow-up.",
+    "Added a gate-oriented ranking artifact and a transmon-reference reranking pass over the shortlist.",
+    "Validated the frequency formulas, timestep convergence, and truncation convergence.",
+    "Implemented and executed the simultaneous two-tone storage-to-readout transfer extension.",
+    "Validated the selected single-photon two-tone cases against the reduced three-state model, timestep convergence, and truncation convergence.",
+    "Updated the markdown report, LaTeX report/PDF, reproducibility notebook, and handoff files to reflect the extended conclusions."
+  ],
+  "failed_tasks": [],
+  "pending_tasks": [],
+  "blocked_tasks": [],
+  "key_results": {
+    "best_selective_family_closed_system": {
+      "storage": "gaussian",
+      "readout": "gaussian"
+    },
+    "best_fast_family_closed_system": {
+      "storage": "square",
+      "readout": "square"
+    },
+    "gate_oriented_family_closed_system": {
+      "storage": "gaussian",
+      "readout": "blackman"
+    },
+    "fastest_selective_duration_ns_closed_system": {
+      "storage_conservative": 300.0,
+      "readout_conservative": 220.0
+    },
+    "fastest_unselective_duration_ns_closed_system": {
+      "storage": 12.0,
+      "readout": 12.0
+    },
+    "mode_only_open_system_mean_target_probability": {
+      "storage_selective_gaussian": 0.9922527976779768,
+      "storage_fast_square": 0.9954214840829856,
+      "readout_selective_gaussian": 0.3312562611117229,
+      "readout_fast_square": 0.9244123482548456
+    },
+    "transmon_reference_open_system_mean_target_probability": {
+      "storage_selective_gaussian": 0.9607530203163931,
+      "storage_fast_square": 0.9939107284603802,
+      "readout_selective_gaussian": 0.3224029037933918,
+      "readout_fast_square": 0.9230038199449004
+    },
+    "transmon_reference_threshold_valid_winners": [
+      {
+        "mode": "storage",
+        "criterion": "unselective",
+        "family": "square",
+        "duration_ns": 12.0
+      }
+    ],
+    "two_tone_single_photon": {
+      "resonant_closed_peak_target_probability": 0.9999976870169066,
+      "resonant_closed_peak_time_ns": 29.500000000000004,
+      "resonant_closed_max_intermediate_probability": 0.49975017772516334,
+      "resonant_transmon_reference_peak_target_probability": 0.9530300025915371,
+      "detuned_closed_peak_target_probability": 0.9967674333916653,
+      "detuned_closed_peak_time_ns": 348.00000000000006,
+      "detuned_closed_max_intermediate_probability": 0.12108058357211807,
+      "detuned_transmon_reference_peak_target_probability": 0.5559949435336962
+    },
+    "two_tone_multi_photon_diagnostic": {
+      "n2_best_resonant_peak_target_probability": 0.6855253515018647,
+      "n3_best_resonant_peak_target_probability": 0.608295584727537,
+      "interpretation": "Constant simultaneous driving opens a longer conversion chain for n>1, so the clean single-photon reduced-ladder picture does not generalize."
+    },
+    "runtime_s": 534.8,
+    "two_tone_runtime_s": 21.1,
+    "report_pdf": "studies/gf_sideband_waveform_optimization/report/report_updated.pdf",
+    "reproducibility_notebook": "studies/gf_sideband_waveform_optimization/scripts/reproducibility_notebook.ipynb"
+  },
+  "latest_figures": [
+    "studies/gf_sideband_waveform_optimization/figures/sideband_frequency_map.png",
+    "studies/gf_sideband_waveform_optimization/figures/duration_tradeoff_n1.png",
+    "studies/gf_sideband_waveform_optimization/figures/winner_frontier.png",
+    "studies/gf_sideband_waveform_optimization/figures/population_dynamics_representative.png",
+    "studies/gf_sideband_waveform_optimization/figures/robustness_maps.png",
+    "studies/gf_sideband_waveform_optimization/figures/spectral_intuition.png",
+    "studies/gf_sideband_waveform_optimization/figures/open_system_scenario_summary.png",
+    "studies/gf_sideband_waveform_optimization/figures/two_tone_scan_summary.png",
+    "studies/gf_sideband_waveform_optimization/figures/two_tone_population_dynamics.png",
+    "studies/gf_sideband_waveform_optimization/figures/two_tone_open_system_summary.png"
+  ],
+  "blockers": [],
+  "compute_notes": {
+    "plan_budget": "Main sweep estimated at roughly 2-6 minutes on CPU if the area-based calibration prior keeps the search focused.",
+    "baseline_closed_system_runtime_s": 103.5,
+    "extended_runtime_s": 534.8,
+    "two_tone_extension_runtime_s": 21.1,
+    "validation_runtime_s": 3.6,
+    "notebook_runtime_s": 6.8
+  },
+  "science_directive_version": 1,
+  "review_iterations": 0,
+  "reviewer_decision": null,
+  "file_manifest": {
+    "scripts": [
+      "studies/gf_sideband_waveform_optimization/scripts/common.py",
+      "studies/gf_sideband_waveform_optimization/scripts/run_study.py",
+      "studies/gf_sideband_waveform_optimization/scripts/two_tone_transfer_extension.py",
+      "studies/gf_sideband_waveform_optimization/scripts/validate_results.py",
+      "studies/gf_sideband_waveform_optimization/scripts/build_reproducibility_notebook.py",
+      "studies/gf_sideband_waveform_optimization/scripts/reproducibility_notebook.ipynb"
+    ],
+    "data": [
+      "studies/gf_sideband_waveform_optimization/data/device_parameter_table.csv",
+      "studies/gf_sideband_waveform_optimization/data/noise_scenarios.csv",
+      "studies/gf_sideband_waveform_optimization/data/frequency_table.csv",
+      "studies/gf_sideband_waveform_optimization/data/winner_table.csv",
+      "studies/gf_sideband_waveform_optimization/data/gate_winner_table.csv",
+      "studies/gf_sideband_waveform_optimization/data/refined_cases.csv",
+      "studies/gf_sideband_waveform_optimization/data/open_system_followup.csv",
+      "studies/gf_sideband_waveform_optimization/data/open_system_summary.csv",
+      "studies/gf_sideband_waveform_optimization/data/open_system_transmon_reference_winner_table.csv",
+      "studies/gf_sideband_waveform_optimization/data/two_tone_frequency_table.csv",
+      "studies/gf_sideband_waveform_optimization/data/two_tone_scan.csv",
+      "studies/gf_sideband_waveform_optimization/data/two_tone_selected_cases.csv",
+      "studies/gf_sideband_waveform_optimization/data/two_tone_open_system.csv",
+      "studies/gf_sideband_waveform_optimization/data/two_tone_validation.csv",
+      "studies/gf_sideband_waveform_optimization/data/validation_two_tone_frequency.csv",
+      "studies/gf_sideband_waveform_optimization/data/validation_two_tone_convergence.csv",
+      "studies/gf_sideband_waveform_optimization/data/validation_convergence.csv",
+      "studies/gf_sideband_waveform_optimization/data/study_results.json"
+    ],
+    "figures": [
+      "studies/gf_sideband_waveform_optimization/figures/sideband_frequency_map.png",
+      "studies/gf_sideband_waveform_optimization/figures/duration_tradeoff_n1.png",
+      "studies/gf_sideband_waveform_optimization/figures/winner_frontier.png",
+      "studies/gf_sideband_waveform_optimization/figures/population_dynamics_representative.png",
+      "studies/gf_sideband_waveform_optimization/figures/robustness_maps.png",
+      "studies/gf_sideband_waveform_optimization/figures/spectral_intuition.png",
+      "studies/gf_sideband_waveform_optimization/figures/open_system_scenario_summary.png",
+      "studies/gf_sideband_waveform_optimization/figures/two_tone_scan_summary.png",
+      "studies/gf_sideband_waveform_optimization/figures/two_tone_population_dynamics.png",
+      "studies/gf_sideband_waveform_optimization/figures/two_tone_open_system_summary.png"
+    ],
+    "artifacts": [
+      "studies/gf_sideband_waveform_optimization/artifacts/device_manifest.json",
+      "studies/gf_sideband_waveform_optimization/artifacts/device_parameter_table.json",
+      "studies/gf_sideband_waveform_optimization/artifacts/noise_scenarios.json",
+      "studies/gf_sideband_waveform_optimization/artifacts/study_results.json",
+      "studies/gf_sideband_waveform_optimization/artifacts/two_tone_results.json",
+      "studies/gf_sideband_waveform_optimization/artifacts/validation_summary.json"
+    ],
+    "report": "studies/gf_sideband_waveform_optimization/report/report_updated.pdf"
+  }
+}

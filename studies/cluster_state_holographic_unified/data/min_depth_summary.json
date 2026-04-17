@@ -1,0 +1,59 @@
+{
+  "study_name": "cluster_state_holographic_unified",
+  "generated_from": "corrected_target_99_finalists.csv",
+  "completion_metric": {
+    "name": "n12_physical_fidelity",
+    "threshold": 0.99,
+    "description": "Minimum block depth is assessed using the retained N_cav=12 physical fidelity column from the finalist summary."
+  },
+  "families": {
+    "drsqr": {
+      "family_label": "D + R + SQR",
+      "minimum_blocks_reaching_threshold": 4,
+      "minimum_depth_candidate": {
+        "blocks": 4,
+        "n_active": 3,
+        "order_label": "RDS",
+        "levels": "0-2-3",
+        "n12_physical_fidelity": 0.9990802382203816,
+        "n12_leakage_worst": 0.0020671554064066733,
+        "status": "retained"
+      },
+      "best_absolute_fidelity_candidate": {
+        "blocks": 5,
+        "n_active": 4,
+        "order_label": "RDS",
+        "levels": "0-1-2-3",
+        "n12_physical_fidelity": 0.9996347038280087,
+        "n12_leakage_worst": 0.0007773497078904512,
+        "status": "retained"
+      }
+    },
+    "drcpsqr": {
+      "family_label": "D + R + CPSQR",
+      "minimum_blocks_reaching_threshold": 5,
+      "minimum_depth_candidate": {
+        "blocks": 5,
+        "n_active": 2,
+        "order_label": "DRCP",
+        "levels": "1-2",
+        "n12_physical_fidelity": 0.9974916564874692,
+        "n12_leakage_worst": 0.005423136287888486,
+        "status": "retained"
+      },
+      "best_absolute_fidelity_candidate": {
+        "blocks": 5,
+        "n_active": 2,
+        "order_label": "DRCP",
+        "levels": "1-2",
+        "n12_physical_fidelity": 0.9974916564874692,
+        "n12_leakage_worst": 0.005423136287888486,
+        "status": "retained"
+      }
+    }
+  },
+  "cross_family_summary": {
+    "current_depth_first_readout": "The saved finalists already show that the SQR family can exceed the 0.99 threshold at 4 blocks, whereas the CPSQR family currently requires 5 blocks.",
+    "next_step": "Future optimization should start by stress-testing 4-block SQR and 5-block CPSQR families under the chosen validation metric before compressing n_active or tone count."
+  }
+}

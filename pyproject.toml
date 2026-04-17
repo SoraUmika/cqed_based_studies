@@ -1,0 +1,39 @@
+[project]
+name = "cqed-based-study"
+requires-python = ">=3.12"
+description = "Autonomous cQED simulation studies using the cqed_sim framework"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+src = ["studies"]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # isort
+    "W",    # pycodestyle warnings
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "SIM",  # flake8-simplify
+    "RUF",  # ruff-specific rules
+]
+ignore = [
+    "E501",   # line too long (handled by formatter)
+    "E741",   # ambiguous variable name (common in physics: l, I, O)
+    "B007",   # unused loop variable (common in sweeps)
+    "SIM108", # ternary operator (readability preference)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"studies/**/scripts/*.py" = [
+    "E402",  # module level import not at top (scripts often set paths first)
+]
+
+[tool.ruff.lint.isort]
+known-third-party = ["numpy", "scipy", "matplotlib", "qutip", "lmfit", "seaborn", "joblib"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

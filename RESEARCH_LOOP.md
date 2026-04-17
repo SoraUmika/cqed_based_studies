@@ -1,131 +1,171 @@
-# Continuous Research Loop — Architecture
+# Continuous Research Loop -- Architecture
 
-> **System goal:** Click a study goal → autonomous two-model loop runs → produces validated, publication-quality results or a clear next-step plan with diagnostics.
+> **System goal:** Start the auto-watcher -> autonomous two-model loop runs fully automatically (no user intervention) -> produces validated, publication-quality results.
+
+> **Canonical reference:** See `AGENTS.md` section "Multi-Agent Research Loop" for the full protocol specification. This document provides the architecture overview and state management details.
 
 ---
 
 ## Two-Model Division of Labor
 
-### Model 1: Science Director (Codex / GPT)
+### Model 1: Execution Engineer (Opus 4.6 -- Claude Code)
 
-The **scientific brain**. Called only for high-value reasoning.
-
-| Responsibility | When Called |
-|---------------|------------|
-| Understand cQED physics and cqed_sim deeply | Start of each review cycle |
-| Propose research hypotheses | Planning and review phases |
-| Design numerical experiments | Planning phase |
-| Review execution outputs for physics correctness | After each implementation cycle |
-| Judge result quality — is it actually good enough? | Review phase |
-| Identify flaws, missing controls, stronger follow-ups | Review phase |
-| Decide: continue, revise, branch, or stop | End of each review cycle |
-
-**Input:** Compact structured state (study_state.json + key figure summaries + latest results digest)
-**Output:** Structured directive (JSON/Markdown) for the Execution Agent
-
-### Model 2: Execution Engineer (Opus 4.6)
-
-The **research engineer + technical writer**. Handles all implementation.
+The **primary research executor and communicator**. Handles the full study lifecycle and report writing.
 
 | Responsibility | When Called |
 |---------------|------------|
-| Execute code changes, run simulations | Implementation phase |
-| Generate figures and save data | Implementation phase |
+| Self-generate research plan (SCIENCE_DIRECTIVE.md) | Start of each study / iteration |
+| Classify problem (OPT/REP/DES/ANA) | Planning phase |
+| Write simulation scripts using cqed_sim | Implementation phase |
+| Run simulations, save data and figures | Implementation phase |
 | Debug failures (environment, syntax, runtime) | Self-debugging phase |
-| Update documentation, reports, logs | After each task |
-| Maintain reproducibility and folder structure | Continuously |
-| Summarize results for Science Director review | End of implementation cycle |
+| Validate results (sanity, convergence, literature) | Before reporting |
+| Write LaTeX report and compile PDF | Report phase |
+| Address reviewer feedback from FOLLOWUP_PROMPT.md | Revision iterations |
+| Write REVIEW_REQUEST.md to signal reviewer | End of each iteration |
 
-**Input:** Structured directive from Science Director + full file access
-**Output:** Updated study state + result summaries + figures
+**Input:** User research prompt (iteration 1) or FOLLOWUP_PROMPT.md (revision iterations)
+**Output:** Complete study output + REVIEW_REQUEST.md + EXECUTION_SUMMARY.md
+
+### Model 2: Science Director / Critical Reviewer (Codex 5.4 xHigh -- GitHub Copilot)
+
+The **independent reviewer and science director**. Evaluates quality and gates approval.
+
+| Responsibility | When Called |
+|---------------|------------|
+| Read the full report (not just the summary) | After each REVIEW_REQUEST.md |
+| Evaluate writing quality and readability | Review phase |
+| Audit evidence-claim mapping for every non-trivial claim | Review phase |
+| Check physics correctness and methodology | Review phase |
+| Check completeness (reproducibility, artifacts, notebook) | Review phase |
+| Decide: APPROVE, REVISE, or NEEDS_REWORK | End of review |
+| Write REVIEW_DIRECTIVE.md with specific required actions | Review phase |
+| Write FOLLOWUP_PROMPT.md for next Codex iteration | If REVISE / NEEDS_REWORK |
+| Perform final readability polish | After APPROVE (Stage 4) |
+
+**Input:** Full report.tex + EXECUTION_SUMMARY.md + figures + data
+**Output:** REVIEW_DIRECTIVE.md + (if needed) FOLLOWUP_PROMPT.md + (after APPROVE) polished report
 
 ---
 
 ## Research Loop Protocol
 
 ```
-┌──────────────────────────────────────────────────────────┐
-│                    USER TRIGGERS STUDY                    │
-│           (study goal + optional constraints)             │
-└────────────────────────┬─────────────────────────────────┘
-                         ▼
-┌──────────────────────────────────────────────────────────┐
-│              PHASE 0: BOOTSTRAP (Opus)                    │
-│  • Create study folder structure                          │
-│  • Initialize README, IMPROVEMENTS.md                     │
-│  • Create task_runs/ state files                          │
-│  • Write initial study_state.json                         │
-│  • Lookup cqed_sim API for relevant modules               │
-└────────────────────────┬─────────────────────────────────┘
-                         ▼
-┌──────────────────────────────────────────────────────────┐
-│          PHASE 1: SCIENCE PLAN (Codex)                    │
-│  • Read study goal + cqed_sim capabilities                │
-│  • Classify problem (OPT/REP/DES/ANA)                    │
-│  • Propose hypotheses and experiment design               │
-│  • Define success criteria (quantitative)                 │
-│  • Produce SCIENCE_DIRECTIVE.md                           │
-│  • Estimate compute budget                                │
-└────────────────────────┬─────────────────────────────────┘
-                         ▼
-┌──────────────────────────────────────────────────────────┐
-│         PHASE 2: IMPLEMENT & EXECUTE (Opus)               │
-│  • Read SCIENCE_DIRECTIVE.md                              │
-│  • Write simulation scripts                               │
-│  • Run simulations, save data                             │
-│  • Generate figures                                       │
-│  • Handle failures (self-debug, retry, log)               │
-│  • Update study_state.json                                │
-│  • Write EXECUTION_SUMMARY.md for Codex review            │
-└────────────────────────┬─────────────────────────────────┘
-                         ▼
-┌──────────────────────────────────────────────────────────┐
-│          PHASE 3: SCIENCE REVIEW (Codex)                  │
-│  • Read EXECUTION_SUMMARY.md + key results                │
-│  • Check physics correctness                              │
-│  • Check whether results answer the real question          │
-│  • Identify flaws, missing controls, better tests          │
-│  • Decision:                                              │
-│    ├─ CONTINUE → refine parameters, extend scope          │
-│    ├─ REVISE   → change approach, new hypothesis          │
-│    ├─ VALIDATE → results look good, run validation        │
-│    └─ STOP     → blocked, needs human input               │
-│  • Produce updated SCIENCE_DIRECTIVE.md                   │
-└────────────────────────┬─────────────────────────────────┘
-                         ▼
-              ┌─── Decision ───┐
-              │                │
-        CONTINUE/REVISE    VALIDATE
-              │                │
-              ▼                ▼
-         Back to          ┌────────────────────────┐
-         Phase 2          │ PHASE 4: VALIDATE (Opus)│
-                          │ • Sanity checks         │
-                          │ • Convergence tests     │
-                          │ • Literature comparison │
-                          │ • Update study_state    │
-                          └───────────┬────────────┘
-                                      ▼
-                          ┌────────────────────────┐
-                          │ PHASE 5: REPORT (Opus)  │
-                          │ • Write report.tex      │
-                          │ • Compile PDF           │
-                          │ • Finalize IMPROVEMENTS │
-                          │ • Mark COMPLETE         │
-                          └────────────────────────┘
+STAGE 1: EXECUTE (Opus 4.6 -- Claude Code)
+  PLAN -> IMPLEMENT -> VALIDATE -> REPORT -> REVIEW_REQUEST.md
+         |
+         v
+STAGE 2: REVIEW (Codex 5.4 xHigh -- GitHub Copilot)
+  Read full report -> Evaluate 4 dimensions -> REVIEW_DIRECTIVE.md
+         |
+         +--> APPROVE  --> STAGE 4: POLISH (Opus) --> COMPLETE
+         |
+         +--> REVISE / NEEDS_REWORK --> FOLLOWUP_PROMPT.md
+                                              |
+                                              v
+                                   STAGE 3: REFINE (Opus)
+                                     Read FOLLOWUP_PROMPT.md
+                                     Address required actions
+                                     Extend report
+                                     REVIEW_REQUEST.md
+                                              |
+                                              v
+                                   Back to STAGE 2 (review again)
 ```
+
+### Stage Details
+
+**Stage 1 -- Primary Research Execution (Opus)**
+1. Read AGENTS.md, cqed_sim API Reference, existing study state
+2. Write SCIENCE_DIRECTIVE.md (self-directed planning)
+3. Implement scripts, run simulations, save data and figures
+4. Validate (sanity checks, convergence, literature comparison)
+5. Write report.tex with mandatory appendix, compile PDF
+6. Write EXECUTION_SUMMARY.md and REVIEW_REQUEST.md
+7. Signal reviewer
+
+**Stage 2 -- Independent Critical Review (Codex)**
+
+> Codex reviews as a **referee for a high-impact physics journal** (PRL / Nature Physics standard). Default stance is REVISE. APPROVE requires the reviewer to be able to say they would recommend this for publication without major revisions.
+
+1. Read full report.tex (not just the execution summary) — summaries may omit weaknesses
+2. Evaluate **five dimensions** (all must pass):
+   - A. Writing quality and readability
+   - B. Evidence-claim mapping (explicit audit table for every non-trivial claim)
+   - C. Physics and methodology — including approximation validity bounds, convergence data, uncertainty quantification, multiple restarts for OPT, and sensitivity analysis
+   - D. Completeness — reproducibility appendix, artifacts, notebook
+   - E. Novelty and scientific significance — new insight vs. prior work, competitive metrics
+3. Score each dimension 1–5 and assign an equivalent journal verdict
+4. Write REVIEW_DIRECTIVE.md with decision and full journal score table
+5. If REVISE or NEEDS_REWORK: write FOLLOWUP_PROMPT.md with specific, executable required actions
+
+**Stage 3 -- Iterative Refinement (Opus)**
+1. Read FOLLOWUP_PROMPT.md and REVIEW_DIRECTIVE.md
+2. Address every required action from the review
+3. Extend (not overwrite) report.tex
+4. Write new EXECUTION_SUMMARY.md and REVIEW_REQUEST.md
+5. Return to Stage 2
+
+**Stage 4 -- Final Polish (Opus)**
+1. After APPROVE: perform readability-only pass on full report
+2. Improve sentence clarity, flow, transitions, caption quality
+3. Do NOT re-evaluate physics (already approved)
+4. Write POLISH_COMPLETE.md
+5. Set study status to COMPLETE
+
+### Decision Thresholds
+
+| Decision | Journal equivalent | Criteria | Opus Action |
+|----------|--------------------|----------|-------------|
+| **APPROVE** | Accept / Minor cosmetic revision | All 5 dimensions pass; study is technically sound, adds verifiable new insight, and is well written; reviewer would recommend for high-impact journal publication | Proceed to Stage 4 polish |
+| **REVISE** | Major / Minor revision | Core insight is present and physically sound, but evidence, methodology, scope, or presentation requires significant improvement | Address all required actions in REVIEW_DIRECTIVE.md; extend report |
+| **NEEDS_REWORK** | Reject / Resubmit after redesign | Fundamental methodological flaw, unsupported central claims, no new insight over prior work, or any hard-reject trigger present | Revisit experimental design; re-run analyses; may require new approach |
+
+**Hard-reject triggers** (any one → NEEDS_REWORK): unsupported central claim; approximation applied outside validity regime; optimization called "optimal" without restarts or global argument; convergence declared but not shown; no new insight over prior work.
+
+---
+
+## Automation
+
+### Auto-Watcher (tools/auto_loop.ps1)
+
+The watcher polls `task_runs/<study>/` for state-file signals and notifies the user when to paste prompts into GitHub Copilot Chat:
+
+- **Watcher start** -> shows Stage 1 prompt, copies to clipboard
+- **REVIEW_REQUEST.md appears** -> shows Stage 2 prompt, copies to clipboard
+- **REVIEW_DIRECTIVE.md shows REVISE/NEEDS_REWORK** -> shows Stage 3 prompt, copies to clipboard
+- **REVIEW_DIRECTIVE.md shows APPROVE** -> shows Stage 4 prompt, copies to clipboard
+
+Start the watcher:
+```powershell
+# From VS Code: Terminal -> Run Task -> "Research: Start Auto-Watcher"
+# Or from command line:
+powershell -ExecutionPolicy Bypass -File tools\auto_loop.ps1 -StudyName <study_name>
+
+# Dry-run (preview without calling CLI):
+powershell -ExecutionPolicy Bypass -File tools\auto_loop.ps1 -StudyName <study_name> -DryRun
+```
+
+### What Is Automated vs. Manual
+
+| Action | How |
+|--------|-----|
+| Opus execute (Stage 1) | Manual: Copy prompt to Copilot Chat, select Opus 4.6 model, paste |
+| Codex review (Stage 2) | Manual: Copy prompt to Copilot Chat, select Codex 5.4 xHigh model, paste |
+| Opus refine (Stage 3) | Manual: Copy prompt to Copilot Chat, select Opus 4.6 model, paste |
+| Opus polish (Stage 4) | Manual: Copy prompt to Copilot Chat, select Opus 4.6 model, paste |
 
 ---
 
 ## State Management
 
-### study_state.json — Machine-Readable Study State
+### study_state.json -- Machine-Readable Study State
 
 ```json
 {
   "study_name": "transmon_chi_optimization",
   "study_path": "studies/transmon_chi_optimization",
-  "status": "IMPLEMENTING",
+  "status": "REVIEW_REQUESTED",
   "problem_class": ["OPT"],
   "created_at": "2026-03-23T10:00:00Z",
   "updated_at": "2026-03-23T12:30:00Z",
@@ -168,6 +208,8 @@ The **research engineer + technical writer**. Handles all implementation.
     "bottleneck": "Parameter sweep over 50x50 grid"
   },
   "science_directive_version": 2,
+  "review_iterations": 1,
+  "reviewer_decision": "REVISE",
   "file_manifest": {
     "scripts": ["scripts/optimize_chi.py", "scripts/sweep_parameters.py"],
     "data": ["data/sweep_results.npz", "data/optimal_params.json"],
@@ -177,9 +219,22 @@ The **research engineer + technical writer**. Handles all implementation.
 }
 ```
 
-### SCIENCE_DIRECTIVE.md — Codex → Opus Communication
+### State File Communication Flow
 
-Written by the Science Director after each review. Structured for machine parsing.
+| File | Written By | Read By | Purpose |
+|------|-----------|---------|---------|
+| `SCIENCE_DIRECTIVE.md` | Opus (self-directed) | Opus (during implement) | Research plan and experiment design |
+| `EXECUTION_SUMMARY.md` | Opus | Codex (during review) | Quantitative findings digest |
+| `REVIEW_REQUEST.md` | Opus | Codex / auto-watcher | Signal that study is ready for review |
+| `REVIEW_DIRECTIVE.md` | Codex | Opus (during revision) | Review assessment and required actions |
+| `FOLLOWUP_PROMPT.md` | Codex | Opus (during revision) | Self-contained prompt for next iteration |
+| `POLISH_COMPLETE.md` | Opus | User / auto-watcher | Signal that study is finalized |
+| `study_state.json` | Both | Both | Machine-readable status (single source of truth) |
+| `TASK_CHECKLIST.md` | Opus | Opus (on resume) | Checkpointed task tracking |
+| `PROGRESS_LOG.md` | Opus | Both | Append-only log of what happened |
+| `BLOCKERS.md` | Opus | Both | Active and resolved blockers |
+
+### SCIENCE_DIRECTIVE.md -- Self-Directed Research Plan (Opus)
 
 ```markdown
 # Science Directive — Iteration N
@@ -206,9 +261,9 @@ Written by the Science Director after each review. Structured for machine parsin
 <!-- When should Opus stop and send results back for review? -->
 ```
 
-### EXECUTION_SUMMARY.md — Opus → Codex Communication
+### EXECUTION_SUMMARY.md -- Opus -> Codex Communication
 
-Written by the Execution Engineer after each implementation cycle. Compact.
+Written by the Execution Engineer (Opus) after each implementation cycle. Read by the Science Director (Codex).
 
 ```markdown
 # Execution Summary — Iteration N
@@ -258,8 +313,8 @@ Level 2: FIX (bounded: max 3 attempts per failure)
   ├─ DEPENDENCY  → pip install --user, check installed version
   ├─ SYNTAX      → fix the code, re-run
   ├─ RUNTIME     → check array shapes, parameter ranges, NaN/Inf
-  ├─ PHYSICS     → check Hamiltonian, units, parameter magnitudes
-  └─ ASSUMPTION  → log as potential science issue for Codex review
+  \-- PHYSICS \-> check Hamiltonian, units, parameter magnitudes
+  \-- ASSUMPTION \-> log as potential issue for Codex review
 
 Level 3: LOG & ESCALATE (after 3 failed attempts)
   ├─ Document: what was tried, what happened, full traceback
@@ -317,7 +372,7 @@ The loop does NOT stop merely because code ran. Before marking COMPLETE, ALL mus
 | Principle | Implementation |
 |-----------|---------------|
 | Codex sees summaries, not raw data | EXECUTION_SUMMARY.md is capped at ~500 lines |
-| Opus gets structured directives, not prose | SCIENCE_DIRECTIVE.md uses action lists |
+| Opus gets structured directives, not prose | FOLLOWUP_PROMPT.md uses action lists |
 | State persists in files, not context | study_state.json is the single source of truth |
 | Large files are never passed whole | Scripts summarized to function signatures + key results |
 | Each iteration is self-contained | No reliance on chat history from prior iterations |

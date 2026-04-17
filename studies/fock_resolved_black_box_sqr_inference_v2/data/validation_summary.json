@@ -1,0 +1,76 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "details": {
+        "best_mle_fidelity": 0.9981769321367392,
+        "threshold": 0.995
+      },
+      "name": "single_qubit_baseline_high_shot",
+      "passed": true
+    },
+    {
+      "details": {
+        "disp_transverse_rank": 2,
+        "expected_full_rank": 8,
+        "wait_transverse_rank": 8
+      },
+      "name": "wait_only_identifiable_displacement_only_not",
+      "passed": true
+    },
+    {
+      "details": {
+        "objective_span": 220.44418498000596,
+        "prob_std_mean": 0.04625757276050741
+      },
+      "name": "full_state_nonuniqueness_demonstrated",
+      "passed": true
+    },
+    {
+      "details": {
+        "count": 2
+      },
+      "name": "exact_gauge_family_exists",
+      "passed": true
+    },
+    {
+      "details": {
+        "combined_exact_rmse": 2.0202017133595645e-16,
+        "threshold": 1e-08,
+        "wait_only_exact_rmse": 1.3988786746978326e-16
+      },
+      "name": "exact_recoverable_fit_converges",
+      "passed": true
+    },
+    {
+      "details": {
+        "coherent_combined_residual": 0.13873585810995376,
+        "diagonal_wait_residual": 2.0330539312732476e-16
+      },
+      "name": "coherence_witness_active",
+      "passed": true
+    },
+    {
+      "details": {
+        "mean_oracle_fidelity": 1.002414487019022,
+        "threshold": 0.9
+      },
+      "name": "near_ideal_pulse_oracle_fidelity",
+      "passed": true
+    },
+    {
+      "details": {
+        "residuals": [
+          0.009648519240859651,
+          0.017659763728490343,
+          0.037335182265981315,
+          0.0694880245818238,
+          0.10544953588493386,
+          0.13967330872877676
+        ]
+      },
+      "name": "coherence_sweep_residual_monotone",
+      "passed": true
+    }
+  ]
+}

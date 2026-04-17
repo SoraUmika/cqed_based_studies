@@ -1,0 +1,88 @@
+{
+  "primitive_verdicts": [
+    {
+      "primitive": "Unconditional cavity displacement",
+      "ideal_claim": "$I_q \\otimes D(\\alpha)$ across both qubit branches",
+      "best_structured_family": "Two-tone branch-compensated displacement",
+      "best_metric_label": "Broad-state mean fidelity",
+      "best_metric_value": 0.9857,
+      "best_duration_ns": 20.0,
+      "chi_t_over_2pi": 0.056799999999999996,
+      "verdict": "Approximate success on short calibrated pulses",
+      "main_obstruction": "Branch detuning from chi and finite-pulse phase accumulation; naive echo fails once the inserted pi pulse becomes manifold dependent.",
+      "source_path": "studies/waveform_level_gate_realization_dispersive_cqed/study_state.json"
+    },
+    {
+      "primitive": "Unconditional qubit rotation",
+      "ideal_claim": "$R_q(\\theta,\\phi)$ independent of cavity occupancy",
+      "best_structured_family": "Short Gaussian/DRAG vacuum-calibrated pulse",
+      "best_metric_label": "Vacuum X_pi fidelity",
+      "best_metric_value": 0.999841,
+      "best_duration_ns": 40.0,
+      "chi_t_over_2pi": 0.11359999999999999,
+      "verdict": "Only spectator-limited, not truly unconditional",
+      "main_obstruction": "Photon-number-dependent qubit detuning through chi and chi-prime turns the pulse into a Fock-selective operation as cavity occupation grows.",
+      "source_path": "studies/waveform_level_gate_realization_dispersive_cqed/study_state.json"
+    },
+    {
+      "primitive": "Selective qubit rotation (relaxed CPSQR / cphase-SQR)",
+      "ideal_claim": "Blockwise qubit rotation up to removable conditional phases",
+      "best_structured_family": "Short flat-top Gaussian cphase-SQR",
+      "best_metric_label": "Noisy relaxed fidelity",
+      "best_metric_value": 0.9902786522509661,
+      "best_duration_ns": 352.11267605633793,
+      "chi_t_over_2pi": 1.0,
+      "verdict": "Robust practical primitive",
+      "main_obstruction": "Strict logical gauge is not preserved; a later SNAP or virtual-Z cleanup layer is still needed.",
+      "source_path": "studies/literature_informed_selective_primitives/data/study_results.json"
+    },
+    {
+      "primitive": "Strict full-joint ideal SQR",
+      "ideal_claim": "$\\sum_n |n\\rangle\\langle n| \\otimes R_x(\\theta_n)$ with correct inter-manifold phase",
+      "best_structured_family": "Direct reduced-unitary multitone",
+      "best_metric_label": "Joint process fidelity",
+      "best_metric_value": 0.9987632573882036,
+      "best_duration_ns": 1760.5633802816897,
+      "chi_t_over_2pi": 5.0,
+      "verdict": "Limited to easy low-window cases",
+      "main_obstruction": "The same waveform must fit all target angles while cancelling manifold-dependent coherent Z structure; chi-prime collapses the strict success window as N_active grows.",
+      "source_path": "studies/native_rich_multitone_sqr_cpsqr_feasibility/data/study_summary.json"
+    },
+    {
+      "primitive": "Arbitrary Fock-conditional blockwise SU(2)",
+      "ideal_claim": "General strict blockwise SU(2) control across addressed manifolds",
+      "best_structured_family": "Single-pulse Gaussian on structured in-plane subclass",
+      "best_metric_label": "Strict joint process fidelity",
+      "best_metric_value": 0.9957174869389285,
+      "best_duration_ns": 1760.5633802816897,
+      "chi_t_over_2pi": 5.0,
+      "verdict": "No general success on hard classes",
+      "main_obstruction": "Stress and random targets fail even with richer direct families; the obstruction is coherent and not explained away by Gaussian ansatz rigidity.",
+      "source_path": "studies/strong_validation_arbitrary_fock_conditional_rotations/data/study_summary.json"
+    },
+    {
+      "primitive": "Arbitrary Fock-conditional control under left-Z gauge",
+      "ideal_claim": "General blockwise SU(2) up to explicit per-block Z gauge",
+      "best_structured_family": "Segmented relaxed CPSQR",
+      "best_metric_label": "Relaxed joint process fidelity",
+      "best_metric_value": 0.9999999801850136,
+      "best_duration_ns": 1760.5633802816897,
+      "chi_t_over_2pi": 5.0,
+      "verdict": "Strong positive result under explicit gauge relaxation",
+      "main_obstruction": "The same pulse does not preserve the strict operator; success depends on acknowledging and then cleaning up the blockwise Z structure.",
+      "source_path": "studies/strong_validation_arbitrary_fock_conditional_rotations/data/study_summary.json"
+    },
+    {
+      "primitive": "Selective number-dependent arbitrary phase (SNAP)",
+      "ideal_claim": "Exact cavity phase cleanup layer",
+      "best_structured_family": "Flat-top Gaussian two-pi geometric SNAP",
+      "best_metric_label": "Noisy average state fidelity",
+      "best_metric_value": 0.9377412882771108,
+      "best_duration_ns": 1549.2957746478871,
+      "chi_t_over_2pi": 2.2,
+      "verdict": "Useful but slow cleanup primitive",
+      "main_obstruction": "Selectivity requires long total sequence time, so coherence cost is substantially higher than for practical relaxed SQR.",
+      "source_path": "studies/literature_informed_selective_primitives/data/study_results.json"
+    }
+  ]
+}

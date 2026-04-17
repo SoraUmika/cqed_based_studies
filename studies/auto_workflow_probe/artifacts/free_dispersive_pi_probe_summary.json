@@ -1,0 +1,46 @@
+{
+  "study_name": "auto_workflow_probe",
+  "date_created": "2026-04-06T07:51:22.488932Z",
+  "description": "Minimal model-level verification that free dispersive idle evolution reaches a pi relative phase between the n=0 and n=1 manifolds at t_pi = pi / |chi|.",
+  "parameters": {
+    "omega_q_hz": 6150000000.0,
+    "omega_c_hz": 5241000000.0,
+    "alpha_hz": -255000000.0,
+    "chi_hz": -2840000.0,
+    "kerr_hz": -28000.0,
+    "qubit_dim": 2,
+    "cavity_dims": [
+      2,
+      3
+    ],
+    "hamiltonian_cross_check_cavity_dim": 3,
+    "num_samples": 51,
+    "dispersive_phase_convention": "n_e"
+  },
+  "load_instructions": "Use json.loads(Path('artifacts/free_dispersive_pi_probe_summary.json').read_text(encoding='ascii')) for metadata and numpy/genfromtxt on data/phase_difference_samples.csv for the sampled phases.",
+  "analytic": {
+    "phase_model": "delta_phi(t) = -chi * t",
+    "t_pi_s": 1.76056338028169e-07,
+    "t_pi_ns": 176.056338028169
+  },
+  "numerical": {
+    "max_wrapped_error_dim2_rad": 8.881784197001252e-16,
+    "max_wrapped_difference_dim2_vs_dim3_rad": 0.0,
+    "max_wrapped_hamiltonian_error_rad": 8.881784197001252e-16,
+    "max_wrapped_helper_vs_hamiltonian_rad": 0.0,
+    "manifold_shift_rad_s": -17844246.272377014,
+    "manifold_shift_hz": -2839999.999997929,
+    "hamiltonian_shift_rad_s": -17844246.272390027,
+    "hamiltonian_shift_hz": -2840000.0000000005,
+    "sample_count": 51
+  },
+  "files": {
+    "data_csv": "data/phase_difference_samples.csv",
+    "figure_png": "figures/phase_difference_vs_idle_time.png",
+    "figure_pdf": "figures/phase_difference_vs_idle_time.pdf",
+    "cross_check_data_csv": "data/phase_difference_hamiltonian_cross_check.csv",
+    "cross_check_artifact_json": "artifacts/free_dispersive_hamiltonian_cross_check.json",
+    "cross_check_figure_png": "figures/phase_difference_hamiltonian_cross_check.png",
+    "cross_check_figure_pdf": "figures/phase_difference_hamiltonian_cross_check.pdf"
+  }
+}

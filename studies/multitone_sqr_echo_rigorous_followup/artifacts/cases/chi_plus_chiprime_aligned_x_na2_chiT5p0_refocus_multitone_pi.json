@@ -1,0 +1,887 @@
+{
+  "case_request": {
+    "chi_t_over_2pi": 5.0,
+    "family": "aligned_x",
+    "include_chi_prime": true,
+    "model_variant": "chi_plus_chiprime",
+    "n_active": 2,
+    "seed": null
+  },
+  "comparison_spec": {
+    "description": "Manifold-aware shared-line multitone refocusing target with blockwise Rx(pi).",
+    "family": "refocus_x_pi",
+    "n_active": 2,
+    "phi_values_rad": [
+      0.0,
+      0.0
+    ],
+    "theta_values_rad": [
+      3.141592653589793,
+      3.141592653589793
+    ]
+  },
+  "construction": "refocus_multitone_pi",
+  "date_created": "2026-04-06T09:11:52Z",
+  "description": "Artifact for refocus_multitone_pi on chi_plus_chiprime_aligned_x_na2_chiT5p0.",
+  "full_operator_columns_on_logical_inputs": {
+    "imag": [
+      [
+        0.2114619602520085,
+        0.0,
+        0.0,
+        0.0,
+        0.08132668293438465,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.2163017875181237,
+        0.0,
+        0.0,
+        0.0,
+        0.12366192950927418,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.21784802337287643,
+        0.0,
+        0.0,
+        0.0,
+        0.1431279579321351,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.21707077544383152,
+        0.0,
+        0.0,
+        0.0,
+        0.13013027334631727
+      ],
+      [
+        0.08132668293438465,
+        0.0,
+        0.0,
+        0.0,
+        -0.2114619602520085,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.11448441376316487,
+        0.0,
+        0.0,
+        0.0,
+        0.5009807008940298,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.08915058732339314,
+        0.0,
+        0.0,
+        0.0,
+        0.9470509330628317,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.012637908315514888,
+        0.0,
+        0.0,
+        0.0,
+        0.8682646490182795
+      ]
+    ],
+    "real": [
+      [
+        0.9739277852692997,
+        0.0,
+        0.0,
+        0.0,
+        -0.011958344817908157,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.9678291055148355,
+        0.0,
+        0.0,
+        0.0,
+        -0.03516618962060699,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.9620646340836356,
+        0.0,
+        0.0,
+        0.0,
+        -0.08060333347991776,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9588469123668789,
+        0.0,
+        0.0,
+        0.0,
+        -0.12871552261054123
+      ],
+      [
+        0.011958344817908157,
+        0.0,
+        0.0,
+        0.0,
+        0.9739277852692997,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.05850027988440074,
+        0.0,
+        0.0,
+        0.0,
+        0.8558608960500548,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -0.13796662897881393,
+        0.0,
+        0.0,
+        0.0,
+        0.27589923048099024,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        -0.1825981349014626,
+        0.0,
+        0.0,
+        0.0,
+        -0.46111077068043604
+      ]
+    ],
+    "shape": [
+      8,
+      8
+    ]
+  },
+  "load_instructions": "Load `chi_plus_chiprime_aligned_x_na2_chiT5p0_refocus_multitone_pi.json` as JSON and inspect the documented result rows and metadata.",
+  "probe_metrics": {
+    "probe_fidelity_mean": 0.3527896752407886,
+    "probe_fidelity_min": 0.005338180076371786,
+    "probe_rows": [
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5000042614605396,
+            "x": 0.057687636489007856,
+            "y": 0.15335385529123316,
+            "z": 0.9864860524425207
+          },
+          {
+            "level": 1,
+            "population": 0.5000043022532155,
+            "x": -0.06370963223595981,
+            "y": 0.24690800123271678,
+            "z": 0.9669423569622047
+          }
+        ],
+        "label": "equal_ground",
+        "state_fidelity": 0.010127034327407679
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5000042614605396,
+            "x": 0.9102824393668766,
+            "y": -0.41383889515249594,
+            "z": 0.011101776400649188
+          },
+          {
+            "level": 1,
+            "population": 0.5000041757878686,
+            "x": 0.9528965271843146,
+            "y": 0.30294527951397665,
+            "z": -0.014572786290599493
+          }
+        ],
+        "label": "equal_plus",
+        "state_fidelity": 0.9235564058635228
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5000042614605396,
+            "x": 0.40994879823778063,
+            "y": 0.8973404949773954,
+            "z": -0.1634687092293885
+          },
+          {
+            "level": 1,
+            "population": 0.5000043285000507,
+            "x": -0.2965288346623291,
+            "y": 0.9204676134126346,
+            "z": -0.2545781272463329
+          }
+        ],
+        "label": "equal_plus_i",
+        "state_fidelity": 0.005338180076371786
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5000042614605396,
+            "x": 0.9102824393668766,
+            "y": -0.41383889515249594,
+            "z": 0.011101776400649188
+          },
+          {
+            "level": 1,
+            "population": 0.5000041757878686,
+            "x": 0.9528965271843146,
+            "y": 0.30294527951397665,
+            "z": -0.014572786290599493
+          }
+        ],
+        "label": "alternating_plus",
+        "state_fidelity": 0.9235564058635228
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.598596463966802,
+            "x": 0.290242473285465,
+            "y": 0.33091233658685426,
+            "z": 0.8979177758546516
+          },
+          {
+            "level": 1,
+            "population": 0.40141197442677273,
+            "x": 0.9279573207319037,
+            "y": -0.15729459393994943,
+            "z": -0.33786627771550853
+          }
+        ],
+        "label": "random_logical_seed17",
+        "state_fidelity": 0.2369498862031975
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.590858784072354,
+            "x": 0.06928704864782825,
+            "y": 0.9338753229273593,
+            "z": 0.35082215739173866
+          },
+          {
+            "level": 1,
+            "population": 0.40914978584150125,
+            "x": -0.09969451876730202,
+            "y": 0.9287461825696266,
+            "z": 0.35705956266441347
+          }
+        ],
+        "label": "random_logical_seed29",
+        "state_fidelity": 0.01721013911070883
+      }
+    ]
+  },
+  "restricted_operator": {
+    "imag": [
+      [
+        0.2114619602520085,
+        0.08132668293438465,
+        0.0,
+        0.0
+      ],
+      [
+        0.08132668293438465,
+        -0.2114619602520085,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.2163017875181237,
+        0.12366192950927418
+      ],
+      [
+        0.0,
+        0.0,
+        0.11448441376316487,
+        0.5009807008940298
+      ]
+    ],
+    "real": [
+      [
+        0.9739277852692997,
+        -0.011958344817908157,
+        0.0,
+        0.0
+      ],
+      [
+        0.011958344817908157,
+        0.9739277852692997,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.9678291055148355,
+        -0.03516618962060699
+      ],
+      [
+        0.0,
+        0.0,
+        -0.05850027988440074,
+        0.8558608960500548
+      ]
+    ],
+    "shape": [
+      4,
+      4
+    ]
+  },
+  "study_name": "multitone_sqr_echo_rigorous_followup",
+  "summary_row": {
+    "active_duration_ns": 1760.5633802816897,
+    "best_fit_block_phase_rms_rad": 0.26497355367845915,
+    "best_fit_restricted_process_fidelity": 0.010949415407693223,
+    "case_id": "chi_plus_chiprime_aligned_x_na2_chiT5p0",
+    "chi_t_over_2pi": 5.0,
+    "construction": "refocus_multitone_pi",
+    "evaluation_target_family": "refocus_x_pi",
+    "family": "aligned_x",
+    "include_chi_prime": true,
+    "leakage_outside_target_max": 0.0,
+    "leakage_outside_target_mean": 0.0,
+    "max_residual_z_error_rad": 0.03646870241479254,
+    "max_transverse_error_rad": 2.9785457400915982,
+    "mean_block_average_gate_fidelity": 0.34099526714600054,
+    "mean_residual_z_error_rad": 0.03610398848732943,
+    "mean_transverse_error_rad": 2.9316505365785615,
+    "model_variant": "chi_plus_chiprime",
+    "n_active": 2,
+    "optimizer_message": "Optimization terminated successfully.",
+    "optimizer_success": true,
+    "other_target_population_max": 0.0,
+    "other_target_population_mean": 0.0,
+    "per_block_average_gate_fidelities": [
+      0.3377426862380733,
+      0.3442478480539278
+    ],
+    "per_block_process_fidelities": [
+      0.0066140293571099315,
+      0.016371772080891727
+    ],
+    "per_block_residual_z_error_rad": [
+      0.03573927455986632,
+      0.03646870241479254
+    ],
+    "per_block_rotation_angle_errors_rad": [
+      2.6838548312149646,
+      2.7392681507663426
+    ],
+    "per_block_rotation_axis_errors_rad": [
+      1.937415669667651,
+      2.26577916531709
+    ],
+    "per_block_transverse_error_rad": [
+      2.9785457400915982,
+      2.884755333065525
+    ],
+    "probe_fidelity_mean": 0.3527896752407886,
+    "probe_fidelity_min": 0.005338180076371786,
+    "restricted_average_gate_fidelity": 0.20847069071786048,
+    "restricted_fro_error": 1.483377357450665,
+    "restricted_process_fidelity": 0.010588363397325608,
+    "restricted_unitarity_error": 1.706318559051407e-05,
+    "same_block_population_mean": 1.0000085300267134,
+    "same_block_population_min": 1.0000084697582652,
+    "seed": null,
+    "state_transfer_fidelity_mean": 0.13466135818451658,
+    "state_transfer_fidelity_min": 0.006757031367893921,
+    "target_phi_values_rad": [
+      0.0,
+      0.0
+    ],
+    "target_theta_values_rad": [
+      3.141592653589793,
+      3.141592653589793
+    ],
+    "total_gate_duration_ns": 40.0,
+    "uncorrected_restricted_process_fidelity": 0.010588363397325608,
+    "weighted_loss": 1.1870830570729107,
+    "worst_block_average_gate_fidelity": 0.3377426862380733
+  },
+  "tone_rows": [
+    {
+      "amp_rad_s": 68722337.32521166,
+      "drive_frequency_rad_s": 0.0,
+      "n": 0,
+      "omega_rad_s": 38641589639.15446,
+      "phase_rad": 0.5462560672673923
+    },
+    {
+      "amp_rad_s": 25645071.29517959,
+      "drive_frequency_rad_s": -17844246.272392273,
+      "n": 1,
+      "omega_rad_s": 38659433885.42685,
+      "phase_rad": 1.738173967968483
+    }
+  ],
+  "validation": {
+    "basis_metrics": [
+      {
+        "dominant_block": 0,
+        "input_block": 0,
+        "input_label": "|g,0>",
+        "input_qubit_level": 0,
+        "leakage_population": 0.0,
+        "other_target_population": 0.0,
+        "same_block_population": 1.000008522921079
+      },
+      {
+        "dominant_block": 0,
+        "input_block": 0,
+        "input_label": "|e,0>",
+        "input_qubit_level": 1,
+        "leakage_population": 0.0,
+        "other_target_population": 0.0,
+        "same_block_population": 1.000008522921079
+      },
+      {
+        "dominant_block": 1,
+        "input_block": 1,
+        "input_label": "|g,1>",
+        "input_qubit_level": 0,
+        "leakage_population": 0.0,
+        "other_target_population": 0.0,
+        "same_block_population": 1.0000086045064307
+      },
+      {
+        "dominant_block": 1,
+        "input_block": 1,
+        "input_label": "|e,1>",
+        "input_qubit_level": 1,
+        "leakage_population": 0.0,
+        "other_target_population": 0.0,
+        "same_block_population": 1.0000084697582652
+      }
+    ],
+    "best_fit_logical_block_phase": {
+      "logical_levels": [
+        0,
+        1
+      ],
+      "phases_rad": [
+        0.0,
+        -0.3747291932822723
+      ]
+    },
+    "best_fit_restricted_process_fidelity": 0.010949415407693223,
+    "block_phase_diagnostics": {
+      "applied_correction_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "best_fit_block_gauge_fidelity": 0.10463945435491734,
+      "best_fit_correction_phases_rad": [
+        0.0,
+        -0.3747291932822723
+      ],
+      "block_gauge_fidelity": 0.10463945435491731,
+      "block_phases_rad": [
+        0.0,
+        0.37472919328227217
+      ],
+      "corrected_block_gauge_fidelity": 0.10463945435491731,
+      "corrected_block_phases_rad": [
+        0.0,
+        0.3747291932822723
+      ],
+      "corrected_relative_block_phases_rad": [
+        0.0,
+        0.3747291932822723
+      ],
+      "relative_block_phases_rad": [
+        0.0,
+        0.3747291932822723
+      ],
+      "residual_block_phases_rad": [
+        0.0,
+        0.3747291932822723
+      ],
+      "rms_block_phase_error_rad": 0.26497355367845915
+    },
+    "block_population_matrix": [
+      [
+        1.000008522921079,
+        0.0
+      ],
+      [
+        0.0,
+        1.000008537132348
+      ]
+    ],
+    "conditioned_sector_metrics": [
+      {
+        "bloch_distance": 1.9932315733213344,
+        "bloch_radius": 0.9999999999999999,
+        "dominant_error": "mixed-or-crosstalk-like",
+        "fidelity": 0.006756973778739672,
+        "n": 0,
+        "phi_error_rad": 2.7817936727569945,
+        "phi_simulated_rad": 2.7817936727569945,
+        "purity": 0.9999999999999999,
+        "sector_population": 1.0000085229210791,
+        "simulated_bloch_x": 0.05768763648900785,
+        "simulated_bloch_y": 0.15335385529123313,
+        "simulated_bloch_z": 0.9864860524425206,
+        "target_bloch_x": 0.0,
+        "target_bloch_y": -1.2246467991473532e-16,
+        "target_bloch_z": -1.0,
+        "target_phi_rad": 0.0,
+        "target_theta_rad": 3.141592653589793,
+        "theta_error_rad": -2.9770053179776492,
+        "theta_simulated_rad": 0.16458733561214406,
+        "weight": 0.5
+      },
+      {
+        "bloch_distance": 1.9834023076331262,
+        "bloch_radius": 1.0,
+        "dominant_error": "mixed-or-crosstalk-like",
+        "fidelity": 0.016528821518897705,
+        "n": 1,
+        "phi_error_rad": -2.8890708883743397,
+        "phi_simulated_rad": 3.394114418805247,
+        "purity": 1.0000000000000002,
+        "sector_population": 1.0000086045064307,
+        "simulated_bloch_x": -0.06370963223595982,
+        "simulated_bloch_y": 0.2469080012327168,
+        "simulated_bloch_z": 0.9669423569622047,
+        "target_bloch_x": 0.0,
+        "target_bloch_y": -1.2246467991473532e-16,
+        "target_bloch_z": -1.0,
+        "target_phi_rad": 0.0,
+        "target_theta_rad": 3.141592653589793,
+        "theta_error_rad": -2.883750063962415,
+        "theta_simulated_rad": 0.25784258962737794,
+        "weight": 0.5
+      }
+    ],
+    "leakage_loss": 0.0,
+    "leakage_outside_target_max": 0.0,
+    "leakage_outside_target_mean": 0.0,
+    "logical_block_phase": {
+      "logical_levels": [
+        0,
+        1
+      ],
+      "phases_rad": [
+        0.0,
+        0.0
+      ]
+    },
+    "logical_levels": [
+      0,
+      1
+    ],
+    "logical_weights": [
+      0.5,
+      0.5
+    ],
+    "metadata": {
+      "construction": "refocus_multitone_pi",
+      "has_transfer_set": true,
+      "logical_block_phase_applied": {
+        "logical_levels": [
+          0,
+          1
+        ],
+        "phases_rad": [
+          0.0,
+          0.0
+        ]
+      },
+      "logical_block_phase_best_fit": {
+        "logical_levels": [
+          0,
+          1
+        ],
+        "phases_rad": [
+          0.0,
+          -0.3747291932822723
+        ]
+      },
+      "logical_indices": [
+        0,
+        4,
+        1,
+        5
+      ],
+      "subspace_metric_source": "restricted_operator"
+    },
+    "objective_weights": {
+      "leakage_weight": 0.35,
+      "preservation_weight": 0.35,
+      "qubit_weight": 0.2,
+      "subspace_weight": 1.0
+    },
+    "other_target_population_max": 0.0,
+    "other_target_population_mean": 0.0,
+    "preservation_loss": 0.0,
+    "qubit_loss": 0.9883571023511813,
+    "restricted_fro_error": 1.483377357450665,
+    "restricted_process_fidelity": 0.010588363397325608,
+    "restricted_unitarity_error": 1.706318559051407e-05,
+    "same_block_population_mean": 1.0000085300267134,
+    "same_block_population_min": 1.0000084697582652,
+    "state_transfer_fidelity_mean": 0.13466135818451658,
+    "state_transfer_fidelity_min": 0.006757031367893921,
+    "subspace_loss": 0.9894116366026744,
+    "transfer_metrics": [
+      {
+        "fidelity": 0.006757031367893921,
+        "label": "basis_0",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.006757031367893921,
+        "label": "basis_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.016528963741248754,
+        "label": "basis_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.016528933702389184,
+        "label": "basis_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.9551493602766732,
+        "label": "plus_0_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.05133018999073197,
+        "label": "phase_0_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.010127034327407676,
+        "label": "plus_0_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.010127034327407676,
+        "label": "phase_0_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.010639733822990684,
+        "label": "plus_0_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.010639733822990684,
+        "label": "phase_0_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.010826600846209476,
+        "label": "plus_1_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.010826600846209476,
+        "label": "phase_1_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.011060263244405845,
+        "label": "plus_1_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.011060263244405845,
+        "label": "phase_1_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.9764564184737846,
+        "label": "plus_2_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.03976653754962217,
+        "label": "phase_2_3",
+        "weight": 0.0625
+      }
+    ],
+    "uncorrected_restricted_process_fidelity": 0.010588363397325608,
+    "weighted_loss": 1.1870830570729107
+  },
+  "waveform_npz": "artifacts\\waveforms\\chi_plus_chiprime_aligned_x_na2_chiT5p0_refocus_multitone_pi.npz",
+  "waveform_samples": {
+    "baseband_imag": [
+      60987371.55748458,
+      32134665.027911823,
+      -79992047.10288964,
+      18422823.636457883,
+      66982921.6590801,
+      -59827515.38732733,
+      -28379511.76062804,
+      76257997.3830425,
+      -19618250.03804962,
+      -62429395.68538123,
+      57901456.09831844,
+      25146317.886631764,
+      -72115552.71028408,
+      20011758.39255983,
+      58017197.26468841,
+      -55270360.1541338,
+      -22537760.949006338,
+      67696265.98801132,
+      -19590851.93282814,
+      -53886445.95403823,
+      0.0,
+      0.0
+    ],
+    "baseband_real": [
+      54449152.58494569,
+      -74389884.48431091,
+      -6969607.150763974,
+      77378002.73404923,
+      -41452279.55076784,
+      -50028682.67522047,
+      71785149.46948662,
+      4334708.054414004,
+      -72967019.13890861,
+      41063407.12297465,
+      45884274.8558262,
+      -68555245.76637523,
+      -2404430.1750969365,
+      68413891.45201302,
+      -39872472.3411109,
+      -42147544.37441158,
+      64802746.431081265,
+      1240073.94757545,
+      -63863214.76492609,
+      37917296.09130895,
+      0.0,
+      0.0
+    ],
+    "distorted_imag": [
+      60987371.55748458,
+      32134665.027911823,
+      -79992047.10288964,
+      18422823.636457883,
+      66982921.6590801,
+      -59827515.38732733,
+      -28379511.76062804,
+      76257997.3830425,
+      -19618250.03804962,
+      -62429395.68538123,
+      57901456.09831844,
+      25146317.886631764,
+      -72115552.71028408,
+      20011758.39255983,
+      58017197.26468841,
+      -55270360.1541338,
+      -22537760.949006338,
+      67696265.98801132,
+      -19590851.93282814,
+      -53886445.95403823,
+      0.0,
+      0.0
+    ],
+    "distorted_real": [
+      54449152.58494569,
+      -74389884.48431091,
+      -6969607.150763974,
+      77378002.73404923,
+      -41452279.55076784,
+      -50028682.67522047,
+      71785149.46948662,
+      4334708.054414004,
+      -72967019.13890861,
+      41063407.12297465,
+      45884274.8558262,
+      -68555245.76637523,
+      -2404430.1750969365,
+      68413891.45201302,
+      -39872472.3411109,
+      -42147544.37441158,
+      64802746.431081265,
+      1240073.94757545,
+      -63863214.76492609,
+      37917296.09130895,
+      0.0,
+      0.0
+    ],
+    "time_s": [
+      0.0,
+      2e-09,
+      4e-09,
+      6.000000000000001e-09,
+      8e-09,
+      1e-08,
+      1.2000000000000002e-08,
+      1.4000000000000001e-08,
+      1.6e-08,
+      1.8000000000000002e-08,
+      2e-08,
+      2.2000000000000002e-08,
+      2.4000000000000003e-08,
+      2.6e-08,
+      2.8000000000000003e-08,
+      3.0000000000000004e-08,
+      3.2e-08,
+      3.4e-08,
+      3.6000000000000005e-08,
+      3.8e-08,
+      4e-08,
+      4.2000000000000006e-08
+    ]
+  }
+}

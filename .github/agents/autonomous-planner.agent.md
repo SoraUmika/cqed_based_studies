@@ -39,6 +39,17 @@ Your job is to convert a source task document into explicit execution artifacts 
 - If the source task is too ambiguous to plan safely, document the ambiguity in `BLOCKERS.md`, record it in `PROGRESS_LOG.md`, and stop.
 - If the plan already exists, update it incrementally instead of replacing it wholesale.
 
+## cQED Research Context
+
+When the source task involves a cQED simulation study (task file under `studies/` or mentioning `cqed_sim`):
+
+- Read `AGENTS.md` for the full workflow specification, problem classes (OPT/REP/DES/ANA), and report requirements.
+- Consult the [cqed_sim API Reference](https://github.com/SoraUmika/qubox_cQEDsim/blob/main/API_REFERENCE.md) when planning simulation steps.
+- Ensure the plan includes the AGENTS.md-mandated steps: a first-principles analytic preliminary, explicit controlled approximations with validity conditions, gap analysis, compute cost estimate, and all three validation checks (sanity, convergence, literature).
+- Map checklist items to the study folder structure: `scripts/`, `data/`, `figures/`, `artifacts/`, `report/`.
+- Include a checklist item for the reproducibility notebook (`scripts/reproducibility_notebook.ipynb`).
+- Reference `research_config.json` for loop iteration limits and retry policy.
+
 ## Response Format
 - Summarize which state files were created or updated.
 - List the first one or two implementation checkpoints.

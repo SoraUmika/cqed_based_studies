@@ -1,0 +1,79 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "details": {
+        "best_single_qubit_mle_mean_fidelity": 0.9985614474129451
+      },
+      "name": "single_qubit_baseline_high_shot",
+      "passed": true
+    },
+    {
+      "details": {
+        "combined": {
+          "full_condition_number": 2.342813981240468,
+          "full_rank": 9,
+          "n_settings": 45,
+          "smallest_singular_value": 3.1892321138418627,
+          "smallest_transverse_singular_value": 3.1892321138418627,
+          "transverse_condition_number": 2.3428139812404685,
+          "transverse_rank": 8
+        },
+        "displacement_only": {
+          "full_condition_number": null,
+          "full_rank": 3,
+          "n_settings": 7,
+          "smallest_singular_value": 5.73711380425254e-17,
+          "smallest_transverse_singular_value": 7.498643789392967e-17,
+          "transverse_condition_number": null,
+          "transverse_rank": 2
+        },
+        "wait_only": {
+          "full_condition_number": 1.2063691182986809,
+          "full_rank": 9,
+          "n_settings": 11,
+          "smallest_singular_value": 3.1264250472470527,
+          "smallest_transverse_singular_value": 3.1264250472470514,
+          "transverse_condition_number": 1.2063691182986813,
+          "transverse_rank": 8
+        }
+      },
+      "name": "wait_only_identifiable_displacement_only_not",
+      "passed": true
+    },
+    {
+      "details": {
+        "coherence_combined_residual": 0.13874443898912447,
+        "coherence_wait_residual": 1.6166553364287884e-16
+      },
+      "name": "coherence_witness_separates_wait_from_combined",
+      "passed": true
+    },
+    {
+      "details": {
+        "exact_gauge_family_count": 2
+      },
+      "name": "explicit_gauge_family_exists",
+      "passed": true
+    },
+    {
+      "details": {
+        "combined_dense_grid_rmse": 3.769397401770705e-16,
+        "combined_kernel_dim_10_rmse": 1.5522073340699946e-16,
+        "combined_kernel_dim_12_rmse": 8.319582471110845e-08,
+        "combined_kernel_dim_delta": 8.319582455588772e-08,
+        "wait_only_exact_rmse": 1.3753048451707202e-16
+      },
+      "name": "exact_recoverable_fit_converges",
+      "passed": true
+    },
+    {
+      "details": {
+        "reason": "This is an original identifiability and protocol-design study rather than a literature reproduction benchmark.",
+        "status": "not_applicable"
+      },
+      "name": "literature_comparison",
+      "passed": true
+    }
+  ]
+}

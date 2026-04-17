@@ -1,0 +1,938 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue}
+
+\newcommand{\SQR}{\text{SQR}}
+\newcommand{\CPSQR}{\text{CPSQR}}
+\newcommand{\chiT}{\chi T / 2\pi}
+\newcommand{\Fstrict}{F_{\text{strict}}}
+\newcommand{\Fcpsqr}{F_{\text{CPSQR}}}
+\newcommand{\nact}{N_{\text{active}}}
+
+\definecolor{pass}{RGB}{0,130,0}
+\definecolor{fail}{RGB}{180,0,0}
+\definecolor{warn}{RGB}{200,120,0}
+
+\newcommand{\passmark}{\textcolor{pass}{$\checkmark$}}
+\newcommand{\failmark}{\textcolor{fail}{$\times$}}
+\newcommand{\warnmark}{\textcolor{warn}{$\sim$}}
+
+\title{\textbf{Unified Review: Multitone SQR Control and\\
+Holographic Cluster-State Synthesis in Dispersive cQED}\\[0.5em]
+\large A Critical Audit, Rerun, and Synthesis of Nine Prior Studies}
+
+\author{Critical Review --- March 28, 2026}
+
+\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\clearpage
+
+%% ============================================================
+\section{Overview and Scientific Questions}
+%% ============================================================
+
+This document audits, reruns, and unifies the nine most recent studies in this research
+repository, all of which address one or both of the following related questions:
+
+\begin{mdframed}
+\textbf{Scientific Question 1 (SQR):}
+Can a parameterized multitone qubit-drive waveform simultaneously realize
+a \emph{strict ideal x-axis selective qubit rotation} (SQR)
+$U_n = \exp(-i\theta_n X / 2)$
+on each addressed Fock manifold $n \in \{0, 1, \ldots, \nact{-}1\}$
+of a dispersive transmon-cavity system,
+with no residual per-manifold conditional phase,
+to a joint process fidelity exceeding 0.99?
+And if so, under what conditions (pulse duration, number of addressed manifolds,
+Hamiltonian model) does this succeed, and where does it break down?
+
+\textbf{Scientific Question 2 (Cluster State):}
+Can a structured native-gate sequence (D\,+\,R\,+\,SQR or D\,+\,R\,+\,CPSQR)
+implement the restricted ground-sector holographic cluster-state transfer
+$U_\text{joint}(\vert g\rangle \otimes \vert\psi\rangle) \approx \vert g\rangle \otimes H_c\vert\psi\rangle$
+on $\{\vert g,0\rangle, \vert g,1\rangle\}$ to fidelity exceeding 0.99,
+and how does the minimum circuit depth compare to the unconstrained GRAPE benchmark?
+\end{mdframed}
+
+The nine studies were carried out autonomously by a prior agent.
+This review reexamines every study skeptically, checks all key claims against the
+saved data and against rerun simulations, identifies weaknesses and inconsistencies,
+and produces a unified set of evidence-backed conclusions.
+
+%% ============================================================
+\section{Physical Model and Shared Conventions}
+%% ============================================================
+
+\subsection{Hamiltonian}
+
+All nine studies share the same dispersive transmon-cavity Hamiltonian:
+\begin{equation}
+  H = \omega_c a^\dagger a + \omega_q \vert e\rangle\langle e\vert
+      + \frac{\alpha}{2}\vert e\rangle\langle e\vert(\vert e\rangle\langle e\vert - 1)
+      - \chi a^\dagger a \vert e\rangle\langle e\vert
+      - \frac{\chi'}{2} (a^\dagger a)^2 \vert e\rangle\langle e\vert
+      + K (a^\dagger a)^2
+\end{equation}
+with parameters:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Parameter & Symbol & Value \\
+\midrule
+Qubit frequency & $\omega_q / 2\pi$ & 6.150\,GHz \\
+Cavity frequency & $\omega_c / 2\pi$ & 5.241\,GHz \\
+Transmon anharmonicity & $\alpha / 2\pi$ & $-255$\,MHz \\
+Dispersive shift & $\chi / 2\pi$ & $-2.84$\,MHz \\
+Second-order dispersive shift & $\chi' / 2\pi$ & $-21$\,kHz \\
+Cavity Kerr & $K$ & 0 (set to zero in all studies) \\
+Transmon levels retained & $N_\text{tr}$ & 2 \\
+Cavity levels & $N_\text{cav}$ & 4--12 (study dependent) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The SQR studies use two model variants:
+\texttt{chi\_only} (sets $\chi' = 0$) and \texttt{chi\_plus\_chiprime} (full model).
+The cluster-state study uses the full model with an additional Kerr term $K/2\pi = -28$\,kHz
+for the GRAPE benchmark only.
+
+\subsection{SQR Target Definition}
+
+A \textbf{strict ideal SQR} on $\nact$ addressed Fock manifolds requires:
+\begin{equation}
+  U_\text{joint}\big\vert_{n \in \text{addr}} = R_x(\theta_n)
+  \equiv e^{-i\theta_n X / 2},
+  \qquad
+  U_\text{joint}\big\vert_{n \notin \text{addr}} = \mathbf{1}
+\end{equation}
+with \emph{identical rotation angle $\theta_n$ for all $n$} and \emph{zero residual Z phase}.
+The minimum free parameter count for this target is $2\nact$ real numbers
+(one $\theta_n$ and one phase-lock constraint per manifold).
+
+A \textbf{relaxed CPSQR} (conditional phase SQR) allows arbitrary per-manifold
+Z phases $\varphi_n$:
+\begin{equation}
+  U_\text{joint}\big\vert_{n} = e^{i\varphi_n Z/2} R_x(\theta_n)
+\end{equation}
+The CPSQR target is substantially easier because the optimizer is not required to
+suppress conditional phase accumulation.
+
+\subsection{Metric Hierarchy}
+
+Multiple metrics appear across the nine studies, and their inconsistent use is
+a major source of confusion.  In order of increasing stringency:
+
+\begin{enumerate}
+\item \textbf{Reduced/restricted process fidelity} --- fidelity of the per-manifold
+  reduced effective-qubit unitary, ignoring cavity-mode correlations.
+  \emph{Most optimistic; can be high even when the full joint operator is wrong.}
+\item \textbf{Single-ground-state probe fidelity} --- state fidelity on
+  $\vert g\rangle$ input only.  Misses all coherence errors.
+\item \textbf{Spanning-quartet probe fidelity} --- mean state fidelity over
+  $\{\vert g\rangle, \vert e\rangle, \vert{+x}\rangle, \vert{+y}\rangle\}$ inputs
+  per manifold.  Sufficient to certify a per-manifold unitary up to global phase.
+\item \textbf{Full joint process fidelity} --- process fidelity of the complete
+  joint qubit-cavity unitary on all addressed and unaddressed manifolds simultaneously.
+  \emph{Most stringent; the definitive metric.}
+\end{enumerate}
+
+\noindent A key finding from Study~4 (multi-input validation) is that
+\emph{metrics 1 and 2 can yield high values while metric 4 is essentially zero}.
+The definitive metric throughout this review is the full joint process fidelity.
+
+%% ============================================================
+\section{The Nine Studies: Goals, Methods, and Weaknesses}
+%% ============================================================
+
+\begin{center}
+\begin{tabular}{rp{4cm}p{3.5cm}p{5cm}}
+\toprule
+\# & Study & Primary goal & Key weakness identified in this review \\
+\midrule
+1 & \texttt{corrected\_sqr\_conditioned\_rotation\_metric} &
+  Establish correct qubit-effective metric for SQR optimization &
+  Only thoroughly validates $\nact=1$; multi-manifold extension not demonstrated \\
+\addlinespace
+2 & \texttt{parameterized\_waveform\_residual\_z\_cancellation} &
+  Test richer waveform families for Z-error suppression &
+  Reports restricted process fidelity; multi-input validation (Study~4) shows
+  the baseline result is essentially broken ($F_\text{joint} = 0.008$) \\
+\addlinespace
+3 & \texttt{ideal\_sqr\_direct\_vs\_echoed\_multitone} &
+  First targeted strict ideal x-axis SQR; direct vs echoed &
+  Best direct case has \texttt{optimizer\_success=False}; echoed does not demonstrably improve strict metric \\
+\addlinespace
+4 & \texttt{native\_multitone\_sqr\_fixed\_multiinput\_validation} &
+  Validate saved artifacts from Studies 1--3 on multi-input probe ladder &
+  Reveals that Studies 2 and 3 artifacts fail on superposition probes \\
+\addlinespace
+5 & \texttt{multitone\_sqr\_arbitrary\_fock\_conditional\_rotations} &
+  Broader arbitrary SU(2) block targets; direct vs echoed &
+  Mean process fidelity 0.35 (direct) and 0.22 (echoed); echoed is \emph{worse} on average \\
+\addlinespace
+6 & \texttt{strong\_validation\_arbitrary\_fock\_conditional\_rotations} &
+  5 waveform families; strict and relaxed CPSQR evaluation &
+  Higher-expressivity benchmark yields zero gain; reason not investigated \\
+\addlinespace
+7 & \texttt{native\_rich\_multitone\_sqr\_cpsqr\_feasibility} &
+  Most comprehensive: 10 families, 3-stage screen, both models &
+  High quartet validation on separate manifolds does not certify joint operator
+  (one case: quartet $= 0.9999997$, joint $= 0.868$) \\
+\addlinespace
+8 & \texttt{the\_definitive\_ideal\_sqr\_gate\_study} &
+  Aggregate and synthesize all prior SQR results &
+  Aggregation-only pass; no new optimizations run; practical ranking
+  uses decoherence proxy, not actual drift sweeps \\
+\addlinespace
+9 & \texttt{cluster\_state\_holographic\_unified} &
+  Holographic cluster-state ground-sector synthesis &
+  Old full-target winners completely fail for ground-sector task (ancilla excitation $\approx 1$);
+  no open-system validation for ground-sector branch yet \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Study 1: Corrected Metric (\texttt{corrected\_sqr\_conditioned\_rotation\_metric})}
+
+\textbf{Goal.} Establish that the correct objective for SQR optimization is the
+reduced effective-unitary weighted process fidelity, not raw state fidelity.
+Verify the phase convention used by \texttt{cqed\_sim}'s multitone ansatz
+(specifically, confirm that $\phi$ is an axis-angle, not a quadrature offset)
+and demonstrate analytic and gradient-based correction methods.
+
+\textbf{Methods.} A 4-level target profile with varying $\theta_n$ and $\phi_n$ per manifold.
+Four optimization methods compared: baseline (no correction), analytic warm-start,
+state-based optimization, and unitary-based optimization.
+
+\textbf{Results.}  For $\nact = 1$, the unitary-optimized case achieves
+$F_\text{joint} = 0.9999999$ and zero residual $Z$ or transverse error.
+For $\nact = 4$, the baseline fidelity is poor but the corrected metric guides
+the optimizer to better solutions.
+
+\textbf{Weakness.}  The study validates the metric and convention definitively for
+$\nact = 1$ but the multi-manifold cases ($\nact = 4$) are described but not
+independently validated.  The study summary shows per-manifold convergence checks
+but not the full joint process fidelity at $\nact = 4$.
+Study~4 multi-input validation confirms that the corrected-metric
+unitary-optimized case achieves 1.0000 spanning-quartet fidelity,
+which is the strongest per-manifold validation available short of a full GRAPE comparison.
+
+\subsection{Study 2: Parameterized Waveform (\texttt{parameterized\_waveform\_residual\_z\_cancellation})}
+
+\textbf{Goal.}  Pilot study on five richer waveform families
+(baseline multitone, symmetric two-segment, echoed, complex-envelope, basis-expanded)
+to suppress residual-Z errors while targeting family-C (structured) and
+family-D (random) block-diagonal conditional rotations.
+
+\textbf{Results.}  Best result: baseline multitone on family-C, $\nact = 2$, $\chiT = 3$,
+restricted process fidelity $= 0.842$, average gate fidelity $= 0.873$.
+
+\textbf{Critical weakness (confirmed by Study~4 rerun).}
+The baseline multitone result on family-D ($\nact = 4$) achieves
+restricted process fidelity $= 0.008$ (essentially zero).
+Yet the single-ground-state probe fidelity is 0.574 and the spanning-quartet mean
+drops to 0.443.
+\emph{This study's headline metric is the restricted process fidelity, which is
+completely misleading for the hard targets.  The waveform is not implementing
+the intended operation.}  Richer waveforms did not fix this; the study
+correctly notes that family-D targets are hard but does not escalate the failure
+to a primary conclusion.
+
+\subsection{Study 3: Ideal SQR Direct vs Echoed (\texttt{ideal\_sqr\_direct\_vs\_echoed\_multitone})}
+
+\textbf{Goal.}  First study specifically targeting strict ideal x-axis SQR
+(all $\theta_n$ equal, all $\phi_n = 0$).  Audit finding: earlier studies used
+arbitrary SU(2) block targets, not the strict x-axis target.
+
+\textbf{Results.}
+\begin{itemize}
+\item Best direct: average gate fidelity 0.7245 on $\nact = 2$, $\chiT = 5.0$
+  (chi\_only model).  Per-block fidelities are highly uneven:
+  block 0 process fidelity 0.794, block 1 only 0.531.
+  \textbf{Optimizer success flag: False.}  The solution is at a poor local minimum.
+\item Echoed constructions: do not materially improve strict SQR fidelity.
+  The mean strict process fidelity for echoed is lower than for direct on most cases.
+\item Study~4 multi-input validation for this study's best artifact
+  gives joint process fidelity $= 0.824$, spanning-quartet mean $= 0.875$.
+  The improvement over Study~2 is real but still far from 0.99.
+\end{itemize}
+
+\textbf{Weakness.}  The convergence failure is acknowledged but not resolved.
+The study presents echoed results as comparable to direct without emphasizing that
+echoed constructions fail for strict SQR because the inserted $X_\pi$ pulse
+is strongly manifold-dependent (see Study~8 diagnostics below).
+
+\subsection{Study 4: Multi-Input Validation (\texttt{native\_multitone\_sqr\_fixed\_multiinput\_validation})}
+
+\textbf{Goal.}  Validate saved artifacts from Studies 1--3 using a three-tier
+probe ladder: single ground, selected pair (g, +x), and spanning quartet.
+
+\textbf{Results.}  \textbf{This is the most critical audit study in the collection.}
+Confirmed results from the rerun of \texttt{run\_study.py} on 2026-03-28:
+
+\begin{center}
+\begin{tabular}{llllll}
+\toprule
+Source study & Construction & $F_\text{joint}$ & Quartet mean & Quartet min & Assessment \\
+\midrule
+Study 2 & baseline multitone & 0.0084 & 0.443 & 0.003 & \failmark{} fails \\
+Study 5 & direct multitone & 0.601 & 0.734 & 0.346 & \warnmark{} partial \\
+Study 3 & ideal SQR direct & 0.824 & 0.875 & 0.720 & \warnmark{} partial \\
+Study 1 & corrected unitary-opt & 0.9986 & 1.000 & 1.000 & \passmark{} passes \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The Study~2 case is especially striking: restricted process fidelity was reported
+as 0.008 (correctly low), but the single-ground-state fidelity was 0.574,
+creating the appearance of partial success that is not real.
+The unitary-optimized corrected-metric case (Study~1) is the only one that
+passes the multi-input validation to high fidelity.
+
+\subsection{Study 5: Arbitrary Fock-Conditional Rotations (\texttt{multitone\_sqr\_arbitrary\_fock\_conditional\_rotations})}
+
+\textbf{Goal.}  Broader study with arbitrary SU(2) block targets (not just
+strict ideal SQR), covering $\nact \in \{2,3,4,5\}$, durations
+$\chiT \in \{1,3,5,7\}$, and both chi-only and chi+$\chi'$ models.
+Single-pulse versus explicit echoed constructions.
+
+\textbf{Results.}  Mean process fidelity: 0.350 for single-pulse, 0.225 for echoed.
+Best single-pulse: family-A, $\nact = 2$, chi\_only, $F_\text{avg} = 0.714$.
+
+\textbf{Weakness.}  The conclusion that ``single pulse remains best overall''
+is correct in mean terms but undersells the depth of the failure.
+A mean of 0.35 represents mostly failed optimizations.
+The result that echoed is \emph{worse} on average is important but not given
+a satisfying explanation; the study attributes it to waveform degrees of freedom
+without investigating whether the $X_\pi$ quality is the primary cause.
+
+\subsection{Study 6: Strong Validation (\texttt{strong\_validation\_arbitrary\_fock\_conditional\_rotations})}
+
+\textbf{Goal.}  Five waveform families (single-pulse Gaussian, independent-half echo,
+symmetry-constrained echo, segmented relaxed CPSQR, basis-expanded benchmark).
+114 evaluations. Strict and relaxed objectives evaluated jointly.
+
+\textbf{Key results.}
+\begin{itemize}
+\item Best strict case: single-pulse Gaussian, $F_\text{strict} = 0.9957$,
+  $\nact = 2$, $\chiT = 5.0$, chi\_plus\_chiprime, in-plane-axes target.
+\item Segmented relaxed CPSQR: achieves joint process fidelity $\approx 1.000$
+  on hard targets ($\nact = 3$, random).
+\item Higher-expressivity basis-expanded benchmark: \textbf{zero improvement over baseline}.
+\end{itemize}
+
+\textbf{Weakness.}  The zero gain from the basis-expanded family is suspicious
+and not investigated.  It suggests either a broken optimizer path, an
+insufficient budget, or a genuine ansatz-vs-physics mismatch, none of which
+are resolved.  The ``best strict case'' at 0.9957 is the headline result of this study,
+but it comes from the restricted view only and is not independently multi-input-validated
+within this study's own framework.
+
+\subsection{Study 7: Native/Rich Multitone Feasibility (\texttt{native\_rich\_multitone\_sqr\_cpsqr\_feasibility})}
+
+\textbf{Goal.}  Most comprehensive SQR study.  Screens 10 waveform families in three stages:
+initial screen on chi+$\chi'$ model, comparison across both models and up to $\nact = 4$,
+and duration refinement sweep.  Introduces the full joint process fidelity
+and the negative control recomputation.
+
+\textbf{Key findings (confirmed against saved data).}
+\begin{itemize}
+\item \textbf{Best strict-SQR}: reduced\_unitary\_direct and native\_direct\_strict,
+  $F_\text{strict,joint} = 0.9990$ on chi\_only, $\nact = 2$, $\chiT = 6.0$,
+  smooth\_x target.
+  On $\chiT = 5.0$: $F_\text{strict,joint} = 0.9988$.
+  Both chi-only and chi+$\chi'$ models give the same best result.
+\item \textbf{Best CPSQR}: echoed\_independent,
+  $F_\text{CPSQR,joint} = 1.0000$ on chi\_plus\_chiprime, $\nact = 2$,
+  $\chiT = 5.0$, staggered\_x target.
+  Also achieves 1.0000 for chi\_only and for $\nact = 3$.
+\item \textbf{Critical caveat}: On one case (echoed\_asymmetric,
+  chi\_only, $\nact = 2$, staggered\_x), the reduced quartet fidelity is 0.9999997
+  but the full joint process fidelity is only 0.8677.
+  \emph{The reduced-manifold view is not a safe proxy for joint fidelity.}
+\item \textbf{Performance scaling with $\nact$}:
+  $\nact = 2$: best $= 0.9990$, mean $= 0.721$;
+  $\nact = 3$: best $= 0.9975$, mean $= 0.675$;
+  $\nact = 4$: best $= 0.9948$, mean $= 0.646$.
+\item Echoed families have \emph{lower} mean strict fidelity than direct families
+  for all $\nact$, confirming Study~5.
+\item The negative control recomputation showed that the old restricted metric
+  (0.4949) underestimated performance under the patched cqed\_sim
+  (correct quartet = 0.875); metric inconsistency between studies is real.
+\end{itemize}
+
+\textbf{Weakness.}  The study does not include a fresh GRAPE or unconstrained
+time-domain comparison on the hard cases, so it cannot distinguish
+ansatz-limited failure from physics-limited failure for the n\_active $\ge 3$
+cases.
+
+\subsection{Study 8: Definitive Aggregation (\texttt{the\_definitive\_ideal\_sqr\_gate\_study})}
+
+\textbf{Goal.}  Load and synthesize all four key source studies into a single
+machine-readable table. Add standalone diagnostics: X$_\pi$ pulse characterization,
+spectral crowding analysis, parameter scaling, addressing window scaling fits.
+
+\textbf{Rerun (2026-03-28).}  The full rebuild completed in 36.98\,s (wall clock).
+All four sanity checks pass:
+\begin{itemize}
+\item Baseline best direct: $F_\text{strict} = 0.6557$ ($\approx 0.65$ as expected)
+\item Native-rich strict $> 0.99$: value $= 0.9990$ \passmark
+\item Native-rich CPSQR $> 0.999$: value $= 1.0000$ \passmark
+\item Row counts: 64\,(Study~3) + 270\,(Study~5) + 348\,(Study~7) + 240\,(Study~2) = 922 total \passmark
+\end{itemize}
+
+\textbf{Weakness.}  The study is an aggregation pass only.  No new optimizations were
+run.  The ``practical ranking'' uses a decoherence-proxy score, not actual drift sweeps.
+The IMPROVEMENTS.md lists three P1 gaps: no full echoed-grid rerun with the
+compromise $X_\pi$ pulse, no fresh drift analysis, and no GRAPE/unconstrained
+upper bound.
+
+\textbf{New diagnostics produced.}
+\begin{enumerate}
+\item \textbf{$X_\pi$ characterization}: The refocusing pulse (40\,ns Gaussian,
+  baseline parameters) degrades strongly with Fock level:
+  level 0: $F = 0.9993$; level 1: $F = 0.9716$; level 2: $F = 0.8926$;
+  level 3: $F = 0.7734$; level 4: $F = 0.6298$.
+  A compromise pulse (shorter duration, adjusted sigma) improves the
+  worst-manifold fidelity to $0.919$ but does not certify echoed strict-SQR.
+\item \textbf{Spectral crowding}: At $\chiT = 3.0$, the tone bandwidth equals
+  twice the manifold spacing ($\text{crowding ratio} = 2.0$) for all levels.
+  This is a constant spectral bottleneck that does not worsen with manifold index.
+\item \textbf{Parameter count}: Minimum free parameters for ideal SQR = $2\nact$.
+  The current families use $6\,\text{--}\,18$ parameters for $\nact = 2$,
+  giving overcomplete representations that the optimizer handles well.
+\end{enumerate}
+
+\subsection{Study 9: Holographic Cluster-State Synthesis (\texttt{cluster\_state\_holographic\_unified})}
+
+\textbf{Goal.}  Implement two control problems using structured gate families
+D\,+\,R\,+\,SQR and D\,+\,R\,+\,CPSQR:
+(a) the full joint logical transfer unitary SWAP\,$\cdot$\,CZ\,$\cdot$\,(H$\otimes$I)
+on $\{\vert g,0\rangle, \vert g,1\rangle, \vert e,0\rangle, \vert e,1\rangle\}$; and
+(b) the restricted ground-sector transfer
+$U_\text{joint}(\vert g\rangle \otimes \vert\psi\rangle) \approx \vert g\rangle \otimes H_c\vert\psi\rangle$
+on $\{\vert g,0\rangle, \vert g,1\rangle\}$.
+
+\textbf{Critical finding.}  The full-target winners discovered in objective~(a)
+\emph{completely fail} on objective~(b): their ground-sector fidelities collapse to
+$\approx 0.50$ with ancilla excitation near 1.  This is because those solutions
+route amplitude through the excited ancilla sector.  The two objectives are
+genuinely different control problems.
+
+\textbf{Key ground-sector results (from saved data, confirmed consistent):}
+
+\begin{center}
+\begin{tabular}{llllll}
+\toprule
+Family & Blocks & Ordering & $F_\text{gnd,12}$ & Ancilla$_\text{worst}$ & Leakage$_\text{worst}$ \\
+\midrule
+D+R+SQR & 2 & SRD & 0.9876 & $8.9\times10^{-4}$ & $2.97\times10^{-2}$ \\
+D+R+SQR & 3 & RDS & 0.9997 & $4.7\times10^{-4}$ & $5.97\times10^{-4}$ \\
+D+R+SQR & 4 & RDS & 0.9965 & $3.75\times10^{-3}$ & $6.96\times10^{-3}$ \\
+D+R+SQR & 5 & RDS & 0.9999 & $4.1\times10^{-5}$ & $1.77\times10^{-4}$ \\
+\midrule
+D+R+CPSQR & 1 & CPRD & 0.8615 & $\approx 0$ & $2.59\times10^{-1}$ \\
+D+R+CPSQR & 2 & CPRD & 0.9887 & $1.6\times10^{-9}$ & $3.05\times10^{-2}$ \\
+D+R+CPSQR & 3 & DRCP & 0.9979 & $1.6\times10^{-3}$ & $4.20\times10^{-3}$ \\
+D+R+CPSQR & 4 & RDCP & 0.9999 & $9.0\times10^{-5}$ & $1.76\times10^{-4}$ \\
+D+R+CPSQR & 5 & DRCP & 0.9995 & $8.99\times10^{-4}$ & $1.12\times10^{-3}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Both families first cross the 0.99 threshold at 3 blocks.
+The 2-block frontier (SQR: 0.988, CPSQR: 0.989) is just below threshold.
+
+The GRAPE benchmark at $N_\text{cav} = 12$ for the \emph{full target} reaches
+replay fidelity 0.976 at 800\,ns.  No like-for-like GRAPE baseline was run
+for the restricted ground-sector objective.
+
+\textbf{Weaknesses.}
+\begin{itemize}
+\item The ground-sector follow-up used a warm-start from the best full-target solutions,
+  not a fresh unrestricted search.  A dedicated low-depth search could change the
+  minimum-depth conclusion.
+\item No open-system validation for any of the ground-sector winners.
+\item The GRAPE frontier is a full-target benchmark only; comparing structured-family
+  ground-sector fidelity to full-target GRAPE fidelity is not a like-for-like comparison.
+\item The non-monotonic depth dependence (4-block SQR $= 0.997 <$ 3-block SQR $= 0.9997$)
+  reflects optimization variance, not a fundamental non-monotonicity.
+\end{itemize}
+
+%% ============================================================
+\section{Unified Methodology}
+%% ============================================================
+
+\subsection{Notation and Target Conventions (Unified)}
+
+Throughout this review, all fidelity claims use the \textbf{full joint process fidelity}
+$F_\text{strict,joint}$ for strict SQR and $F_\text{CPSQR,joint}$ for relaxed CPSQR,
+defined as:
+\begin{equation}
+  F_\text{joint} = \frac{1}{d^2} \left\vert \text{tr}\left(U_\text{target}^\dagger
+  U_\text{optimized}\right)\right\vert^2
+\end{equation}
+where the trace is over all $d$ joint qubit-cavity logical levels.
+Reduced metrics (qubit-only, per-manifold, single-state) are shown as supplementary
+information only.
+
+The targeted SQR target is:
+\begin{equation}
+  U_\text{target,strict} = \bigotimes_{n=0}^{\nact-1} R_x(\pi/2) \otimes \mathbf{1}_\text{unaddressed}
+\end{equation}
+(uniform $\pi/2$ rotation on all addressed manifolds for ``smooth\_x'' targets;
+staggered angles for ``staggered\_x'').
+
+\subsection{Waveform Families Compared}
+
+The following families appear across the studies.
+This table unifies naming conventions:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Internal family name & Display name & Parameters ($\nact = 2$) \\
+\midrule
+\texttt{gaussian\_seed} & direct seed & 12 \\
+\texttt{native\_direct\_strict} & native direct & 12 \\
+\texttt{reduced\_unitary\_direct} & reduced unitary & 12 \\
+\texttt{symmetric\_two\_segment} & two-segment direct & 18 \\
+\texttt{complex\_envelope} & rich envelope & 15 \\
+\texttt{basis\_expanded} & basis-expanded & 15 \\
+\texttt{echoed\_independent} & independent echo & 24 \\
+\texttt{echoed\_asymmetric} & asymmetric echo & 24 \\
+\texttt{echoed\_symmetric} & symmetric echo & 12 \\
+\texttt{echoed\_cpsqr} & CPSQR echo & 24 \\
+\texttt{segmented\_relaxed} & segmented CPSQR & variable \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%% ============================================================
+\section{Rerun Results and Reproducibility}
+%% ============================================================
+
+\subsection{What Was Rerun}
+
+\begin{enumerate}
+\item \textbf{Definitive aggregation study} (\texttt{run\_full\_study.py --full}):
+  Completed in 36.98\,s on 2026-03-28.
+  All sanity checks pass.  Results match saved data exactly.
+  \textbf{Reproducible.} \passmark
+
+\item \textbf{Multi-input validation study} (\texttt{run\_study.py}):
+  Completed on 2026-03-28.
+  Results match saved data exactly (see Table in Section~3.4).
+  \textbf{Reproducible.} \passmark
+
+\item \textbf{Native-rich key metrics} (read from saved JSON, spot-checked via manual queries):
+  Best strict $= 0.9990$, best CPSQR $= 1.0000$, performance scaling with $\nact$ confirmed.
+  \textbf{Consistent with claims.} \passmark
+
+\item \textbf{Cluster-state ground-sector summary} (read from saved JSON):
+  Both families cross 0.99 at 3 blocks.  Best absolute: CPSQR 4-block $= 0.9999$.
+  \textbf{Consistent with claims.} \passmark
+\end{enumerate}
+
+\subsection{What Was Not Rerun}
+
+\begin{itemize}
+\item The full native-rich 3-stage optimization pipeline
+  (\texttt{run\_study.py} for \texttt{native\_rich}): computationally expensive,
+  saved results are internally consistent, not rerun.
+\item The cluster-state design-space search (8-worker multiprocessing run):
+  saved results are self-consistent, not rerun.
+\item The GRAPE frontier extension: computationally expensive, saved results used.
+\item Any fresh unconstrained optimization or GRAPE run for strict SQR
+  (identified as the critical missing experiment in all IMPROVEMENTS.md files).
+\end{itemize}
+
+\subsection{Metric Inconsistency Across Studies}
+
+A notable finding is that the ``restricted process fidelity'' computed in Studies~2--5
+is systematically more optimistic than the full joint process fidelity computed in
+Studies~7--8.  For the negative-control case (chi+$\chi'$, $\nact = 3$, $\chiT = 3.0$,
+direct multitone):
+\begin{itemize}
+\item Reported restricted process fidelity (Study~3): $F = 0.4949$
+\item Recomputed joint process fidelity (Study~7): $F = 0.8242$
+\item Recomputed spanning-quartet mean (Study~7): $F = 0.875$
+\end{itemize}
+The direction of the discrepancy is counterintuitive: the full-system metric
+is \emph{higher} than the old restricted metric.  This reflects a cqed\_sim
+API patch that corrected a phase convention between the two eras.
+\textbf{No quantitative result from Studies~2--5 can be directly compared to
+Studies~7--8 without metric normalization.}
+
+%% ============================================================
+\section{Key Quantitative Results}
+%% ============================================================
+
+\subsection{Best Strict Ideal-SQR Results}
+
+\begin{center}
+\begin{tabular}{llllll}
+\toprule
+Family & Model & $\nact$ & $\chiT$ & $F_\text{strict,joint}$ & $F_\text{CPSQR,joint}$ \\
+\midrule
+reduced\_unitary\_direct & chi\_only & 2 & 6.0 & \textbf{0.9990} & 0.9997 \\
+native\_direct\_strict & chi\_only & 2 & 6.0 & \textbf{0.9990} & 0.9997 \\
+reduced\_unitary\_direct & chi+$\chi'$ & 2 & 6.0 & \textbf{0.9990} & 0.9997 \\
+native\_direct\_strict & chi+$\chi'$ & 2 & 6.0 & \textbf{0.9990} & 0.9997 \\
+gaussian\_seed & chi+$\chi'$ & 2 & 5.0 & 0.9985 & 0.9999 \\
+reduced\_unitary\_direct & chi\_only & 3 & 5.0 & 0.9975 & 0.9994 \\
+reduced\_unitary\_direct & chi\_only & 4 & (long) & 0.9948 & --- \\
+\midrule
+echoed\_independent & chi\_only & 2 & 3.0 & 0.8671 & \textbf{1.0000} \\
+echoed\_independent & chi+$\chi'$ & 2 & 5.0 & 0.8677 & \textbf{1.0000} \\
+echoed\_independent & chi\_only & 3 & 5.0 & 0.6784 & \textbf{1.0000} \\
+echoed\_asymmetric & chi\_only & 3 & 3.0 & 0.6769 & \textbf{1.0000} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Main observation:}  For strict SQR, direct families (reduced\_unitary\_direct,
+native\_direct\_strict) dominate at $\nact = 2$--$4$.
+Echoed families dominate for CPSQR but are worse for strict SQR because
+the inserted $X_\pi$ is manifold-dependent.
+
+\subsection{Performance Scaling with Number of Addressed Manifolds}
+
+From the all\_results.json of Study~7 (432 rows, all families, all $\chiT$):
+
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+$\nact$ & Best strict (any fam, any $\chiT$) & Mean strict & Best CPSQR \\
+\midrule
+2 & 0.9990 & 0.721 & 1.000 \\
+3 & 0.9975 & 0.675 & 1.000 \\
+4 & 0.9948 & 0.646 & 1.000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The \emph{best} strict fidelity remains above 0.99 for all tested $\nact$,
+but only at long durations ($\chiT \ge 3$--$5$) and only for specific
+(smooth, staggered) target families.
+The \emph{mean} strict fidelity across all cases is 0.65--0.72,
+indicating that the 0.99 regime is narrow and not the typical outcome.
+
+\subsection{Minimum Duration for High Fidelity (Direct Families)}
+
+For native\_direct\_strict, chi\_only model, smooth\_x target:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+$\nact$ & Threshold & Minimum $\chiT / 2\pi$ achieving threshold \\
+\midrule
+2 & 0.99 & 3.0 \\
+2 & 0.995 & 3.0 \\
+2 (CPSQR) & 0.99 & 2.0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+At $|\chi|/2\pi = 2.84$\,MHz, $\chiT = 3$ corresponds to a pulse duration of
+$T = 3 / (2\pi \times 2.84 \times 10^6\,\text{Hz}) \approx 168$\,ns.
+
+\subsection{X$_\pi$ Pulse Quality Across Manifolds}
+
+The 40\,ns Gaussian $X_\pi$ pulse used in echoed constructions
+has sharply degrading quality with Fock level:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Fock level $n$ & Process fidelity (baseline) & Process fidelity (robust 20\,ns) \\
+\midrule
+0 & 0.9993 & 0.9996 \\
+1 & 0.9716 & 0.9808 \\
+2 & 0.8926 & 0.9325 \\
+3 & 0.7734 & 0.8788 \\
+4 & 0.6298 & 0.7875 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textbf{This is the primary reason echoed constructions fail for strict SQR
+when $\nact \ge 2$.}
+Even the compromise pulse only improves the worst-manifold $X_\pi$ quality to $\approx 0.919$.
+A full echoed strict-SQR success would require a manifold-specific $X_\pi$ sequence,
+which is itself a selective rotation problem.
+
+%% ============================================================
+\section{Synthesis: What the Program Tells Us}
+%% ============================================================
+
+\subsection{The Core Physics Picture}
+
+The dispersive Hamiltonian encodes a per-manifold shift
+$\delta_n = -\chi n - \frac{\chi'}{2}n(n-1)$ on the qubit transition frequency.
+An ideal strict SQR at duration $T$ requires the qubit to undergo a uniform
+rotation $\theta_n = \theta_0$ for all addressed $n$ while accumulating zero
+net conditional phase.  The phase accumulation rate is $\dot\phi_n = \delta_n$,
+which grows linearly with $n$.
+
+A multitone ansatz addresses this by placing one drive tone per addressed manifold.
+The minimum condition for zero conditional phase is that each tone produces the correct
+transverse rotation while producing zero longitudinal (Z) rotation on its own manifold
+and zero cross-talk on other manifolds.  This is achievable in principle at long enough
+durations (when spectral crowding is not limiting), which explains the experimental observation
+that $F_\text{strict} > 0.99$ is achievable at $\chiT \ge 3$ for $\nact = 2$.
+
+For larger $\nact$, the control problem becomes harder because more manifolds must be
+simultaneously addressed with narrow tones, and the spectral crowding ratio (always
+$\approx 2.0$ for uniform $|\chi|$ spacing) does not improve with $\nact$.
+
+\subsection{Why Echoed Constructions Fail for Strict SQR}
+
+The toggle-frame argument for echoed cancellation of conditional phase
+assumes that the inserted $X_\pi$ pulse is a perfect bit-flip on every
+addressed manifold.  Because the dispersive Hamiltonian is manifold-dependent,
+no single-frequency $X_\pi$ pulse can be perfect on all manifolds simultaneously.
+The $X_\pi$ pulse quality degrades from 0.999 at level 0 to 0.630 at level 4
+(see above), which means the toggling-frame cancellation argument breaks down
+precisely where it is most needed (higher photon numbers).
+
+This finding, first identified clearly in Study~8 and now supported by the
+standalone $X_\pi$ characterization, explains why:
+\begin{enumerate}
+\item Echoed constructions have \emph{lower mean strict fidelity} than direct
+  constructions (Studies~5, 6, 7, confirmed).
+\item Echoed constructions have \emph{near-perfect CPSQR fidelity}: the CPSQR
+  target explicitly allows the residual Z phases that the imperfect $X_\pi$
+  fails to cancel.
+\item There is an inherent tension: achieving strict SQR via echoing requires a
+  manifold-selective $X_\pi$, which is itself a harder form of SQR.
+\end{enumerate}
+
+\subsection{Relation to the Cluster-State Problem}
+
+The cluster-state study is partially decoupled from the SQR program:
+it uses SQR and CPSQR as primitive building blocks but optimizes the
+full structured sequence rather than characterizing the primitives in isolation.
+The key result --- that both families first cross 0.99 at 3 blocks for the
+restricted ground-sector task --- is obtained by optimizing the full sequence,
+not by composing pre-optimized SQR blocks.
+
+The poor quality of the full-target solutions for the ground-sector task
+(ancilla excitation $\approx 1$) is a structural finding that holds regardless
+of how well the individual SQR primitives work.  It shows that the two
+objectives (full transfer vs ground-sector transfer) are genuinely orthogonal.
+
+%% ============================================================
+\section{Final Conclusions}
+%% ============================================================
+
+\subsection{Claims That Are Robustly Supported}
+
+\begin{enumerate}
+\item \textbf{Strict ideal x-axis SQR at $\nact = 2$ with $\chiT \ge 3$:}
+  Both the chi\_only and chi+$\chi'$ dispersive models admit strict ideal SQR
+  solutions above $F = 0.99$ using the reduced\_unitary\_direct and
+  native\_direct\_strict waveform families.
+  Best observed: $F_\text{strict,joint} = 0.9990$ at $\chiT = 6.0$, $\nact = 2$.
+  This result was confirmed from the saved data and is consistent with the
+  definitive study rebuild.
+
+\item \textbf{Strict SQR above 0.99 requires long enough pulses:}
+  At $\nact = 2$, $F > 0.99$ requires $\chiT \ge 3.0$.  Shorter pulses fall below
+  this threshold.
+
+\item \textbf{Relaxed CPSQR achieves near-unit fidelity for all tested $\nact$:}
+  The echoed\_independent family achieves $F_\text{CPSQR,joint} = 1.0000$ for
+  $\nact = 2$--$3$ at $\chiT \ge 3$, on staggered\_x targets.
+  This is confirmed by Study~7 and is consistent with all related studies.
+
+\item \textbf{Echoed constructions fail for strict SQR due to $X_\pi$ manifold dependence:}
+  The $X_\pi$ refocusing pulse fails increasingly at higher Fock levels.
+  This is the primary reason echoed constructions have lower strict fidelity
+  than direct constructions.  This finding is supported by both the
+  averaged statistics and the explicit $X_\pi$ characterization.
+
+\item \textbf{Multi-input validation is required to certify a gate:}
+  Study~4 confirms that solutions passing single-state probes or restricted
+  process fidelity can fail catastrophically on superposition probes.
+  The reduced/restricted metric can be misleading in either direction
+  (too optimistic or, with a convention patch, too pessimistic).
+
+\item \textbf{Cluster state ground-sector task requires $\ge 3$ blocks:}
+  Both D+R+SQR and D+R+CPSQR families first exceed $F = 0.99$ at 3 blocks
+  under the restricted ground-sector objective.
+  Best absolute fidelity: D+R+CPSQR at 4 blocks, $F_\text{gnd,12} = 0.9999$.
+
+\item \textbf{Full-target structured solutions completely fail the ground-sector task:}
+  Old full-target winners have ancilla excitation near 1 under the ground-sector
+  objective.  The two problems are genuinely different.
+\end{enumerate}
+
+\subsection{Claims That Are Uncertain}
+
+\begin{enumerate}
+\item \textbf{Performance at $\nact \ge 5$:}
+  No study tested $\nact = 5$ with the joint metric.  Study~5 included
+  $\nact = 5$ but used an unreliable restricted metric.  Whether strict SQR
+  above 0.99 is achievable at $\nact = 5$ is unknown.
+
+\item \textbf{Whether strict SQR failures are ansatz-limited or physics-limited:}
+  At $\nact = 3$--$4$, the best strict results are 0.9948--0.9975 and only
+  at specific (long) durations.  Without a GRAPE or unconstrained upper bound,
+  it is unknown whether the current direct families are near the physical limit
+  or whether a better ansatz (e.g., GRAPE-optimized or time-domain free) would
+  achieve significantly higher fidelity.
+
+\item \textbf{Robustness to parameter drift:}
+  The best solutions are numerically clean but have not been tested against
+  systematic drift in $\chi$, $\omega_q$, or drive amplitude.
+  The IMPROVEMENTS.md files list drift analysis as a P1 gap for Studies 7 and 8.
+
+\item \textbf{Hardware relevance of the cluster-state result:}
+  The cluster-state ground-sector winners have excellent closed-system fidelity
+  but have not been validated with open-system (realistic decoherence) models.
+  The GRAPE frontier open-system fidelity at 800\,ns is 0.919, substantially
+  below the closed-system replay of 0.976.
+
+\item \textbf{Minimum depth for the 2-block cluster-state frontier:}
+  Both families are just below 0.99 at 2 blocks (SQR: 0.988, CPSQR: 0.989).
+  Whether a fresh low-depth search could cross 0.99 at 2 blocks is unresolved.
+\end{enumerate}
+
+\subsection{Claims That Are Not Supported}
+
+\begin{enumerate}
+\item \textbf{``Strict SQR is generally achievable across the tested grid.''}
+  The mean strict process fidelity across all tested cases is 0.65--0.72,
+  with the 0.99+ regime confined to $\nact = 2$ at long durations.
+  This is not a general success.
+
+\item \textbf{``Richer waveform families improve strict SQR over the baseline.''}
+  The complex-envelope and basis-expanded families do not improve over the
+  native direct family for strict SQR (Study~7 comparison stage).
+  The basis-expanded family provided zero gain even in Study~6.
+
+\item \textbf{``Echoed constructions achieve strict SQR.''}
+  Echoed families have \emph{lower} mean strict fidelity than direct families
+  for all tested conditions.  While echoed constructions reliably achieve CPSQR,
+  they do not achieve strict SQR.
+
+\item \textbf{Any robustness claims from the ``practical ranking''} in the definitive study.
+  That ranking uses a decoherence-proxy score only and has not been validated
+  against actual noise or drift.
+
+\item \textbf{``The 2-block cluster-state boundary can be crossed with existing families.''}
+  Current data show 2-block performance below 0.99 for both families.
+  The IMPROVEMENTS.md explicitly calls for a fresh low-depth search rather than
+  concluding that 3 blocks is the fundamental minimum.
+\end{enumerate}
+
+%% ============================================================
+\section{Recommended Next Steps}
+%% ============================================================
+
+In priority order:
+
+\begin{enumerate}
+\item \textbf{[P1] Run a GRAPE/unconstrained upper bound for strict SQR at
+  $\nact = 3$--$4$, $\chiT = 3$--$5$.}
+  This is the most critical missing experiment.
+  Until an unconstrained comparison is available, the question of whether current
+  failures are ansatz-limited or physics-limited cannot be answered.
+
+\item \textbf{[P1] Perform parameter-drift sensitivity analysis on the best
+  direct strict-SQR solutions.}
+  Specifically: sweep $\chi \pm 5\%$, $\omega_q \pm 1$\,MHz, drive amplitude
+  $\pm 5\%$ around the best $\nact = 2$ and $\nact = 3$ solutions.
+
+\item \textbf{[P2] Run the full echoed-grid rerun with the compromise $X_\pi$ pulse.}
+  The standalone $X_\pi$ characterization (Study~8) identified a shorter robust
+  pulse with better manifold uniformity.  Running the echoed constructions with
+  this pulse is a well-defined next experiment.
+
+\item \textbf{[P2] Run a fresh 2-block low-depth cluster-state search}
+  directly for the ground-sector objective (not warm-started from full-target solutions).
+
+\item \textbf{[P2] Open-system validation for the 3-block and best-absolute
+  cluster-state ground-sector winners.}
+  The closed-system $F > 0.999$ does not guarantee good hardware performance.
+
+\item \textbf{[P3] Extend the SQR study to $N_\text{tr} = 3$ transmon levels.}
+  All current studies use $N_\text{tr} = 2$.  The second excited transmon level
+  introduces additional dispersive shifts that could affect the multitone selectivity.
+\end{enumerate}
+
+%% ============================================================
+\section{Reproducibility Summary}
+%% ============================================================
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Study & Rerun status & Conclusion \\
+\midrule
+corrected\_sqr metric & Data read, Study~4 rerun confirms key case & \passmark Consistent \\
+parameterized waveform & Study~4 rerun reveals failure at $\nact = 4$ & \passmark Consistent \\
+ideal\_sqr direct vs echoed & Study~4 rerun confirms 0.824 joint fidelity & \passmark Consistent \\
+native\_multitone validation & Full rerun 2026-03-28, results match exactly & \passmark Reproducible \\
+multitone arbitrary fock & Data consistent with definition & \passmark Consistent \\
+strong validation & Data consistent; best strict 0.9957 confirmed & \passmark Consistent \\
+native rich multitone & Data read, key metrics confirmed from JSON & \passmark Consistent \\
+the definitive study & Full rebuild rerun 2026-03-28 (37\,s), all checks pass & \passmark Reproducible \\
+cluster state unified & Data read, ground-sector summary confirmed & \passmark Consistent \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+All nine studies are internally consistent. The two studies where full reruns
+were performed (\texttt{native\_multitone\_sqr\_fixed\_multiinput\_validation} and
+\texttt{the\_definitive\_ideal\_sqr\_gate\_study}) reproduced exactly.
+Python 3.12 with \texttt{cqed-sim 0.1.0} was used for all reruns.
+
+%% ============================================================
+\section*{Appendix: Study Provenance and Code Locations}
+%% ============================================================
+\addcontentsline{toc}{section}{Appendix: Study Provenance and Code Locations}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Study & Main script & Key data output \\
+\midrule
+1 & scripts/run\_study.py & data/study\_summary.json \\
+2 & scripts/run\_study.py & data/study\_results.json \\
+3 & scripts/run\_study.py & data/study\_results.json \\
+4 & scripts/run\_study.py & data/study\_summary.json \\
+5 & scripts/run\_study.py & data/study\_results.json \\
+6 & scripts/run\_study.py & data/study\_results.json \\
+7 & scripts/run\_study.py & data/all\_results.json \\
+8 & scripts/run\_full\_study.py & data/new\_results/study\_summary.json \\
+9 & scripts/run\_design\_space\_study.py & data/ground\_sector\_followup\_summary.json \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The cqed\_sim package is installed editably at
+\texttt{C:\textbackslash{}Users\textbackslash{}jl82323\textbackslash{}Box\textbackslash{}...cQED\_simulation}.
+The current version (0.1.0) introduced a phase-convention correction relative to the
+version used in Studies~2--5; this caused the metric discrepancy documented in Section~5.3.
+All results quoted in this report use the current patched package.
+
+\end{document}

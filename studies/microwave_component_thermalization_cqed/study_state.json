@@ -1,0 +1,60 @@
+{
+  "study_name": "microwave_component_thermalization_cqed",
+  "study_path": "studies/microwave_component_thermalization_cqed",
+  "status": "READY_FOR_REVIEW",
+  "problem_class": [
+    "ANA",
+    "DES"
+  ],
+  "created_at": "2026-04-02T00:00:00Z",
+  "updated_at": "2026-04-02T08:00:57.0332120Z",
+  "loop_iteration": 0,
+  "science_directive_version": 1,
+  "objective": "Quantify how hot microwave components map onto measurable qubit and cavity observables in a dispersive cQED platform, determine which observables are the best thermometers, and identify safe coherence and readout regimes in the presence of hot dissipative elements or multimode leakage.",
+  "completed_tasks": [
+    "Initialized the study directory, README, IMPROVEMENTS log, and run scaffolding.",
+    "Audited the local cqed_sim API for dispersive multimode models and thermal Lindblad noise support.",
+    "Implemented the shared thermal-study simulation library and four thrust-specific workflows.",
+    "Executed thrust A-D simulations, saved machine-readable artifacts, and generated publication-quality figures.",
+    "Validated zero-temperature, Bose-scaling, truncation, low-occupation analytic, and multimode weak-coupling checks.",
+    "Wrote the markdown memo, LaTeX report, compiled PDF, and reproducibility notebook."
+  ],
+  "failed_tasks": [],
+  "pending_tasks": [
+    "Independent critical review and any follow-up iteration requested by the reviewer."
+  ],
+  "blocked_tasks": [],
+  "key_results": {
+    "thermometer": {
+      "preferred_observable": "cavity_occupation",
+      "lowest_temperature_with_qubit_excitation_above_1e-4_K": 0.05,
+      "temperature_where_readout_penalty_drops_below_0p9_K": 0.15,
+      "temperature_where_spectroscopy_width_exceeds_0p1_MHz_K": 0.2
+    },
+    "dephasing": {
+      "tolerable_temperature_K": 0.1,
+      "lowest_t2_us": 0.4471393911307599
+    },
+    "multimode": {
+      "safe_fraction": 0.1111111111111111,
+      "most_dangerous_point": {
+        "detuning_MHz": -240.0,
+        "coupling_MHz": 12.0,
+        "qubit_excited_population": 0.16743152214319204
+      }
+    },
+    "transient": {
+      "0.20 K": {
+        "cavity_response_tau_us": 0.14999992281241634,
+        "qubit_response_tau_us": 0.2128749765590848
+      },
+      "0.50 K": {
+        "cavity_response_tau_us": 0.14878258321782153,
+        "qubit_response_tau_us": 0.08891516982301348
+      }
+    },
+    "validation_passed": true,
+    "reproducibility_notebook_verified": true
+  },
+  "review_history": []
+}

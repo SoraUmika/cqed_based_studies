@@ -1,0 +1,749 @@
+{
+  "case_request": {
+    "chi_t_over_2pi": 3.0,
+    "family": "structured_xy",
+    "include_chi_prime": false,
+    "model_variant": "chi_only",
+    "n_active": 2,
+    "seed": null
+  },
+  "comparison_spec": {
+    "description": "Structured XY family with nontrivial block-dependent azimuths.",
+    "family": "structured_xy",
+    "formula": "theta_n = min(0.26 pi + 0.13 pi n, 0.88 pi), phi_n = (0.20 + 0.37 n) pi mod 2 pi",
+    "n_active": 2,
+    "phi_values_rad": [
+      0.6283185307179586,
+      1.7907078125461822
+    ],
+    "theta_values_rad": [
+      0.8168140899333463,
+      1.2252211349000195
+    ]
+  },
+  "construction": "blockwise_exact_reduced",
+  "date_created": "2026-04-06T09:03:07Z",
+  "description": "Artifact for blockwise_exact_reduced on chi_only_structured_xy_na2_chiT3p0.",
+  "full_operator_columns_on_logical_inputs": {
+    "imag": [
+      [
+        0.0026413417734866026,
+        0.0,
+        0.0,
+        0.0,
+        -0.0013595643715964216,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.002695448796705417,
+        0.0,
+        0.0,
+        0.0,
+        -0.0014530414921334275,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        -0.0013595643715964216,
+        0.0,
+        0.0,
+        0.0,
+        -0.0026413417734866026,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.0012875609051109789,
+        0.0,
+        0.0,
+        0.0,
+        0.026957446492919653,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.9999805169893808,
+        0.0,
+        0.0,
+        0.0,
+        -0.00548609047825173,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.9999828219409264,
+        0.0,
+        0.0,
+        0.0,
+        -0.0055603884865242075,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.00548609047825173,
+        0.0,
+        0.0,
+        0.0,
+        0.9999805169893808,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.005601043101583684,
+        0.0,
+        0.0,
+        0.0,
+        0.9996229849540124,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "shape": [
+      8,
+      8
+    ]
+  },
+  "load_instructions": "Load `chi_only_structured_xy_na2_chiT3p0_blockwise_exact_reduced.json` as JSON and inspect the documented result rows and metadata.",
+  "probe_metrics": {
+    "probe_fidelity_mean": 0.8009071566973401,
+    "probe_fidelity_min": 0.7574026551590736,
+    "probe_rows": [
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.499999978324365,
+            "x": 0.010964785512385862,
+            "y": -0.0027480571654171,
+            "z": 0.999936108789198
+          },
+          {
+            "level": 1,
+            "population": 0.5000029695590321,
+            "x": 0.011194886176333374,
+            "y": -0.0026052567514768636,
+            "z": 0.9999339413985096
+          }
+        ],
+        "label": "equal_ground",
+        "state_fidelity": 0.7574026551590736
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.49999997832436494,
+            "x": 0.9999258522465855,
+            "y": -0.005267663466446292,
+            "z": -0.010979149809682454
+          },
+          {
+            "level": 1,
+            "population": 0.5000029523349235,
+            "x": 0.9996433140355095,
+            "y": 0.024277669065916746,
+            "z": -0.01112831922751073
+          }
+        ],
+        "label": "equal_plus",
+        "state_fidelity": 0.7700192659439906
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.4999999783243648,
+            "x": 0.00529749824035401,
+            "y": 0.999982349795945,
+            "z": 0.0026900946030910533
+          },
+          {
+            "level": 1,
+            "population": 0.5000029278315143,
+            "x": -0.02424709706730718,
+            "y": 0.9997018586533004,
+            "z": 0.002876123944702824
+          }
+        ],
+        "label": "equal_plus_i",
+        "state_fidelity": 0.9098360031311344
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.49999997832436494,
+            "x": 0.9999258522465855,
+            "y": -0.005267663466446292,
+            "z": -0.010979149809682454
+          },
+          {
+            "level": 1,
+            "population": 0.5000029523349235,
+            "x": 0.9996433140355095,
+            "y": 0.024277669065916746,
+            "z": -0.01112831922751073
+          }
+        ],
+        "label": "alternating_plus",
+        "state_fidelity": 0.7700192659439906
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5985913362701676,
+            "x": 0.1490947675989801,
+            "y": 0.2657968686956117,
+            "z": 0.9524299317357753
+          },
+          {
+            "level": 1,
+            "population": 0.4014110040608101,
+            "x": 0.8445622867402401,
+            "y": -0.3123011758948339,
+            "z": -0.4349511689268127
+          }
+        ],
+        "label": "random_logical_seed17",
+        "state_fidelity": 0.7790581334703697
+      },
+      {
+        "conditioned_bloch_vectors": [
+          {
+            "level": 0,
+            "population": 0.5908537226582279,
+            "x": -0.30978987905901156,
+            "y": 0.8093730308759888,
+            "z": 0.498944413460276
+          },
+          {
+            "level": 1,
+            "population": 0.4091486627193524,
+            "x": 0.16835504044209187,
+            "y": 0.7961915122456488,
+            "z": 0.5811502870908081
+          }
+        ],
+        "label": "random_logical_seed29",
+        "state_fidelity": 0.8191076165354821
+      }
+    ]
+  },
+  "restricted_operator": {
+    "imag": [
+      [
+        0.0026413417734866026,
+        -0.0013595643715964216,
+        0.0,
+        0.0
+      ],
+      [
+        -0.0013595643715964216,
+        -0.0026413417734866026,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.002695448796705417,
+        -0.0014530414921334275
+      ],
+      [
+        0.0,
+        0.0,
+        -0.0012875609051109789,
+        0.026957446492919653
+      ]
+    ],
+    "real": [
+      [
+        0.9999805169893808,
+        -0.00548609047825173,
+        0.0,
+        0.0
+      ],
+      [
+        0.00548609047825173,
+        0.9999805169893808,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.9999828219409264,
+        -0.0055603884865242075
+      ],
+      [
+        0.0,
+        0.0,
+        0.005601043101583684,
+        0.9996229849540124
+      ]
+    ],
+    "shape": [
+      4,
+      4
+    ]
+  },
+  "study_name": "multitone_sqr_echo_rigorous_followup",
+  "summary_row": {
+    "active_duration_ns": 1056.3380281690138,
+    "best_fit_block_phase_rms_rad": 0.010485179995888905,
+    "best_fit_restricted_process_fidelity": 0.757328740362159,
+    "case_id": "chi_only_structured_xy_na2_chiT3p0",
+    "chi_t_over_2pi": 3.0,
+    "construction": "blockwise_exact_reduced",
+    "evaluation_target_family": "structured_xy",
+    "family": "structured_xy",
+    "include_chi_prime": false,
+    "leakage_outside_target_max": 4.335127035126618e-08,
+    "leakage_outside_target_mean": 2.167563517563309e-08,
+    "max_residual_z_error_rad": 0.024255294861639364,
+    "max_transverse_error_rad": 1.2149034352341361,
+    "mean_block_average_gate_fidelity": 0.8398334362161746,
+    "mean_residual_z_error_rad": 0.016104410186001568,
+    "mean_transverse_error_rad": 1.0115382265295962,
+    "model_variant": "chi_only",
+    "n_active": 2,
+    "other_target_population_max": 0.0,
+    "other_target_population_mean": 0.0,
+    "per_block_average_gate_fidelities": [
+      0.8969307237301051,
+      0.7827361487022442
+    ],
+    "per_block_process_fidelities": [
+      0.8453960855951578,
+      0.6741042230533661
+    ],
+    "per_block_residual_z_error_rad": [
+      0.007953525510363768,
+      0.024255294861639364
+    ],
+    "per_block_rotation_angle_errors_rad": [
+      0.8043364624249032,
+      1.19837098459889
+    ],
+    "per_block_rotation_axis_errors_rad": [
+      0.804913274597014,
+      1.1772470335919314
+    ],
+    "per_block_transverse_error_rad": [
+      0.8081730178250561,
+      1.2149034352341361
+    ],
+    "probe_fidelity_mean": 0.8009071566973401,
+    "probe_fidelity_min": 0.7574026551590736,
+    "reduced_vs_full_restricted_average_gate_fidelity": 1.0,
+    "reduced_vs_full_restricted_process_fidelity": 1.0,
+    "restricted_average_gate_fidelity": 0.8058297954566095,
+    "restricted_fro_error": 0.5095100111803698,
+    "restricted_process_fidelity": 0.7572872443207619,
+    "restricted_unitarity_error": 8.333453713271402e-06,
+    "same_block_population_mean": 1.0000029244087527,
+    "same_block_population_min": 0.9999999566487296,
+    "seed": null,
+    "state_transfer_fidelity_mean": 0.7885774466025748,
+    "state_transfer_fidelity_min": 0.674234039355931,
+    "target_phi_values_rad": [
+      0.6283185307179586,
+      1.7907078125461822
+    ],
+    "target_theta_values_rad": [
+      0.8168140899333463,
+      1.2252211349000195
+    ],
+    "total_gate_duration_ns": 1056.3380281690138,
+    "uncorrected_restricted_process_fidelity": 0.7572872443207619,
+    "weighted_loss": 0.29074864349873486,
+    "worst_block_average_gate_fidelity": 0.7827361487022442
+  },
+  "validation": {
+    "basis_metrics": [
+      {
+        "dominant_block": 0,
+        "input_block": 0,
+        "input_label": "|g,0>",
+        "input_qubit_level": 0,
+        "leakage_population": 4.335127035126618e-08,
+        "other_target_population": 0.0,
+        "same_block_population": 0.9999999566487296
+      },
+      {
+        "dominant_block": 0,
+        "input_block": 0,
+        "input_label": "|e,0>",
+        "input_qubit_level": 1,
+        "leakage_population": 4.335127035126618e-08,
+        "other_target_population": 0.0,
+        "same_block_population": 0.9999999566487296
+      },
+      {
+        "dominant_block": 1,
+        "input_block": 1,
+        "input_label": "|g,1>",
+        "input_qubit_level": 0,
+        "leakage_population": 0.0,
+        "other_target_population": 0.0,
+        "same_block_population": 1.0000059391180642
+      },
+      {
+        "dominant_block": 1,
+        "input_block": 1,
+        "input_label": "|e,1>",
+        "input_qubit_level": 1,
+        "leakage_population": 0.0,
+        "other_target_population": 0.0,
+        "same_block_population": 1.000005845219487
+      }
+    ],
+    "best_fit_logical_block_phase": {
+      "logical_levels": [
+        0,
+        1
+      ],
+      "phases_rad": [
+        0.0,
+        -0.014828283754109162
+      ]
+    },
+    "best_fit_restricted_process_fidelity": 0.757328740362159,
+    "block_phase_diagnostics": {
+      "applied_correction_phases_rad": [
+        0.0,
+        0.0
+      ],
+      "best_fit_block_gauge_fidelity": 0.8702463676236512,
+      "best_fit_correction_phases_rad": [
+        0.0,
+        -0.014828283754109162
+      ],
+      "block_gauge_fidelity": 0.8702463676236512,
+      "block_phases_rad": [
+        0.0,
+        0.014828283754109358
+      ],
+      "corrected_block_gauge_fidelity": 0.8702463676236512,
+      "corrected_block_phases_rad": [
+        0.0,
+        0.014828283754109162
+      ],
+      "corrected_relative_block_phases_rad": [
+        0.0,
+        0.014828283754109162
+      ],
+      "relative_block_phases_rad": [
+        0.0,
+        0.014828283754109162
+      ],
+      "residual_block_phases_rad": [
+        0.0,
+        0.014828283754109162
+      ],
+      "rms_block_phase_error_rad": 0.010485179995888905
+    },
+    "block_population_matrix": [
+      [
+        0.9999999566487296,
+        0.0
+      ],
+      [
+        0.0,
+        1.0000058921687756
+      ]
+    ],
+    "conditioned_sector_metrics": [
+      {
+        "bloch_distance": 0.7863559129041121,
+        "bloch_radius": 0.9999999999999998,
+        "dominant_error": "mixed-or-crosstalk-like",
+        "fidelity": 0.845411094560185,
+        "n": 0,
+        "phi_error_rad": 0.6969103152014595,
+        "phi_simulated_rad": 1.3252288459194184,
+        "purity": 0.9999999999999997,
+        "sector_population": 0.9999999566487299,
+        "simulated_bloch_x": 0.010964785512385862,
+        "simulated_bloch_y": -0.0027480571654170997,
+        "simulated_bloch_z": 0.9999361087891979,
+        "target_bloch_x": 0.42847700858219223,
+        "target_bloch_y": -0.5897480079501013,
+        "target_bloch_z": 0.6845471059286886,
+        "target_phi_rad": 0.6283185307179586,
+        "target_theta_rad": 0.8168140899333463,
+        "theta_error_rad": -0.8055099410347113,
+        "theta_simulated_rad": 0.011304148898634809,
+        "weight": 0.5
+      },
+      {
+        "bloch_distance": 1.1415251147310428,
+        "bloch_radius": 1.0,
+        "dominant_error": "amplitude-like",
+        "fidelity": 0.6742301031095702,
+        "n": 1,
+        "phi_error_rad": -0.4485602211805628,
+        "phi_simulated_rad": 1.3421475913656193,
+        "purity": 1.0,
+        "sector_population": 1.0000059391180642,
+        "simulated_bloch_x": 0.011194886176333373,
+        "simulated_bloch_y": -0.002605256751476863,
+        "simulated_bloch_z": 0.9999339413985096,
+        "target_bloch_x": 0.9182213134082465,
+        "target_bloch_y": 0.20524678070734623,
+        "target_bloch_z": 0.33873792024529126,
+        "target_phi_rad": 1.7907078125461822,
+        "target_theta_rad": 1.2252211349000195,
+        "theta_error_rad": -1.213726846858295,
+        "theta_simulated_rad": 0.011494288041724515,
+        "weight": 0.5
+      }
+    ],
+    "leakage_loss": 2.167563517563309e-08,
+    "leakage_outside_target_max": 4.335127035126618e-08,
+    "leakage_outside_target_mean": 2.167563517563309e-08,
+    "logical_block_phase": {
+      "logical_levels": [
+        0,
+        1
+      ],
+      "phases_rad": [
+        0.0,
+        0.0
+      ]
+    },
+    "logical_levels": [
+      0,
+      1
+    ],
+    "logical_weights": [
+      0.5,
+      0.5
+    ],
+    "metadata": {
+      "construction": "blockwise_exact_reduced",
+      "has_transfer_set": true,
+      "logical_block_phase_applied": {
+        "logical_levels": [
+          0,
+          1
+        ],
+        "phases_rad": [
+          0.0,
+          0.0
+        ]
+      },
+      "logical_block_phase_best_fit": {
+        "logical_levels": [
+          0,
+          1
+        ],
+        "phases_rad": [
+          0.0,
+          -0.014828283754109162
+        ]
+      },
+      "logical_indices": [
+        0,
+        4,
+        1,
+        5
+      ],
+      "subspace_metric_source": "restricted_operator"
+    },
+    "objective_weights": {
+      "leakage_weight": 0.35,
+      "preservation_weight": 0.35,
+      "qubit_weight": 0.2,
+      "subspace_weight": 1.0
+    },
+    "other_target_population_max": 0.0,
+    "other_target_population_mean": 0.0,
+    "preservation_loss": 0.0,
+    "qubit_loss": 0.24017940116512237,
+    "restricted_fro_error": 0.5095100111803698,
+    "restricted_process_fidelity": 0.7572872443207619,
+    "restricted_unitarity_error": 8.333453713271402e-06,
+    "same_block_population_mean": 1.0000029244087527,
+    "same_block_population_min": 0.9999999566487296,
+    "state_transfer_fidelity_mean": 0.7885774466025748,
+    "state_transfer_fidelity_min": 0.674234039355931,
+    "subspace_loss": 0.2427127556792381,
+    "transfer_metrics": [
+      {
+        "fidelity": 0.8454110579105402,
+        "label": "basis_0",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.8454110579105402,
+        "label": "basis_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.6742341074417553,
+        "label": "basis_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.674234039355931,
+        "label": "basis_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.9474308424308878,
+        "label": "plus_0_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.8979502274976177,
+        "label": "phase_0_1",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.7574026551590736,
+        "label": "plus_0_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.7574026551590736,
+        "label": "phase_0_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.7572913515019283,
+        "label": "plus_0_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.7572913515019283,
+        "label": "phase_0_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.7573996362548893,
+        "label": "plus_1_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.7573996362548893,
+        "label": "phase_1_2",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.7572001570280174,
+        "label": "plus_1_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.7572001570280174,
+        "label": "phase_1_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.6884408421474283,
+        "label": "plus_2_3",
+        "weight": 0.0625
+      },
+      {
+        "fidelity": 0.9855393710586791,
+        "label": "phase_2_3",
+        "weight": 0.0625
+      }
+    ],
+    "uncorrected_restricted_process_fidelity": 0.7572872443207619,
+    "weighted_loss": 0.29074864349873486
+  }
+}

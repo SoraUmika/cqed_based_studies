@@ -1,0 +1,2182 @@
+{
+  "base_case_id": "drcpsqr_blk5_a2_ordDRCP_DRCP_lv1-2_blk5_t2",
+  "spectator_levels": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "logical_refit": {
+    "record": {
+      "case_id": "drcpsqr_blk5_a2_ordDRCP_DRCP_lv1-2_blk5_t2_logical_refit",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "variant_key": "blk5_a2_ordDRCP",
+      "variant_label": "5 blocks / DRCP / n_active=2 / logical_refit",
+      "builder_name": "ordered_cpsqr",
+      "builder_kwargs": {
+        "blocks": 5,
+        "order": [
+          "D",
+          "R",
+          "CPSQR"
+        ]
+      },
+      "order_tokens": [
+        "D",
+        "R",
+        "CPSQR"
+      ],
+      "order_label": "DRCP",
+      "levels": [
+        1,
+        2
+      ],
+      "max_tones": 2,
+      "blocks": 5,
+      "search_phase": "logical_refit",
+      "optimization_n_cav": 12,
+      "seed": 17,
+      "init_guess": "heuristic",
+      "maxiter": 3,
+      "multistart": 1,
+      "fidelity": 0.9975890760000437,
+      "objective": 0.00268047688659388,
+      "success": false,
+      "message": "",
+      "summary": {
+        "rows": [
+          {
+            "name": "D0",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "R0",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "CP0",
+            "kind": "MaskedCPSQR",
+            "duration_ns": 109.00000000000001,
+            "active_tones": 2,
+            "metadata": {
+              "ideal_kind": "MaskedCPSQR",
+              "levels": [
+                1,
+                2
+              ],
+              "max_tones": 2,
+              "include_drift": true
+            }
+          },
+          {
+            "name": "D1",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "R1",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "CP1",
+            "kind": "MaskedCPSQR",
+            "duration_ns": 221.0,
+            "active_tones": 2,
+            "metadata": {
+              "ideal_kind": "MaskedCPSQR",
+              "levels": [
+                1,
+                2
+              ],
+              "max_tones": 2,
+              "include_drift": true
+            }
+          },
+          {
+            "name": "D2",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "R2",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "CP2",
+            "kind": "MaskedCPSQR",
+            "duration_ns": 227.0,
+            "active_tones": 2,
+            "metadata": {
+              "ideal_kind": "MaskedCPSQR",
+              "levels": [
+                1,
+                2
+              ],
+              "max_tones": 2,
+              "include_drift": true
+            }
+          },
+          {
+            "name": "D3",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "R3",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "CP3",
+            "kind": "MaskedCPSQR",
+            "duration_ns": 154.0,
+            "active_tones": 2,
+            "metadata": {
+              "ideal_kind": "MaskedCPSQR",
+              "levels": [
+                1,
+                2
+              ],
+              "max_tones": 2,
+              "include_drift": true
+            }
+          },
+          {
+            "name": "D4",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "R4",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "CP4",
+            "kind": "MaskedCPSQR",
+            "duration_ns": 129.0,
+            "active_tones": 2,
+            "metadata": {
+              "ideal_kind": "MaskedCPSQR",
+              "levels": [
+                1,
+                2
+              ],
+              "max_tones": 2,
+              "include_drift": true
+            }
+          },
+          {
+            "name": "D5",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          }
+        ],
+        "counts": {
+          "Displacement": 6,
+          "QubitRotation": 5,
+          "MaskedCPSQR": 5
+        },
+        "gate_depth": 16,
+        "total_duration_ns": 1520.0,
+        "selective_block_count": 5,
+        "entangling_block_count": 5,
+        "total_active_tones": 10,
+        "max_active_tones": 2
+      },
+      "metrics": {
+        "fidelity": 0.9975890760000437,
+        "leakage_average": 0.0045910281280123755,
+        "leakage_worst": 0.005391057732750615,
+        "leakage_selected": 0.005391057732750615,
+        "checkpoint_leakage_average": 0.0,
+        "checkpoint_leakage_worst": 0.0,
+        "state_error_mean": NaN,
+        "state_error_max": NaN,
+        "state_fidelity_mean": NaN,
+        "state_fidelity_min": NaN,
+        "reduced_state_fidelity_mean": NaN,
+        "reduced_state_fidelity_min": NaN,
+        "observable_error_mean": NaN,
+        "observable_error_max": NaN,
+        "weighted_observable_error": NaN,
+        "trajectory_task_loss": NaN,
+        "trajectory_state_error_mean": NaN,
+        "trajectory_observable_error_mean": NaN,
+        "channel_overlap": NaN,
+        "channel_choi_error": NaN,
+        "channel_superoperator_error": NaN,
+        "trace_preservation_error_mean": NaN,
+        "trace_preservation_error_max": NaN,
+        "trace_loss_mean": NaN,
+        "trace_loss_worst": NaN,
+        "choi_hermiticity_error": NaN,
+        "choi_min_eig": NaN,
+        "complete_positivity_violation": NaN,
+        "duration_metric": 0.9986859395532195,
+        "gate_count_metric": 11.591823268196718,
+        "pulse_power_metric": 0.6302568591888912,
+        "amplitude_smoothness_metric": 1.524204833037584,
+        "robustness_objective": 0.00268047688659388
+      },
+      "sequence": [
+        {
+          "type": "Displacement",
+          "name": "D0",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:0:D0",
+          "time_policy_locked": false,
+          "parameters": [
+            0.27124524086768464,
+            0.08682547120354572
+          ],
+          "time_param_id": "t_0"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R0",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:1:R0",
+          "time_policy_locked": false,
+          "parameters": [
+            3.256004287153719,
+            -0.07235347296941035
+          ],
+          "time_param_id": "t_1"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "CP0",
+          "duration": 1.0900000000000001e-07,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:2:CP0",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedCPSQR",
+            "levels": [
+              1,
+              2
+            ],
+            "max_tones": 2,
+            "include_drift": true
+          },
+          "parameters": [
+            1.8930020860890697,
+            0.5304506456001586
+          ],
+          "time_param_id": "t_2"
+        },
+        {
+          "type": "Displacement",
+          "name": "D1",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:3:D1",
+          "time_policy_locked": false,
+          "parameters": [
+            -0.30228522654784884,
+            -0.40961912222999647
+          ],
+          "time_param_id": "t_3"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R1",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:4:R1",
+          "time_policy_locked": false,
+          "parameters": [
+            2.4328913677437747,
+            1.6893882144402361
+          ],
+          "time_param_id": "t_4"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "CP1",
+          "duration": 2.21e-07,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:5:CP1",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedCPSQR",
+            "levels": [
+              1,
+              2
+            ],
+            "max_tones": 2,
+            "include_drift": true
+          },
+          "parameters": [
+            -2.658199132328785,
+            -1.0812944754501648
+          ],
+          "time_param_id": "t_5"
+        },
+        {
+          "type": "Displacement",
+          "name": "D2",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:6:D2",
+          "time_policy_locked": false,
+          "parameters": [
+            0.2388882856216791,
+            -0.3713182616399873
+          ],
+          "time_param_id": "t_6"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R2",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:7:R2",
+          "time_policy_locked": false,
+          "parameters": [
+            0.43354970317511354,
+            -1.2124002059243475
+          ],
+          "time_param_id": "t_7"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "CP2",
+          "duration": 2.27e-07,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:8:CP2",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedCPSQR",
+            "levels": [
+              1,
+              2
+            ],
+            "max_tones": 2,
+            "include_drift": true
+          },
+          "parameters": [
+            -1.9704328604482497,
+            -0.8372579466947438
+          ],
+          "time_param_id": "t_8"
+        },
+        {
+          "type": "Displacement",
+          "name": "D3",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:9:D3",
+          "time_policy_locked": false,
+          "parameters": [
+            0.5286022835885581,
+            0.15725080979314066
+          ],
+          "time_param_id": "t_9"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R3",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:10:R3",
+          "time_policy_locked": false,
+          "parameters": [
+            1.323837330741008,
+            0.9071251119552313
+          ],
+          "time_param_id": "t_10"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "CP3",
+          "duration": 1.54e-07,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:11:CP3",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedCPSQR",
+            "levels": [
+              1,
+              2
+            ],
+            "max_tones": 2,
+            "include_drift": true
+          },
+          "parameters": [
+            -0.00932795465571483,
+            2.9183383378819654
+          ],
+          "time_param_id": "t_11"
+        },
+        {
+          "type": "Displacement",
+          "name": "D4",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:12:D4",
+          "time_policy_locked": false,
+          "parameters": [
+            0.016665563326802576,
+            -0.006691644279039482
+          ],
+          "time_param_id": "t_12"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R4",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:13:R4",
+          "time_policy_locked": false,
+          "parameters": [
+            1.8799171054827966,
+            0.25195087842295477
+          ],
+          "time_param_id": "t_13"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "CP4",
+          "duration": 1.29e-07,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:14:CP4",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedCPSQR",
+            "levels": [
+              1,
+              2
+            ],
+            "max_tones": 2,
+            "include_drift": true
+          },
+          "parameters": [
+            -0.5515202629427487,
+            -3.531104240319825
+          ],
+          "time_param_id": "t_14"
+        },
+        {
+          "type": "Displacement",
+          "name": "D5",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:15:D5",
+          "time_policy_locked": false,
+          "parameters": [
+            -0.32381390128644577,
+            0.18102719221153277
+          ],
+          "time_param_id": "t_15"
+        }
+      ],
+      "parameter_vector": [
+        0.27124524086768464,
+        0.08682547120354572,
+        3.256004287153719,
+        -0.07235347296941035,
+        1.8930020860890697,
+        0.5304506456001586,
+        -0.30228522654784884,
+        -0.40961912222999647,
+        2.4328913677437747,
+        1.6893882144402361,
+        -2.658199132328785,
+        -1.0812944754501648,
+        0.2388882856216791,
+        -0.3713182616399873,
+        0.43354970317511354,
+        -1.2124002059243475,
+        -1.9704328604482497,
+        -0.8372579466947438,
+        0.5286022835885581,
+        0.15725080979314066,
+        1.323837330741008,
+        0.9071251119552313,
+        -0.00932795465571483,
+        2.9183383378819654,
+        0.016665563326802576,
+        -0.006691644279039482,
+        1.8799171054827966,
+        0.25195087842295477,
+        -0.5515202629427487,
+        -3.531104240319825,
+        -0.32381390128644577,
+        0.18102719221153277
+      ],
+      "time_vector": [
+        8e-08,
+        4e-08,
+        1.0900000000000001e-07,
+        8e-08,
+        4e-08,
+        2.21e-07,
+        8e-08,
+        4e-08,
+        2.27e-07,
+        8e-08,
+        4e-08,
+        1.54e-07,
+        8e-08,
+        4e-08,
+        1.29e-07,
+        8e-08
+      ],
+      "physical": {
+        "status": "retained",
+        "notes": [
+          "Retained at N_cav=12 with fidelity 0.9976 and leakage 0.0054."
+        ],
+        "by_n_cav": {
+          "10": {
+            "fidelity": 0.997589117339392,
+            "leakage_average": 0.0045909469450173546,
+            "leakage_worst": 0.005390843999828698,
+            "unitarity_error": 4.345179233419517e-15,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "candidate_peak_population_by_level": [
+                0.9994368763696113,
+                0.9983112633848119,
+                0.1593367565617147,
+                0.01649163435058318,
+                0.001999019420319939,
+                0.001321703776401869,
+                0.0004837965360878156,
+                0.0001447420656164822,
+                4.2723666295213506e-05,
+                2.969678333322568e-05
+              ],
+              "candidate_worst_captured_population": 0.9993046838249734,
+              "candidate_max_active_level": 5,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.9994368763696113,
+                    0.7634760967972991,
+                    0.1593367565617147,
+                    0.013381517326027784,
+                    0.0015271338647081492,
+                    0.0007662280831289843,
+                    0.00023113665583965754,
+                    0.00011462922500360737,
+                    3.564573848455419e-05,
+                    2.969678333322568e-05
+                  ],
+                  "worst_captured_population": 0.9989191806402529,
+                  "max_active_level": 5
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.7943054522432953,
+                    0.9983112633848119,
+                    0.15702152140070796,
+                    0.01649163435058318,
+                    0.001999019420319939,
+                    0.001044144012857341,
+                    0.0003066083148059077,
+                    0.0001043295379820665,
+                    4.2723666295213506e-05,
+                    1.4475999355568716e-05
+                  ],
+                  "worst_captured_population": 0.9995318624815613,
+                  "max_active_level": 5
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.9994368763696113,
+                    0.4928157995089492,
+                    0.06892712625552785,
+                    0.012074577979588639,
+                    0.0015856051557753274,
+                    0.0009442665028944715,
+                    0.000304535228909024,
+                    5.96193785483885e-05,
+                    1.2809789246265809e-05,
+                    7.465716658548119e-06
+                  ],
+                  "worst_captured_population": 0.998936033995164,
+                  "max_active_level": 5
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.49005251664806443,
+                    0.9983112633848119,
+                    0.1376989876483353,
+                    0.011617839010475802,
+                    0.0017464394687439387,
+                    0.001321703776401869,
+                    0.0004837965360878156,
+                    0.0001447420656164822,
+                    4.1640231033012845e-05,
+                    2.5137342288933047e-05
+                  ],
+                  "worst_captured_population": 0.9993046838249734,
+                  "max_active_level": 5
+                }
+              }
+            }
+          },
+          "12": {
+            "fidelity": 0.9975890760000437,
+            "leakage_average": 0.0045910281280123755,
+            "leakage_worst": 0.005391057732750615,
+            "unitarity_error": 6.6982501119256816e-15,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "candidate_peak_population_by_level": [
+                0.9994368763696113,
+                0.9983112633848119,
+                0.15933666770134067,
+                0.016491634339280442,
+                0.0019994658066007625,
+                0.0013209468555063766,
+                0.00048509196316822735,
+                0.0001418739424307485,
+                4.7446909489275456e-05,
+                1.5914664191369175e-05,
+                6.14496769874616e-06,
+                3.85796501133128e-06
+              ],
+              "candidate_worst_captured_population": 0.9993040078111538,
+              "candidate_max_active_level": 5,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.9994368763696113,
+                    0.763476096915956,
+                    0.15933666770134067,
+                    0.01338168874128612,
+                    0.0015269350144444314,
+                    0.0007662539410741126,
+                    0.00023160496311136938,
+                    0.00011364978723278633,
+                    3.9825966907617e-05,
+                    1.5914664191369175e-05,
+                    6.14496769874616e-06,
+                    3.85796501133128e-06
+                  ],
+                  "worst_captured_population": 0.9989192405706825,
+                  "max_active_level": 5
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.7943054533847265,
+                    0.9983112633848119,
+                    0.1570215214056162,
+                    0.016491634339280442,
+                    0.0019994658066007625,
+                    0.0010430299378221268,
+                    0.0003070380463998563,
+                    0.00010497699831004568,
+                    4.1932529513260446e-05,
+                    1.2927089394970515e-05,
+                    1.8790221786096392e-06,
+                    2.5274874999130944e-07
+                  ],
+                  "worst_captured_population": 0.999530993565453,
+                  "max_active_level": 5
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.9994368763696113,
+                    0.4928157937107744,
+                    0.06892710676462058,
+                    0.01207459345086789,
+                    0.0015857838812843533,
+                    0.0009437433833166131,
+                    0.0003052636894836871,
+                    5.8072130302464506e-05,
+                    1.5149189935466772e-05,
+                    4.226538754400222e-06,
+                    1.274248733103496e-06,
+                    6.697901568154143e-07
+                  ],
+                  "worst_captured_population": 0.9989362928233225,
+                  "max_active_level": 5
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.4900525110116111,
+                    0.9983112633848119,
+                    0.13769898764833527,
+                    0.011617843089160635,
+                    0.0017464737605008324,
+                    0.0013209468555063766,
+                    0.00048509196316822735,
+                    0.0001418739424307485,
+                    4.7446909489275456e-05,
+                    1.5476940054753457e-05,
+                    4.068432701311716e-06,
+                    2.0340010024225766e-06
+                  ],
+                  "worst_captured_population": 0.9993040078111538,
+                  "max_active_level": 5
+                }
+              }
+            }
+          },
+          "14": {
+            "fidelity": 0.9975890761438582,
+            "leakage_average": 0.004591027849956519,
+            "leakage_worst": 0.005391059323247793,
+            "unitarity_error": 1.1000686056778617e-14,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "candidate_peak_population_by_level": [
+                0.9994368763696113,
+                0.9983112633848119,
+                0.1593366680882671,
+                0.016491634339283818,
+                0.0019994583787479965,
+                0.001320942765341565,
+                0.0004851416806229078,
+                0.0001418053925475895,
+                4.7542813420990734e-05,
+                1.5668027267886435e-05,
+                6.840756520137595e-06,
+                2.4554797976454763e-06,
+                6.687607304229031e-07,
+                2.372564174799939e-07
+              ],
+              "candidate_worst_captured_population": 0.9993039987487428,
+              "candidate_max_active_level": 5,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.9994368763696113,
+                    0.763476096915977,
+                    0.1593366680882671,
+                    0.013381687861890949,
+                    0.001526935908752233,
+                    0.0007662671269761869,
+                    0.00023157788465643647,
+                    0.00011367187913675789,
+                    3.986925150911408e-05,
+                    1.5668027267886435e-05,
+                    6.840756520137595e-06,
+                    2.4554797976454763e-06,
+                    6.687607304229031e-07,
+                    2.372564174799939e-07
+                  ],
+                  "worst_captured_population": 0.998919237319977,
+                  "max_active_level": 5
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.7943054533821178,
+                    0.9983112633848119,
+                    0.15702152140561468,
+                    0.016491634339283818,
+                    0.0019994583787479965,
+                    0.0010430745266282932,
+                    0.0003070288688035292,
+                    0.00010494355560129205,
+                    4.188593743287108e-05,
+                    1.3030704398467234e-05,
+                    1.797065830928225e-06,
+                    1.5472791930651817e-07,
+                    6.366836804153727e-08,
+                    7.725866290456113e-08
+                  ],
+                  "worst_captured_population": 0.999531021718652,
+                  "max_active_level": 5
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.9994368763696113,
+                    0.49281579407291093,
+                    0.06892710681361731,
+                    0.012074593495815638,
+                    0.0015857813431743163,
+                    0.000943750547344154,
+                    0.0003052645286024617,
+                    5.8059044744071954e-05,
+                    1.518544390647293e-05,
+                    4.152061851110421e-06,
+                    1.4074891674009437e-06,
+                    4.4140856489669985e-07,
+                    1.0884923126743256e-07,
+                    3.396594613509958e-08
+                  ],
+                  "worst_captured_population": 0.9989362889073412,
+                  "max_active_level": 5
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.4900525107844473,
+                    0.9983112633848119,
+                    0.13769898764833527,
+                    0.01161784302124395,
+                    0.0017464730390783015,
+                    0.001320942765341565,
+                    0.0004851416806229078,
+                    0.0001418053925475895,
+                    4.7542813420990734e-05,
+                    1.5228916496960635e-05,
+                    4.557624715615111e-06,
+                    1.2469352073940791e-06,
+                    3.209305792927809e-07,
+                    1.569576659011849e-07
+                  ],
+                  "worst_captured_population": 0.9993039987487428,
+                  "max_active_level": 5
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "wigner": {
+      "by_input": {
+        "|g,0>": {
+          "reduced_state_fidelity": 0.9978677454429598,
+          "wigner_rms": 0.004432656640558933,
+          "wigner_l1": 0.002499080746572663
+        },
+        "|g,1>": {
+          "reduced_state_fidelity": 0.9981080538840196,
+          "wigner_rms": 0.0039712373478787,
+          "wigner_l1": 0.002483368998269452
+        },
+        "|e,0>": {
+          "reduced_state_fidelity": 0.9972821096695214,
+          "wigner_rms": 0.00546384943196328,
+          "wigner_l1": 0.0028528119428626983
+        },
+        "|e,1>": {
+          "reduced_state_fidelity": 0.9972406893912571,
+          "wigner_rms": 0.004943497496773932,
+          "wigner_l1": 0.003131632115853386
+        }
+      },
+      "mean_reduced_state_fidelity": 0.9976246495969394,
+      "min_reduced_state_fidelity": 0.9972406893912571,
+      "mean_wigner_rms": 0.004702810229293712,
+      "max_wigner_rms": 0.00546384943196328,
+      "mean_wigner_l1": 0.00274172345088955
+    }
+  },
+  "augmented_refit": {
+    "record": {
+      "case_id": "drcpsqr_blk5_a2_ordDRCP_DRCP_lv1-2_blk5_t2_augmented_refit",
+      "family_key": "drcpsqr",
+      "family_label": "D + R + CPSQR",
+      "variant_key": "blk5_a2_ordDRCP",
+      "variant_label": "5 blocks / DRCP / n_active=2 / augmented_refit",
+      "builder_name": "ordered_cpsqr",
+      "builder_kwargs": {
+        "blocks": 5,
+        "order": [
+          "D",
+          "R",
+          "CPSQR"
+        ]
+      },
+      "order_tokens": [
+        "D",
+        "R",
+        "CPSQR"
+      ],
+      "order_label": "DRCP",
+      "levels": [
+        1,
+        2
+      ],
+      "max_tones": 2,
+      "blocks": 5,
+      "search_phase": "augmented_refit",
+      "optimization_n_cav": 12,
+      "seed": 17,
+      "init_guess": "heuristic",
+      "maxiter": 3,
+      "multistart": 1,
+      "fidelity": 0.600556096367226,
+      "objective": 0.41466291129537863,
+      "success": false,
+      "message": "",
+      "summary": {
+        "rows": [
+          {
+            "name": "D0",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "R0",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "CP0",
+            "kind": "MaskedCPSQR",
+            "duration_ns": 102.0,
+            "active_tones": 2,
+            "metadata": {
+              "ideal_kind": "MaskedCPSQR",
+              "levels": [
+                1,
+                2
+              ],
+              "max_tones": 2,
+              "include_drift": true
+            }
+          },
+          {
+            "name": "D1",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "R1",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "CP1",
+            "kind": "MaskedCPSQR",
+            "duration_ns": 211.00000000000003,
+            "active_tones": 2,
+            "metadata": {
+              "ideal_kind": "MaskedCPSQR",
+              "levels": [
+                1,
+                2
+              ],
+              "max_tones": 2,
+              "include_drift": true
+            }
+          },
+          {
+            "name": "D2",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "R2",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "CP2",
+            "kind": "MaskedCPSQR",
+            "duration_ns": 223.00000000000003,
+            "active_tones": 2,
+            "metadata": {
+              "ideal_kind": "MaskedCPSQR",
+              "levels": [
+                1,
+                2
+              ],
+              "max_tones": 2,
+              "include_drift": true
+            }
+          },
+          {
+            "name": "D3",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "R3",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "CP3",
+            "kind": "MaskedCPSQR",
+            "duration_ns": 155.0,
+            "active_tones": 2,
+            "metadata": {
+              "ideal_kind": "MaskedCPSQR",
+              "levels": [
+                1,
+                2
+              ],
+              "max_tones": 2,
+              "include_drift": true
+            }
+          },
+          {
+            "name": "D4",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "R4",
+            "kind": "QubitRotation",
+            "duration_ns": 40.0,
+            "active_tones": 0,
+            "metadata": {}
+          },
+          {
+            "name": "CP4",
+            "kind": "MaskedCPSQR",
+            "duration_ns": 138.00000000000003,
+            "active_tones": 2,
+            "metadata": {
+              "ideal_kind": "MaskedCPSQR",
+              "levels": [
+                1,
+                2
+              ],
+              "max_tones": 2,
+              "include_drift": true
+            }
+          },
+          {
+            "name": "D5",
+            "kind": "Displacement",
+            "duration_ns": 80.0,
+            "active_tones": 0,
+            "metadata": {}
+          }
+        ],
+        "counts": {
+          "Displacement": 6,
+          "QubitRotation": 5,
+          "MaskedCPSQR": 5
+        },
+        "gate_depth": 16,
+        "total_duration_ns": 1509.0,
+        "selective_block_count": 5,
+        "entangling_block_count": 5,
+        "total_active_tones": 10,
+        "max_active_tones": 2
+      },
+      "metrics": {
+        "fidelity": 0.600556096367226,
+        "leakage_average": 0.10545578138856644,
+        "leakage_worst": 0.30438015325209156,
+        "leakage_selected": 0.30438015325209156,
+        "checkpoint_leakage_average": 0.0,
+        "checkpoint_leakage_worst": 0.0,
+        "state_error_mean": NaN,
+        "state_error_max": NaN,
+        "state_fidelity_mean": NaN,
+        "state_fidelity_min": NaN,
+        "reduced_state_fidelity_mean": NaN,
+        "reduced_state_fidelity_min": NaN,
+        "observable_error_mean": NaN,
+        "observable_error_max": NaN,
+        "weighted_observable_error": NaN,
+        "trajectory_task_loss": NaN,
+        "trajectory_state_error_mean": NaN,
+        "trajectory_observable_error_mean": NaN,
+        "channel_overlap": NaN,
+        "channel_choi_error": NaN,
+        "channel_superoperator_error": NaN,
+        "trace_preservation_error_mean": NaN,
+        "trace_preservation_error_max": NaN,
+        "trace_loss_mean": NaN,
+        "trace_loss_worst": NaN,
+        "choi_hermiticity_error": NaN,
+        "choi_min_eig": NaN,
+        "complete_positivity_violation": NaN,
+        "duration_metric": 0.9914586070959265,
+        "gate_count_metric": 11.37797428796163,
+        "pulse_power_metric": 0.7375394245563611,
+        "amplitude_smoothness_metric": 1.8050926721880365,
+        "robustness_objective": 0.41466291129537863
+      },
+      "sequence": [
+        {
+          "type": "Displacement",
+          "name": "D0",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:0:D0",
+          "time_policy_locked": false,
+          "parameters": [
+            0.19637411413912065,
+            -0.06614174428308017
+          ],
+          "time_param_id": "t_0"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R0",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:1:R0",
+          "time_policy_locked": false,
+          "parameters": [
+            3.4336936751939526,
+            0.12170947447604905
+          ],
+          "time_param_id": "t_1"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "CP0",
+          "duration": 1.02e-07,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:2:CP0",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedCPSQR",
+            "levels": [
+              1,
+              2
+            ],
+            "max_tones": 2,
+            "include_drift": true
+          },
+          "parameters": [
+            2.375369781997295,
+            3.6124513821039623
+          ],
+          "time_param_id": "t_2"
+        },
+        {
+          "type": "Displacement",
+          "name": "D1",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:3:D1",
+          "time_policy_locked": false,
+          "parameters": [
+            -0.16358528011649318,
+            -0.1580433960886486
+          ],
+          "time_param_id": "t_3"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R1",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:4:R1",
+          "time_policy_locked": false,
+          "parameters": [
+            3.0076872286168594,
+            1.8656974394931658
+          ],
+          "time_param_id": "t_4"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "CP1",
+          "duration": 2.1100000000000002e-07,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:5:CP1",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedCPSQR",
+            "levels": [
+              1,
+              2
+            ],
+            "max_tones": 2,
+            "include_drift": true
+          },
+          "parameters": [
+            -2.7762839901402563,
+            -2.132996454392213
+          ],
+          "time_param_id": "t_5"
+        },
+        {
+          "type": "Displacement",
+          "name": "D2",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:6:D2",
+          "time_policy_locked": false,
+          "parameters": [
+            0.23513838347664742,
+            -0.24768661295151376
+          ],
+          "time_param_id": "t_6"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R2",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:7:R2",
+          "time_policy_locked": false,
+          "parameters": [
+            0.9451643355838585,
+            -1.4455900797751227
+          ],
+          "time_param_id": "t_7"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "CP2",
+          "duration": 2.2300000000000002e-07,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:8:CP2",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedCPSQR",
+            "levels": [
+              1,
+              2
+            ],
+            "max_tones": 2,
+            "include_drift": true
+          },
+          "parameters": [
+            -1.6359385455530016,
+            -1.5659965159381795
+          ],
+          "time_param_id": "t_8"
+        },
+        {
+          "type": "Displacement",
+          "name": "D3",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:9:D3",
+          "time_policy_locked": false,
+          "parameters": [
+            0.46082260006908515,
+            0.0791680169472481
+          ],
+          "time_param_id": "t_9"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R3",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:10:R3",
+          "time_policy_locked": false,
+          "parameters": [
+            1.7034312809112029,
+            0.8104993032896459
+          ],
+          "time_param_id": "t_10"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "CP3",
+          "duration": 1.55e-07,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:11:CP3",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedCPSQR",
+            "levels": [
+              1,
+              2
+            ],
+            "max_tones": 2,
+            "include_drift": true
+          },
+          "parameters": [
+            0.4243064830724588,
+            3.7753170787101125
+          ],
+          "time_param_id": "t_11"
+        },
+        {
+          "type": "Displacement",
+          "name": "D4",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:12:D4",
+          "time_policy_locked": false,
+          "parameters": [
+            0.11638431819119854,
+            -0.12878265518567472
+          ],
+          "time_param_id": "t_12"
+        },
+        {
+          "type": "QubitRotation",
+          "name": "R4",
+          "duration": 4e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:13:R4",
+          "time_policy_locked": false,
+          "parameters": [
+            1.3848316775027052,
+            0.4088182745676522
+          ],
+          "time_param_id": "t_13"
+        },
+        {
+          "type": "PrimitiveGate",
+          "name": "CP4",
+          "duration": 1.3800000000000002e-07,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:14:CP4",
+          "time_policy_locked": false,
+          "mode": "matrix",
+          "hilbert_dim": 24,
+          "metadata": {
+            "ideal_kind": "MaskedCPSQR",
+            "levels": [
+              1,
+              2
+            ],
+            "max_tones": 2,
+            "include_drift": true
+          },
+          "parameters": [
+            -0.4286451344115329,
+            -3.2749036753458407
+          ],
+          "time_param_id": "t_14"
+        },
+        {
+          "type": "Displacement",
+          "name": "D5",
+          "duration": 8e-08,
+          "optimize_time": true,
+          "time_bounds": [
+            2e-08,
+            2e-06
+          ],
+          "time_group": "instance:15:D5",
+          "time_policy_locked": false,
+          "parameters": [
+            -0.3631643153720149,
+            0.21278164408758482
+          ],
+          "time_param_id": "t_15"
+        }
+      ],
+      "parameter_vector": [
+        0.19637411413912065,
+        -0.06614174428308017,
+        3.4336936751939526,
+        0.12170947447604905,
+        2.375369781997295,
+        3.6124513821039623,
+        -0.16358528011649318,
+        -0.1580433960886486,
+        3.0076872286168594,
+        1.8656974394931658,
+        -2.7762839901402563,
+        -2.132996454392213,
+        0.23513838347664742,
+        -0.24768661295151376,
+        0.9451643355838585,
+        -1.4455900797751227,
+        -1.6359385455530016,
+        -1.5659965159381795,
+        0.46082260006908515,
+        0.0791680169472481,
+        1.7034312809112029,
+        0.8104993032896459,
+        0.4243064830724588,
+        3.7753170787101125,
+        0.11638431819119854,
+        -0.12878265518567472,
+        1.3848316775027052,
+        0.4088182745676522,
+        -0.4286451344115329,
+        -3.2749036753458407,
+        -0.3631643153720149,
+        0.21278164408758482
+      ],
+      "time_vector": [
+        8e-08,
+        4e-08,
+        1.02e-07,
+        8e-08,
+        4e-08,
+        2.1100000000000002e-07,
+        8e-08,
+        4e-08,
+        2.2300000000000002e-07,
+        8e-08,
+        4e-08,
+        1.55e-07,
+        8e-08,
+        4e-08,
+        1.3800000000000002e-07,
+        8e-08
+      ],
+      "physical": {
+        "status": "discarded",
+        "notes": [
+          "N_cav=12 fidelity 0.8595 is below the retained threshold 0.90.",
+          "N_cav=12 worst leakage 0.1038 is above 0.10."
+        ],
+        "by_n_cav": {
+          "10": {
+            "fidelity": 0.8594846490641451,
+            "leakage_average": 0.05558878753982155,
+            "leakage_worst": 0.10384137438821806,
+            "unitarity_error": 3.744528855021139e-15,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "candidate_peak_population_by_level": [
+                0.9997018672070778,
+                0.9991057793963911,
+                0.39073975014358936,
+                0.05589874024583796,
+                0.018610992255615903,
+                0.0033795938676053853,
+                0.0006752794112642355,
+                0.0002460364724448467,
+                0.00010617611146289984,
+                0.00010098316896752083
+              ],
+              "candidate_worst_captured_population": 0.9990329574404357,
+              "candidate_max_active_level": 5,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.9997018672070778,
+                    0.4146617648487467,
+                    0.18259959087964134,
+                    0.02703998510730473,
+                    0.010525486963263251,
+                    0.0023529408010210416,
+                    0.00046989668074327217,
+                    0.00010234866313111724,
+                    2.1933213259273815e-05,
+                    5.888158220556196e-06
+                  ],
+                  "worst_captured_population": 0.9993999332846449,
+                  "max_active_level": 5
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.5810213438963774,
+                    0.9991057793963911,
+                    0.20879016020358176,
+                    0.029168160869094364,
+                    0.0077658130394914855,
+                    0.00152108944185453,
+                    0.0004208607892199031,
+                    0.0002460364724448467,
+                    0.00010617611146289984,
+                    0.00010098316896752083
+                  ],
+                  "worst_captured_population": 0.9991259434579041,
+                  "max_active_level": 5
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "peak_population_by_level": [
+                    0.9997018672070778,
+                    0.3925513323421811,
+                    0.10414415998591671,
+                    0.014409694734763608,
+                    0.003406774447896528,
+                    0.00035782978084088673,
+                    0.00013941685188903418,
+                    5.8126851471959094e-05,
+                    1.5367666696272256e-05,
+                    5.017953360097166e-06
+                  ],
+                  "worst_captured_population": 0.9994242408957416,
+                  "max_active_level": 4
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.4880828103264969,
+                    0.9991057793963911,
+                    0.39073975014358936,
+                    0.05589874024583796,
+                    0.018610992255615903,
+                    0.0033795938676053853,
+                    0.0006752794112642355,
+                    0.00021327068041401565,
+                    5.5813267250854235e-05,
+                    2.2679200635076445e-05
+                  ],
+                  "worst_captured_population": 0.9990329574404357,
+                  "max_active_level": 5
+                }
+              }
+            }
+          },
+          "12": {
+            "fidelity": 0.8594846474595599,
+            "leakage_average": 0.05558878838173237,
+            "leakage_worst": 0.10384137801186966,
+            "unitarity_error": 4.6911388334477475e-15,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "candidate_peak_population_by_level": [
+                0.9997018672070778,
+                0.9991057793963911,
+                0.39073975217447066,
+                0.05589893447871866,
+                0.018610190587705647,
+                0.0033807965561758906,
+                0.0006752172569747087,
+                0.00023211576713105797,
+                0.00013042765501807365,
+                5.528693625566893e-05,
+                1.894992357863522e-05,
+                1.2227638948171192e-05
+              ],
+              "candidate_worst_captured_population": 0.9990335379693321,
+              "candidate_max_active_level": 5,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.9997018672070778,
+                    0.41466176484772044,
+                    0.18259959083205232,
+                    0.02703998493756557,
+                    0.01052523652675303,
+                    0.002353574615527712,
+                    0.00046911283290048864,
+                    0.0001028154388469058,
+                    2.217408147543428e-05,
+                    4.270015120770991e-06,
+                    8.763765320854755e-07,
+                    3.964046398084074e-07
+                  ],
+                  "worst_captured_population": 0.9994003548504842,
+                  "max_active_level": 5
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.5810213439145497,
+                    0.9991057793963911,
+                    0.20879015616200092,
+                    0.02916816507073299,
+                    0.007763933519619983,
+                    0.0015231621409893697,
+                    0.0004243490146893793,
+                    0.00023211576713105797,
+                    0.00013042765501807365,
+                    5.528693625566893e-05,
+                    1.894992357863522e-05,
+                    1.2227638948171192e-05
+                  ],
+                  "worst_captured_population": 0.999126643064378,
+                  "max_active_level": 5
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "peak_population_by_level": [
+                    0.9997018672070778,
+                    0.3925513323665521,
+                    0.10414415999101145,
+                    0.014409694874355826,
+                    0.0034068078629786143,
+                    0.00035774705210589794,
+                    0.00013959460338393463,
+                    5.7699826946815635e-05,
+                    1.621581234538145e-05,
+                    3.61436445064367e-06,
+                    6.953188917179431e-07,
+                    1.6347492153168772e-07
+                  ],
+                  "worst_captured_population": 0.9994242695469544,
+                  "max_active_level": 4
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.4880828101958432,
+                    0.9991057793963911,
+                    0.39073975217447066,
+                    0.05589893447871866,
+                    0.018610190587705647,
+                    0.0033807965561758906,
+                    0.0006752172569747087,
+                    0.0002106124522299474,
+                    6.0790068263046514e-05,
+                    1.55864392205195e-05,
+                    3.2325345792331362e-06,
+                    1.0232794002674825e-06
+                  ],
+                  "worst_captured_population": 0.9990335379693321,
+                  "max_active_level": 5
+                }
+              }
+            }
+          },
+          "14": {
+            "fidelity": 0.8594846474687502,
+            "leakage_average": 0.05558878836233991,
+            "leakage_worst": 0.10384137799046655,
+            "unitarity_error": 1.2660199789803508e-14,
+            "active_subspace": {
+              "threshold": 0.001,
+              "capture_target": 0.999,
+              "sample_points_per_gate": 12,
+              "candidate_active_levels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "candidate_peak_population_by_level": [
+                0.9997018672070778,
+                0.9991057793963911,
+                0.3907397521742535,
+                0.055898933387520215,
+                0.01861019359854192,
+                0.0033807988356862936,
+                0.0006751822718144272,
+                0.00023180388875313664,
+                0.0001311908656088467,
+                5.369924941322814e-05,
+                2.165047413598322e-05,
+                7.630469953886214e-06,
+                2.131840118335277e-06,
+                8.199901216211231e-07
+              ],
+              "candidate_worst_captured_population": 0.9990335422741229,
+              "candidate_max_active_level": 5,
+              "touches_truncation_boundary": false,
+              "per_input": {
+                "|g,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.9997018672070778,
+                    0.4146617648477185,
+                    0.1825995908320922,
+                    0.027039984938008167,
+                    0.010525236321998692,
+                    0.002353574421407408,
+                    0.0004691170543360144,
+                    0.00010280218536870912,
+                    2.2200040811165107e-05,
+                    4.223840795962248e-06,
+                    9.546664839975086e-07,
+                    2.6072311626358225e-07,
+                    6.505882271066516e-08,
+                    2.199968764856218e-08
+                  ],
+                  "worst_captured_population": 0.9994003544305767,
+                  "max_active_level": 5
+                },
+                "|g,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.581021343914538,
+                    0.9991057793963911,
+                    0.208790156165519,
+                    0.029168165069160482,
+                    0.007763932186868465,
+                    0.0015231440810673715,
+                    0.00042444930720775633,
+                    0.00023180388875313664,
+                    0.0001311908656088467,
+                    5.369924941322814e-05,
+                    2.165047413598322e-05,
+                    7.630469953886214e-06,
+                    2.131840118335277e-06,
+                    8.199901216211231e-07
+                  ],
+                  "worst_captured_population": 0.9991266239146858,
+                  "max_active_level": 5
+                },
+                "|e,0>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "peak_population_by_level": [
+                    0.9997018672070778,
+                    0.3925513323670649,
+                    0.10414415999106935,
+                    0.014409694874342929,
+                    0.003406807960698358,
+                    0.0003577473280144502,
+                    0.00013959300482504767,
+                    5.770234322849315e-05,
+                    1.621597649468461e-05,
+                    3.6057418303706823e-06,
+                    7.16896803012885e-07,
+                    1.2649853269751588e-07,
+                    1.9389006513540278e-08,
+                    3.21721419356719e-09
+                  ],
+                  "worst_captured_population": 0.9994242696040506,
+                  "max_active_level": 4
+                },
+                "|e,1>": {
+                  "active_levels": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "peak_population_by_level": [
+                    0.4880828101969403,
+                    0.9991057793963911,
+                    0.3907397521742535,
+                    0.055898933387520215,
+                    0.01861019359854192,
+                    0.0033807988356862936,
+                    0.0006751822718144272,
+                    0.000210692727178146,
+                    6.071428965840491e-05,
+                    1.557010245668109e-05,
+                    3.385816288046532e-06,
+                    7.200827956302364e-07,
+                    1.5238069197320873e-07,
+                    4.005499340809251e-08
+                  ],
+                  "worst_captured_population": 0.9990335422741229,
+                  "max_active_level": 5
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "wigner": {
+      "by_input": {
+        "|g,0>": {
+          "reduced_state_fidelity": 0.8650807494462314,
+          "wigner_rms": 0.02865318478539661,
+          "wigner_l1": 0.013753050478500778
+        },
+        "|g,1>": {
+          "reduced_state_fidelity": 0.8581827698212806,
+          "wigner_rms": 0.03844534262222918,
+          "wigner_l1": 0.019260038874817496
+        },
+        "|e,0>": {
+          "reduced_state_fidelity": 0.9697237478990463,
+          "wigner_rms": 0.014178334826784447,
+          "wigner_l1": 0.0068538718923883
+        },
+        "|e,1>": {
+          "reduced_state_fidelity": 0.9266653648447707,
+          "wigner_rms": 0.03145525538284198,
+          "wigner_l1": 0.016317584790052464
+        }
+      },
+      "mean_reduced_state_fidelity": 0.9049131580028322,
+      "min_reduced_state_fidelity": 0.8581827698212806,
+      "mean_wigner_rms": 0.028183029404313054,
+      "max_wigner_rms": 0.03844534262222918,
+      "mean_wigner_l1": 0.014046136508939759
+    },
+    "augmented_target_fidelity": 0.600556096367226
+  },
+  "interpretation": "does_not_support",
+  "figure_stem": "drcpsqr_wigner_basis_extension"
+}

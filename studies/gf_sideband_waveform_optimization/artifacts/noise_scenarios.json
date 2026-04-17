@@ -1,0 +1,38 @@
+[
+  {
+    "description": "Storage/readout dissipation only; no transmon relaxation or dephasing.",
+    "noise_scenario": "mode_only",
+    "scale_factor": null,
+    "source": "cQED_simulation/examples/workflows/simulate_fock_tomo_and_sqr_calibration.py",
+    "transmon_t1_s": null,
+    "transmon_t2_ramsey_s": null,
+    "transmon_tphi_s": null
+  },
+  {
+    "description": "Storage/readout dissipation plus transmon relaxation and Ramsey-derived pure dephasing scaled by 0.5 relative to the matched local tomography reference.",
+    "noise_scenario": "transmon_reference_x0.5",
+    "scale_factor": 0.5,
+    "source": "cQED_simulation/examples/workflows/simulate_fock_tomo_and_sqr_calibration.py",
+    "transmon_t1_s": 4.906436924122556e-06,
+    "transmon_t2_ramsey_s": 3.162365563564185e-06,
+    "transmon_tphi_s": 4.666093629079469e-06
+  },
+  {
+    "description": "Storage/readout dissipation plus transmon relaxation and Ramsey-derived pure dephasing scaled by 1.0 relative to the matched local tomography reference.",
+    "noise_scenario": "transmon_reference",
+    "scale_factor": 1.0,
+    "source": "cQED_simulation/examples/workflows/simulate_fock_tomo_and_sqr_calibration.py",
+    "transmon_t1_s": 9.812873848245112e-06,
+    "transmon_t2_ramsey_s": 6.32473112712837e-06,
+    "transmon_tphi_s": 9.332187258158938e-06
+  },
+  {
+    "description": "Storage/readout dissipation plus transmon relaxation and Ramsey-derived pure dephasing scaled by 2.0 relative to the matched local tomography reference.",
+    "noise_scenario": "transmon_reference_x2.0",
+    "scale_factor": 2.0,
+    "source": "cQED_simulation/examples/workflows/simulate_fock_tomo_and_sqr_calibration.py",
+    "transmon_t1_s": 1.9625747696490225e-05,
+    "transmon_t2_ramsey_s": 1.264946225425674e-05,
+    "transmon_tphi_s": 1.8664374516317877e-05
+  }
+]

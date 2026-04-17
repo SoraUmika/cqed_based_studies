@@ -38,6 +38,18 @@ If `EXECUTION_PLAN.md` or `TASK_CHECKLIST.md` is missing, stop and tell the user
 - Do not silently rewrite the plan while implementing. If the plan must change, make the smallest necessary update and log why.
 - Do not keep pushing after a real blocker. Log it and stop cleanly.
 
+## cQED Research Context
+
+When the task involves a cQED simulation study:
+
+- Always use `cqed_sim` for simulation — no ad-hoc code unless a gap is documented.
+- Follow the coding standards in `.github/instructions/python-study-code.instructions.md`.
+- Save figures in both PNG (300 dpi) and PDF formats to `figures/`.
+- Save machine-readable artifacts (JSON/NPZ) to `artifacts/`.
+- Update `IMPROVEMENTS.md` in real time as limitations are discovered.
+- Stop immediately on any `cqed_sim` inconsistency — log in `BLOCKERS.md`.
+- Use `pip install <package> --user` for any needed packages (no venvs).
+
 ## Response Format
 - State which checklist items were completed in this run.
 - State which files changed.

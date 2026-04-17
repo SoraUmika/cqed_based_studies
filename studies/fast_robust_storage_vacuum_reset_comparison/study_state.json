@@ -1,0 +1,54 @@
+{
+  "study_name": "fast_robust_storage_vacuum_reset_comparison",
+  "study_path": "studies/fast_robust_storage_vacuum_reset_comparison",
+  "status": "ACTIVE",
+  "problem_class": [
+    "DES",
+    "ANA",
+    "OPT"
+  ],
+  "created_at": "2026-04-13T17:05:00-05:00",
+  "updated_at": "2026-04-14T18:45:00-05:00",
+  "loop_iteration": 1,
+  "science_directive_version": 1,
+  "objective": "Compare active-cooling architectures for a storage-transmon-readout cQED device and determine which scheme is fastest, most robust to transmon decoherence, and best overall on the local cqed_sim device abstraction.",
+  "completed_tasks": [
+    "Implemented the comparative study runner and exported machine-readable artifacts.",
+    "Selected the best pulsed, resonant continuous, and detuned continuous settings on the local device model.",
+    "Ran initial-state comparisons, robustness sweeps, readout-linewidth sweeps, and representative convergence checks.",
+    "Generated figures, report source, reproducibility notebook, and handoff documents.",
+    "Iteration 2: Rebuilt report with literature-grounded Introduction, System and Methods, quantitative convergence table, sensitivity/uncertainty analysis, fixed summary figure, integrated all evidence figures, expanded reproducibility appendix.",
+    "Iteration 3: Reconciled the canonical metric definitions across scheme summaries, study results, and report tables.",
+    "Iteration 3: Regenerated the scheme summary, convergence, and initial-state artifacts with matched pulsed ladder depth and aligned baseline time-step choices.",
+    "Iteration 3: Rewrote the contradictory report claims so the pulsed e-fold time, full protocol duration, and time-step caveats are all stated consistently."
+  ],
+  "failed_tasks": [],
+  "pending_tasks": [
+    "Re-run and verify the reproducibility notebook against the refreshed artifacts.",
+    "Decide whether to extend the continuous-scheme convergence study further or submit the current caveated report for re-review."
+  ],
+  "blocked_tasks": [],
+  "key_results": {
+    "best_overall_scheme": "Continuous Raman-like",
+    "fastest_scheme": "Pulsed ladder",
+    "most_robust_scheme": "Continuous Raman-like",
+    "recommended_first_experiment": "Pulsed ladder with shorter ringdown than the conservative 4/\u03ba choice.",
+    "best_long_term_direction": "Detuned Raman-like readout-assisted cooling with a stronger readout bath."
+  },
+  "review_history": [
+    {
+      "iteration": 1,
+      "decision": "NEEDS_REWORK",
+      "summary": "Saved results appear internally consistent, but the report lacks literature context, a methods section, quantitative convergence and uncertainty presentation, a working summary figure, and a complete reproducibility appendix.",
+      "date": "2026-04-14"
+    },
+    {
+      "iteration": 2,
+      "decision": "NEEDS_REWORK",
+      "summary": "Iteration 2 fixed the report structure, methods, and appendix issues from the first review, but the revised manuscript remains internally inconsistent: headline single-photon, higher-Fock, convergence, and artifact values are not quantitatively reconciled, so the core evidence-to-claim chain is still unreliable.",
+      "date": "2026-04-14"
+    }
+  ],
+  "review_iterations": 2,
+  "reviewer_decision": "NEEDS_REWORK"
+}

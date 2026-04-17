@@ -1,0 +1,79 @@
+{
+  "all_passed": true,
+  "best_random_case_id": "chi_only_na2_chiT5p0_familyD_seed316161",
+  "best_structured_case_id": "chi_plus_chiprime_na2_chiT1p0_familyC",
+  "checks": [
+    {
+      "details": {
+        "best_worst_parameter_tables.png": true,
+        "blockwise_fidelity_heatmap.png": true,
+        "chi_only_vs_chi_plus_chiprime.png": true,
+        "crosstalk_heatmap.png": true,
+        "fidelity_vs_active_subspace_size.png": true,
+        "fidelity_vs_pulse_duration.png": true,
+        "random_target_fidelity_histogram.png": true,
+        "representative_multitone_waveforms.png": true,
+        "state_level_validation.png": true,
+        "study_results.json": true,
+        "transition_frequency_diagram.png": true
+      },
+      "name": "artifacts_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "average_gate_fidelity": 0.9978673780911622,
+        "frobenius_error": 0.05961732587306097,
+        "interpretation": "Zero drive remains nearly trivial and exactly unitary on the active subspace; the residual infidelity is dominated by deterministic drift phases in the chosen rotating frame.",
+        "operator_norm_error": 0.13060104495803396,
+        "process_fidelity": 0.9975119411063559,
+        "restricted_unitarity_error": 2.220446049250313e-16
+      },
+      "name": "zero_drive_identity_sanity",
+      "passed": true
+    },
+    {
+      "details": {
+        "average_gate_fidelity": 0.9467425001991016,
+        "state_validation_ground_fidelity": 0.9221603226954328,
+        "state_validation_plus_fidelity": 0.9675221000679497
+      },
+      "name": "single_manifold_sanity",
+      "passed": true
+    },
+    {
+      "details": {
+        "best_random": 0.004300104412477301,
+        "best_structured": -0.0005122278301507022
+      },
+      "name": "time_step_convergence",
+      "passed": true
+    },
+    {
+      "details": {
+        "best_random": -7.412855940192031e-07,
+        "best_structured": -5.124415773938296e-07
+      },
+      "name": "truncation_convergence",
+      "passed": true
+    },
+    {
+      "details": {
+        "interpretation": "The sampled random-target median shifts slightly upward when chi' is included; the study records the effect instead of assuming its sign a priori.",
+        "median_chi_only": 0.13259951064519537,
+        "median_chi_plus_chiprime": 0.15101695341304694,
+        "median_difference": -0.018417442767851566
+      },
+      "name": "chi_prime_random_ensemble_comparison",
+      "passed": true
+    },
+    {
+      "details": {
+        "reason": "This is an original OPT/ANA/DES study, not a reproduction benchmark.",
+        "status": "not_applicable"
+      },
+      "name": "literature_comparison",
+      "passed": true
+    }
+  ]
+}

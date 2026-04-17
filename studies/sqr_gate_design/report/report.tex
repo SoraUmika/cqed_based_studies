@@ -1,29 +1,20 @@
-\documentclass[11pt, a4paper]{article}
+\documentclass[aps,pra,twocolumn,reprint,amsmath,amssymb]{revtex4-2}
 
-% ── Packages ──────────────────────────────────────────────
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb, amsfonts}
 \usepackage{graphicx}
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
-\usepackage[numbers, sort&compress]{natbib}
 \usepackage{booktabs}
 \usepackage{siunitx}
-\usepackage{caption}
-\usepackage{float}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
 \usepackage{xcolor}
 \graphicspath{{../figures/}}
 
-% ── Metadata ──────────────────────────────────────────────
-\title{\textbf{Selective Qubit Rotation Gate Design in Dispersive cQED:\\
-Waveform Optimization, Multi-Branch Limits, and Open-System Performance}}
-\author{cQED Autonomous Research Platform \\ Shyam Shankar Quantum Circuits Group}
-\date{\today}
-
 \begin{document}
 
-\maketitle
+\title{Selective Qubit Rotation Gate Design in Dispersive cQED:
+Waveform Optimization, Multi-Branch Limits, and Open-System Performance}
+\author{cQED Autonomous Research Platform}
+\affiliation{Shyam Shankar Quantum Circuits Group}
+\date{\today}
 
 % ══════════════════════════════════════════════════════════
 % 1. ABSTRACT
@@ -33,6 +24,8 @@ We present a unified study of selective qubit rotation (SQR) gate design in disp
 
 The main results are: (1)~The conditional-phase SQR target (cphase-SQR) is dramatically easier than the true SQR target, making it the natural baseline primitive. (2)~The cosine-squared envelope achieves the best closed-system performance in the practical regime ($|\chi|T/2\pi\sim 2$--$3$), reaching conditional-phase fidelity $0.999997$ at $|\chi|T/2\pi=3$. (3)~Simultaneous multi-branch SQR with a common Gaussian multitone waveform is \emph{not viable}: the target-branch rotation angle response is $\sim 10^{-4}$, and three independent correction strategies fail to rescue the hard regime. (4)~A cavity-only phase compilation layer provides systematic improvement for single-target SQR on enlarged logical windows ($\Delta F\approx 0.02$) but does not close the gap to branch-local-$Z$ relaxed fidelity, and it fails entirely for structured all-branch short-gate cases. (5)~Under realistic multilevel noise ($T_{1,ge}=\SI{30}{\micro s}$, $T_{1,ef}=\SI{10}{\micro s}$, $n_\mathrm{th,s}=0.02$), the square-family SQR becomes the best parametric baseline with peak realistic-noise target fidelity $0.944$ near $|\chi|T/2\pi=1$. (6)~GRAPE retains a clear noisy-fidelity advantage over parametric baselines ($F=0.978$ at $|\chi|T/2\pi=1$), and (7)~concurrent readout degrades the reduced logical fidelity from $0.822$ to $0.632$ as readout amplitude increases from $0.5$ to $\SI{2.5}{MHz}$.
 \end{abstract}
+
+\maketitle
 
 % ══════════════════════════════════════════════════════════
 % 2. INTRODUCTION
@@ -70,7 +63,7 @@ where $c$ is the readout mode operator, $\omega_r/2\pi = \SI{8.597}{GHz}$, $\kap
 
 \subsection{Simulation Parameters}
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Nominal device parameters shared across all SQR studies.}
 \begin{tabular}{@{} l S[table-format=+3.3] l @{}}
@@ -88,9 +81,9 @@ Readout linewidth $\kappa_r/2\pi$ & 2.4 & MHz \\
 \bottomrule
 \end{tabular}
 \label{tab:device_params}
-\end{table}
+\end{table*}
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Noise and truncation parameters for the open-system study.}
 \begin{tabular}{@{} l l l @{}}
@@ -107,7 +100,7 @@ Logical window & $n = 0, \ldots, 3$ & --- \\
 \bottomrule
 \end{tabular}
 \label{tab:noise_params}
-\end{table}
+\end{table*}
 
 \subsection{Target Types and Metrics}
 
@@ -179,7 +172,7 @@ even when the requested target is $\theta=\pi$. The common Gaussian multitone pu
 
 Representative strict fidelities at $|\chi|T/2\pi=3$:
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Strict logical fidelity for simultaneous multitone SQR targets.}
 \begin{tabular}{@{} l c c c c @{}}
@@ -192,7 +185,7 @@ $\{0,1,2,3\}$ & 0.9570 & 0.8490 & 0.4970 & $3.8\times 10^{-7}$ \\
 \bottomrule
 \end{tabular}
 \label{tab:multibranch_strict}
-\end{table}
+\end{table*}
 
 Despite these numbers looking respectable for small $\theta$, the angle-response diagnostic confirms they do not correspond to useful rotations. The pulse preserves cavity blocks extremely well (minimum same-block population $0.999998$) with negligible leakage ($\max|f\rangle$ population $7.08\times 10^{-9}$). The failure is purely in the inability to generate the requested qubit rotations.
 
@@ -211,12 +204,12 @@ The cavity block-phase compilation gain is also negligible: maximum gain anywher
 
 Figure~\ref{fig:sqr_control_summary} collects the two main closed-system messages. Single-target phase compilation produces a real but modest gain on enlarged logical windows, while the common multitone route fails exactly in the regime where an experimentalist would want it most: large angles on multiple branches.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=\textwidth]{sqr_control_summary.pdf}
 \caption{Closed-system summary for experiment design. Left: a cavity-only phase layer improves strict logical fidelity for single-target SQR on enlarged logical windows, but only by a few points. Right: common multitone simultaneous SQR rapidly loses usefulness as the requested angle and number of addressed branches increase. The natural practical conclusion is to keep SQR as a single-branch primitive and sequence it, rather than attempting common-waveform multi-branch control.}
 \label{fig:sqr_control_summary}
-\end{figure}
+\end{figure*}
 
 % ══════════════════════════════════════════════════════════
 % 6. RESULTS: OPEN-SYSTEM PERFORMANCE
@@ -239,7 +232,7 @@ The readout-chain analysis shows the Purcell filter is essential. Without the fi
 
 Archived closed-system GRAPE controls replayed through the stabilized noisy simulator path retain a clear advantage over parametric baselines:
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{GRAPE noisy target fidelities vs.\ best parametric (square) baseline.}
 \begin{tabular}{@{} l c c c c @{}}
@@ -251,7 +244,7 @@ Square (noisy replay) & 0.944 & 0.924 & 0.898 & 0.850 \\
 \bottomrule
 \end{tabular}
 \label{tab:grape_vs_parametric}
-\end{table}
+\end{table*}
 
 GRAPE outperforms the best parametric baseline by $\Delta F \approx 0.03$--$0.06$ across the sampled window, confirming it as a useful practical upper bound. This advantage comes from the GRAPE optimizer's ability to find controls that remain robust when replayed through noise, not from direct noisy-objective optimization (which is not yet supported).
 
@@ -259,7 +252,7 @@ GRAPE outperforms the best parametric baseline by $\Delta F \approx 0.03$--$0.06
 
 Concurrent readout degrades the reduced logical fidelity significantly, even with the conservative $\chi_{sr}=0$ assumption:
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Reduced logical fidelity under concurrent readout (square family, $|\chi|T/2\pi=3$).}
 \begin{tabular}{@{} l c c c @{}}
@@ -271,18 +264,18 @@ Storage coherence ratio & 0.961 & 0.961 & 0.961 \\
 \bottomrule
 \end{tabular}
 \label{tab:concurrent_readout}
-\end{table}
+\end{table*}
 
 The storage coherence metric remains near unity, indicating the penalty comes from spectator degradation mediated by the full transmon--storage--readout dynamics, not direct storage dephasing.
 
 Figure~\ref{fig:sqr_noise_summary} summarizes the noisy-control decision surface. The best parametric family is the short square pulse, GRAPE remains a useful upper bound, and concurrent readout extracts a clear fidelity tax even before a physical storage--readout cross-Kerr is added.
 
-\begin{figure}[H]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=\textwidth]{sqr_noise_summary.pdf}
 \caption{Noise-aware SQR design summary. Left: family-average noisy ranking favors the shortest square-family primitive. Middle: archived GRAPE controls keep a clear noisy-replay advantage over the best parametric square baseline. Right: concurrent readout substantially degrades the reduced logical fidelity, supporting temporal separation of readout and selective gates whenever the experiment allows it.}
 \label{fig:sqr_noise_summary}
-\end{figure}
+\end{figure*}
 
 % ══════════════════════════════════════════════════════════
 % 7. VALIDATION
@@ -316,7 +309,7 @@ For experiments pursuing broader transmon+cavity control, the report suggests a 
 % ══════════════════════════════════════════════════════════
 \section{Conclusion}
 
-\begin{table}[H]
+\begin{table*}[tp]
 \centering
 \caption{Experiment-facing SQR primitive recommendations.}
 \small
@@ -332,7 +325,7 @@ Highest fidelity & GRAPE (closed, replayed noisy) & $0.978$ & Upper bound; not y
 \bottomrule
 \end{tabular}
 \normalsize
-\end{table}
+\end{table*}
 
 The main practical decision is therefore straightforward: calibrate SQR as a short, single-branch primitive and compose it with later phase cleanup, instead of chasing a one-shot multi-branch waveform. That route is shorter, more robust to ancilla decay, and better aligned with the experimentally relevant cphase-relaxed metric.
 
@@ -369,7 +362,7 @@ The main practical decision is therefore straightforward: calibrate SQR as a sho
 % ══════════════════════════════════════════════════════════
 % REFERENCES
 % ══════════════════════════════════════════════════════════
-\bibliographystyle{unsrtnat}
+\bibliographystyle{apsrev4-2}
 \bibliography{references}
 
 \end{document}

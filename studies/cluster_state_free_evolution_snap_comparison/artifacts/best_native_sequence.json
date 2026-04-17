@@ -1,0 +1,1237 @@
+{
+  "case_id": "native_fe_b6",
+  "family": "native_fe",
+  "family_title": "D + R + FE",
+  "blocks": 6,
+  "seed": 17,
+  "maxiter": 35,
+  "duration_weight": 0.0,
+  "fidelity": 0.9639301025881614,
+  "block_gauge_fidelity": 0.9639342022764638,
+  "best_fit_block_gauge_fidelity": 0.9639592230684013,
+  "leakage_average": 0.05727562566411851,
+  "leakage_worst": 0.08180266151259252,
+  "unitarity_error": 1.916615338874789e-15,
+  "block_phases_rad": [
+    -0.5142257078439018,
+    -0.5079441667233914
+  ],
+  "best_fit_correction_phases_rad": [
+    0.5142257078439019,
+    0.5079441667233913
+  ],
+  "rms_block_phase_error_rad": 0.004441720322615192,
+  "objective": 0.0401600304874684,
+  "success": false,
+  "message": "",
+  "metrics": {
+    "fidelity": 0.9639301025881613,
+    "leakage_average": 0.057275625664118646,
+    "leakage_worst": 0.08180266151259308,
+    "leakage_selected": 0.08180266151259308,
+    "checkpoint_leakage_average": 0.0,
+    "checkpoint_leakage_worst": 0.0,
+    "state_error_mean": NaN,
+    "state_error_max": NaN,
+    "state_fidelity_mean": NaN,
+    "state_fidelity_min": NaN,
+    "reduced_state_fidelity_mean": NaN,
+    "reduced_state_fidelity_min": NaN,
+    "observable_error_mean": NaN,
+    "observable_error_max": NaN,
+    "weighted_observable_error": NaN,
+    "trajectory_task_loss": NaN,
+    "trajectory_state_error_mean": NaN,
+    "trajectory_observable_error_mean": NaN,
+    "channel_overlap": NaN,
+    "channel_choi_error": NaN,
+    "channel_superoperator_error": NaN,
+    "trace_preservation_error_mean": NaN,
+    "trace_preservation_error_max": NaN,
+    "trace_loss_mean": NaN,
+    "trace_loss_worst": NaN,
+    "choi_hermiticity_error": NaN,
+    "choi_min_eig": NaN,
+    "complete_positivity_violation": NaN,
+    "duration_metric": 0.9799578059071727,
+    "gate_count_metric": 13.831917708175396,
+    "pulse_power_metric": 0.610676410031585,
+    "amplitude_smoothness_metric": 1.378607882785769,
+    "robustness_objective": 0.03606989741183875
+  },
+  "gate_depth": 20,
+  "total_duration_ns": 1858.0,
+  "total_wait_time_ns": 1018.0,
+  "total_fe_logical_delta_phi_rad": 18.16544270529305,
+  "total_snap_logical_relative_phase_rad": 0.0,
+  "parameter_count": 48,
+  "snap_gate_count": 0,
+  "snap_phase_count": 0,
+  "entangling_gate_count": 6,
+  "wait_gate_count": 6,
+  "sequence_summary": {
+    "rows": [
+      {
+        "name": "D0",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R0",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE0",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 147.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D1",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R1",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE1",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 199.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D2",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R2",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE2",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 162.00000000000003,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D3",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R3",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE3",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 143.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D4",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R4",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE4",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 177.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D5",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R5",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "FE5",
+        "kind": "FreeEvolveCondPhase",
+        "duration_ns": 190.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "D6",
+        "kind": "Displacement",
+        "duration_ns": 80.0,
+        "active_tones": 0,
+        "metadata": {}
+      },
+      {
+        "name": "R6",
+        "kind": "QubitRotation",
+        "duration_ns": 40.0,
+        "active_tones": 0,
+        "metadata": {}
+      }
+    ],
+    "counts": {
+      "Displacement": 7,
+      "QubitRotation": 7,
+      "FreeEvolveCondPhase": 6
+    },
+    "gate_depth": 20,
+    "total_duration_ns": 1858.0,
+    "selective_block_count": 0,
+    "entangling_block_count": 6,
+    "total_active_tones": 0,
+    "max_active_tones": 0
+  },
+  "sequence_payload": [
+    {
+      "type": "Displacement",
+      "name": "D0",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:0:D0",
+      "time_policy_locked": false,
+      "parameters": [
+        -0.024929944909756332,
+        -0.5355112899801105
+      ],
+      "time_param_id": "t_0"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R0",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:1:R0",
+      "time_policy_locked": false,
+      "parameters": [
+        1.5187056747997085,
+        0.9648136239164193
+      ],
+      "time_param_id": "t_1"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE0",
+      "duration": 1.47e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:2:FE0",
+      "time_policy_locked": false,
+      "wait_time": 1.47e-07,
+      "parameters": [],
+      "time_param_id": "t_2"
+    },
+    {
+      "type": "Displacement",
+      "name": "D1",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:3:D1",
+      "time_policy_locked": false,
+      "parameters": [
+        0.32227896861501326,
+        -0.06470518970448946
+      ],
+      "time_param_id": "t_3"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R1",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:4:R1",
+      "time_policy_locked": false,
+      "parameters": [
+        1.7369322884146066,
+        2.206165303609362
+      ],
+      "time_param_id": "t_4"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE1",
+      "duration": 1.9900000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:5:FE1",
+      "time_policy_locked": false,
+      "wait_time": 1.9900000000000002e-07,
+      "parameters": [],
+      "time_param_id": "t_5"
+    },
+    {
+      "type": "Displacement",
+      "name": "D2",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:6:D2",
+      "time_policy_locked": false,
+      "parameters": [
+        0.6000541415724366,
+        -0.03391420217040125
+      ],
+      "time_param_id": "t_6"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R2",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:7:R2",
+      "time_policy_locked": false,
+      "parameters": [
+        2.62878644491152,
+        1.2321128779109443
+      ],
+      "time_param_id": "t_7"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE2",
+      "duration": 1.6200000000000002e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:8:FE2",
+      "time_policy_locked": false,
+      "wait_time": 1.6200000000000002e-07,
+      "parameters": [],
+      "time_param_id": "t_8"
+    },
+    {
+      "type": "Displacement",
+      "name": "D3",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:9:D3",
+      "time_policy_locked": false,
+      "parameters": [
+        0.24009221707256084,
+        -0.06047494405458202
+      ],
+      "time_param_id": "t_9"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R3",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:10:R3",
+      "time_policy_locked": false,
+      "parameters": [
+        1.7658085261949985,
+        1.560680862256133
+      ],
+      "time_param_id": "t_10"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE3",
+      "duration": 1.43e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:11:FE3",
+      "time_policy_locked": false,
+      "wait_time": 1.43e-07,
+      "parameters": [],
+      "time_param_id": "t_11"
+    },
+    {
+      "type": "Displacement",
+      "name": "D4",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:12:D4",
+      "time_policy_locked": false,
+      "parameters": [
+        -0.2852706450889688,
+        0.5139630787569109
+      ],
+      "time_param_id": "t_12"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R4",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:13:R4",
+      "time_policy_locked": false,
+      "parameters": [
+        2.6331706898697758,
+        0.6187159758264555
+      ],
+      "time_param_id": "t_13"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE4",
+      "duration": 1.77e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:14:FE4",
+      "time_policy_locked": false,
+      "wait_time": 1.77e-07,
+      "parameters": [],
+      "time_param_id": "t_14"
+    },
+    {
+      "type": "Displacement",
+      "name": "D5",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:15:D5",
+      "time_policy_locked": false,
+      "parameters": [
+        -0.09517738286262818,
+        -0.12089150137257204
+      ],
+      "time_param_id": "t_15"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R5",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:16:R5",
+      "time_policy_locked": false,
+      "parameters": [
+        1.4223176988326687,
+        1.567856578286802
+      ],
+      "time_param_id": "t_16"
+    },
+    {
+      "type": "FreeEvolveCondPhase",
+      "name": "FE5",
+      "duration": 1.9e-07,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:17:FE5",
+      "time_policy_locked": false,
+      "wait_time": 1.9e-07,
+      "parameters": [],
+      "time_param_id": "t_17"
+    },
+    {
+      "type": "Displacement",
+      "name": "D6",
+      "duration": 8e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:18:D6",
+      "time_policy_locked": false,
+      "parameters": [
+        0.4438504216937528,
+        0.2323042997343036
+      ],
+      "time_param_id": "t_18"
+    },
+    {
+      "type": "QubitRotation",
+      "name": "R6",
+      "duration": 4e-08,
+      "optimize_time": true,
+      "time_bounds": [
+        2e-08,
+        2e-06
+      ],
+      "time_group": "instance:19:R6",
+      "time_policy_locked": false,
+      "parameters": [
+        1.086767880913563,
+        1.7598252015294544
+      ],
+      "time_param_id": "t_19"
+    }
+  ],
+  "phase_rows": [
+    {
+      "gate_name": "FE0",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.47e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        2.623104202041334
+      ],
+      "delta_phi": [
+        0.0,
+        2.623104202041334
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            2.623104202041334
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.47e-07
+    },
+    {
+      "gate_name": "FE1",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.9900000000000002e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        3.5510050082056157
+      ],
+      "delta_phi": [
+        0.0,
+        3.5510050082056157
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            3.5510050082056157
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.9900000000000002e-07
+    },
+    {
+      "gate_name": "FE2",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.6200000000000002e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        2.8907678961271848
+      ],
+      "delta_phi": [
+        0.0,
+        2.8907678961271848
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            2.8907678961271848
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.6200000000000002e-07
+    },
+    {
+      "gate_name": "FE3",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.43e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        2.551727216951774
+      ],
+      "delta_phi": [
+        0.0,
+        2.551727216951774
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            2.551727216951774
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.43e-07
+    },
+    {
+      "gate_name": "FE4",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.77e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        3.158431590213035
+      ],
+      "delta_phi": [
+        0.0,
+        3.158431590213035
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            3.158431590213035
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.77e-07
+    },
+    {
+      "gate_name": "FE5",
+      "gate_type": "FreeEvolveCondPhase",
+      "enabled": true,
+      "duration": 1.9e-07,
+      "frame": "rotating_omega_c_omega_q",
+      "n": [
+        0,
+        1
+      ],
+      "phi_g": [
+        0.0,
+        0.0
+      ],
+      "phi_e": [
+        0.0,
+        3.390406791754105
+      ],
+      "delta_phi": [
+        0.0,
+        3.390406791754105
+      ],
+      "contributions": {
+        "chi_chi2": {
+          "g": [
+            0.0,
+            0.0
+          ],
+          "e": [
+            0.0,
+            3.390406791754105
+          ]
+        },
+        "kerr_kerr2": {
+          "common": [
+            0.0,
+            -0.0
+          ]
+        },
+        "frame_offsets": {
+          "cavity_common": [
+            0.0,
+            0.0
+          ],
+          "qubit_g": [
+            0.0,
+            0.0
+          ],
+          "qubit_e": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "wait_time": 1.9e-07
+    }
+  ],
+  "phase_gate_rows": {
+    "free_evolution": [
+      {
+        "gate_name": "FE0",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.47e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          2.623104202041334
+        ],
+        "delta_phi": [
+          0.0,
+          2.623104202041334
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              2.623104202041334
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.47e-07
+      },
+      {
+        "gate_name": "FE1",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.9900000000000002e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          3.5510050082056157
+        ],
+        "delta_phi": [
+          0.0,
+          3.5510050082056157
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              3.5510050082056157
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.9900000000000002e-07
+      },
+      {
+        "gate_name": "FE2",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.6200000000000002e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          2.8907678961271848
+        ],
+        "delta_phi": [
+          0.0,
+          2.8907678961271848
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              2.8907678961271848
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.6200000000000002e-07
+      },
+      {
+        "gate_name": "FE3",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.43e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          2.551727216951774
+        ],
+        "delta_phi": [
+          0.0,
+          2.551727216951774
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              2.551727216951774
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.43e-07
+      },
+      {
+        "gate_name": "FE4",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.77e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          3.158431590213035
+        ],
+        "delta_phi": [
+          0.0,
+          3.158431590213035
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              3.158431590213035
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.77e-07
+      },
+      {
+        "gate_name": "FE5",
+        "gate_type": "FreeEvolveCondPhase",
+        "enabled": true,
+        "duration": 1.9e-07,
+        "frame": "rotating_omega_c_omega_q",
+        "n": [
+          0,
+          1
+        ],
+        "phi_g": [
+          0.0,
+          0.0
+        ],
+        "phi_e": [
+          0.0,
+          3.390406791754105
+        ],
+        "delta_phi": [
+          0.0,
+          3.390406791754105
+        ],
+        "contributions": {
+          "chi_chi2": {
+            "g": [
+              0.0,
+              0.0
+            ],
+            "e": [
+              0.0,
+              3.390406791754105
+            ]
+          },
+          "kerr_kerr2": {
+            "common": [
+              0.0,
+              -0.0
+            ]
+          },
+          "frame_offsets": {
+            "cavity_common": [
+              0.0,
+              0.0
+            ],
+            "qubit_g": [
+              0.0,
+              0.0
+            ],
+            "qubit_e": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "wait_time": 1.9e-07
+      }
+    ],
+    "snap": []
+  },
+  "elapsed_s": 49.78212390000408
+}

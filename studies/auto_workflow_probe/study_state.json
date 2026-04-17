@@ -1,0 +1,126 @@
+{
+    "study_name": "auto_workflow_probe",
+    "study_path": "studies/auto_workflow_probe",
+    "status": "REVISION_REQUESTED",
+    "problem_class": [
+        "ANA"
+    ],
+    "created_at": "2026-04-06T06:45:21Z",
+    "updated_at": "2026-04-06T03:15:25.2382992-05:00",
+    "loop_iteration": 2,
+    "phase_retry_counts": {},
+    "objective": "Determine, with the smallest possible analytic and numerical workload, whether free dispersive idle evolution in a qubit-storage model can produce a pi conditional phase difference between the n=0 and n=1 cavity manifolds over a finite time, and document that result as a repository-internal model-validation note.",
+    "hypotheses": [
+        "If chi is nonzero, free dispersive evolution alone produces a pi conditional phase difference at t_pi = pi / |chi|.",
+        "A tiny cqed_sim confirmation based on the dispersive_phase helper and a minimal dispersive model will match the analytic phase within numerical precision.",
+        "An independent static-Hamiltonian evolution path within the same model will reproduce the same phase trace to numerical precision.",
+        "Using chi = -2*pi*2.84 MHz will place the first pi crossing near 176 ns, keeping the probe comfortably under the two-minute compute budget."
+    ],
+    "assumptions": [
+        "Closed-system idle evolution with no applied drive or decoherence.",
+        "First-order dispersive Hamiltonian is sufficient for the n=0 versus n=1 phase-difference question.",
+        "Internal calculations use consistent rad/s and seconds units.",
+        "Minimal Hilbert-space truncation is adequate because only the lowest two cavity manifolds are probed.",
+        "The study does not instantiate a separate coupling-detuning pair and therefore does not claim a hardware-specific dispersive-regime bound."
+    ],
+    "success_criteria": {
+        "analytic": "Derive the closed-form finite-time condition t_pi = pi / |chi| for nonzero chi.",
+        "numerical": "Match the analytic relative phase with both a cqed_sim helper path and an independent static-Hamiltonian evolution path to within wrapped-phase numerical precision.",
+        "outputs": "Generate a compact figure-artifact chain for the helper path and one additional figure-artifact pair for the Hamiltonian cross-check.",
+        "runtime": "Keep the implementation phase well below two minutes on CPU."
+    },
+    "completed_tasks": [
+        "Initialized the probe study and run directories.",
+        "Populated the README and IMPROVEMENTS log with mandatory plan-phase structure.",
+        "Audited the local cqed_sim API coverage relevant to the free-dispersive probe.",
+        "Produced the first SCIENCE_DIRECTIVE.md for the minimal ANA study.",
+        "Wrote the lightweight free-dispersive implementation script.",
+        "Prepared the probe data, artifact, and figure output paths for the implementation run.",
+        "Executed the lightweight free-dispersive probe script and generated the planned outputs.",
+        "Recorded the implementation-phase execution summary and task-run updates.",
+        "Validated the saved probe outputs against the analytic phase model and confirmed the pi crossing at 176.05633802816902 ns.",
+        "Confirmed stability of the wrapped phase trace under the minimal cavity-truncation variation from n_cav=2 to n_cav=3.",
+        "Recorded that an external literature comparison is not required for this internal workflow-validation probe.",
+        "Extended the preserved report skeleton, compiled the minimal report PDF, and created the report backup.",
+        "Created and smoke-tested the lightweight reproducibility notebook.",
+        "Prepared the Science Director review handoff files.",
+        "Added an independent static-Hamiltonian evolution cross-check and regenerated the probe outputs for revision iteration 2.",
+        "Reframed the study metadata as a model-level validation note and queued the revised evidence for the next validation phase.",
+        "Validated the independent static-Hamiltonian cross-check against the analytic phase law and advanced the study back to report readiness.",
+        "Rewrote the report into a complete iteration-2 model-validation note, compiled the refreshed PDF, and updated the review handoff files."
+    ],
+    "failed_tasks": [],
+    "pending_tasks": [
+        "Respond to the Science Director NEEDS_REWORK directive by broadening the study beyond the current first-order model-validation note."
+    ],
+    "blocked_tasks": [],
+    "key_results": {
+        "implementation_script": "studies/auto_workflow_probe/scripts/free_dispersive_pi_probe.py",
+        "t_pi_ns": 176.05633802816902,
+        "max_wrapped_error_rad": 8.881784197001252e-16,
+        "max_wrapped_dim_difference_rad": 0.0,
+        "max_wrapped_hamiltonian_error_rad": 8.881784197001252e-16,
+        "max_wrapped_helper_vs_hamiltonian_rad": 0.0,
+        "runtime_s": 1.076,
+        "validation_sanity": "Passed: the saved probe data give delta_phi(0)=0, the first pi crossing at 176.05633802816902 ns, and machine-precision wrapped agreement between the analytic phase law, the helper path, and the independent static-Hamiltonian cross-check.",
+        "validation_convergence": "Passed: increasing n_cav from 2 to 3 changed the wrapped phase trace by 0.0 rad over all 51 samples, and the helper and Hamiltonian traces at n_cav=3 differ by 0.0 rad after phase wrapping; no time-step sweep applies because both numerical paths use direct unitary evaluation.",
+        "validation_literature": "Not applicable for this internal ANA workflow probe.",
+        "report_pdf": "studies/auto_workflow_probe/report/report.pdf",
+        "reproducibility_notebook": "studies/auto_workflow_probe/scripts/reproducibility_notebook.ipynb",
+        "generated_outputs": [
+            "studies/auto_workflow_probe/data/phase_difference_samples.csv",
+            "studies/auto_workflow_probe/data/phase_difference_hamiltonian_cross_check.csv",
+            "studies/auto_workflow_probe/artifacts/free_dispersive_pi_probe_summary.json",
+            "studies/auto_workflow_probe/artifacts/free_dispersive_hamiltonian_cross_check.json",
+            "studies/auto_workflow_probe/figures/phase_difference_vs_idle_time.png",
+            "studies/auto_workflow_probe/figures/phase_difference_vs_idle_time.pdf",
+            "studies/auto_workflow_probe/figures/phase_difference_hamiltonian_cross_check.png",
+            "studies/auto_workflow_probe/figures/phase_difference_hamiltonian_cross_check.pdf",
+            "studies/auto_workflow_probe/report/report.pdf",
+            "studies/auto_workflow_probe/scripts/reproducibility_notebook.ipynb"
+        ]
+    },
+    "latest_figures": [
+        "studies/auto_workflow_probe/figures/phase_difference_vs_idle_time.png",
+        "studies/auto_workflow_probe/figures/phase_difference_vs_idle_time.pdf",
+        "studies/auto_workflow_probe/figures/phase_difference_hamiltonian_cross_check.png",
+        "studies/auto_workflow_probe/figures/phase_difference_hamiltonian_cross_check.pdf"
+    ],
+    "blockers": [],
+    "compute_notes": {
+        "plan_budget": "The next implementation phase should finish in under 10 seconds wall-clock on CPU and stay far below the two-minute cap.",
+        "api_reference": "The configured cqed_sim API path under C:/Users/dazzl was stale on this machine; the accessible local copy was found under the current user's Box path.",
+        "implementation_scope": "This invocation completed the implementation script and generated the planned data, artifact, and figure outputs without advancing to report handoff.",
+        "last_runtime_s": 1.076,
+        "validation_scope": "Validation reused the saved CSV and JSON artifact, confirmed machine-precision analytic agreement, and confirmed zero wrapped change under the minimal cavity-truncation variation without any additional heavy numerics.",
+        "report_scope": "The revision report phase replaced the placeholder scaffold with a complete five-page model-validation note, preserved the prior report in report.tex.bak, and compiled the refreshed PDF after simplifying the appendix artifact table.",
+        "notebook_scope": "The reproducibility notebook reloads the saved outputs by default and its fast cells were executed successfully during the handoff.",
+        "revision_implementation_scope": "Revision iteration 2 added a static-Hamiltonian evolution cross-check in the rotating frame, regenerated the cleaned helper figure, and produced one additional figure-artifact pair while stopping before the validation and report rewrite phases.",
+        "revision_runtime_s": 1.076,
+        "revision_validation_scope": "Revision validation re-checked the saved helper and Hamiltonian artifacts without rerunning the study script, confirmed the exact zero-phase initial condition, the pi sample at 176.056338028169 ns, an analytic-versus-Hamiltonian wrapped mismatch of 8.882e-16 rad, and a helper-versus-Hamiltonian wrapped difference of 0.0 rad, then advanced the watcher-facing status to REPORTING."
+    },
+    "science_directive_version": 1,
+    "review_iterations": 2,
+    "reviewer_decision": "NEEDS_REWORK",
+    "file_manifest": {
+        "scripts": [
+            "studies/auto_workflow_probe/scripts/free_dispersive_pi_probe.py",
+            "studies/auto_workflow_probe/scripts/reproducibility_notebook.ipynb"
+        ],
+        "data": [
+            "studies/auto_workflow_probe/data/phase_difference_samples.csv",
+            "studies/auto_workflow_probe/data/phase_difference_hamiltonian_cross_check.csv"
+        ],
+        "figures": [
+            "studies/auto_workflow_probe/figures/phase_difference_vs_idle_time.png",
+            "studies/auto_workflow_probe/figures/phase_difference_vs_idle_time.pdf",
+            "studies/auto_workflow_probe/figures/phase_difference_hamiltonian_cross_check.png",
+            "studies/auto_workflow_probe/figures/phase_difference_hamiltonian_cross_check.pdf"
+        ],
+        "artifacts": [
+            "studies/auto_workflow_probe/artifacts/free_dispersive_pi_probe_summary.json",
+            "studies/auto_workflow_probe/artifacts/free_dispersive_hamiltonian_cross_check.json"
+        ],
+        "report": "studies/auto_workflow_probe/report/report.pdf"
+    }
+}

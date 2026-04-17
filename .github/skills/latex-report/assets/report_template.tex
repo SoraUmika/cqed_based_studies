@@ -1,13 +1,12 @@
-\documentclass[aps,prl,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+\documentclass[aps,pra,twocolumn,reprint,amsmath,amssymb]{revtex4-2}
 
-\usepackage{amsmath,amssymb}
 \usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{siunitx}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{xcolor}
 
-% SI units shortcuts for cQED
 \DeclareSIUnit\GHz{\giga\hertz}
 \DeclareSIUnit\MHz{\mega\hertz}
 \DeclareSIUnit\kHz{\kilo\hertz}
@@ -16,98 +15,97 @@
 
 \begin{document}
 
-\title{STUDY TITLE}
-\author{Author Name}
+\title{<Study Title>}
+\author{<Author(s)>}
 \affiliation{Shyam Shankar Quantum Circuits Group}
 \date{\today}
 
 \begin{abstract}
-% Brief summary of the study: system, method, key result.
+% 150-300 words. Summarize the motivation, methods, key result, and conclusion.
 \end{abstract}
 
 \maketitle
 
-% ===================================================================
-\section{Motivation}
-% ===================================================================
-% What was studied and why.
-% For REP class: cite the original paper being reproduced.
-% For OPT class: describe the optimization target and its significance.
+\section{Introduction}
+% Context, prior work, problem statement, objective, and roadmap.
 
-
-% ===================================================================
 \section{System and Methods}
-% ===================================================================
 
 \subsection{Hamiltonian}
-% Write out the full Hamiltonian in the appropriate frame.
-% Example:
-% \begin{equation}
-%   \hat{H} / \hbar = \omega_q \hat{q}^\dagger \hat{q}
-%                    + \frac{\alpha}{2} \hat{q}^\dagger \hat{q}^\dagger \hat{q} \hat{q}
-%                    + \omega_s \hat{s}^\dagger \hat{s}
-%                    + \chi \hat{q}^\dagger \hat{q} \hat{s}^\dagger \hat{s}
-% \end{equation}
+% Write the full Hamiltonian or master equation and define every symbol.
 
-\subsection{Parameters}
-% Table of all system parameters.
-% \begin{table}[h]
-% \caption{System parameters.\label{tab:params}}
-% \begin{ruledtabular}
-% \begin{tabular}{lcc}
-%   Parameter & Symbol & Value \\
-%   \hline
-%   Qubit frequency    & $\omega_q/2\pi$ & \SI{5.0}{\GHz} \\
-%   Anharmonicity      & $\alpha/2\pi$   & \SI{-200}{\MHz} \\
-%   Storage frequency   & $\omega_s/2\pi$ & \SI{7.5}{\GHz} \\
-%   Dispersive shift    & $\chi/2\pi$     & \SI{-1.5}{\MHz} \\
-% \end{tabular}
-% \end{ruledtabular}
-% \end{table}
+\subsection{Simulation Parameters}
+% Tabulate all system parameters with units.
 
-\subsection{Simulation Approach}
-% Describe the simulation method:
-% - Which cqed_sim model class was used
-% - Pulse sequences and drive configurations
-% - Hilbert space truncation dimensions
-% - Open vs. closed system (noise model if applicable)
-% - Solver settings (nsteps, tolerances)
+\subsection{Analytic Preliminary}
+% State the limiting-case or closed-form reasoning that motivated the numerics.
+% If no useful analytic result exists, explain why.
 
+\subsection{Computational Approach}
+% State which cqed_sim modules were used, truncation levels, solver settings,
+% optimization algorithm, and any documented cqed_sim gaps.
 
-% ===================================================================
 \section{Results}
-% ===================================================================
-% Present quantitative findings with figures and tables.
-%
-% Include figures:
-% \begin{figure}[t]
-%   \includegraphics[width=\columnwidth]{../figures/FIGURE_NAME.pdf}
-%   \caption{Description.\label{fig:label}}
-% \end{figure}
-%
-% Reference: As shown in Fig.~\ref{fig:label}, ...
+% Present findings with figures and tables. Keep filenames out of the prose.
 
+\section{Validation}
 
-% ===================================================================
+\subsection{Sanity Checks}
+% Limiting cases, conserved quantities, or analytic comparisons.
+
+\subsection{Convergence Analysis}
+% Truncation, timestep, and optimizer convergence.
+
+\subsection{Literature Comparison}
+% Use when applicable; otherwise state why not.
+
 \section{Discussion}
-% ===================================================================
-% Physical interpretation of results.
-% Comparison to literature (percent error, fidelity agreement).
-% Limitations and potential sources of discrepancy.
-% Convergence summary.
+% Physical interpretation, comparison to literature, and implications.
 
-
-% ===================================================================
 \section{Conclusion}
-% ===================================================================
-% Summary of findings.
-% Potential follow-up work or open questions.
+% Summarize findings and whether each study goal was met.
 
+\section{Limitations and Future Work}
 
-% ===================================================================
-% References
-% ===================================================================
+\subsection{Known Limitations}
+% What is limited, why, and how it affects trustworthiness or scope.
+
+\subsection{Suggested Improvements}
+% Use itemized entries with explicit priority and difficulty tags.
+% Example:
+% \begin{itemize}
+%   \item \textbf{[P1 | MEDIUM]} Re-run the optimization with a larger cavity truncation.
+% \end{itemize}
+
+\subsection{Open Questions}
+% Surprising behaviors or unresolved physics questions.
+
 \bibliographystyle{apsrev4-2}
 \bibliography{references}
+
+\appendix
+
+\section{Detailed Results and Data}
+% Full parameter tables, waveform plots, convergence traces, sweep landscapes.
+
+\section{Reproducibility}
+
+\subsection{Optimized Parameters}
+% Full table of optimized or fitted parameters.
+
+\subsection{Waveform and Pulse Information}
+% Include time-domain and frequency-domain plots when applicable.
+
+\subsection{Gate Sequence and Decomposition}
+% Ordered gate list, durations, and decomposition details.
+
+\subsection{Modeling and Simulation Assumptions}
+% Hilbert space dimensions, solver tolerances, frame choices, approximations.
+
+\subsection{Reproduction Procedure}
+% Step-by-step instructions and expected outputs.
+
+\subsection{Saved Artifacts}
+% Inventory table: Filename | Format | Contents | Load Example.
 
 \end{document}

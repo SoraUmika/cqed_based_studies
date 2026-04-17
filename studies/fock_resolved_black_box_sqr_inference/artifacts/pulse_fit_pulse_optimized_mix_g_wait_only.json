@@ -1,0 +1,534 @@
+{
+  "case": {
+    "case_id": "pulse_optimized_mix_g",
+    "description": "Optimized multitone black-box SQR on a cavity mixture with qubit g.",
+    "family": "pulse_level",
+    "metadata": {
+      "cavity_input": "mixture",
+      "construction": "optimized_multitone",
+      "qubit_input": "g"
+    },
+    "model_class": "pulse_level",
+    "truth_sectors": [
+      {
+        "leakage": 0.0,
+        "level": 0,
+        "population": 0.41000000000000003,
+        "x": -0.002510668266557221,
+        "y": -0.8665853591027082,
+        "z": 0.4990241440997796
+      },
+      {
+        "leakage": 0.0,
+        "level": 1,
+        "population": 0.26999999999999963,
+        "x": 0.862791557103242,
+        "y": -0.505562418862006,
+        "z": -0.0006056409972306498
+      },
+      {
+        "leakage": 0.0,
+        "level": 2,
+        "population": 0.19000000000000022,
+        "x": 0.29588978218865286,
+        "y": 0.008532821347929445,
+        "z": -0.9551905685363868
+      },
+      {
+        "leakage": 0.0,
+        "level": 3,
+        "population": 0.1300000000000001,
+        "x": -0.4877368704089772,
+        "y": -0.5118031865927665,
+        "z": 0.7072544664331442
+      }
+    ]
+  },
+  "dataset": {
+    "noise_model": {
+      "chi_prime_rel_sigma": 0.0,
+      "chi_rel_sigma": 0.0,
+      "displacement_phase_sigma_rad": 0.0,
+      "displacement_rel_sigma": 0.0,
+      "rotation_sigma_rad": 0.0,
+      "sample_mode": "binomial",
+      "shots": 3000,
+      "t1_s": null,
+      "t2_s": null
+    },
+    "rows": [
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "X",
+        "counts_plus": 1814,
+        "exact_expectation": 0.22473761189126362,
+        "label": "wait_00",
+        "measured_expectation": 0.20933333333333337,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 0.0
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Y",
+        "counts_plus": 625,
+        "exact_expectation": -0.5567150285258049,
+        "label": "wait_00",
+        "measured_expectation": -0.5833333333333333,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 0.0
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Z",
+        "counts_plus": 1656,
+        "exact_expectation": 0.11489324862605244,
+        "label": "wait_00",
+        "measured_expectation": 0.10400000000000009,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 0.0
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "X",
+        "counts_plus": 1987,
+        "exact_expectation": 0.36701709310261976,
+        "label": "wait_01",
+        "measured_expectation": 0.32466666666666666,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 3.4999999999999996e-08
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Y",
+        "counts_plus": 1006,
+        "exact_expectation": -0.31420136221072037,
+        "label": "wait_01",
+        "measured_expectation": -0.32933333333333337,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 3.4999999999999996e-08
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Z",
+        "counts_plus": 1646,
+        "exact_expectation": 0.11489324862605244,
+        "label": "wait_01",
+        "measured_expectation": 0.09733333333333327,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 3.4999999999999996e-08
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "X",
+        "counts_plus": 1745,
+        "exact_expectation": 0.16477701788027582,
+        "label": "wait_02",
+        "measured_expectation": 0.16333333333333333,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 6.999999999999999e-08
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Y",
+        "counts_plus": 1355,
+        "exact_expectation": -0.05443336470365384,
+        "label": "wait_02",
+        "measured_expectation": -0.09666666666666668,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 6.999999999999999e-08
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Z",
+        "counts_plus": 1656,
+        "exact_expectation": 0.11489324862605244,
+        "label": "wait_02",
+        "measured_expectation": 0.10400000000000009,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 6.999999999999999e-08
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "X",
+        "counts_plus": 1363,
+        "exact_expectation": -0.07405049133435027,
+        "label": "wait_03",
+        "measured_expectation": -0.09133333333333338,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 1.0499999999999999e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Y",
+        "counts_plus": 1317,
+        "exact_expectation": -0.1478042207749567,
+        "label": "wait_03",
+        "measured_expectation": -0.122,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 1.0499999999999999e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Z",
+        "counts_plus": 1675,
+        "exact_expectation": 0.11489324862605244,
+        "label": "wait_03",
+        "measured_expectation": 0.1166666666666667,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 1.0499999999999999e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "X",
+        "counts_plus": 1489,
+        "exact_expectation": -0.03735227353588022,
+        "label": "wait_04",
+        "measured_expectation": -0.007333333333333303,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 1.3999999999999998e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Y",
+        "counts_plus": 1168,
+        "exact_expectation": -0.2369993322665866,
+        "label": "wait_04",
+        "measured_expectation": -0.22133333333333338,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 1.3999999999999998e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Z",
+        "counts_plus": 1689,
+        "exact_expectation": 0.11489324862605244,
+        "label": "wait_04",
+        "measured_expectation": 0.1259999999999999,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 1.3999999999999998e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "X",
+        "counts_plus": 1237,
+        "exact_expectation": -0.11742222994878193,
+        "label": "wait_05",
+        "measured_expectation": -0.17533333333333334,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 1.7499999999999997e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Y",
+        "counts_plus": 1273,
+        "exact_expectation": -0.14082949495952368,
+        "label": "wait_05",
+        "measured_expectation": -0.15133333333333332,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 1.7499999999999997e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Z",
+        "counts_plus": 1592,
+        "exact_expectation": 0.11489324862605244,
+        "label": "wait_05",
+        "measured_expectation": 0.06133333333333324,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 1.7499999999999997e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "X",
+        "counts_plus": 971,
+        "exact_expectation": -0.3413512942025238,
+        "label": "wait_06",
+        "measured_expectation": -0.3526666666666667,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 2.0999999999999997e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Y",
+        "counts_plus": 1096,
+        "exact_expectation": -0.29017451907844016,
+        "label": "wait_06",
+        "measured_expectation": -0.2693333333333333,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 2.0999999999999997e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Z",
+        "counts_plus": 1721,
+        "exact_expectation": 0.11489324862605244,
+        "label": "wait_06",
+        "measured_expectation": 0.14733333333333332,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 2.0999999999999997e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "X",
+        "counts_plus": 1123,
+        "exact_expectation": -0.25598218600769157,
+        "label": "wait_07",
+        "measured_expectation": -0.2513333333333333,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 2.45e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Y",
+        "counts_plus": 627,
+        "exact_expectation": -0.5899968586521185,
+        "label": "wait_07",
+        "measured_expectation": -0.5820000000000001,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 2.45e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Z",
+        "counts_plus": 1635,
+        "exact_expectation": 0.11489324862605244,
+        "label": "wait_07",
+        "measured_expectation": 0.09000000000000008,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 2.45e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "X",
+        "counts_plus": 1452,
+        "exact_expectation": -0.02338778047329282,
+        "label": "wait_08",
+        "measured_expectation": -0.03200000000000003,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 2.7999999999999997e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Y",
+        "counts_plus": 551,
+        "exact_expectation": -0.6238845278865668,
+        "label": "wait_08",
+        "measured_expectation": -0.6326666666666667,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 2.7999999999999997e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Z",
+        "counts_plus": 1646,
+        "exact_expectation": 0.11489324862605244,
+        "label": "wait_08",
+        "measured_expectation": 0.09733333333333327,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 2.7999999999999997e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "X",
+        "counts_plus": 1591,
+        "exact_expectation": 0.06336698780389965,
+        "label": "wait_09",
+        "measured_expectation": 0.06066666666666665,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 3.1499999999999995e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Y",
+        "counts_plus": 620,
+        "exact_expectation": -0.5853001992580302,
+        "label": "wait_09",
+        "measured_expectation": -0.5866666666666667,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 3.1499999999999995e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Z",
+        "counts_plus": 1692,
+        "exact_expectation": 0.11489324862605244,
+        "label": "wait_09",
+        "measured_expectation": 0.1279999999999999,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 3.1499999999999995e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "X",
+        "counts_plus": 1844,
+        "exact_expectation": 0.23110461467810078,
+        "label": "wait_10",
+        "measured_expectation": 0.2293333333333334,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 3.5e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Y",
+        "counts_plus": 670,
+        "exact_expectation": -0.5739034438315204,
+        "label": "wait_10",
+        "measured_expectation": -0.5533333333333333,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 3.5e-07
+      },
+      {
+        "alpha_imag": 0.0,
+        "alpha_real": 0.0,
+        "axis": "Z",
+        "counts_plus": 1654,
+        "exact_expectation": 0.11489324862605244,
+        "label": "wait_10",
+        "measured_expectation": 0.10266666666666668,
+        "protocol": "wait_only",
+        "shots": 3000,
+        "wait_s": 3.5e-07
+      }
+    ],
+    "systematics": {
+      "alpha_phase_rad": 0.0,
+      "alpha_scale": 1.0,
+      "rotation_angle_errors_rad": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  "fit": {
+    "residual_max_abs": 0.04545454545454547,
+    "residual_rms": 0.019657446722105856,
+    "weighted_transverse": [
+      {
+        "imag": -0.3572802158150062,
+        "real": -0.011952436566801936
+      },
+      {
+        "imag": -0.14226275106182057,
+        "real": 0.23084374634816374
+      },
+      {
+        "imag": 0.007357561966196782,
+        "real": 0.04736538756850947
+      },
+      {
+        "imag": -0.059830172112678943,
+        "real": -0.05608059964555373
+      }
+    ],
+    "z_total": 0.10678787878787871
+  },
+  "fit_errors": {
+    "max_abs_error": 0.011101106328124295,
+    "mean_abs_error": 0.009428953324279635,
+    "oracle_transverse_component_error": [
+      0.027075869092986076,
+      0.02272273867775965,
+      0.05552392760171842,
+      0.07638477908978948
+    ],
+    "oracle_transverse_component_rmse": 0.05041568841411144,
+    "per_sector_abs_error": [
+      0.011101106328124295,
+      0.00613513944299509,
+      0.01054954624432651,
+      0.00993002128167264
+    ],
+    "per_sector_weighted_x_error": [
+      -0.010923062577513475,
+      -0.002109974069711279,
+      -0.008853671047334637,
+      0.007325193507613348
+    ],
+    "per_sector_weighted_y_error": [
+      -0.0019802185828958208,
+      -0.005760897969079137,
+      0.005736325910090185,
+      0.006704242144380736
+    ],
+    "weighted_rmse": 0.009627730084357508,
+    "z_total_error": -0.008105369838173768
+  },
+  "fit_method": "ls",
+  "noise": {
+    "chi_prime_rel_sigma": 0.0,
+    "chi_rel_sigma": 0.0,
+    "displacement_phase_sigma_rad": 0.0,
+    "displacement_rel_sigma": 0.0,
+    "rotation_sigma_rad": 0.0,
+    "sample_mode": "binomial",
+    "shots": 3000,
+    "t1_s": null,
+    "t2_s": null
+  },
+  "protocol": "wait_only"
+}
